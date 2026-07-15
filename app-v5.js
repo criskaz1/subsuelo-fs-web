@@ -10,6 +10,7 @@
     privacyEmail: "privacidad@nombdi.es",
     legalEmail: "contacto@nombdi.es",
     phone: "+34 722 71 56 95",
+    xUrl: "https://x.com/subsuelofs",
     updated: { es: "15 de julio de 2026", en: "15 July 2026" }
   });
 
@@ -482,7 +483,8 @@
     $("[data-sidebar-info]").innerHTML = [
       treeItem({ route: "/help", label: t("sidebar.help"), icon: "doc", current: route.type === "help" }),
       treeItem({ route: "/legal", label: t("sidebar.legalFolder"), icon: "folder", count: legalOrder.length, current: route.type === "legal" }),
-      `<button class="tree-item" type="button" data-open-cart><span class="cart-icon"></span><span>${t("sidebar.cart")}</span><small>${cart.length}</small></button>`
+      `<button class="tree-item" type="button" data-open-cart><span class="cart-icon"></span><span>${t("sidebar.cart")}</span><small>${cart.length}</small></button>`,
+      `<a class="tree-item" href="${legalProfile.xUrl}" target="_blank" rel="noopener noreferrer"><span class="tree-icon tree-icon--doc"></span><span>@subsuelofs</span><small>X</small></a>`
     ].join("");
   };
 

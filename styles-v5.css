@@ -641,6 +641,11 @@ button {
   background: rgba(255, 255, 255, 0.4);
 }
 
+.tree-item[href] {
+  color: inherit;
+  text-decoration: none;
+}
+
 .tree-item.is-current {
   border-left-color: var(--rust);
   background: var(--select);
