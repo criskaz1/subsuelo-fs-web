@@ -1,0 +1,1059 @@
+(() => {
+  const legalProfile = Object.freeze({
+    brand: "SUBSUELO FS",
+    legalName: "NOMBRE DIRECCION, S.L.U.",
+    taxId: "B75534164",
+    address: "Travesía Luxemburgo, n.º 27, 30392 Cartagena (Murcia), España",
+    registry: "Registro Mercantil de Murcia, hoja MU-115010, inscripción 1",
+    euid: "ES30011.000388846",
+    supportEmail: "informacion@nombdi.es",
+    privacyEmail: "privacidad@nombdi.es",
+    legalEmail: "contacto@nombdi.es",
+    phone: "+34 722 71 56 95",
+    updated: { es: "15 de julio de 2026", en: "15 July 2026" }
+  });
+
+  const legalVersions = Object.freeze({
+    notice: "2026-07-15.4",
+    privacy: "2026-07-15.4",
+    terms: "2026-07-15.4",
+    license: "2026-07-15.4",
+    storage: "2026-07-15.4",
+    refund: "2026-07-15.4",
+    accessibility: "2026-07-15.4",
+    immediateSupply: "2026-07-15.4"
+  });
+
+  const copy = {
+    es: {
+      meta: { title: "SUBSUELO FS — Carpetas de prompts", description: "Carpetas de prompts y negative prompts para crear instrumentales, con guías separadas en español e inglés." },
+      a11y: { skip: "Saltar a los archivos", app: "SUBSUELO File System", appMenu: "Menú de aplicación", path: "Ruta actual", language: "Idioma", sidebar: "Navegación del archivo", inspector: "Detalles", mobileNav: "Navegación móvil" },
+      titlebar: { browser: "EXPLORADOR DE ARCHIVOS", store: "TIENDA DIGITAL", open: "ARCHIVO ABIERTO" },
+      menu: { file: "Archivo", view: "Ver", play: "Reproducir", help: "Ayuda", cart: "Carrito" },
+      toolbar: { back: "Atrás", forward: "Adelante", up: "Subir", sidebar: "Abrir navegación", search: "Buscar en el archivo…", viewGroup: "Vista", grid: "Vista de iconos", list: "Vista de lista" },
+      sidebar: { language: "IDIOMA", quick: "ACCESO RÁPIDO", sounds: "POR SONIDO", info: "INFORMACIÓN", home: "Todas las carpetas", demos: "Ejemplos de audio", bundle: "Pack completo", cart: "Carrito", help: "Qué incluye cada carpeta", legalFolder: "Legal y privacidad" },
+      mobile: { home: "Inicio", pack: "Pack", demos: "Demos", help: "Ayuda", cart: "Carrito" },
+      home: { kicker: "SUBSUELO / CATÁLOGO", title: "Un género por carpeta", lead: "Entra en el género que quieres producir. Dentro encontrarás 30 prompts distintos que cambian la batería, el bajo, el motivo y el espacio sin abandonar esa familia sonora.", hint: "Selecciona una carpeta · Doble clic para abrir", mobileHint: "Toca una carpeta para abrirla", docs: "MÁS INFORMACIÓN", helpFile: "QUE_INCLUYE_CADA_CARPETA.txt", demoFile: "ESCUCHAR_EJEMPLOS.audio", bundleFile: "PACK_COMPLETO.folder", legalFile: "LEGAL_Y_PRIVACIDAD.folder", empty: "No hay resultados para esta búsqueda.", emptyHint: "Prueba con otro nombre o limpia la búsqueda.", clear: "Limpiar búsqueda" },
+      categories: { trap: "Trap ritual", garage: "Garage oscuro", jungle: "Jungle degradado", hiphop: "Hip-Hop abstracto", dub: "Hip-Hop dub", noir: "Hip-Hop noir" },
+      inspector: { select: "Selecciona una carpeta", selectHint: "Aquí verás qué sonido trabaja, qué contiene, su ejemplo de audio y el precio.", open: "Abrir carpeta", play: "Escuchar ejemplo", add: "Añadir", prompts: "{count} prompts", negatives: "{count} negative prompts", guide: "Guía en español + guía en inglés", demo: "1 ejemplo de audio", demos: "{count} ejemplos de audio", folders: "{count} carpetas" },
+      product: { edition: "CARPETA DE PROMPTS", demoFolderName: "AUDIO_EXAMPLES", add: "Añadir al carrito", play: "Escuchar muestra", contents: "Contenido de la descarga", name: "Nombre", type: "Tipo", folder: "Carpeta", description: "Qué contiene", availability: "Acceso", purchase: "Descarga disponible después del pago", files: "{count} elementos", included: "Incluido en la descarga", available: "Disponible después de la compra", public: "Información pública", details: "Ver información", open: "Abrir", listen: "Escuchar", readme: "Resumen de la descarga, organización de los archivos y primeros pasos.", promptsFolder: "PDF con todos los prompts en inglés, numerados y listos para copiar.", negativesFolder: "PDF separado con todos los negative prompts en inglés, numerados y listos para copiar.", guideFile: "Explica dónde pegar cada texto, cómo crear con o sin voz y qué cambia al mover los controles.", demosFolder: "Carpeta con 4 MP3 incluidos para escucha y referencia. El reproductor público ofrece una muestra.", audioIncluded: "MP3 completo incluido para escucha y referencia después del pago.", previewDescription: "Extracto público de 30 segundos de uno de los audios incluidos.", demosIncluded: "4 MP3 incluidos + muestra pública", licenseFile: "Condiciones de uso de los prompts, negative prompts y audios de ejemplo.", esFolder: "Documentos en español; los textos que se copian permanecen en inglés.", enFolder: "Documentos en inglés; los prompts preparados para copiar también están en inglés.", format: "Formato", language: "Idioma", content: "Contenido", english: "Inglés", spanishDocs: "Español · prompts en inglés", englishDocs: "Inglés · prompts en inglés", afterPurchase: "Se entrega dentro de la descarga después del pago.", review: "Puedes comprobar qué contiene y en qué idioma está antes de comprar.", mainPrompt: "Prompt completo en inglés, listo para copiar.", negativePrompt: "Lista en inglés para pegar en Exclude.", audioPreview: "Muestra pública", previewOnly: "Solo escucha", notInZip: "La escucha pública es una muestra; la compra incluye 4 MP3 para referencia." },
+      help: { kicker: "AYUDA / EMPIEZA_AQUI.txt", title: "Qué incluye cada carpeta", lead: "Cada compra incluye una carpeta ES, otra EN y AUDIO_EXAMPLES. Las explicaciones cambian de idioma; los prompts que se copian están en inglés en las dos versiones.", prompt: "PROMPTS", promptText: "El PDF PROMPTS reúne todos los prompts de la carpeta. Elige uno y pégalo completo en el campo Styles.", negative: "NEGATIVE PROMPTS", negativeText: "El PDF NEGATIVE PROMPTS reúne listas para el campo Exclude. Usa una cuando quieras evitar voces u otro elemento concreto indicado en la lista.", guide: "GUÍA", guideText: "Hay una guía en español y la misma guía en inglés. Explica dónde pegar cada bloque, cómo trabajar con o sin voz y qué hace cada control.", demos: "EJEMPLOS DE AUDIO", demosText: "La descarga incluye 4 MP3 para escuchar como referencia del sonido. No tienen licencia de sampleo, publicación o reutilización.", direction: "Elige un prompt y pégalo en Styles", outside: "Usa Exclude solo si quieres quitar algo", together: "Para empezar solo necesitas un prompt. El negative prompt es opcional y sirve para excluir algo concreto.", delivery: "Después del pago recibes las carpetas ES, EN y AUDIO_EXAMPLES." },
+      demos: { kicker: "AUDIO / MUESTRAS", title: "Muestras de audio", lead: "Escucha una muestra pública de cada carpeta. Cada compra incluye además 4 MP3 completos para referencia sonora.", track: "Pista", edition: "Carpeta", length: "Duración", action: "Acción", open: "Abrir carpeta" },
+      bundle: { kicker: "PACK COMPLETO", title: "Todas las carpetas", lead: "Incluye en un solo ZIP todas las carpetas enumeradas debajo. La compra cubre únicamente esas carpetas; las publicaciones futuras se venden por separado.", members: "Carpetas incluidas", add: "Añadir pack completo", item: "Incluida en el pack", folderCount: "{count} carpetas" },
+      status: { delivery: "DESCARGA DIGITAL · PAGO ÚNICO", legal: "LEGAL", item: "1 elemento", items: "{count} elementos", selected: "{count} seleccionado", none: "Ningún elemento seleccionado", playing: "Reproduciendo: {title}" },
+      taskbar: { online: "ONLINE" },
+      cart: { title: "CARRITO", close: "Cerrar carrito", subtitle: "Carpetas seleccionadas", clear: "Vaciar carrito", empty: "Aquí todavía no hay carpetas.", emptyHint: "Abre una carpeta y añade la que quieras comprar.", browse: "Volver al catálogo", item: "Carpeta digital", bundle: "Pack completo", remove: "Eliminar", subtotal: "Subtotal", delivery: "Descarga digital · Sin gastos de envío", checkout: "Continuar al pago" },
+      checkout: { titlebar: "REVISAR COMPRA", title: "Revisa tu pedido.", desc: "Comprueba las carpetas antes de continuar al pago seguro.", order: "Tu pedido", unit: "Producto digital", taxes: "Precio total · impuestos incluidos", confirmations: "Confirmaciones de compra", privacyLead: "Tus datos se tratarán para gestionar el pedido según la", privacy: "política de privacidad", termsConsent: "He leído y acepto las condiciones de compra y la licencia digital. Entiendo que los archivos fuente no se pueden compartir, publicar ni revender.", terms: "Condiciones de compra", license: "Licencia digital", supplyConsent: "Solicito la entrega inmediata del contenido digital y reconozco que, cuando comience la descarga o el acceso, perderé el derecho de desistimiento, sin perjuicio de mis derechos legales por falta de conformidad.", required: "Marca las dos casillas para continuar.", total: "Total", paySecure: "CONTINUAR AL CHECKOUT", payhipNote: "En el checkout volverás a confirmar estas condiciones antes de pagar. Todavía no se realizará ningún cobro.", back: "Volver al carrito" },
+      legalUi: { folderKicker: "SISTEMA / LEGAL_Y_PRIVACIDAD", folderTitle: "Legal y privacidad", folderLead: "Quién opera la tienda, cómo funciona la compra y qué ocurre con los datos y los archivos.", name: "Documento", type: "Tipo", description: "Qué contiene", access: "Acción", public: "Público", open: "Abrir", sections: "EN ESTE ARCHIVO", system: "DOCUMENTO DEL SISTEMA", updated: "Última actualización", version: "Versión", operator: "Operador", taxId: "NIF", registry: "Registro", address: "Domicilio", email: "Atención" },
+      dialog: { close: "Cerrar" },
+      audio: { play: "Reproducir", pause: "Pausar", close: "Cerrar reproductor", unavailable: "No se ha podido cargar esta muestra de audio." },
+      messages: { added: "{name} añadido al carrito.", duplicate: "Esa carpeta ya está en el carrito.", bundleContains: "El pack completo ya contiene esa carpeta.", bundleReplaced: "El pack completo ha sustituido las carpetas que ya incluía.", fileIncluded: "Este archivo se entrega dentro del ZIP." }
+    },
+    en: {
+      meta: { title: "SUBSUELO FS — Prompt folders", description: "Prompt and negative prompt folders for making instrumentals, with separate Spanish and English guides." },
+      a11y: { skip: "Skip to files", app: "SUBSUELO File System", appMenu: "Application menu", path: "Current path", language: "Language", sidebar: "Archive navigation", inspector: "Details", mobileNav: "Mobile navigation" },
+      titlebar: { browser: "FILE BROWSER", store: "DIGITAL STORE", open: "STORE OPEN" },
+      menu: { file: "File", view: "View", play: "Play", help: "Help", cart: "Cart" },
+      toolbar: { back: "Back", forward: "Forward", up: "Up", sidebar: "Open navigation", search: "Search the archive…", viewGroup: "View", grid: "Icon view", list: "List view" },
+      sidebar: { language: "LANGUAGE", quick: "QUICK ACCESS", sounds: "BY SOUND", info: "INFO", home: "All folders", demos: "Audio examples", bundle: "Complete pack", cart: "Cart", help: "What each folder includes", legalFolder: "Legal and privacy" },
+      mobile: { home: "Home", pack: "Pack", demos: "Demos", help: "Help", cart: "Cart" },
+      home: { kicker: "SUBSUELO / CATALOGUE", title: "One genre per folder", lead: "Open the genre you want to produce. Inside are 30 different prompts that change the drums, bass, main motif and space without leaving that sound family.", hint: "Select a folder · Double-click to open", mobileHint: "Tap a folder to open it", docs: "MORE INFORMATION", helpFile: "WHAT_EACH_FOLDER_INCLUDES.txt", demoFile: "HEAR_EXAMPLES.audio", bundleFile: "COMPLETE_PACK.folder", legalFile: "LEGAL_AND_PRIVACY.folder", empty: "No results for this search.", emptyHint: "Try another name or clear the search.", clear: "Clear search" },
+      categories: { trap: "Ritual trap", garage: "Dark garage", jungle: "Degraded jungle", hiphop: "Abstract hip-hop", dub: "Dub hip-hop", noir: "Noir hip-hop" },
+      inspector: { select: "Select a folder", selectHint: "Its sound, contents, audio example and price will appear here.", open: "Open folder", play: "Hear example", add: "Add", prompts: "{count} prompts", negatives: "{count} negative prompts", guide: "Spanish guide + English guide", demo: "1 audio example", demos: "{count} audio examples", folders: "{count} folders" },
+      product: { edition: "PROMPT FOLDER", demoFolderName: "AUDIO_EXAMPLES", add: "Add to cart", play: "Hear preview", contents: "Download contents", name: "Name", type: "Type", folder: "Folder", description: "Contents", availability: "Access", purchase: "Download available after payment", files: "{count} items", included: "Included in the download", available: "Available after purchase", public: "Public information", details: "View information", open: "Open", listen: "Listen", readme: "Download summary, file organisation and first steps.", promptsFolder: "PDF containing every prompt in English, numbered and ready to copy.", negativesFolder: "Separate PDF containing every negative prompt in English, numbered and ready to copy.", guideFile: "Shows where each text goes, how to work with or without vocals, and what each control changes.", demosFolder: "Folder containing 4 MP3 files for listening and reference. The public player offers one preview.", audioIncluded: "Full MP3 included for listening and reference after payment.", previewDescription: "Public 30-second excerpt from one of the included audio files.", demosIncluded: "4 MP3 files included + public preview", licenseFile: "Usage terms for prompts, negative prompts and audio examples.", esFolder: "Documents in Spanish; the copy-ready prompts remain in English.", enFolder: "Documents in English; the copy-ready prompts remain in English.", format: "Format", language: "Language", content: "Content", english: "English", spanishDocs: "Spanish · prompts in English", englishDocs: "English · prompts in English", afterPurchase: "Delivered inside the download after payment.", review: "You can check what it contains and its language before buying.", mainPrompt: "Complete prompt in English, ready to copy.", negativePrompt: "English list for the Exclude field.", audioPreview: "Public preview", previewOnly: "Listen only", notInZip: "The public player is a preview; the purchase includes 4 MP3 reference tracks." },
+      help: { kicker: "HELP / START_HERE.txt", title: "What each folder includes", lead: "Each purchase includes an ES folder, an EN folder and AUDIO_EXAMPLES. Explanations change language; copy-ready prompts remain in English in both versions.", prompt: "PROMPTS", promptText: "The PROMPTS PDF contains every prompt in the folder. Choose one and paste it in full into the Styles field.", negative: "NEGATIVE PROMPTS", negativeText: "The NEGATIVE PROMPTS PDF contains lists for the Exclude field. Use one when you want to avoid vocals or another specific element named by the list.", guide: "GUIDE", guideText: "There is one Spanish guide and the same guide in English. It shows where each block goes, how to work with or without vocals, and what each control changes.", demos: "AUDIO EXAMPLES", demosText: "The download includes 4 MP3 files as sound references. They are not licensed for sampling, release or reuse.", direction: "Choose one prompt and paste it into Styles", outside: "Use Exclude only when you want to remove something", together: "You only need one prompt to begin. A negative prompt is optional and is used to exclude something specific.", delivery: "After payment, you receive the ES, EN and AUDIO_EXAMPLES folders." },
+      demos: { kicker: "AUDIO / PREVIEWS", title: "Audio previews", lead: "Hear one public preview from each folder. Every purchase also includes 4 full MP3 reference tracks.", track: "Track", edition: "Folder", length: "Length", action: "Action", open: "Open folder" },
+      bundle: { kicker: "COMPLETE PACK", title: "All folders", lead: "Includes every folder listed below in one ZIP. Your purchase covers only those folders; future releases are sold separately.", members: "Included folders", add: "Add complete pack", item: "Included in the pack", folderCount: "{count} folders" },
+      status: { delivery: "DIGITAL DOWNLOAD · ONE-TIME PAYMENT", legal: "LEGAL", item: "1 item", items: "{count} items", selected: "{count} selected", none: "No item selected", playing: "Playing: {title}" },
+      taskbar: { online: "ONLINE" },
+      cart: { title: "CART", close: "Close cart", subtitle: "Selected folders", clear: "Clear cart", empty: "No folders here yet.", emptyHint: "Open a folder and add the one you want to buy.", browse: "Back to catalogue", item: "Digital folder", bundle: "Complete pack", remove: "Remove", subtotal: "Subtotal", delivery: "Digital download · No shipping", checkout: "Continue to checkout" },
+      checkout: { titlebar: "REVIEW ORDER", title: "Review your order.", desc: "Check the folders before continuing to secure checkout.", order: "Your order", unit: "Digital product", taxes: "Final price · taxes included", confirmations: "Purchase confirmations", privacyLead: "Your data will be processed to manage the order as described in the", privacy: "privacy notice", termsConsent: "I have read and accept the purchase terms and digital licence. I understand that the source files may not be shared, published or resold.", terms: "Purchase terms", license: "Digital licence", supplyConsent: "I request immediate delivery of the digital content and acknowledge that, when download or access begins, I will lose the right of withdrawal, without affecting my statutory rights if the content is not in conformity.", required: "Tick both boxes to continue.", total: "Total", paySecure: "CONTINUE TO CHECKOUT", payhipNote: "At checkout you will confirm these terms again before paying. No charge is made yet.", back: "Back to cart" },
+      legalUi: { folderKicker: "SYSTEM / LEGAL_AND_PRIVACY", folderTitle: "Legal and privacy", folderLead: "Who operates the store, how purchases work and what happens to data and files.", name: "Document", type: "Type", description: "Contents", access: "Action", public: "Public", open: "Open", sections: "IN THIS FILE", system: "SYSTEM DOCUMENT", updated: "Last updated", version: "Version", operator: "Operator", taxId: "Tax ID", registry: "Registry", address: "Address", email: "Support" },
+      dialog: { close: "Close" },
+      audio: { play: "Play", pause: "Pause", close: "Close player", unavailable: "This audio preview could not be loaded." },
+      messages: { added: "{name} added to cart.", duplicate: "That folder is already in your cart.", bundleContains: "The complete pack already contains that folder.", bundleReplaced: "The complete pack replaced the folders it already included.", fileIncluded: "This file is delivered inside the ZIP." }
+    }
+  };
+
+  const legalDocuments = {
+    es: {
+      notice: {
+        file: "AVISO_LEGAL.txt",
+        title: "Aviso legal",
+        description: "Identidad de la empresa, actividad, propiedad intelectual y contacto.",
+        updated: legalProfile.updated.es,
+        version: legalVersions.notice,
+        sections: [
+          { title: "Quién opera la tienda", paragraphs: [`${legalProfile.brand} es una marca comercial operada por ${legalProfile.legalName}, sociedad limitada unipersonal con NIF ${legalProfile.taxId} y domicilio social en ${legalProfile.address}.`, `Inscripción: ${legalProfile.registry}. EUID: ${legalProfile.euid}.`] },
+          { title: "Contacto", paragraphs: [`Cuestiones generales o legales: ${legalProfile.legalEmail}. Pedidos, descargas y facturación: ${legalProfile.supportEmail}. Teléfono: ${legalProfile.phone}. Privacidad: ${legalProfile.privacyEmail}.`] },
+          { title: "Actividad y precios", paragraphs: ["La tienda vende carpetas digitales con prompts, negative prompts, guías y archivos de audio cuando así se indique en la ficha. Antes del pago se muestra el contenido exacto, formato, idioma, precio total e impuestos aplicables. Las descargas no tienen gastos de envío."] },
+          { title: "Uso del sitio", paragraphs: ["El sitio puede utilizarse para consultar el catálogo, escuchar muestras y comprar los productos publicados. No está permitido interferir en su funcionamiento, intentar acceder a contenido restringido ni utilizarlo con fines ilícitos. La versión de las condiciones mostrada al confirmar el pedido será la aplicable a esa compra."] },
+          { title: "Propiedad intelectual", paragraphs: [`La marca, el diseño, los textos, la selección de contenidos y los archivos originales pertenecen a ${legalProfile.legalName} o se utilizan con autorización. La compra concede únicamente la licencia indicada para el producto; no transmite la propiedad intelectual de los archivos fuente.`] },
+          { title: "Disponibilidad y responsabilidad", paragraphs: [`Pueden producirse interrupciones técnicas o de mantenimiento. Esto no limita el derecho del comprador a recibir lo contratado ni las soluciones previstas para archivos defectuosos, incompletos o no entregados. Para comunicar un error o un posible uso ilícito, escribe a ${legalProfile.legalEmail}.`] },
+          { title: "Ley aplicable", paragraphs: ["Se aplica la legislación española y europea que corresponda. Las personas consumidoras conservan los derechos y fueros que les reconozca la normativa imperativa de su lugar de residencia."] }
+        ]
+      },
+      privacy: {
+        file: "PRIVACIDAD.txt",
+        title: "Privacidad",
+        description: "Datos tratados, finalidades, proveedores, conservación y derechos.",
+        updated: legalProfile.updated.es,
+        version: legalVersions.privacy,
+        sections: [
+          { title: "Responsable", paragraphs: [`El responsable del tratamiento es ${legalProfile.legalName}, NIF ${legalProfile.taxId}, con domicilio en ${legalProfile.address}. Contacto de privacidad: ${legalProfile.privacyEmail}.`] },
+          { title: "Qué datos tratamos y de dónde proceden", paragraphs: ["Podemos tratar datos de identificación y contacto, facturación, productos adquiridos, importe y estado del pago, descargas, consultas, preferencias de comunicación y datos técnicos básicos de conexión, dispositivo y seguridad. Proceden del propio usuario y de los servicios utilizados para tramitar el pedido, el pago y la entrega.", "Los datos completos de la tarjeta son tratados por el proveedor de pago habilitado. La tienda recibe la confirmación y los datos de operación necesarios para gestionar el pedido. Los datos marcados como obligatorios son necesarios para contratar; sin ellos no podremos procesar la compra."] },
+          { title: "Para qué y con qué base jurídica", paragraphs: ["No pedimos consentimiento para tratar los datos imprescindibles de un pedido."], list: ["Compra, pago, factura, entrega y soporte asociado: ejecución del contrato o medidas precontractuales.", "Obligaciones fiscales, contables y de consumo: cumplimiento de obligaciones legales.", "Seguridad, prevención del fraude y defensa de reclamaciones: interés legítimo en proteger la tienda y sus usuarios.", "Novedades comerciales y tecnologías no necesarias: consentimiento, revocable en cualquier momento."] },
+          { title: "Destinatarios y transferencias", paragraphs: ["Payhip Limited (Reino Unido) presta el checkout alojado y la entrega digital. El proveedor de pago elegido trata los datos necesarios para cobrar, prevenir el fraude y confirmar la operación. También pueden intervenir los servicios de correo, soporte o facturación que se indiquen. No vendemos ni alquilamos datos personales.", "Los datos podrán comunicarse a asesores profesionales y autoridades cuando exista una obligación legal. Si un proveedor o subencargado accede a datos fuera del Espacio Económico Europeo, se aplicará una decisión de adecuación, cláusulas contractuales tipo u otra garantía válida. El checkout muestra los enlaces a la información de privacidad propia de Payhip y del proveedor de pago."] },
+          { title: "Conservación", paragraphs: ["Los pedidos, facturas y documentación contable se conservarán durante seis años, sin perjuicio de otros plazos legales aplicables. Las pruebas de contratación y consentimiento conservarán el identificador del pedido, fecha, idioma y versión del texto aceptado durante el plazo necesario para acreditar la operación y atender responsabilidades. Las consultas se conservarán hasta resolverlas y, después, hasta dos años salvo que formen parte de un expediente contractual. Los datos comerciales se tratarán hasta retirar el consentimiento; se conservará la información mínima necesaria para respetar la baja."] },
+          { title: "Derechos", paragraphs: [`Puedes solicitar acceso, rectificación, supresión, oposición, limitación o portabilidad y retirar un consentimiento escribiendo a ${legalProfile.privacyEmail}. Responderemos en el plazo máximo de un mes desde la recepción; cuando la complejidad o el número de solicitudes lo requiera, el plazo puede ampliarse otros dos meses y se informará durante el primer mes. Podremos pedir información adicional si es necesaria para verificar tu identidad. También puedes reclamar ante la Agencia Española de Protección de Datos en https://www.aepd.es.`] },
+          { title: "Decisiones automatizadas", paragraphs: [`${legalProfile.legalName} no adopta decisiones exclusivamente automatizadas que produzcan efectos jurídicos o similares sobre el comprador. Las herramientas de plataforma o pago pueden generar indicadores de riesgo para revisar la seguridad de una operación conforme a sus propias políticas.`] }
+        ]
+      },
+      terms: {
+        file: "CONDICIONES_DE_COMPRA.txt",
+        title: "Condiciones de compra",
+        description: "Pedido, precio, entrega digital, desistimiento, garantía y reclamaciones.",
+        updated: legalProfile.updated.es,
+        version: legalVersions.terms,
+        sections: [
+          { title: "Vendedor, plataforma, producto y compatibilidad", paragraphs: [`${legalProfile.legalName}, titular de ${legalProfile.brand}, ofrece el producto, concede la licencia adicional directa y atiende al comprador. El cobro, el checkout alojado y la entrega se realizan mediante Payhip. En ese checkout también se muestran y aceptan las condiciones propias de Payhip; ambas relaciones contractuales deben leerse conjuntamente.`, "Cada ficha indica los archivos que se entregan, su cantidad, idioma, formato y licencia. Los prompts preparados para copiar están en inglés; las explicaciones se entregan en los idiomas indicados. Los documentos están pensados para un servicio de generación musical que admita instrucciones de estilo en inglés y, de forma opcional, un campo para exclusiones. El comprador necesita conexión, espacio suficiente y software compatible para descargarlos, abrirlos y conservarlos."] },
+          { title: "Contenido y ejemplos de audio", paragraphs: ["La ficha del producto determina qué archivos forman parte de la descarga. Cuando se incluyen ejemplos de audio, se entregan para escucha y referencia bajo las limitaciones de la licencia digital. La muestra pública del reproductor puede ser una versión abreviada y no concede permiso para reutilizar ese audio."] },
+          { title: "Precio, pago y pasos del pedido", paragraphs: ["Los precios se muestran en euros como importe total para el consumidor, con los impuestos aplicables incluidos y sin gastos de envío. El resumen final del checkout alojado es el importe vinculante antes de pagar. Los métodos disponibles aparecen allí y el cobro se realiza únicamente al confirmar la operación.", "El comprador selecciona productos, revisa el carrito, corrige o elimina elementos, consulta las condiciones y la licencia, marca las confirmaciones requeridas en esta web y vuelve a aceptarlas en el checkout. Antes del botón final de pago puede corregir los datos o abandonar el proceso. El contrato puede formalizarse en español o inglés.", `Payhip envía el recibo y el enlace de descarga. ${legalProfile.legalName} conserva la información del pedido y las respuestas de checkout disponibles para atender la compra y acreditar las condiciones aceptadas. Puede solicitarse una copia a ${legalProfile.supportEmail}.`] },
+          { title: "Entrega digital", paragraphs: [`Después de confirmarse el pago, Payhip habilita la descarga y envía un enlace al correo indicado sin demora injustificada. Si el enlace no funciona, falta un archivo o la descarga está dañada, escribe a ${legalProfile.supportEmail}. Una incidencia técnica no impide solicitar un nuevo acceso.`] },
+          { title: "Desistimiento", paragraphs: ["Antes de que comience el suministro digital, la persona consumidora dispone del plazo legal de catorce días cuando resulte aplicable. La entrega inmediata solo comenzará si marca una casilla separada, solicita expresamente que el suministro empiece durante ese plazo y reconoce que perderá el derecho de desistimiento una vez iniciado. La confirmación del pedido reproducirá esa declaración en un soporte duradero."], checkbox: "Solicito el suministro inmediato del contenido digital durante el plazo de desistimiento y reconozco que, una vez iniciado, perderé mi derecho de desistimiento." },
+          { title: "Modelo de desistimiento", paragraphs: [`Si el derecho sigue vigente, puedes escribir a ${legalProfile.supportEmail} indicando: «Comunico mi desistimiento del pedido [número], contratado el [fecha]», junto con tu nombre, dirección y fecha de la solicitud. La firma solo es necesaria si se envía en papel.`] },
+          { title: "Archivos defectuosos o distintos de lo anunciado", paragraphs: ["La pérdida del desistimiento no elimina los derechos legales de conformidad. Para contenido digital suministrado una sola vez, el vendedor responde por faltas de conformidad manifestadas durante dos años. Si un producto está incompleto, dañado o no coincide con su descripción, el comprador puede pedir que se ponga en conformidad y, cuando corresponda, una reducción del precio o la resolución y el reembolso."] },
+          { title: "Atención, reclamaciones y ley aplicable", paragraphs: [`Pedidos, descargas, facturas y reclamaciones: ${legalProfile.supportEmail} o ${legalProfile.phone}. La reclamación se responderá en el plazo más breve posible y, en todo caso, en un máximo de quince días. Si no queda resuelta, se informará de la entidad de resolución alternativa competente y de si la empresa participa en el procedimiento.`, "Se aplica la legislación española, sin privar al consumidor de la protección imperativa de su país de residencia ni imponerle tribunales distintos de los que le reconoce la normativa aplicable."] }
+        ]
+      },
+      license: {
+        file: "LICENCIA_DIGITAL.txt",
+        title: "Licencia digital",
+        description: "Uso de prompts, guías, resultados creados y ejemplos de audio.",
+        updated: legalProfile.updated.es,
+        version: legalVersions.license,
+        sections: [
+          { title: "Quién concede esta licencia adicional", paragraphs: [`${legalProfile.legalName}, NIF ${legalProfile.taxId}, como titular de los derechos sobre el material original, concede directamente esta licencia al comprador identificado en el pedido. Se aplica a los prompts, negative prompts, guías y demás documentos originales incluidos en la compra.`] },
+          { title: "Relación con el checkout", paragraphs: ["Esta licencia es una autorización adicional del titular de los derechos y se acepta antes del pago. Se suma a las condiciones que Payhip presenta en su checkout y no modifica las obligaciones independientes que existan entre el comprador y Payhip. En lo relativo a los derechos de NOMBRE DIRECCION, S.L.U. sobre el material original, deja constancia de los usos que autorizamos expresamente."] },
+          { title: "Uso permitido", paragraphs: ["Se concede una licencia mundial, no exclusiva, no transferible y válida durante la protección legal del material para copiar, usar y adaptar los prompts dentro del flujo de trabajo del comprador, tanto en proyectos propios personales como comerciales. Se permite conservar una copia de seguridad.", "Si compra una empresa, la licencia pertenece a esa persona jurídica. Sus empleados o colaboradores pueden utilizar los archivos únicamente para proyectos de esa empresa y no pueden conservarlos, compartirlos ni usarlos por cuenta propia."] },
+          { title: "Resultados creados", paragraphs: ["El comprador puede usar los resultados que cree con los prompts en proyectos personales o comerciales en la medida en que lo permitan las condiciones del servicio de terceros empleado y siempre que disponga de derechos sobre cualquier texto, muestra, voz u otro material que aporte.", "No se garantiza que un resultado sea único, exclusivo o protegible por derechos de autor. Un mismo prompt puede venderse a otros compradores y producir resultados diferentes o similares."] },
+          { title: "Ejemplos de audio", paragraphs: ["Los ejemplos de audio, aunque estén incluidos en la carpeta, se entregan solo para escucha y referencia. No pueden publicarse, distribuirse, sincronizarse, revenderse ni utilizarse como muestras, salvo que la ficha conceda expresamente una licencia distinta."] },
+          { title: "No está permitido", paragraphs: ["La licencia no permite convertir los archivos originales o una adaptación mínima en un producto para terceros."], list: ["Compartir, regalar, publicar o revender los archivos fuente.", "Incorporarlos a otra colección, biblioteca, plantilla, curso o producto descargable.", "Sublicenciarlos o presentarlos como un pack creado por el comprador.", "Dar acceso a personas ajenas al comprador autorizado.", "Publicar prompts completos o fragmentos suficientes para reconstruir la colección."] },
+          { title: "Titularidad y derechos legales", paragraphs: [`${legalProfile.legalName} conserva la propiedad intelectual de los archivos originales. La licencia no limita los derechos legales del consumidor si el producto es defectuoso o no coincide con lo comprado. Consultas sobre un uso concreto: ${legalProfile.legalEmail}.`] }
+        ]
+      },
+      storage: {
+        file: "COOKIES_Y_ALMACENAMIENTO.txt",
+        title: "Cookies y almacenamiento",
+        description: "Preferencias locales y tecnologías necesarias u opcionales de la tienda.",
+        updated: legalProfile.updated.es,
+        version: legalVersions.storage,
+        sections: [
+          { title: "Qué guarda esta versión", paragraphs: ["Esta plantilla no instala analítica ni publicidad. Solo usa almacenamiento local del navegador con tres claves funcionales: subsuelo-language para el idioma, subsuelo-view para la vista de iconos o lista y subsuelo-cart-v5 para el contenido del carrito. No tienen caducidad automática y permanecen hasta que el usuario borra los datos del sitio. No permiten completar un pago por sí solas."] },
+          { title: "Tecnologías necesarias", paragraphs: ["Al continuar al checkout alojado de Payhip, esa plataforma y el proveedor de pago pueden utilizar cookies o tecnologías estrictamente necesarias para mantener la sesión, proteger el pago y entregar la compra. No se solicita consentimiento cuando sean indispensables para prestar el servicio pedido por el usuario."] },
+          { title: "Analítica, personalización y publicidad", paragraphs: ["Las tecnologías no necesarias permanecerán desactivadas hasta que el usuario las acepte cuando la ley exija consentimiento. Aceptar y rechazar se mostrarán con el mismo nivel de visibilidad, sin opciones premarcadas. La decisión podrá cambiarse o retirarse desde las preferencias de privacidad."] },
+          { title: "Servicios externos", paragraphs: ["Payhip y los servicios de pago activados pueden utilizar tecnologías necesarias propias en sus páginas. Antes de activar en esta web una aplicación, píxel o herramienta opcional se revisarán su finalidad, duración y transferencias; la información y el panel de preferencias se actualizarán antes de que empiece a cargarse."] },
+          { title: "Cómo borrar los datos", paragraphs: [`Puedes borrar cookies y almacenamiento local desde la configuración del navegador. Al hacerlo pueden desaparecer el carrito, el idioma elegido o la sesión. Contacto: ${legalProfile.privacyEmail}.`] }
+        ]
+      },
+      refund: {
+        file: "DESISTIMIENTO_Y_REEMBOLSOS.txt",
+        title: "Desistimiento y reembolsos",
+        description: "Plazos, suministro inmediato, incidencias y modelo de solicitud.",
+        updated: legalProfile.updated.es,
+        version: legalVersions.refund,
+        sections: [
+          { title: "Antes de la descarga", paragraphs: ["Cuando resulte aplicable, la persona consumidora puede desistir durante catorce días desde la contratación mientras no haya comenzado el suministro digital. Para pedirlo, puede usar el modelo incluido abajo o enviar una declaración inequívoca."] },
+          { title: "Suministro inmediato", paragraphs: ["La descarga inmediata solo se iniciará después de una solicitud expresa y separada, junto con el reconocimiento de que el derecho de desistimiento se pierde cuando comienza el suministro. Esa declaración y las condiciones aceptadas se incluirán en la confirmación que pueda conservarse."] },
+          { title: "Reembolso", paragraphs: ["Si el desistimiento sigue vigente, el importe se devolverá sin demora indebida y, como máximo, en catorce días desde la comunicación. Se utilizará el mismo medio de pago, salvo acuerdo expreso distinto sin coste para el consumidor."] },
+          { title: "Contenido defectuoso o no entregado", paragraphs: [`Si falta un archivo, está dañado, no coincide con la ficha o el enlace falla, escribe a ${legalProfile.supportEmail} con el número de pedido. Se intentará poner el contenido en conformidad sin coste ni demora indebida. Cuando legalmente corresponda, podrá solicitarse reducción del precio o resolución y reembolso. Estos derechos de conformidad no desaparecen por haber comenzado la descarga y, para un suministro único, cubren faltas manifestadas durante dos años.`] },
+          { title: "Modelo de desistimiento", paragraphs: [`Destinatario: ${legalProfile.legalName}, ${legalProfile.address}, ${legalProfile.supportEmail}. «Comunico mi desistimiento del pedido [número], contratado el [fecha]. Nombre: [nombre]. Dirección: [dirección]. Fecha: [fecha]». La firma solo es necesaria si se envía en papel.`] }
+        ]
+      },
+      accessibility: {
+        file: "ACCESIBILIDAD.txt",
+        title: "Accesibilidad",
+        description: "Compromiso de acceso, alcance actual y canal para comunicar barreras.",
+        updated: legalProfile.updated.es,
+        version: legalVersions.accessibility,
+        sections: [
+          { title: "Compromiso", paragraphs: ["La tienda se diseña para poder utilizarse con teclado, ampliación de pantalla, contraste suficiente, movimiento reducido y tecnologías de apoyo. El catálogo, la información previa a la compra y las condiciones deben poder consultarse sin depender solo del color, el sonido o el ratón."] },
+          { title: "Alcance", paragraphs: ["Esta declaración cubre la tienda y su proceso de compra. Los PDF descargables cuentan con texto seleccionable, pero todavía no están etiquetados de forma estructural para todos los lectores de pantalla; se revisarán antes de la publicación definitiva o se ofrecerá una alternativa textual equivalente."] },
+          { title: "Comunicar una barrera", paragraphs: [`Si encuentras una barrera, indica la página, el dispositivo, el navegador y la ayuda técnica utilizada en un correo a ${legalProfile.supportEmail} o llama al ${legalProfile.phone}. Confirmaremos la recepción y daremos una respuesta en un plazo razonable.`] },
+          { title: "Preparación", paragraphs: ["Declaración preparada mediante revisión interna de navegación con teclado, foco, contraste, zoom y adaptación móvil. Se actualizará cuando cambie la plataforma de venta o se complete una auditoría externa."] }
+        ]
+      }
+    },
+    en: {
+      notice: {
+        file: "LEGAL_NOTICE.txt",
+        title: "Legal notice",
+        description: "Company identity, activity, intellectual property and contact details.",
+        updated: legalProfile.updated.en,
+        version: legalVersions.notice,
+        sections: [
+          { title: "Store operator", paragraphs: [`${legalProfile.brand} is a trading name operated by ${legalProfile.legalName}, a Spanish single-member limited company with tax ID ${legalProfile.taxId} and registered office at ${legalProfile.address}.`, `Registration: ${legalProfile.registry}. EUID: ${legalProfile.euid}.`] },
+          { title: "Contact", paragraphs: [`General or legal matters: ${legalProfile.legalEmail}. Orders, downloads and invoices: ${legalProfile.supportEmail}. Telephone: ${legalProfile.phone}. Privacy: ${legalProfile.privacyEmail}.`] },
+          { title: "Activity and prices", paragraphs: ["The store sells digital folders containing prompts, negative prompts, guides and audio files where stated on the product page. Exact contents, format, language, final price and applicable taxes are shown before payment. Digital downloads have no shipping charge."] },
+          { title: "Use of the site", paragraphs: ["The site may be used to browse the catalogue, hear previews and purchase published products. Interfering with its operation, attempting to access restricted content or using it unlawfully is prohibited. The version of the terms displayed when the order is confirmed applies to that purchase."] },
+          { title: "Intellectual property", paragraphs: [`The brand, design, text, content selection and original files belong to ${legalProfile.legalName} or are used with permission. Purchase grants only the licence stated for the product and does not transfer intellectual property ownership of the source files.`] },
+          { title: "Availability and liability", paragraphs: [`Maintenance or technical interruptions may occur. This does not restrict the buyer's right to receive the purchased product or the remedies available for defective, incomplete or undelivered files. Report errors or potentially unlawful use to ${legalProfile.legalEmail}.`] },
+          { title: "Governing law", paragraphs: ["Spanish and applicable European law govern the store. Consumers retain any mandatory rights and jurisdiction protections granted by the law of their place of residence."] }
+        ]
+      },
+      privacy: {
+        file: "PRIVACY.txt",
+        title: "Privacy",
+        description: "Data, purposes, providers, retention and individual rights.",
+        updated: legalProfile.updated.en,
+        version: legalVersions.privacy,
+        sections: [
+          { title: "Controller", paragraphs: [`The controller is ${legalProfile.legalName}, tax ID ${legalProfile.taxId}, registered office at ${legalProfile.address}. Privacy contact: ${legalProfile.privacyEmail}.`] },
+          { title: "Data we process and its source", paragraphs: ["We may process identification and contact details, billing information, purchased products, transaction amount and status, downloads, enquiries, communication preferences, and basic connection, device and security data. Data comes from the user and from services used to process the order, payment and delivery.", "Complete card details are handled by the enabled payment provider. The store receives payment confirmation and the transaction details needed to manage the order. Fields marked as required are needed to enter into the contract; without them, we cannot process the purchase."] },
+          { title: "Purposes and legal bases", paragraphs: ["Consent is not requested for processing that is necessary to fulfil an order."], list: ["Purchase, payment, invoice, delivery and related support: performance of the contract or pre-contractual steps.", "Tax, accounting and consumer obligations: compliance with legal duties.", "Security, fraud prevention and defence of claims: legitimate interest in protecting the store and its users.", "Marketing updates and non-essential technologies: consent, which may be withdrawn at any time."] },
+          { title: "Recipients and international transfers", paragraphs: ["Payhip Limited (United Kingdom) provides the hosted checkout and digital delivery. The selected payment provider processes the information required to collect payment, prevent fraud and confirm the transaction. Stated email, support or invoicing services may also be involved. We do not sell or rent personal data.", "Data may be disclosed to professional advisers and public authorities where required by law. If a provider or sub-processor accesses data outside the European Economic Area, an adequacy decision, standard contractual clauses or another valid safeguard will apply. The checkout links to Payhip's and the payment provider's own privacy information."] },
+          { title: "Retention", paragraphs: ["Orders, invoices and accounting records are retained for six years, without prejudice to other applicable legal periods. Contract and consent evidence retains the order identifier, date, language and accepted-text version for as long as needed to prove the transaction and address liabilities. Enquiries are kept until resolved and then for up to two years unless they form part of a contractual record. Marketing data is processed until consent is withdrawn; the minimum information needed to honour an opt-out is retained."] },
+          { title: "Your rights", paragraphs: [`You may request access, correction, deletion, restriction, objection or portability, and withdraw consent, by writing to ${legalProfile.privacyEmail}. We will respond within one month of receipt. Where the request is complex or numerous, that period may be extended by a further two months and you will be informed within the first month. We may request additional information where needed to verify your identity. You may also lodge a complaint with the Spanish Data Protection Agency at https://www.aepd.es.`] },
+          { title: "Automated decisions", paragraphs: [`${legalProfile.legalName} does not make solely automated decisions that produce legal or similarly significant effects on a buyer. Platform or payment tools may generate risk indicators to review transaction security under their own policies.`] }
+        ]
+      },
+      terms: {
+        file: "PURCHASE_TERMS.txt",
+        title: "Purchase terms",
+        description: "Orders, price, digital delivery, withdrawal, conformity and complaints.",
+        updated: legalProfile.updated.en,
+        version: legalVersions.terms,
+        sections: [
+          { title: "Seller, platform, product and compatibility", paragraphs: [`${legalProfile.legalName}, operator of ${legalProfile.brand}, offers the product, grants the direct additional licence and supports the buyer. Payment, hosted checkout and delivery are provided through Payhip. Payhip also presents its own terms for acceptance at that checkout; both contractual relationships should be read together.`, "Each product page states the supplied files, quantity, language, format and licence. Copy-ready prompts are in English; explanatory documents are supplied in the languages stated. The documents are intended for a music-generation service that accepts English style instructions and, optionally, a field for exclusions. The buyer needs an internet connection, sufficient storage and compatible software to download, open and retain them."] },
+          { title: "Contents and audio examples", paragraphs: ["The product page determines which files are included in the download. Where audio examples are included, they are provided for listening and reference under the digital licence. The public player may use a shortened preview and does not grant permission to reuse that audio."] },
+          { title: "Price, payment and ordering steps", paragraphs: ["Prices are shown in euros as the final consumer amount, including applicable taxes and with no shipping charge. The final hosted-checkout summary is the binding amount shown before payment. Available methods appear there and no charge is made until the buyer confirms the transaction.", "The buyer selects products, reviews the cart, corrects or removes items, reads the terms and licence, ticks the confirmations on this website and accepts them again at checkout. Before the final payment button, the buyer can correct details or leave the process. The contract may be concluded in Spanish or English.", `Payhip sends the receipt and download link. ${legalProfile.legalName} retains the available order information and checkout responses needed to support the purchase and evidence the accepted terms. A copy may be requested from ${legalProfile.supportEmail}.`] },
+          { title: "Digital delivery", paragraphs: [`After payment is confirmed, Payhip makes the download available and emails a link without undue delay. Failed links, missing files or damaged downloads should be reported to ${legalProfile.supportEmail}. A technical problem does not prevent the buyer from requesting renewed access.`] },
+          { title: "Withdrawal rights", paragraphs: ["Before digital supply begins, consumers have the applicable statutory fourteen-day withdrawal period. Immediate delivery will only begin where a separate box is ticked to expressly request supply during that period and acknowledge that the withdrawal right will be lost once supply begins. The order confirmation will reproduce that declaration on a durable medium."], checkbox: "I request the immediate supply of the digital content during the withdrawal period and acknowledge that, once supply begins, I will lose my right of withdrawal." },
+          { title: "Model withdrawal notice", paragraphs: [`Where the right still applies, write to ${legalProfile.supportEmail} stating: ‘I hereby withdraw from order [number], placed on [date]’, together with your name, address and request date. A signature is only required for a paper notice.`] },
+          { title: "Defective or misdescribed files", paragraphs: ["Loss of the withdrawal right does not remove statutory conformity rights. For digital content supplied once, the seller is liable for a lack of conformity that becomes apparent within two years. If a product is incomplete, damaged or does not match its description, the buyer may request that it be brought into conformity and, where appropriate, a price reduction or termination and refund."] },
+          { title: "Support, complaints and governing law", paragraphs: [`Orders, downloads, invoices and complaints: ${legalProfile.supportEmail} or ${legalProfile.phone}. A complaint will be answered as soon as possible and in all cases within fifteen days. If it remains unresolved, information on the competent alternative dispute resolution body and whether the company will participate will be provided.`, "Spanish law applies without depriving a consumer of mandatory protection in their country of residence or imposing courts other than those available under applicable law."] }
+        ]
+      },
+      license: {
+        file: "DIGITAL_LICENSE.txt",
+        title: "Digital licence",
+        description: "Use of prompts, guides, created results and audio examples.",
+        updated: legalProfile.updated.en,
+        version: legalVersions.license,
+        sections: [
+          { title: "Who grants this additional licence", paragraphs: [`${legalProfile.legalName}, tax ID ${legalProfile.taxId}, as owner of the rights in the original material, grants this licence directly to the buyer identified in the order. It covers the prompts, negative prompts, guides and other original documents included in the purchase.`] },
+          { title: "Relationship with checkout terms", paragraphs: ["This licence is an additional authorisation from the rights holder and is accepted before payment. It supplements the terms presented by Payhip at checkout and does not change any independent obligations between the buyer and Payhip. As regards NOMBRE DIRECCION, S.L.U.'s rights in the original material, it records the uses we expressly authorise."] },
+          { title: "Permitted use", paragraphs: ["A worldwide, non-exclusive, non-transferable licence is granted for the legal term of protection to copy, use and adapt the prompts within the buyer's workflow, in the buyer's own personal or commercial projects. One backup copy may be kept.", "Where a company purchases the product, the licence belongs to that legal entity. Employees and contractors may use the files solely for that company's projects and may not keep, share or use them independently."] },
+          { title: "Created results", paragraphs: ["The buyer may use results created with the prompts in personal or commercial projects to the extent permitted by the terms of the third-party service used and provided that the buyer holds the necessary rights to any supplied text, samples, voices or other material.", "The licence does not guarantee that a result will be unique, exclusive or protected by copyright. The same prompt may be sold to other buyers and may produce different or similar results."] },
+          { title: "Audio examples", paragraphs: ["Audio examples are supplied for listening and reference only, even where included in the folder. They may not be released, distributed, synchronised, resold or used as samples unless the product page expressly grants a separate licence."] },
+          { title: "Prohibited uses", paragraphs: ["The licence does not allow the original files or a minor adaptation to be turned into a product for third parties."], list: ["Sharing, giving away, publishing or reselling source files.", "Including them in another collection, library, template, course or downloadable product.", "Sublicensing them or presenting them as the buyer's own prompt pack.", "Giving access to anyone outside the authorised purchaser.", "Publishing complete prompts or enough material to reconstruct the collection."] },
+          { title: "Ownership and statutory rights", paragraphs: [`${legalProfile.legalName} retains intellectual property rights in the original files. This licence does not restrict statutory consumer rights where a product is defective or does not match the purchase. Specific licensing questions: ${legalProfile.legalEmail}.`] }
+        ]
+      },
+      storage: {
+        file: "COOKIES_AND_STORAGE.txt",
+        title: "Cookies and storage",
+        description: "Local preferences and necessary or optional store technologies.",
+        updated: legalProfile.updated.en,
+        version: legalVersions.storage,
+        sections: [
+          { title: "What this version stores", paragraphs: ["This template installs no analytics or advertising. It only uses three functional browser-local-storage keys: subsuelo-language for the language, subsuelo-view for icon or list view, and subsuelo-cart-v5 for cart contents. They have no automatic expiry and remain until the user clears site data. They cannot complete a payment by themselves."] },
+          { title: "Necessary technologies", paragraphs: ["When continuing to Payhip's hosted checkout, that platform and the payment provider may use strictly necessary cookies or similar technologies to maintain the session, secure payment and deliver the purchase. Consent is not requested where they are essential to provide the service requested by the user."] },
+          { title: "Analytics, personalisation and advertising", paragraphs: ["Non-essential technologies will remain disabled until accepted where consent is legally required. Accepting and rejecting will be displayed with equal prominence and no option will be pre-selected. The choice may be changed or withdrawn through privacy preferences."] },
+          { title: "External services", paragraphs: ["Payhip and enabled payment services may use their own necessary technologies on their pages. Before an optional app, pixel or tool is enabled on this website, its purpose, duration and transfers will be reviewed; the information and preference panel will be updated before it starts loading."] },
+          { title: "Removing stored data", paragraphs: [`Cookies and local storage can be removed through browser settings. Doing so may clear the cart, selected language or active session. Contact: ${legalProfile.privacyEmail}.`] }
+        ]
+      },
+      refund: {
+        file: "WITHDRAWAL_AND_REFUNDS.txt",
+        title: "Withdrawal and refunds",
+        description: "Deadlines, immediate supply, delivery problems and model notice.",
+        updated: legalProfile.updated.en,
+        version: legalVersions.refund,
+        sections: [
+          { title: "Before download", paragraphs: ["Where applicable, a consumer may withdraw within fourteen days of contracting while digital supply has not begun. The model below may be used, or any other unequivocal statement may be sent."] },
+          { title: "Immediate supply", paragraphs: ["Immediate download begins only after a separate express request and acknowledgement that the withdrawal right is lost once supply starts. That declaration and the accepted terms will be reproduced in a confirmation that can be retained."] },
+          { title: "Refund", paragraphs: ["Where the withdrawal right remains available, payment will be returned without undue delay and no later than fourteen days after notice. The same payment method will be used unless another method is expressly agreed at no cost to the consumer."] },
+          { title: "Defective or undelivered content", paragraphs: [`Missing, damaged, misdescribed files or failed links should be reported to ${legalProfile.supportEmail} with the order number. The content will be brought into conformity without charge or undue delay. Where the law provides, a price reduction or termination and refund may be requested. Conformity rights are not lost when download begins and, for one-off supply, cover defects appearing within two years.`] },
+          { title: "Model withdrawal notice", paragraphs: [`To: ${legalProfile.legalName}, ${legalProfile.address}, ${legalProfile.supportEmail}. “I hereby withdraw from order [number], placed on [date]. Name: [name]. Address: [address]. Date: [date].” A signature is required only for a paper notice.`] }
+        ]
+      },
+      accessibility: {
+        file: "ACCESSIBILITY.txt",
+        title: "Accessibility",
+        description: "Access commitment, current scope and barrier-reporting channel.",
+        updated: legalProfile.updated.en,
+        version: legalVersions.accessibility,
+        sections: [
+          { title: "Commitment", paragraphs: ["The store is designed for keyboard use, screen magnification, sufficient contrast, reduced motion and assistive technologies. The catalogue, pre-purchase information and terms should not depend on colour, sound or mouse use alone."] },
+          { title: "Scope", paragraphs: ["This statement covers the store and purchase flow. Downloadable PDFs contain selectable text, but are not yet structurally tagged for every screen reader; they will be reviewed before final publication or an equivalent text alternative will be offered."] },
+          { title: "Report a barrier", paragraphs: [`When reporting a barrier, include the page, device, browser and assistive technology used in an email to ${legalProfile.supportEmail}, or call ${legalProfile.phone}. Receipt will be acknowledged and a response provided within a reasonable period.`] },
+          { title: "Preparation", paragraphs: ["This statement was prepared through an internal review of keyboard navigation, focus, contrast, zoom and mobile adaptation. It will be updated when the sales platform changes or an external audit is completed."] }
+        ]
+      }
+    }
+  };
+
+  // Añadir una carpeta aquí actualiza automáticamente navegación, filtros y totales del pack.
+  const catalog = [
+    { id: "trap", sku: "TRAP-RITUAL", name: "Trap Ritual", price: 14, tone: "#713d46", tags: ["trap"], category: { es: "Trap ritual", en: "Ritual trap" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 formas distintas de construir trap ritual oscuro. Cambian la batería, el movimiento del 808, la fuente principal y el espacio sin salir de la misma familia sonora.", en: "30 distinct ways to build dark ritual trap. The drum pocket, 808 movement, lead source and space change while the sound family stays coherent." }, demo: { title: "Ash Circle", src: "./audio/trap-ritual-ash-circle-preview.mp3", durationLabel: "00:30", files: ["001_ASH_CIRCLE_A.mp3", "001_ASH_CIRCLE_B.mp3", "018_SMOKE_SCRIPT_A.mp3", "018_SMOKE_SCRIPT_B.mp3"] } },
+    { id: "garage", sku: "GARAJE-OSCURO", name: "Garaje Oscuro", price: 14, tone: "#425763", tags: ["garage"], category: { es: "Garage oscuro", en: "Dark garage" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de UK garage oscuro con patrones 2-step, swing humano, subgrave y ambiente urbano. Cada una cambia la batería, el bajo, el motivo y el espacio.", en: "30 dark UK garage beats built on 2-step patterns, human swing, sub-bass and urban atmosphere. Each changes the drums, bass movement, main motif and space." }, demo: { title: "Alley Pressure", src: "./audio/garaje-oscuro-alley-pressure-preview.mp3", durationLabel: "00:30", files: ["001_ALLEY_PRESSURE_A.mp3", "001_ALLEY_PRESSURE_B.mp3", "021_DUBBED_CORNER_A.mp3", "021_DUBBED_CORNER_B.mp3"] } },
+    { id: "jungle", sku: "FOSSIL-JUNGLE", name: "Fossil Jungle", price: 14, tone: "#66705a", tags: ["jungle"], category: { es: "Jungle degradado", en: "Degraded jungle" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 piezas de jungle oscuro y degradado. Cambian la arquitectura de la batería, el comportamiento del bajo, la fuente de la muestra y el espacio.", en: "30 pieces of dark degraded jungle. The break architecture, bass behaviour, sample source and space change from one prompt to the next." }, demo: { title: "Limestone Roll", src: "./audio/fossil-jungle-limestone-roll-preview.mp3", durationLabel: "00:30", files: ["001_LIMESTONE_ROLL_A.mp3", "001_LIMESTONE_ROLL_B.mp3", "020_CAVERN_CASSETTE_A.mp3", "020_CAVERN_CASSETTE_B.mp3"] } },
+    { id: "low", sku: "LOW-PRESSURE", name: "Low Pressure", price: 14, tone: "#b34b35", tags: ["hiphop"], category: { es: "Hip-Hop abstracto", en: "Abstract hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases pesadas, oscuras y texturales. Cada propuesta cambia la batería, el bajo, la fuente sonora o el espacio sin salir del hip-hop experimental abstracto.", en: "30 heavy, dark and textural beats. Each changes the drums, bass, sound source or space without leaving abstract experimental hip-hop." }, demo: { title: "Concrete Pulse", src: "./audio/low-pressure-concrete-pulse-preview.mp3", durationLabel: "00:30", files: ["001_CONCRETE_PULSE_A.mp3", "001_CONCRETE_PULSE_B.mp3", "019_CRACKED_RELAY_A.mp3", "019_CRACKED_RELAY_B.mp3"] } },
+    { id: "abyss", sku: "ABYSS-DUB", name: "Abyss Dub", price: 14, tone: "#596352", tags: ["dub"], category: { es: "Hip-Hop dub", en: "Dub hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop dub oscuro con batería de rap, subgrave enorme, acordes aislados y ecos profundos. Cambian el patrón, el bajo y la forma de mezclar el espacio.", en: "30 dark dub-inflected hip-hop beats with rap drums, immense sub-bass, isolated chords and deep echoes. The pocket, bass and use of space change across the folder." }, demo: { title: "Deep Chamber", src: "./audio/abyss-dub-deep-chamber-preview.mp3", durationLabel: "00:30", files: ["001_DEEP_CHAMBER_A.mp3", "001_DEEP_CHAMBER_B.mp3", "014_OCEAN_FLOOR_BREAK_A.mp3", "014_OCEAN_FLOOR_BREAK_B.mp3"] } },
+    { id: "noir", sku: "NOIR-TAPES", name: "Noir Tapes", price: 14, tone: "#705e6b", tags: ["noir"], category: { es: "Hip-Hop noir", en: "Noir hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop noir y boom bap abstracto construidas con muestras. Cambian el corte de batería, el bajo, la fuente y el tratamiento de cinta.", en: "30 sample-based noir hip-hop and abstract boom-bap beats. The drum cut, bass, sample source and tape treatment change across the folder." }, demo: { title: "Rain Evidence", src: "./audio/noir-tapes-rain-evidence-preview.mp3", durationLabel: "00:30", files: ["001_RAIN_EVIDENCE_A.mp3", "001_RAIN_EVIDENCE_B.mp3", "029_BURNT_ARCHIVE_A.mp3", "029_BURNT_ARCHIVE_B.mp3"] } }
+  ];
+
+  const catalogueTotals = catalog.reduce((totals, item) => ({ prompts: totals.prompts + item.counts.prompts, negatives: totals.negatives + item.counts.negatives }), { prompts: 0, negatives: 0 });
+  const archive = { id: "archive", sku: "COMPLETE-PACK", name: { es: "Pack completo", en: "Complete pack" }, price: 69, tone: "#a44730", bundle: true, members: catalog.map((item) => item.id), description: { es: `Todo el catálogo en un solo ZIP: ${catalogueTotals.prompts} prompts y ${catalogueTotals.negatives} negative prompts.`, en: `The full catalogue in one ZIP: ${catalogueTotals.prompts} prompts and ${catalogueTotals.negatives} negative prompts.` } };
+  const payhipProductKeys = Object.freeze({ trap: "0GiEq", garage: "HunFY", jungle: "LmWUN", low: "LrzFf", abyss: "TxsAr", noir: "8sFfE", archive: "SPXoI" });
+  const products = Object.fromEntries([...catalog, archive].map((product) => [product.id, { ...product, payhipKey: payhipProductKeys[product.id] }]));
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const get = (object, path) => path.split(".").reduce((value, key) => value?.[key], object);
+  const interpolate = (value, values = {}) => String(value).replace(/\{(\w+)\}/g, (_, key) => values[key] ?? `{${key}}`);
+  const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char]);
+
+  let language = "es";
+  let viewMode = "grid";
+  let query = "";
+  let selectedProductId = null;
+  let selectedFile = null;
+  let cart = [];
+  let appHistory = [];
+  let historyCursor = 0;
+  let toastTimer;
+  let lastCartTrigger;
+  let lastSidebarTrigger;
+  let activeTrack = null;
+  let lastTrackId = null;
+  let lastRenderedRoute = null;
+
+  try {
+    const savedLanguage = localStorage.getItem("subsuelo-language");
+    language = savedLanguage === "es" || savedLanguage === "en" ? savedLanguage : (navigator.language || "es").toLowerCase().startsWith("en") ? "en" : "es";
+    viewMode = localStorage.getItem("subsuelo-view") === "list" ? "list" : "grid";
+    const savedCart = JSON.parse(localStorage.getItem("subsuelo-cart-v5") || "[]");
+    cart = Array.isArray(savedCart) ? savedCart.filter((id) => products[id]) : [];
+  } catch {
+    language = "es";
+    cart = [];
+  }
+
+  const t = (path, values) => interpolate(get(copy[language], path) ?? path, values);
+  const productName = (product) => typeof product?.name === "object" ? product.name[language] : product?.name || "";
+  const categoryName = (category) => catalog.find((product) => product.tags.includes(category))?.category?.[language] || category;
+  const price = (value) => new Intl.NumberFormat(language === "es" ? "es-ES" : "en-GB", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(value);
+  const currentHash = () => location.hash && location.hash.startsWith("#/") ? location.hash : "#/home";
+
+  const parseRoute = (hash = currentHash()) => {
+    const parts = hash.replace(/^#\//, "").split("/").filter(Boolean);
+    if (!parts.length || parts[0] === "home") return { type: "home" };
+    if (parts[0] === "category") return { type: "category", category: parts[1] || "" };
+    if (parts[0] === "product") return { type: "product", id: parts[1], section: parts[2] || null, entry: parts[3] || null };
+    if (parts[0] === "demos") return { type: "demos" };
+    if (parts[0] === "help") return { type: "help" };
+    if (parts[0] === "legal") return { type: "legal", document: parts[1] || null };
+    if (parts[0] === "bundle") return { type: "bundle" };
+    return { type: "home" };
+  };
+
+  const routeHash = (route) => {
+    if (route.type === "category") return `#/category/${route.category}`;
+    if (route.type === "product") return `#/product/${route.id}${route.section ? `/${route.section}` : ""}${route.entry ? `/${route.entry}` : ""}`;
+    if (route.type === "demos") return "#/demos";
+    if (route.type === "help") return "#/help";
+    if (route.type === "legal") return `#/legal${route.document ? `/${route.document}` : ""}`;
+    if (route.type === "bundle") return "#/bundle";
+    return "#/home";
+  };
+
+  const normalizeRoute = (hash) => routeHash(parseRoute(hash));
+  const initialRoute = normalizeRoute(currentHash());
+  appHistory = [initialRoute];
+  historyCursor = 0;
+  history.replaceState({ appIndex: 0, route: initialRoute }, "", initialRoute);
+
+  const navigate = (hash, options = {}) => {
+    const normalized = normalizeRoute(hash);
+    if (normalized === appHistory[historyCursor] && !options.force) {
+      renderRoute();
+      return;
+    }
+    appHistory = appHistory.slice(0, historyCursor + 1);
+    appHistory.push(normalized);
+    historyCursor = appHistory.length - 1;
+    history.pushState({ appIndex: historyCursor, route: normalized }, "", normalized);
+    selectedFile = null;
+    renderRoute();
+    closeSidebar();
+  };
+
+  window.addEventListener("popstate", (event) => {
+    const route = normalizeRoute(currentHash());
+    if (Number.isInteger(event.state?.appIndex)) historyCursor = Math.max(0, Math.min(event.state.appIndex, appHistory.length - 1));
+    else {
+      const existing = appHistory.lastIndexOf(route);
+      historyCursor = existing >= 0 ? existing : 0;
+    }
+    selectedFile = null;
+    renderRoute();
+  });
+
+  const parentHash = (route) => {
+    if (route.type === "product" && route.entry) return `#/product/${route.id}/${route.section}`;
+    if (route.type === "product" && route.section) return `#/product/${route.id}`;
+    if (route.type === "legal" && route.document) return "#/legal";
+    if (route.type === "product" || route.type === "category" || route.type === "demos" || route.type === "help" || route.type === "legal" || route.type === "bundle") return "#/home";
+    return null;
+  };
+
+  const breadcrumbData = (route) => {
+    const items = [{ label: "SUBSUELO", route: "#/home" }];
+    if (route.type === "category") items.push({ label: categoryName(route.category), route: routeHash(route) });
+    if (route.type === "demos") items.push({ label: "DEMOS", route: "#/demos" });
+    if (route.type === "help") items.push({ label: "HELP", route: "#/help" });
+    if (route.type === "legal") {
+      items.push({ label: "LEGAL", route: "#/legal" });
+      const document = legalDocuments[language][route.document];
+      if (document) items.push({ label: document.file, route: routeHash(route) });
+    }
+    if (route.type === "bundle") items.push({ label: productName(archive), route: "#/bundle" });
+    if (route.type === "product") {
+      const product = products[route.id];
+      items.push({ label: productName(product) || route.id, route: `#/product/${route.id}` });
+      if (route.section) items.push({ label: route.section.toUpperCase(), route: `#/product/${route.id}/${route.section}` });
+      if (route.entry) items.push({ label: fileDefinition(product, route.section, route.entry).name, route: routeHash(route) });
+    }
+    return items;
+  };
+
+  const renderBreadcrumbs = (route) => {
+    const items = breadcrumbData(route);
+    $("[data-breadcrumb]").innerHTML = items.map((item, index) => `<button class="breadcrumb-button" type="button" data-route="${item.route}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</button>`).join("");
+  };
+
+  const categories = () => {
+    return [...new Set(catalog.flatMap((product) => product.tags))];
+  };
+
+  const treeItem = ({ route, label, icon = "folder", count, current }) => `<button class="tree-item ${current ? "is-current" : ""}" type="button" data-route="${route}"${current ? ' aria-current="page"' : ""}><span class="tree-icon tree-icon--${icon}"></span><span>${escapeHtml(label)}</span>${count !== undefined ? `<small>${count}</small>` : ""}</button>`;
+
+  const renderSidebar = (route) => {
+    $("[data-sidebar-main]").innerHTML = [
+      treeItem({ route: "#/home", label: t("sidebar.home"), count: catalog.length, current: route.type === "home" }),
+      treeItem({ route: "#/demos", label: t("sidebar.demos"), icon: "play", current: route.type === "demos" }),
+      treeItem({ route: "#/bundle", label: t("sidebar.bundle"), current: route.type === "bundle" })
+    ].join("");
+    $("[data-sidebar-categories]").innerHTML = categories().map((category) => treeItem({ route: `#/category/${category}`, label: categoryName(category), count: catalog.filter((product) => product.tags.includes(category)).length, current: route.type === "category" && route.category === category })).join("");
+    $("[data-sidebar-info]").innerHTML = [
+      treeItem({ route: "#/help", label: t("sidebar.help"), icon: "doc", current: route.type === "help" }),
+      treeItem({ route: "#/legal", label: t("sidebar.legalFolder"), icon: "folder", count: legalOrder.length, current: route.type === "legal" }),
+      `<button class="tree-item" type="button" data-open-cart><span class="cart-icon"></span><span>${t("sidebar.cart")}</span><small>${cart.length}</small></button>`
+    ].join("");
+  };
+
+  const folderMarkup = (product) => {
+    const name = productName(product);
+    const detail = product.bundle ? t("bundle.folderCount", { count: product.members.length }) : `${categoryName(product.tags[0])} · ${t("inspector.prompts", { count: product.counts.prompts })}`;
+    const label = `${name}. ${detail}. ${price(product.price)}`;
+    return `<button class="folder-item ${selectedProductId === product.id ? "is-selected" : ""}" type="button" data-product-id="${product.id}" aria-label="${escapeHtml(label)}"><span class="folder-icon ${product.bundle ? "folder-icon--bundle" : ""}" style="--tone:${product.tone}"></span><strong>${escapeHtml(name)}</strong><small>${escapeHtml(detail)}</small><span class="folder-list-price">${price(product.price)}</span></button>`;
+  };
+
+  const matchingProducts = (route) => catalog.filter((product) => {
+    const categoryMatch = route.type !== "category" || product.tags.includes(route.category);
+    const search = query.trim().toLowerCase();
+    const searchMatch = !search || `${productName(product)} ${product.sku} ${product.tags.join(" ")} ${product.description[language]}`.toLowerCase().includes(search);
+    return categoryMatch && searchMatch;
+  });
+
+  const homeView = (route) => {
+    const matches = matchingProducts(route);
+    const title = route.type === "category" ? categoryName(route.category) : t("home.title");
+    const lead = route.type === "category" ? `${t("home.lead")}` : t("home.lead");
+    const folders = matches.length ? `<div class="folder-grid ${viewMode === "list" ? "is-list" : ""}" data-folder-grid>${matches.map(folderMarkup).join("")}</div>` : `<div class="empty-state"><div class="empty-folder"></div><h2>${t("home.empty")}</h2><p>${t("home.emptyHint")}</p><button class="help-action" type="button" data-clear-search>${t("home.clear")}</button></div>`;
+    const hint = window.matchMedia("(max-width: 900px)").matches ? t("home.mobileHint") : t("home.hint");
+    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><button class="system-file" type="button" data-route="#/help"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></button><button class="system-file" type="button" data-route="#/demos"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></button><button class="system-file" type="button" data-route="#/bundle"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></button><button class="system-file" type="button" data-route="#/legal"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></button></div></section>`;
+  };
+
+  const bundleCounts = () => archive.members.map((id) => products[id]).reduce((sum, product) => ({ prompts: sum.prompts + product.counts.prompts, negatives: sum.negatives + product.counts.negatives, demos: sum.demos + product.counts.demos }), { prompts: 0, negatives: 0, demos: 0 });
+
+  const inspectorFacts = (counts) => `<div class="inspector-facts"><span>${t("inspector.prompts", { count: counts.prompts })}</span><span>${t("inspector.negatives", { count: counts.negatives })}</span><span>${t("inspector.guide")}</span><span>${t(counts.demos === 1 ? "inspector.demo" : "inspector.demos", { count: counts.demos })}</span></div>`;
+
+  const emptyInspector = () => `<div class="inspector-empty"><span class="folder-icon"></span><h2>${t("inspector.select")}</h2><p>${t("inspector.selectHint")}</p></div>`;
+
+  const productInspector = (product) => {
+    const counts = product.bundle ? bundleCounts() : product.counts;
+    const name = productName(product);
+    const tags = product.bundle ? [t("bundle.kicker")] : product.tags.map(categoryName);
+    const coverLabel = product.bundle ? t("inspector.folders", { count: product.members.length }) : `${t("inspector.prompts", { count: counts.prompts })} / ${t("inspector.negatives", { count: counts.negatives })}`;
+    const facts = product.bundle ? `<div class="inspector-facts"><span>${t("inspector.folders", { count: product.members.length })}</span><span>${t("inspector.prompts", { count: counts.prompts })}</span><span>${t("inspector.negatives", { count: counts.negatives })}</span><span>${t("inspector.demos", { count: counts.demos })}</span></div>` : inspectorFacts(counts);
+    return `<div class="inspector-cover" style="--tone:${product.tone}"><span>${escapeHtml(coverLabel)}</span><strong>${escapeHtml(name)}</strong></div><h2>${escapeHtml(name)}</h2><p>${escapeHtml(product.description[language])}</p><div class="tag-row">${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>${facts}<div class="inspector-price">${price(product.price)}</div><div class="inspector-actions"><button type="button" data-open-product="${product.id}">${t("inspector.open")}</button>${product.demo ? `<button type="button" data-play="${product.id}">${t("inspector.play")}</button>` : ""}<button class="primary-action" type="button" data-add="${product.id}">${t("inspector.add")} · ${price(product.price)}</button></div>`;
+  };
+
+  const fileDefinition = (product, section, entry) => {
+    const definitions = {
+      es: {
+        readme: { name: "00_LEEME_PRIMERO_ES.txt", format: "TXT", language: t("product.spanishDocs"), description: t("product.readme"), access: "purchase" },
+        prompts: { name: "01_PROMPTS_ES.pdf", format: "PDF", language: t("product.spanishDocs"), description: t("product.promptsFolder"), access: "purchase" },
+        negatives: { name: "02_NEGATIVE_PROMPTS_ES.pdf", format: "PDF", language: t("product.spanishDocs"), description: t("product.negativesFolder"), access: "purchase" },
+        guide: { name: "03_GUIA_RAPIDA_ES.pdf", format: "PDF", language: t("product.spanishDocs"), description: t("product.guideFile"), access: "purchase" },
+        license: { name: "04_LICENCIA_ES.txt", format: "TXT", language: t("product.spanishDocs"), description: t("product.licenseFile"), access: "purchase" }
+      },
+      en: {
+        readme: { name: "00_READ_ME_FIRST_EN.txt", format: "TXT", language: t("product.englishDocs"), description: t("product.readme"), access: "purchase" },
+        prompts: { name: "01_PROMPTS_EN.pdf", format: "PDF", language: t("product.englishDocs"), description: t("product.promptsFolder"), access: "purchase" },
+        negatives: { name: "02_NEGATIVE_PROMPTS_EN.pdf", format: "PDF", language: t("product.englishDocs"), description: t("product.negativesFolder"), access: "purchase" },
+        guide: { name: "03_QUICK_GUIDE_EN.pdf", format: "PDF", language: t("product.englishDocs"), description: t("product.guideFile"), access: "purchase" },
+        license: { name: "04_LICENSE_EN.txt", format: "TXT", language: t("product.englishDocs"), description: t("product.licenseFile"), access: "purchase" }
+      }
+    };
+    if (section === "es" || section === "en") {
+      if (entry && definitions[section][entry]) return definitions[section][entry];
+      return { name: section.toUpperCase(), format: "FOLDER", language: section === "es" ? t("product.spanishDocs") : t("product.englishDocs"), description: t(section === "es" ? "product.esFolder" : "product.enFolder"), access: "purchase" };
+    }
+    if (section === "demos") return { name: `${product.demo.title}.preview`, format: "AUDIO", language: "AUDIO", description: t("product.previewDescription"), access: "teaser" };
+    return definitions.es.readme;
+  };
+
+  const fileInspector = (product, definition) => {
+    const accessLabel = t(definition.access === "public" ? "product.public" : definition.access === "teaser" ? "product.audioPreview" : "product.available");
+    const availabilityTitle = t(definition.access === "public" ? "product.public" : definition.access === "teaser" ? "product.previewOnly" : "product.included");
+    const availabilityText = t(definition.access === "public" ? "product.review" : definition.access === "teaser" ? "product.notInZip" : "product.afterPurchase");
+    const actions = definition.access === "public" ? "" : `<div class="inspector-price">${price(product.price)}</div><div class="inspector-actions">${definition.access === "teaser" ? `<button type="button" data-play="${product.id}">${t("product.listen")}</button>` : ""}<button class="primary-action" type="button" data-add="${product.id}">${t("product.add")}</button></div>`;
+    const icon = definition.format === "FOLDER"
+      ? `<span class="row-folder-icon" aria-hidden="true"></span>`
+      : `<span class="file-icon ${definition.format === "PDF" ? "file-icon--pdf" : definition.format === "AUDIO" ? "file-icon--audio" : "file-icon--text"}">${definition.format === "AUDIO" ? "AUDIO" : escapeHtml(definition.format)}</span>`;
+    return `<div class="file-details"><div class="file-details__icon">${icon}</div><h2>${escapeHtml(definition.name)}</h2><p>${escapeHtml(definition.description)}</p><dl><div><dt>${t("product.format")}</dt><dd>${escapeHtml(definition.format)}</dd></div><div><dt>${t("product.language")}</dt><dd>${escapeHtml(definition.language)}</dd></div><div><dt>${t("product.content")}</dt><dd>${accessLabel}</dd></div></dl><div class="availability"><strong>${availabilityTitle}</strong><span>${availabilityText}</span></div>${actions}</div>`;
+  };
+
+  const productBanner = (product) => `<section class="product-banner" style="--tone:${product.tone}"><div class="product-banner__art"></div><div><p class="kicker">${t("product.edition")} / ${escapeHtml(categoryName(product.tags[0]))}</p><h1>${escapeHtml(productName(product))}</h1><p>${escapeHtml(product.description[language])}</p></div><div class="product-banner__buy"><strong>${price(product.price)}</strong><button type="button" data-add="${product.id}">${t("product.add")}</button></div></section>`;
+
+  const rowIcon = (type) => {
+    if (type === "folder") return `<span class="row-folder-icon" aria-hidden="true"></span>`;
+    const label = type === "audio" ? "AUDIO" : type === "pdf" ? "PDF" : "TXT";
+    return `<span class="file-icon ${type === "pdf" ? "file-icon--pdf" : type === "audio" ? "file-icon--audio" : "file-icon--text"}">${label}</span>`;
+  };
+  const fileRow = ({ name, type, description, availability, route, action, productId, fileKey, entry, playId, disabled = false }) => `<button class="file-row ${selectedFile?.key === fileKey && selectedFile?.entry === entry ? "is-selected" : ""}" type="button" ${route ? `data-open-node="${route}"` : ""} ${playId ? `data-play="${playId}"` : ""} ${productId ? `data-file-product="${productId}" data-file-key="${fileKey}" ${entry ? `data-file-entry="${entry}"` : ""}` : ""}${disabled ? " disabled" : ""}><span class="file-row__name">${rowIcon(type)}<strong>${escapeHtml(name)}</strong></span><span>${escapeHtml(type === "folder" ? t("product.folder") : type.toUpperCase())}</span><span>${escapeHtml(description)}</span><span class="file-row__action">${escapeHtml(action)}</span></button>`;
+
+  const fileList = (rows) => `<div class="file-list"><div class="file-list__header"><span>${t("product.name")}</span><span>${t("product.type")}</span><span>${t("product.description")}</span><span>${t("product.availability")}</span></div>${rows.join("")}</div>`;
+
+  const purchaseStrip = (product) => `<div class="purchase-strip"><div><strong>${escapeHtml(productName(product))} · ${price(product.price)}</strong><span>${t("product.purchase")}</span></div><div class="purchase-strip__actions">${product.demo ? `<button type="button" data-play="${product.id}">${t("product.play")}</button>` : ""}<button class="primary-action" type="button" data-add="${product.id}">${t("product.add")}</button></div></div>`;
+
+  const productRootView = (product) => {
+    const rows = [
+      fileRow({ name: "ES", type: "folder", description: t("product.esFolder"), availability: t("product.included"), route: `#/product/${product.id}/es`, productId: product.id, fileKey: "es", action: t("product.open") }),
+      fileRow({ name: "EN", type: "folder", description: t("product.enFolder"), availability: t("product.included"), route: `#/product/${product.id}/en`, productId: product.id, fileKey: "en", action: t("product.open") }),
+      fileRow({ name: t("product.demoFolderName"), type: "folder", description: t("product.demosFolder"), availability: t("product.included"), route: `#/product/${product.id}/demos`, productId: product.id, fileKey: "demos", action: t("product.open") })
+    ];
+    return `${productBanner(product)}<header class="subfolder-heading"><span class="folder-icon" style="--tone:${product.tone}"></span><div><h2>${t("product.contents")}</h2><p>${t("product.files", { count: rows.length })}</p></div></header>${fileList(rows)}${purchaseStrip(product)}`;
+  };
+
+  const languageFolderView = (product, section) => {
+    const keys = ["readme", "prompts", "negatives", "guide", "license"];
+    const rows = keys.map((key) => {
+      const definition = fileDefinition(product, section, key);
+      return fileRow({ name: definition.name, type: definition.format.toLowerCase(), description: definition.description, availability: t("product.included"), route: `#/product/${product.id}/${section}/${key}`, productId: product.id, fileKey: section, entry: key, action: t("product.details") });
+    });
+    return `<header class="subfolder-heading"><span class="folder-icon" style="--tone:${product.tone}"></span><div><h1>${section.toUpperCase()}</h1><p>${t("product.files", { count: rows.length })}</p></div></header>${fileList(rows)}${purchaseStrip(product)}`;
+  };
+
+  const demosFolderView = (product) => {
+    const definition = fileDefinition(product, "demos", "preview");
+    const locked = product.demo.files.map((name) => fileRow({ name, type: "audio", description: t("product.audioIncluded"), availability: t("product.afterPurchase"), action: t("product.included"), disabled: true }));
+    const preview = fileRow({ name: definition.name, type: "audio", description: definition.description, availability: t("product.previewOnly"), playId: product.id, action: t("product.listen") });
+    return `<header class="subfolder-heading"><span class="folder-icon" style="--tone:${product.tone}"></span><div><h1>${t("product.demoFolderName")}</h1><p>${t("product.demosIncluded")}</p></div></header>${fileList([...locked, preview])}${purchaseStrip(product)}`;
+  };
+
+  const filePageView = (product, section, entry) => {
+    const definition = fileDefinition(product, section, entry);
+    const accessText = definition.access === "public" ? t("product.public") : definition.access === "teaser" ? t("product.audioPreview") : t("product.available");
+    const availabilityText = definition.access === "public" ? t("product.public") : definition.access === "teaser" ? t("product.notInZip") : t("product.afterPurchase");
+    return `<article class="help-document help-document--file"><header class="help-document__head">${escapeHtml(definition.name)}</header><div class="help-document__body"><div class="file-details__icon">${rowIcon(definition.format === "PDF" ? "pdf" : definition.format === "AUDIO" ? "audio" : "txt")}</div><h1 class="document-filename">${escapeHtml(definition.name)}</h1><p class="help-document__lead">${escapeHtml(definition.description)}</p><div class="concept-grid"><div class="concept-card"><h2>${t("product.format")}</h2><p>${escapeHtml(definition.format)}</p></div><div class="concept-card"><h2>${t("product.language")}</h2><p>${escapeHtml(definition.language)}</p></div><div class="concept-card"><h2>${t("product.content")}</h2><p>${accessText}</p></div><div class="concept-card"><h2>${t("product.availability")}</h2><p>${availabilityText}</p></div></div>${definition.access === "teaser" ? `<button class="help-action" type="button" data-play="${product.id}">${t("product.listen")}</button>` : ""}</div></article>${purchaseStrip(product)}`;
+  };
+
+  const helpView = () => `<article class="help-document"><header class="help-document__head">${t("help.kicker")}</header><div class="help-document__body"><h1>${t("help.title")}</h1><p class="help-document__lead">${t("help.lead")}</p><div class="two-part-map"><div class="map-block"><strong>${t("help.prompt")}</strong><span>${t("help.direction")}</span></div><div class="map-arrow">+</div><div class="map-block"><strong>${t("help.negative")}</strong><span>${t("help.outside")}</span></div></div><p class="help-document__lead">${t("help.together")}</p><div class="concept-grid"><section class="concept-card"><div class="concept-card__top"><span class="file-icon file-icon--pdf">PDF</span><h2>${t("help.prompt")}</h2></div><p>${t("help.promptText")}</p></section><section class="concept-card"><div class="concept-card__top"><span class="file-icon file-icon--pdf">PDF</span><h2>${t("help.negative")}</h2></div><p>${t("help.negativeText")}</p></section><section class="concept-card"><div class="concept-card__top"><span class="file-icon file-icon--pdf">PDF</span><h2>${t("help.guide")}</h2></div><p>${t("help.guideText")}</p></section><section class="concept-card"><div class="concept-card__top"><span class="file-icon file-icon--audio">AUDIO</span><h2>${t("help.demos")}</h2></div><p>${t("help.demosText")}</p></section></div><div class="availability"><strong>TXT / PDF / MP3</strong><span>${t("help.delivery")}</span></div></div></article>`;
+
+  const legalOrder = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
+  const legalInline = (value) => escapeHtml(value)
+    .replace(/([\w.+-]+@[\w.-]+\.[A-Za-z]{2,})/g, '<a href="mailto:$1">$1</a>')
+    .replace(/(https:\/\/[^\s<]*[A-Za-z0-9/#?=&_%~-])([.,;:!?)])?/g, '<a href="$1" rel="noopener noreferrer">$1</a>$2')
+    .replace(/(\+34\s?\d{3}\s?\d{2}\s?\d{2}\s?\d{2})/g, (number) => `<a href="tel:${number.replace(/\s/g, "")}">${number}</a>`);
+
+  const legalFolderView = () => {
+    const rows = legalOrder.map((key) => {
+      const document = legalDocuments[language][key];
+      return fileRow({ name: document.file, type: "txt", description: document.description, availability: t("legalUi.public"), route: `#/legal/${key}`, action: t("legalUi.open") });
+    });
+    return `<section class="legal-folder"><header class="view-heading"><div class="view-heading__copy"><p>${t("legalUi.folderKicker")}</p><h1>${t("legalUi.folderTitle")}</h1><p>${t("legalUi.folderLead")}</p></div></header><dl class="legal-identity"><div><dt>${t("legalUi.operator")}</dt><dd>${escapeHtml(legalProfile.legalName)}<small>${escapeHtml(legalProfile.brand)}</small></dd></div><div><dt>${t("legalUi.taxId")}</dt><dd>${escapeHtml(legalProfile.taxId)}</dd></div><div><dt>${t("legalUi.registry")}</dt><dd>${escapeHtml(legalProfile.registry)}</dd></div><div><dt>${t("legalUi.address")}</dt><dd>${escapeHtml(legalProfile.address)}</dd></div><div><dt>${t("legalUi.email")}</dt><dd><a href="mailto:${escapeHtml(legalProfile.supportEmail)}">${escapeHtml(legalProfile.supportEmail)}</a><small><a href="tel:${legalProfile.phone.replace(/\s/g, "")}">${escapeHtml(legalProfile.phone)}</a></small></dd></div></dl><div class="file-list"><div class="file-list__header"><span>${t("legalUi.name")}</span><span>${t("legalUi.type")}</span><span>${t("legalUi.description")}</span><span>${t("legalUi.access")}</span></div>${rows.join("")}</div></section>`;
+  };
+
+  const legalDocumentView = (key) => {
+    const document = legalDocuments[language][key];
+    if (!document) return legalFolderView();
+    const toc = document.sections.map((section, index) => `<button type="button" data-scroll-section="legal-section-${index}">${escapeHtml(section.title)}</button>`).join("");
+    const sections = document.sections.map((section, index) => `<section id="legal-section-${index}"><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${legalInline(paragraph)}</p>`).join("")}${section.list ? `<ul>${section.list.map((item) => `<li>${legalInline(item)}</li>`).join("")}</ul>` : ""}${section.checkbox ? `<p class="consent-example"><strong aria-hidden="true">☐</strong> ${legalInline(section.checkbox)}</p>` : ""}</section>`).join("");
+    return `<article class="legal-view"><header class="legal-view__header"><span class="file-icon file-icon--text">TXT</span><div><p>${t("legalUi.system")}</p><h1 class="document-filename">${escapeHtml(document.file)}</h1><small>${t("legalUi.updated")}: ${escapeHtml(document.updated)} · ${t("legalUi.version")}: ${escapeHtml(document.version)}</small></div></header><div class="legal-view__layout"><nav class="legal-toc" aria-label="${t("legalUi.sections")}"><strong>${t("legalUi.sections")}</strong>${toc}</nav><div class="legal-copy">${sections}</div></div></article>`;
+  };
+
+  const demosView = () => {
+    const rows = catalog.map((product) => `<div class="file-row" data-track="${product.id}"><span class="file-row__name">${rowIcon("audio")}<strong>${escapeHtml(product.demo.title)}</strong></span><span>${escapeHtml(productName(product))}</span><span>${product.demo.durationLabel}</span><button class="file-row__action" type="button" data-play="${product.id}">${t("product.listen")}</button></div>`);
+    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("demos.kicker")}</p><h1>${t("demos.title")}</h1><p>${t("demos.lead")}</p></div></header><div class="file-list demo-list"><div class="file-list__header"><span>${t("demos.track")}</span><span>${t("demos.edition")}</span><span>${t("demos.length")}</span><span>${t("demos.action")}</span></div>${rows.join("")}</div>`;
+  };
+
+  const bundleView = () => {
+    const rows = archive.members.map((id) => products[id]).map((product) => fileRow({ name: productName(product), type: "folder", description: product.description[language], availability: t("bundle.item"), route: `#/product/${product.id}`, productId: product.id, fileKey: "bundle-member", action: t("product.open") }));
+    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("bundle.kicker")}</p><h1>${t("bundle.title")}</h1><p>${t("bundle.lead")}</p></div></header><header class="subfolder-heading"><span class="folder-icon folder-icon--bundle"></span><div><h2>${t("bundle.members")}</h2><p>${t("product.files", { count: archive.members.length })}</p></div></header>${fileList(rows)}${purchaseStrip(archive)}`;
+  };
+
+  const renderInspector = (route) => {
+    const inspector = $("[data-inspector]");
+    if (selectedFile && route.type === "product") {
+      const product = products[selectedFile.productId];
+      inspector.innerHTML = fileInspector(product, fileDefinition(product, selectedFile.key, selectedFile.entry));
+      return;
+    }
+    if (route.type === "product" && products[route.id]) {
+      inspector.innerHTML = productInspector(products[route.id]);
+      return;
+    }
+    if (route.type === "bundle") {
+      inspector.innerHTML = productInspector(archive);
+      return;
+    }
+    if (selectedProductId && products[selectedProductId]) {
+      inspector.innerHTML = productInspector(products[selectedProductId]);
+      return;
+    }
+    inspector.innerHTML = emptyInspector();
+  };
+
+  const renderStatus = (route) => {
+    let count = 0;
+    if (route.type === "home" || route.type === "category") count = matchingProducts(route).length;
+    else if (route.type === "product") {
+      const product = products[route.id];
+      count = route.entry ? 1 : route.section === "es" || route.section === "en" ? 5 : route.section === "demos" ? product.counts.demos + 1 : 3;
+    } else if (route.type === "demos") count = catalog.length;
+    else if (route.type === "legal") count = route.document ? 1 : legalOrder.length;
+    else if (route.type === "bundle") count = archive.members.length;
+    else count = 4;
+    $("[data-status-main]").textContent = count === 1 ? t("status.item") : t("status.items", { count });
+    $("[data-status-selection]").textContent = activeTrack && !activeTrack.audio.paused ? t("status.playing", { title: products[activeTrack.id].demo.title }) : selectedProductId || selectedFile ? t("status.selected", { count: 1 }) : t("status.none");
+  };
+
+  const renderRoute = () => {
+    const route = parseRoute();
+    const routeKey = routeHash(route);
+    const routeChanged = routeKey !== lastRenderedRoute;
+    const product = route.type === "product" ? products[route.id] : null;
+    if (route.type === "product" && !product) {
+      navigate("#/home", { force: true });
+      return;
+    }
+    if (route.type === "product" && route.section) {
+      const documentEntries = ["readme", "prompts", "negatives", "guide", "license"];
+      const validLanguageRoute = ["es", "en"].includes(route.section) && (!route.entry || documentEntries.includes(route.entry));
+      const validDemoRoute = route.section === "demos" && (!route.entry || route.entry === "preview");
+      if (!validLanguageRoute && !validDemoRoute) {
+        navigate(`#/product/${route.id}`, { force: true });
+        return;
+      }
+    }
+    if (route.type === "legal" && route.document && !legalDocuments[language][route.document]) {
+      navigate("#/legal", { force: true });
+      return;
+    }
+    if (route.type !== "home" && route.type !== "category") selectedProductId = null;
+    renderSidebar(route);
+    renderBreadcrumbs(route);
+    let html = "";
+    if (route.type === "home" || route.type === "category") html = homeView(route);
+    if (route.type === "help") html = helpView();
+    if (route.type === "legal") html = route.document ? legalDocumentView(route.document) : legalFolderView();
+    if (route.type === "demos") html = demosView();
+    if (route.type === "bundle") html = bundleView();
+    if (route.type === "product") {
+      if (!route.section) html = productRootView(product);
+      else if ((route.section === "es" || route.section === "en") && !route.entry) html = languageFolderView(product, route.section);
+      else if (route.section === "demos" && !route.entry) html = demosFolderView(product);
+      else html = filePageView(product, route.section, route.entry);
+    }
+    $("[data-view-content]").innerHTML = html;
+    renderInspector(route);
+    renderStatus(route);
+    const parent = parentHash(route);
+    $("[data-up]").disabled = !parent;
+    $("[data-back]").disabled = historyCursor <= 0;
+    $("[data-forward]").disabled = historyCursor >= appHistory.length - 1;
+    $$('[data-view-mode]').forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.viewMode === viewMode)));
+    const pageLabel = breadcrumbData(route).at(-1)?.label || "CATALOG";
+    $("[data-task-title]").textContent = pageLabel;
+    $$('[data-route]').forEach((button) => {
+      const current = normalizeRoute(button.dataset.route) === routeKey;
+      if (current) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
+    });
+    document.title = `${pageLabel} — ${legalProfile.brand}`;
+    $("[data-route-announcer]").textContent = pageLabel;
+    if (routeChanged) {
+      const pane = $(".file-pane");
+      pane.scrollTop = 0;
+      const heading = $("[data-view-content] h1");
+      if (heading) {
+        heading.tabIndex = -1;
+        requestAnimationFrame(() => heading.focus({ preventScroll: true }));
+      }
+    }
+    lastRenderedRoute = routeKey;
+    updateAudioUi();
+  };
+
+  const showToast = (message) => {
+    const toast = $("[data-toast]");
+    toast.textContent = message;
+    toast.classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2400);
+  };
+
+  const selectProduct = (id) => {
+    selectedProductId = id;
+    selectedFile = null;
+    $$('[data-product-id]').forEach((item) => item.classList.toggle("is-selected", item.dataset.productId === id));
+    renderInspector(parseRoute());
+    renderStatus(parseRoute());
+  };
+
+  const selectFile = (productId, key, entry) => {
+    selectedFile = { productId, key, entry: entry || null };
+    $$('[data-file-key]').forEach((row) => row.classList.toggle("is-selected", row.dataset.fileProduct === productId && row.dataset.fileKey === key && (row.dataset.fileEntry || null) === (entry || null)));
+    renderInspector(parseRoute());
+    renderStatus(parseRoute());
+  };
+
+  const renderCart = () => {
+    $$('[data-cart-count]').forEach((element) => { element.textContent = String(cart.length); });
+    $("[data-cart-items]").innerHTML = cart.map((id) => {
+      const product = products[id];
+      const name = productName(product);
+      return `<article class="cart-item"><span class="cart-item__folder" style="--tone:${product.tone}"></span><div><strong>${escapeHtml(name)}</strong><small>${t(product.bundle ? "cart.bundle" : "cart.item")} · ${price(product.price)}</small></div><button type="button" data-remove="${product.id}" aria-label="${t("cart.remove")} ${escapeHtml(name)}">${t("cart.remove")}</button></article>`;
+    }).join("");
+    const empty = cart.length === 0;
+    $("[data-cart-empty]").hidden = !empty;
+    $("[data-cart-footer]").hidden = empty;
+    const total = cart.reduce((sum, id) => sum + products[id].price, 0);
+    $("[data-cart-total]").textContent = price(total);
+    $("[data-checkout-total]").textContent = price(total);
+    $("[data-checkout-pay-total]").textContent = price(total);
+    $("[data-checkout-items]").innerHTML = cart.map((id) => {
+      const product = products[id];
+      return `<div class="checkout-order__item"><span><strong>${escapeHtml(productName(product))}</strong><small>${t("checkout.unit")} · ${escapeHtml(product.sku)}</small></span><b>${price(product.price)}</b></div>`;
+    }).join("");
+    try { localStorage.setItem("subsuelo-cart-v5", JSON.stringify(cart)); } catch { /* unavailable */ }
+    renderSidebar(parseRoute());
+  };
+
+  const addToCart = (id) => {
+    const product = products[id];
+    if (!product) return;
+    if (product.bundle) {
+      const replaced = cart.some((item) => product.members.includes(item));
+      cart = cart.filter((item) => !product.members.includes(item));
+      if (!cart.includes(id)) cart.push(id);
+      renderCart();
+      showToast(replaced ? t("messages.bundleReplaced") : t("messages.added", { name: productName(product) }));
+      return;
+    }
+    const containingBundle = cart.map((item) => products[item]).find((item) => item?.bundle && item.members.includes(id));
+    if (containingBundle) return showToast(t("messages.bundleContains"));
+    if (cart.includes(id)) return showToast(t("messages.duplicate"));
+    cart.push(id);
+    renderCart();
+    showToast(t("messages.added", { name: productName(product) }));
+  };
+
+  const cartPanel = $("[data-cart-panel]");
+  const cartBackdrop = $("[data-cart-backdrop]");
+  const desktopShell = $(".desktop-shell");
+  const focusableElements = (root) => $$('button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])', root).filter((element) => !element.hidden);
+  const openCart = (trigger) => {
+    lastCartTrigger = trigger || document.activeElement;
+    desktopShell.inert = true;
+    cartPanel.inert = false;
+    cartPanel.classList.add("is-open");
+    cartPanel.setAttribute("aria-hidden", "false");
+    cartBackdrop.hidden = false;
+    $("[data-close-cart]").focus();
+  };
+  const closeCart = () => {
+    const wasOpen = cartPanel.classList.contains("is-open");
+    cartPanel.classList.remove("is-open");
+    cartPanel.setAttribute("aria-hidden", "true");
+    cartPanel.inert = true;
+    cartBackdrop.hidden = true;
+    desktopShell.inert = false;
+    if (wasOpen) lastCartTrigger?.focus?.();
+  };
+
+  const sidebar = $("[data-sidebar]");
+  const sidebarBackdrop = $("[data-sidebar-backdrop]");
+  const sidebarToggle = $("[data-toggle-sidebar]");
+  const sidebarMedia = window.matchMedia("(max-width: 900px)");
+  const syncSidebarA11y = () => {
+    const open = sidebar.classList.contains("is-open");
+    sidebarToggle.setAttribute("aria-expanded", String(open));
+    sidebar.inert = sidebarMedia.matches && !open;
+    sidebar.setAttribute("aria-hidden", String(sidebarMedia.matches && !open));
+  };
+  const openSidebar = (trigger = sidebarToggle) => {
+    lastSidebarTrigger = trigger;
+    sidebar.classList.add("is-open");
+    sidebarBackdrop.hidden = false;
+    syncSidebarA11y();
+    focusableElements(sidebar)[0]?.focus();
+  };
+  const closeSidebar = () => {
+    const wasOpen = sidebar.classList.contains("is-open");
+    sidebar.classList.remove("is-open");
+    sidebarBackdrop.hidden = true;
+    syncSidebarA11y();
+    if (wasOpen && sidebarMedia.matches) lastSidebarTrigger?.focus?.();
+  };
+  sidebarMedia.addEventListener("change", () => { if (!sidebarMedia.matches) closeSidebar(); else syncSidebarA11y(); });
+  syncSidebarA11y();
+
+  const applyLanguage = (nextLanguage) => {
+    language = nextLanguage;
+    document.documentElement.lang = language;
+    document.title = t("meta.title");
+    $$('[data-i18n]').forEach((element) => { const value = get(copy[language], element.dataset.i18n); if (value !== undefined) element.textContent = value; });
+    $$('[data-i18n-aria-label]').forEach((element) => { const value = get(copy[language], element.dataset.i18nAriaLabel); if (value !== undefined) element.setAttribute("aria-label", value); });
+    $$('[data-i18n-placeholder]').forEach((element) => { const value = get(copy[language], element.dataset.i18nPlaceholder); if (value !== undefined) element.setAttribute("placeholder", value); });
+    $$('[data-i18n-content]').forEach((element) => { const value = get(copy[language], element.dataset.i18nContent); if (value !== undefined) element.setAttribute("content", value); });
+    $$('[data-language]').forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.language === language)));
+    try { localStorage.setItem("subsuelo-language", language); } catch { /* unavailable */ }
+    renderCart();
+    renderRoute();
+    updateAudioUi();
+  };
+
+  document.addEventListener("click", (event) => {
+    const routeButton = event.target.closest("[data-route]");
+    if (routeButton) {
+      if (routeButton.hasAttribute("data-close-checkout") && checkoutDialog.open) checkoutDialog.close();
+      navigate(routeButton.dataset.route);
+      return;
+    }
+    const productFolder = event.target.closest("[data-product-id]");
+    if (productFolder) {
+      if (window.matchMedia("(max-width: 900px)").matches) navigate(`#/product/${productFolder.dataset.productId}`);
+      else selectProduct(productFolder.dataset.productId);
+      return;
+    }
+    const openProduct = event.target.closest("[data-open-product]");
+    if (openProduct) { const id = openProduct.dataset.openProduct; navigate(id === "archive" ? "#/bundle" : `#/product/${id}`); return; }
+    const play = event.target.closest("[data-play]");
+    if (play) { startTrack(play.dataset.play); return; }
+    const file = event.target.closest("[data-file-key]");
+    if (file) {
+      const entry = file.dataset.fileEntry || null;
+      if (file.dataset.fileKey === "demos" && entry === "1") startTrack(file.dataset.fileProduct);
+      else if (window.matchMedia("(max-width: 900px)").matches) navigate(`#/product/${file.dataset.fileProduct}/${file.dataset.fileKey}${entry ? `/${entry}` : ""}`);
+      else selectFile(file.dataset.fileProduct, file.dataset.fileKey, entry);
+      return;
+    }
+    const node = event.target.closest("[data-open-node]");
+    if (node) { navigate(node.dataset.openNode); return; }
+    const add = event.target.closest("[data-add]");
+    if (add) { addToCart(add.dataset.add); return; }
+    const openCartButton = event.target.closest("[data-open-cart]");
+    if (openCartButton) { openCart(openCartButton); return; }
+    const remove = event.target.closest("[data-remove]");
+    if (remove) { cart = cart.filter((id) => id !== remove.dataset.remove); renderCart(); return; }
+    if (event.target.closest("[data-clear-cart]")) { cart = []; renderCart(); return; }
+    if (event.target.closest("[data-cart-browse]")) { closeCart(); navigate("#/home"); return; }
+    if (event.target.closest("[data-clear-search]")) { query = ""; $("[data-search]").value = ""; renderRoute(); return; }
+    const sectionButton = event.target.closest("[data-scroll-section]");
+    if (sectionButton) { document.getElementById(sectionButton.dataset.scrollSection)?.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+    if (event.target.closest("[data-toggle-sidebar]")) { sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar(event.target.closest("[data-toggle-sidebar]")); return; }
+    if (event.target.closest("[data-menu-view]")) { viewMode = viewMode === "grid" ? "list" : "grid"; try { localStorage.setItem("subsuelo-view", viewMode); } catch { /* unavailable */ } renderRoute(); }
+  });
+
+  document.addEventListener("dblclick", (event) => {
+    const productFolder = event.target.closest("[data-product-id]");
+    if (productFolder && !window.matchMedia("(max-width: 900px)").matches) navigate(`#/product/${productFolder.dataset.productId}`);
+    const file = event.target.closest("[data-file-key]");
+    if (file && !window.matchMedia("(max-width: 900px)").matches) navigate(`#/product/${file.dataset.fileProduct}/${file.dataset.fileKey}${file.dataset.fileEntry ? `/${file.dataset.fileEntry}` : ""}`);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Tab" && cartPanel.classList.contains("is-open")) {
+      const focusables = focusableElements(cartPanel);
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables.at(-1);
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+    if (event.key === "Enter") {
+      const productFolder = event.target.closest("[data-product-id]");
+      if (productFolder) navigate(`#/product/${productFolder.dataset.productId}`);
+    }
+    if (event.altKey && event.key === "ArrowLeft") { event.preventDefault(); $("[data-back]").click(); }
+    if (event.altKey && event.key === "ArrowRight") { event.preventDefault(); $("[data-forward]").click(); }
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") { event.preventDefault(); $("[data-search]").focus(); }
+    if (event.key === "Escape") { closeCart(); closeSidebar(); }
+  });
+
+  $("[data-back]").addEventListener("click", () => { if (historyCursor > 0) history.back(); });
+  $("[data-forward]").addEventListener("click", () => { if (historyCursor < appHistory.length - 1) history.forward(); });
+  $("[data-up]").addEventListener("click", () => { const parent = parentHash(parseRoute()); if (parent) navigate(parent); });
+  $$('[data-view-mode]').forEach((button) => button.addEventListener("click", () => { viewMode = button.dataset.viewMode; try { localStorage.setItem("subsuelo-view", viewMode); } catch { /* unavailable */ } renderRoute(); }));
+  $$('[data-language]').forEach((button) => button.addEventListener("click", () => applyLanguage(button.dataset.language)));
+  $("[data-search]").addEventListener("input", (event) => { query = event.currentTarget.value; const route = parseRoute(); if (route.type !== "home" && route.type !== "category") navigate("#/home"); else renderRoute(); });
+  $("[data-close-cart]").addEventListener("click", closeCart);
+  cartBackdrop.addEventListener("click", closeCart);
+  sidebarBackdrop.addEventListener("click", closeSidebar);
+  $("[data-skip]").addEventListener("click", (event) => {
+    event.preventDefault();
+    const pane = $("#file-view");
+    pane.scrollTop = 0;
+    pane.focus();
+  });
+
+  const checkoutDialog = $("[data-checkout-dialog]");
+  const checkoutForm = $("[data-checkout-form]");
+  const termsConsent = $("[data-consent-terms]");
+  const supplyConsent = $("[data-consent-supply]");
+  const checkoutButton = $("[data-place-order]");
+  const consentError = $("[data-consent-error]");
+
+  const updateCheckoutConsent = (showError = false) => {
+    const accepted = termsConsent.checked && supplyConsent.checked;
+    checkoutButton.disabled = !accepted;
+    consentError.hidden = accepted || !showError;
+    return accepted;
+  };
+
+  const resetCheckoutConsent = () => {
+    checkoutForm.reset();
+    updateCheckoutConsent();
+  };
+
+  const payhipCheckoutUrl = () => {
+    const keys = cart.map((id) => products[id]?.payhipKey).filter(Boolean);
+    if (!keys.length || keys.length !== cart.length) return null;
+    const params = new URLSearchParams();
+    if (keys.length === 1) params.set("link", keys[0]);
+    else keys.forEach((key) => params.append("cart_links[]", key));
+    return `https://payhip.com/buy?${params.toString()}`;
+  };
+
+  $("[data-checkout]").addEventListener("click", () => {
+    if (!cart.length) return;
+    closeCart();
+    resetCheckoutConsent();
+    checkoutDialog.showModal();
+    termsConsent.focus();
+  });
+  $$('[data-close-checkout]').forEach((button) => button.addEventListener("click", () => checkoutDialog.close()));
+  [termsConsent, supplyConsent].forEach((input) => input.addEventListener("change", () => updateCheckoutConsent(false)));
+  $("[data-back-to-cart]").addEventListener("click", () => { checkoutDialog.close(); openCart(lastCartTrigger); });
+  checkoutForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!cart.length || !updateCheckoutConsent(true)) return;
+    const checkoutUrl = payhipCheckoutUrl();
+    if (!checkoutUrl) return;
+    window.location.assign(checkoutUrl);
+  });
+  checkoutDialog.addEventListener("click", (event) => { if (event.target === checkoutDialog) checkoutDialog.close(); });
+  checkoutDialog.addEventListener("close", resetCheckoutConsent);
+
+  const formatTime = (seconds) => {
+    const safe = Number.isFinite(seconds) && seconds > 0 ? Math.floor(seconds) : 0;
+    return `${String(Math.floor(safe / 60)).padStart(2, "0")}:${String(safe % 60).padStart(2, "0")}`;
+  };
+
+  const updateAudioProgress = () => {
+    if (!activeTrack) return;
+    const { audio } = activeTrack;
+    const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 30;
+    $("[data-dock-progress]").style.width = `${Math.min(audio.currentTime / duration, 1) * 100}%`;
+    $("[data-dock-time]").textContent = formatTime(audio.currentTime);
+  };
+
+  function updateAudioUi() {
+    $$('[data-play]').forEach((button) => {
+      const product = products[button.dataset.play];
+      if (!product?.demo) return;
+      const current = activeTrack?.id === product.id;
+      const playing = current && !activeTrack.audio.paused;
+      const action = playing ? t("audio.pause") : current ? t("audio.play") : t("product.listen");
+      button.textContent = action;
+      button.setAttribute("aria-label", `${action} ${product.demo.title}`);
+    });
+    $$("[data-track]").forEach((row) => row.classList.toggle("is-selected", activeTrack?.id === row.dataset.track));
+    const dockToggle = $("[data-dock-toggle]");
+    const playing = activeTrack && !activeTrack.audio.paused;
+    dockToggle.dataset.state = playing ? "pause" : "play";
+    dockToggle.setAttribute("aria-label", t(playing ? "audio.pause" : "audio.play"));
+    renderStatus(parseRoute());
+  }
+
+  const stopTrack = () => {
+    if (!activeTrack) return;
+    activeTrack.audio.pause();
+    activeTrack.audio.currentTime = 0;
+    activeTrack = null;
+    $("[data-audio-dock]").hidden = true;
+    $("[data-dock-progress]").style.width = "0%";
+    $("[data-dock-time]").textContent = "00:00";
+    updateAudioUi();
+  };
+
+  function startTrack(id) {
+    const product = products[id];
+    if (!product?.demo) return;
+    if (activeTrack?.id === id) {
+      if (activeTrack.audio.paused) activeTrack.audio.play().catch(() => showToast(t("audio.unavailable")));
+      else activeTrack.audio.pause();
+      updateAudioUi();
+      return;
+    }
+    stopTrack(); lastTrackId = id;
+    const audio = new Audio(product.demo.src);
+    audio.preload = "metadata";
+    activeTrack = { id, audio };
+    $("[data-audio-dock]").hidden = false;
+    $("[data-dock-title]").textContent = product.demo.title;
+    $("[data-dock-product]").textContent = productName(product);
+    audio.addEventListener("timeupdate", updateAudioProgress);
+    audio.addEventListener("loadedmetadata", updateAudioProgress);
+    audio.addEventListener("play", updateAudioUi);
+    audio.addEventListener("pause", updateAudioUi);
+    audio.addEventListener("ended", () => { if (activeTrack?.audio === audio) stopTrack(); });
+    audio.addEventListener("error", () => {
+      if (activeTrack?.audio !== audio) return;
+      showToast(t("audio.unavailable"));
+      stopTrack();
+    });
+    updateAudioUi();
+    audio.play().catch(() => {
+      if (activeTrack?.audio !== audio) return;
+      showToast(t("audio.unavailable"));
+      stopTrack();
+    });
+  }
+
+  $("[data-dock-toggle]").addEventListener("click", () => activeTrack ? startTrack(activeTrack.id) : lastTrackId && startTrack(lastTrackId));
+  $("[data-dock-close]").addEventListener("click", stopTrack);
+
+  const updateClock = () => { $("[data-clock]").textContent = new Intl.DateTimeFormat(language === "es" ? "es-ES" : "en-GB", { hour: "2-digit", minute: "2-digit" }).format(new Date()); };
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  renderCart();
+  applyLanguage(language);
+})();

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10110f" />
+    <meta name="description" content="Carpetas de prompts y negative prompts para crear instrumentales, con guías separadas en español e inglés." data-i18n-content="meta.description" />
+    <title>SUBSUELO FS — Carpetas de prompts</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles-v5.css?v=24" />
+    <script src="./app-v5.js?v=24" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Saltar a los archivos</a>
+
+    <div class="desktop-shell">
+      <main class="fs-window" aria-label="SUBSUELO File System" data-i18n-aria-label="a11y.app">
+        <header class="titlebar">
+          <div class="titlebar__brand"><span class="app-mark" aria-hidden="true">S</span><strong>SUBSUELO FS</strong><span data-i18n="titlebar.browser">EXPLORADOR DE ARCHIVOS</span></div>
+          <div class="titlebar__meta"><span data-i18n="titlebar.store">DIGITAL STORE</span><span class="titlebar__status" data-i18n="titlebar.open">ARCHIVO ABIERTO</span><i aria-hidden="true"></i></div>
+        </header>
+
+        <nav class="menubar" aria-label="Menú de aplicación" data-i18n-aria-label="a11y.appMenu">
+          <button type="button" data-route="#/home" data-i18n="menu.file">Archivo</button>
+          <button type="button" data-menu-view data-i18n="menu.view">Ver</button>
+          <button type="button" data-route="#/demos" data-i18n="menu.play">Reproducir</button>
+          <button type="button" data-route="#/help" data-i18n="menu.help">Ayuda</button>
+        </nav>
+
+        <div class="toolbar">
+          <div class="toolbar__nav">
+            <button class="os-control icon-control icon-back" type="button" data-back aria-label="Atrás" data-i18n-aria-label="toolbar.back"><span class="nav-glyph" aria-hidden="true"></span></button>
+            <button class="os-control icon-control icon-forward" type="button" data-forward aria-label="Adelante" data-i18n-aria-label="toolbar.forward"><span class="nav-glyph" aria-hidden="true"></span></button>
+            <button class="os-control icon-control icon-up" type="button" data-up aria-label="Subir" data-i18n-aria-label="toolbar.up"><span class="nav-glyph" aria-hidden="true"></span></button>
+            <button class="os-control icon-control sidebar-toggle" type="button" data-toggle-sidebar aria-controls="archive-sidebar" aria-expanded="false" aria-label="Abrir navegación" data-i18n-aria-label="toolbar.sidebar"><span></span></button>
+          </div>
+
+          <nav class="address-bar" aria-label="Ruta actual" data-i18n-aria-label="a11y.path" data-breadcrumb></nav>
+
+          <div class="toolbar__tools">
+            <label class="search-box"><span class="search-icon" aria-hidden="true"></span><input type="search" data-search placeholder="Buscar en el archivo…" data-i18n-placeholder="toolbar.search" aria-label="Buscar en el archivo" data-i18n-aria-label="toolbar.search" /></label>
+            <div class="view-switch" role="group" aria-label="Vista" data-i18n-aria-label="toolbar.viewGroup">
+              <button class="os-control view-button" type="button" data-view-mode="grid" aria-pressed="true" aria-label="Vista de iconos" data-i18n-aria-label="toolbar.grid"><span class="grid-glyph" aria-hidden="true"></span></button>
+              <button class="os-control view-button" type="button" data-view-mode="list" aria-pressed="false" aria-label="Vista de lista" data-i18n-aria-label="toolbar.list"><span class="list-glyph" aria-hidden="true"></span></button>
+            </div>
+            <div class="language" role="group" aria-label="Idioma" data-i18n-aria-label="a11y.language"><button type="button" data-language="es" aria-pressed="true">ES</button><button type="button" data-language="en" aria-pressed="false">EN</button></div>
+            <button class="os-control cart-trigger" type="button" data-open-cart aria-label="Carrito" data-i18n-aria-label="menu.cart"><span class="cart-icon" aria-hidden="true"></span><span data-i18n="menu.cart">Carrito</span><b data-cart-count aria-live="polite">0</b></button>
+          </div>
+        </div>
+
+        <div class="workspace">
+          <div class="sidebar-backdrop" data-sidebar-backdrop hidden></div>
+          <aside class="sidebar" id="archive-sidebar" data-sidebar aria-label="Navegación del archivo" data-i18n-aria-label="a11y.sidebar">
+            <section class="sidebar-language"><h2 data-i18n="sidebar.language">IDIOMA</h2><div class="language" role="group" aria-label="Idioma" data-i18n-aria-label="a11y.language"><button type="button" data-language="es" aria-pressed="true">ES</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></section>
+            <section><h2 data-i18n="sidebar.quick">ACCESO RÁPIDO</h2><nav data-sidebar-main></nav></section>
+            <section><h2 data-i18n="sidebar.sounds">POR SONIDO</h2><nav data-sidebar-categories></nav></section>
+            <section><h2 data-i18n="sidebar.info">INFORMACIÓN</h2><nav data-sidebar-info></nav></section>
+          </aside>
+
+          <section class="file-pane" id="file-view" tabindex="-1">
+            <p class="sr-only" aria-live="polite" aria-atomic="true" data-route-announcer></p>
+            <div class="view-content" data-view-content></div>
+          </section>
+
+          <aside class="inspector" data-inspector aria-label="Detalles" data-i18n-aria-label="a11y.inspector"></aside>
+        </div>
+
+        <footer class="statusbar">
+          <span data-status-main></span><span data-status-selection></span><span data-i18n="status.delivery">DESCARGA DIGITAL · PAGO ÚNICO</span><button type="button" class="status-legal" data-route="#/legal" data-i18n="status.legal">LEGAL</button>
+        </footer>
+      </main>
+
+      <footer class="taskbar">
+        <button class="start-button" type="button" data-route="#/home"><span class="app-mark" aria-hidden="true">S</span><strong>SUBSUELO</strong></button>
+        <button class="task-window" type="button" data-route="#/home"><span class="mini-folder" aria-hidden="true"></span><span data-task-title>ARCHIVO</span></button>
+        <div class="task-audio" data-audio-dock hidden>
+          <button type="button" data-dock-toggle data-state="play" aria-label="Reproducir" data-i18n-aria-label="audio.play"><span class="dock-toggle-glyph" aria-hidden="true"></span></button><div><strong data-dock-title></strong><span data-dock-product></span></div><div class="task-progress"><i data-dock-progress></i></div><time data-dock-time>00:00</time><button type="button" data-dock-close aria-label="Cerrar reproductor" data-i18n-aria-label="audio.close"><span class="dock-close-glyph" aria-hidden="true"></span></button>
+        </div>
+        <div class="task-clock"><span data-clock></span><small data-i18n="taskbar.online">ONLINE</small></div>
+      </footer>
+
+      <nav class="mobile-nav" aria-label="Navegación móvil" data-i18n-aria-label="a11y.mobileNav">
+        <button type="button" data-route="#/home"><span class="nav-home" aria-hidden="true"></span><span data-i18n="mobile.home">Inicio</span></button>
+        <button type="button" data-route="#/bundle"><span class="mini-folder" aria-hidden="true"></span><span data-i18n="mobile.pack">Pack</span></button>
+        <button type="button" data-route="#/demos"><span class="nav-play" aria-hidden="true"></span><span data-i18n="mobile.demos">Demos</span></button>
+        <button type="button" data-route="#/help"><span class="nav-help" aria-hidden="true">?</span><span data-i18n="mobile.help">Ayuda</span></button>
+        <button type="button" data-open-cart><span class="cart-icon" aria-hidden="true"></span><span data-i18n="mobile.cart">Carrito</span><b data-cart-count aria-hidden="true">0</b></button>
+      </nav>
+    </div>
+
+    <div class="utility-backdrop" data-cart-backdrop hidden></div>
+    <aside class="cart-panel" data-cart-panel role="dialog" aria-modal="true" aria-hidden="true" inert aria-labelledby="cart-title">
+      <header class="utility-titlebar"><div><span class="cart-icon" aria-hidden="true"></span><strong id="cart-title" data-i18n="cart.title">CARRITO</strong></div><button type="button" data-close-cart aria-label="Cerrar carrito" data-i18n-aria-label="cart.close"><span class="dock-close-glyph" aria-hidden="true"></span></button></header>
+      <div class="cart-panel__heading"><p data-i18n="cart.subtitle">Ediciones seleccionadas</p><button type="button" data-clear-cart data-i18n="cart.clear">Vaciar carrito</button></div>
+      <div class="cart-items" data-cart-items></div>
+      <div class="cart-empty" data-cart-empty><div class="empty-folder" aria-hidden="true"></div><strong data-i18n="cart.empty">Aquí todavía no hay carpetas.</strong><p data-i18n="cart.emptyHint">Abre una colección y añade la que quieras guardar.</p><button type="button" data-cart-browse data-i18n="cart.browse">Volver al catálogo</button></div>
+      <footer data-cart-footer hidden><div><span data-i18n="cart.subtotal">Subtotal</span><strong data-cart-total>0 €</strong></div><p data-i18n="cart.delivery">Descarga digital · Sin gastos de envío</p><button type="button" data-checkout data-i18n="cart.checkout">Continuar al pago</button></footer>
+    </aside>
+
+    <dialog class="checkout-window" data-checkout-dialog data-legal-version="2026-07-15.4">
+      <header class="utility-titlebar"><strong data-i18n="checkout.titlebar">REVISAR COMPRA</strong><button type="button" data-close-checkout aria-label="Cerrar" data-i18n-aria-label="dialog.close"><span class="dock-close-glyph" aria-hidden="true"></span></button></header>
+      <form class="checkout-window__body" data-checkout-form novalidate>
+        <span class="download-icon" aria-hidden="true"></span>
+        <h2 data-i18n="checkout.title">Revisa tu pedido.</h2>
+        <p data-i18n="checkout.desc">Comprueba las carpetas y el total antes de continuar al pago seguro.</p>
+        <section class="checkout-order" aria-labelledby="checkout-order-title">
+          <h3 id="checkout-order-title" data-i18n="checkout.order">Tu pedido</h3>
+          <div data-checkout-items></div>
+        </section>
+        <p class="checkout-legal"><span data-i18n="checkout.privacyLead">Tus datos se tratarán para gestionar el pedido según la</span> <button type="button" data-close-checkout data-route="#/legal/privacy" data-i18n="checkout.privacy">política de privacidad</button>.</p>
+        <fieldset class="checkout-consents">
+          <legend class="sr-only" data-i18n="checkout.confirmations">Confirmaciones de compra</legend>
+          <label><input type="checkbox" required data-consent-terms /><span data-i18n="checkout.termsConsent">He leído y acepto las condiciones de compra y la licencia digital. Entiendo que los archivos fuente no se pueden compartir, publicar ni revender.</span></label>
+          <p class="checkout-consent-links"><button type="button" data-close-checkout data-route="#/legal/terms" data-i18n="checkout.terms">Condiciones de compra</button> · <button type="button" data-close-checkout data-route="#/legal/license" data-i18n="checkout.license">Licencia digital</button></p>
+          <label><input type="checkbox" required data-consent-supply /><span data-i18n="checkout.supplyConsent">Solicito la entrega inmediata del contenido digital y reconozco que, cuando comience la descarga o el acceso, perderé el derecho de desistimiento, sin perjuicio de mis derechos legales por falta de conformidad.</span></label>
+        </fieldset>
+        <p class="checkout-error" id="checkout-consent-error" data-consent-error role="status" aria-live="polite" hidden data-i18n="checkout.required">Marca las dos casillas para continuar.</p>
+        <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Precio total · impuestos incluidos</small></span><strong data-checkout-total>0 €</strong></div>
+        <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUAR AL CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
+        <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">El pago y la descarga se completan en Payhip. Allí verás el resumen final antes de confirmar.</p>
+        <button class="checkout-back" type="button" data-back-to-cart data-i18n="checkout.back">Volver al carrito</button>
+      </form>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+  </body>
+</html>
