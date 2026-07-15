@@ -308,6 +308,11 @@
   const archive = { id: "archive", sku: "COMPLETE-PACK", name: { es: "Pack completo", en: "Complete pack" }, price: 69, tone: "#a44730", bundle: true, members: catalog.map((item) => item.id), description: { es: `Todo el catálogo en un solo ZIP: ${catalogueTotals.prompts} prompts y ${catalogueTotals.negatives} negative prompts.`, en: `The full catalogue in one ZIP: ${catalogueTotals.prompts} prompts and ${catalogueTotals.negatives} negative prompts.` } };
   const payhipProductKeys = Object.freeze({ trap: "0GiEq", garage: "HunFY", jungle: "LmWUN", low: "LrzFf", abyss: "TxsAr", noir: "8sFfE", archive: "SPXoI" });
   const products = Object.fromEntries([...catalog, archive].map((product) => [product.id, { ...product, payhipKey: payhipProductKeys[product.id] }]));
+  const legalOrder = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
+  const productRouteIds = new Set(catalog.map((product) => product.id));
+  const categoryRouteIds = new Set(catalog.flatMap((product) => product.tags));
+  const legalRouteIds = new Set(legalOrder);
+  const documentRouteEntries = new Set(["readme", "prompts", "negatives", "guide", "license"]);
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -335,7 +340,7 @@
     language = savedLanguage === "es" || savedLanguage === "en" ? savedLanguage : (navigator.language || "es").toLowerCase().startsWith("en") ? "en" : "es";
     viewMode = localStorage.getItem("subsuelo-view") === "list" ? "list" : "grid";
     const savedCart = JSON.parse(localStorage.getItem("subsuelo-cart-v5") || "[]");
-    cart = Array.isArray(savedCart) ? savedCart.filter((id) => products[id]) : [];
+    cart = Array.isArray(savedCart) ? savedCart.filter((id) => typeof id === "string" && Object.hasOwn(products, id)) : [];
   } catch {
     language = "es";
     cart = [];
@@ -345,38 +350,52 @@
   const productName = (product) => typeof product?.name === "object" ? product.name[language] : product?.name || "";
   const categoryName = (category) => catalog.find((product) => product.tags.includes(category))?.category?.[language] || category;
   const price = (value) => new Intl.NumberFormat(language === "es" ? "es-ES" : "en-GB", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(value);
-  const currentHash = () => location.hash && location.hash.startsWith("#/") ? location.hash : "#/home";
+  const recoveredPath = () => {
+    const route = new URLSearchParams(location.search).get("__route");
+    return route && route.startsWith("/") && !route.startsWith("//") ? route : null;
+  };
+  const legacyPath = () => location.hash.startsWith("#/") ? location.hash.slice(1) : null;
+  const currentPath = () => legacyPath() || recoveredPath() || location.pathname || "/";
 
-  const parseRoute = (hash = currentHash()) => {
-    const parts = hash.replace(/^#\//, "").split("/").filter(Boolean);
-    if (!parts.length || parts[0] === "home") return { type: "home" };
-    if (parts[0] === "category") return { type: "category", category: parts[1] || "" };
-    if (parts[0] === "product") return { type: "product", id: parts[1], section: parts[2] || null, entry: parts[3] || null };
-    if (parts[0] === "demos") return { type: "demos" };
-    if (parts[0] === "help") return { type: "help" };
-    if (parts[0] === "legal") return { type: "legal", document: parts[1] || null };
-    if (parts[0] === "bundle") return { type: "bundle" };
+  const parseRoute = (path = currentPath()) => {
+    const cleanPath = typeof path === "string" ? path.split(/[?#]/, 1)[0] : "/";
+    const parts = cleanPath.replace(/^\/+|\/+$/g, "").split("/").filter(Boolean);
+    if (!parts.length || (parts[0] === "home" && parts.length === 1)) return { type: "home" };
+    if (parts[0] === "category" && parts.length === 2 && categoryRouteIds.has(parts[1])) return { type: "category", category: parts[1] };
+    if (parts[0] === "product" && productRouteIds.has(parts[1])) {
+      if (parts.length === 2) return { type: "product", id: parts[1], section: null, entry: null };
+      if ((parts[2] === "es" || parts[2] === "en") && (parts.length === 3 || (parts.length === 4 && documentRouteEntries.has(parts[3])))) {
+        return { type: "product", id: parts[1], section: parts[2], entry: parts[3] || null };
+      }
+      if (parts[2] === "demos" && (parts.length === 3 || (parts.length === 4 && parts[3] === "preview"))) {
+        return { type: "product", id: parts[1], section: "demos", entry: parts[3] || null };
+      }
+    }
+    if (parts[0] === "demos" && parts.length === 1) return { type: "demos" };
+    if (parts[0] === "help" && parts.length === 1) return { type: "help" };
+    if (parts[0] === "legal" && (parts.length === 1 || (parts.length === 2 && legalRouteIds.has(parts[1])))) return { type: "legal", document: parts[1] || null };
+    if (parts[0] === "bundle" && parts.length === 1) return { type: "bundle" };
     return { type: "home" };
   };
 
-  const routeHash = (route) => {
-    if (route.type === "category") return `#/category/${route.category}`;
-    if (route.type === "product") return `#/product/${route.id}${route.section ? `/${route.section}` : ""}${route.entry ? `/${route.entry}` : ""}`;
-    if (route.type === "demos") return "#/demos";
-    if (route.type === "help") return "#/help";
-    if (route.type === "legal") return `#/legal${route.document ? `/${route.document}` : ""}`;
-    if (route.type === "bundle") return "#/bundle";
-    return "#/home";
+  const routePath = (route) => {
+    if (route.type === "category") return `/category/${route.category}`;
+    if (route.type === "product") return `/product/${route.id}${route.section ? `/${route.section}` : ""}${route.entry ? `/${route.entry}` : ""}`;
+    if (route.type === "demos") return "/demos";
+    if (route.type === "help") return "/help";
+    if (route.type === "legal") return `/legal${route.document ? `/${route.document}` : ""}`;
+    if (route.type === "bundle") return "/bundle";
+    return "/";
   };
 
-  const normalizeRoute = (hash) => routeHash(parseRoute(hash));
-  const initialRoute = normalizeRoute(currentHash());
+  const normalizeRoute = (path) => routePath(parseRoute(path));
+  const initialRoute = normalizeRoute(currentPath());
   appHistory = [initialRoute];
   historyCursor = 0;
   history.replaceState({ appIndex: 0, route: initialRoute }, "", initialRoute);
 
-  const navigate = (hash, options = {}) => {
-    const normalized = normalizeRoute(hash);
+  const navigate = (path, options = {}) => {
+    const normalized = normalizeRoute(path);
     if (normalized === appHistory[historyCursor] && !options.force) {
       renderRoute();
       return;
@@ -391,7 +410,7 @@
   };
 
   window.addEventListener("popstate", (event) => {
-    const route = normalizeRoute(currentHash());
+    const route = normalizeRoute(currentPath());
     if (Number.isInteger(event.state?.appIndex)) historyCursor = Math.max(0, Math.min(event.state.appIndex, appHistory.length - 1));
     else {
       const existing = appHistory.lastIndexOf(route);
@@ -401,55 +420,68 @@
     renderRoute();
   });
 
-  const parentHash = (route) => {
-    if (route.type === "product" && route.entry) return `#/product/${route.id}/${route.section}`;
-    if (route.type === "product" && route.section) return `#/product/${route.id}`;
-    if (route.type === "legal" && route.document) return "#/legal";
-    if (route.type === "product" || route.type === "category" || route.type === "demos" || route.type === "help" || route.type === "legal" || route.type === "bundle") return "#/home";
+  window.addEventListener("hashchange", () => {
+    const path = legacyPath();
+    if (!path) return;
+    const normalized = normalizeRoute(path);
+    appHistory = appHistory.slice(0, historyCursor + 1);
+    appHistory.push(normalized);
+    historyCursor = appHistory.length - 1;
+    history.replaceState({ appIndex: historyCursor, route: normalized }, "", normalized);
+    selectedFile = null;
+    renderRoute();
+    closeSidebar();
+  });
+
+  const parentPath = (route) => {
+    if (route.type === "product" && route.entry) return `/product/${route.id}/${route.section}`;
+    if (route.type === "product" && route.section) return `/product/${route.id}`;
+    if (route.type === "legal" && route.document) return "/legal";
+    if (route.type === "product" || route.type === "category" || route.type === "demos" || route.type === "help" || route.type === "legal" || route.type === "bundle") return "/";
     return null;
   };
 
   const breadcrumbData = (route) => {
-    const items = [{ label: "SUBSUELO", route: "#/home" }];
-    if (route.type === "category") items.push({ label: categoryName(route.category), route: routeHash(route) });
-    if (route.type === "demos") items.push({ label: "DEMOS", route: "#/demos" });
-    if (route.type === "help") items.push({ label: "HELP", route: "#/help" });
+    const items = [{ label: "SUBSUELO", route: "/" }];
+    if (route.type === "category") items.push({ label: categoryName(route.category), route: routePath(route) });
+    if (route.type === "demos") items.push({ label: "DEMOS", route: "/demos" });
+    if (route.type === "help") items.push({ label: "HELP", route: "/help" });
     if (route.type === "legal") {
-      items.push({ label: "LEGAL", route: "#/legal" });
+      items.push({ label: "LEGAL", route: "/legal" });
       const document = legalDocuments[language][route.document];
-      if (document) items.push({ label: document.file, route: routeHash(route) });
+      if (document) items.push({ label: document.file, route: routePath(route) });
     }
-    if (route.type === "bundle") items.push({ label: productName(archive), route: "#/bundle" });
+    if (route.type === "bundle") items.push({ label: productName(archive), route: "/bundle" });
     if (route.type === "product") {
       const product = products[route.id];
-      items.push({ label: productName(product) || route.id, route: `#/product/${route.id}` });
-      if (route.section) items.push({ label: route.section.toUpperCase(), route: `#/product/${route.id}/${route.section}` });
-      if (route.entry) items.push({ label: fileDefinition(product, route.section, route.entry).name, route: routeHash(route) });
+      items.push({ label: productName(product) || route.id, route: `/product/${route.id}` });
+      if (route.section) items.push({ label: route.section.toUpperCase(), route: `/product/${route.id}/${route.section}` });
+      if (route.entry) items.push({ label: fileDefinition(product, route.section, route.entry).name, route: routePath(route) });
     }
     return items;
   };
 
   const renderBreadcrumbs = (route) => {
     const items = breadcrumbData(route);
-    $("[data-breadcrumb]").innerHTML = items.map((item, index) => `<button class="breadcrumb-button" type="button" data-route="${item.route}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</button>`).join("");
+    $("[data-breadcrumb]").innerHTML = items.map((item, index) => `<button class="breadcrumb-button" type="button" data-route="${escapeHtml(item.route)}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</button>`).join("");
   };
 
   const categories = () => {
     return [...new Set(catalog.flatMap((product) => product.tags))];
   };
 
-  const treeItem = ({ route, label, icon = "folder", count, current }) => `<button class="tree-item ${current ? "is-current" : ""}" type="button" data-route="${route}"${current ? ' aria-current="page"' : ""}><span class="tree-icon tree-icon--${icon}"></span><span>${escapeHtml(label)}</span>${count !== undefined ? `<small>${count}</small>` : ""}</button>`;
+  const treeItem = ({ route, label, icon = "folder", count, current }) => `<button class="tree-item ${current ? "is-current" : ""}" type="button" data-route="${escapeHtml(route)}"${current ? ' aria-current="page"' : ""}><span class="tree-icon tree-icon--${icon}"></span><span>${escapeHtml(label)}</span>${count !== undefined ? `<small>${count}</small>` : ""}</button>`;
 
   const renderSidebar = (route) => {
     $("[data-sidebar-main]").innerHTML = [
-      treeItem({ route: "#/home", label: t("sidebar.home"), count: catalog.length, current: route.type === "home" }),
-      treeItem({ route: "#/demos", label: t("sidebar.demos"), icon: "play", current: route.type === "demos" }),
-      treeItem({ route: "#/bundle", label: t("sidebar.bundle"), current: route.type === "bundle" })
+      treeItem({ route: "/", label: t("sidebar.home"), count: catalog.length, current: route.type === "home" }),
+      treeItem({ route: "/demos", label: t("sidebar.demos"), icon: "play", current: route.type === "demos" }),
+      treeItem({ route: "/bundle", label: t("sidebar.bundle"), current: route.type === "bundle" })
     ].join("");
-    $("[data-sidebar-categories]").innerHTML = categories().map((category) => treeItem({ route: `#/category/${category}`, label: categoryName(category), count: catalog.filter((product) => product.tags.includes(category)).length, current: route.type === "category" && route.category === category })).join("");
+    $("[data-sidebar-categories]").innerHTML = categories().map((category) => treeItem({ route: `/category/${category}`, label: categoryName(category), count: catalog.filter((product) => product.tags.includes(category)).length, current: route.type === "category" && route.category === category })).join("");
     $("[data-sidebar-info]").innerHTML = [
-      treeItem({ route: "#/help", label: t("sidebar.help"), icon: "doc", current: route.type === "help" }),
-      treeItem({ route: "#/legal", label: t("sidebar.legalFolder"), icon: "folder", count: legalOrder.length, current: route.type === "legal" }),
+      treeItem({ route: "/help", label: t("sidebar.help"), icon: "doc", current: route.type === "help" }),
+      treeItem({ route: "/legal", label: t("sidebar.legalFolder"), icon: "folder", count: legalOrder.length, current: route.type === "legal" }),
       `<button class="tree-item" type="button" data-open-cart><span class="cart-icon"></span><span>${t("sidebar.cart")}</span><small>${cart.length}</small></button>`
     ].join("");
   };
@@ -474,7 +506,7 @@
     const lead = route.type === "category" ? `${t("home.lead")}` : t("home.lead");
     const folders = matches.length ? `<div class="folder-grid ${viewMode === "list" ? "is-list" : ""}" data-folder-grid>${matches.map(folderMarkup).join("")}</div>` : `<div class="empty-state"><div class="empty-folder"></div><h2>${t("home.empty")}</h2><p>${t("home.emptyHint")}</p><button class="help-action" type="button" data-clear-search>${t("home.clear")}</button></div>`;
     const hint = window.matchMedia("(max-width: 900px)").matches ? t("home.mobileHint") : t("home.hint");
-    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><button class="system-file" type="button" data-route="#/help"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></button><button class="system-file" type="button" data-route="#/demos"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></button><button class="system-file" type="button" data-route="#/bundle"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></button><button class="system-file" type="button" data-route="#/legal"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></button></div></section>`;
+    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><button class="system-file" type="button" data-route="/help"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></button><button class="system-file" type="button" data-route="/demos"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></button><button class="system-file" type="button" data-route="/bundle"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></button><button class="system-file" type="button" data-route="/legal"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></button></div></section>`;
   };
 
   const bundleCounts = () => archive.members.map((id) => products[id]).reduce((sum, product) => ({ prompts: sum.prompts + product.counts.prompts, negatives: sum.negatives + product.counts.negatives, demos: sum.demos + product.counts.demos }), { prompts: 0, negatives: 0, demos: 0 });
@@ -535,7 +567,7 @@
     const label = type === "audio" ? "AUDIO" : type === "pdf" ? "PDF" : "TXT";
     return `<span class="file-icon ${type === "pdf" ? "file-icon--pdf" : type === "audio" ? "file-icon--audio" : "file-icon--text"}">${label}</span>`;
   };
-  const fileRow = ({ name, type, description, availability, route, action, productId, fileKey, entry, playId, disabled = false }) => `<button class="file-row ${selectedFile?.key === fileKey && selectedFile?.entry === entry ? "is-selected" : ""}" type="button" ${route ? `data-open-node="${route}"` : ""} ${playId ? `data-play="${playId}"` : ""} ${productId ? `data-file-product="${productId}" data-file-key="${fileKey}" ${entry ? `data-file-entry="${entry}"` : ""}` : ""}${disabled ? " disabled" : ""}><span class="file-row__name">${rowIcon(type)}<strong>${escapeHtml(name)}</strong></span><span>${escapeHtml(type === "folder" ? t("product.folder") : type.toUpperCase())}</span><span>${escapeHtml(description)}</span><span class="file-row__action">${escapeHtml(action)}</span></button>`;
+  const fileRow = ({ name, type, description, availability, route, action, productId, fileKey, entry, playId, disabled = false }) => `<button class="file-row ${selectedFile?.key === fileKey && selectedFile?.entry === entry ? "is-selected" : ""}" type="button" ${route ? `data-open-node="${escapeHtml(route)}"` : ""} ${playId ? `data-play="${playId}"` : ""} ${productId ? `data-file-product="${productId}" data-file-key="${fileKey}" ${entry ? `data-file-entry="${entry}"` : ""}` : ""}${disabled ? " disabled" : ""}><span class="file-row__name">${rowIcon(type)}<strong>${escapeHtml(name)}</strong></span><span>${escapeHtml(type === "folder" ? t("product.folder") : type.toUpperCase())}</span><span>${escapeHtml(description)}</span><span class="file-row__action">${escapeHtml(action)}</span></button>`;
 
   const fileList = (rows) => `<div class="file-list"><div class="file-list__header"><span>${t("product.name")}</span><span>${t("product.type")}</span><span>${t("product.description")}</span><span>${t("product.availability")}</span></div>${rows.join("")}</div>`;
 
@@ -543,9 +575,9 @@
 
   const productRootView = (product) => {
     const rows = [
-      fileRow({ name: "ES", type: "folder", description: t("product.esFolder"), availability: t("product.included"), route: `#/product/${product.id}/es`, productId: product.id, fileKey: "es", action: t("product.open") }),
-      fileRow({ name: "EN", type: "folder", description: t("product.enFolder"), availability: t("product.included"), route: `#/product/${product.id}/en`, productId: product.id, fileKey: "en", action: t("product.open") }),
-      fileRow({ name: t("product.demoFolderName"), type: "folder", description: t("product.demosFolder"), availability: t("product.included"), route: `#/product/${product.id}/demos`, productId: product.id, fileKey: "demos", action: t("product.open") })
+      fileRow({ name: "ES", type: "folder", description: t("product.esFolder"), availability: t("product.included"), route: `/product/${product.id}/es`, productId: product.id, fileKey: "es", action: t("product.open") }),
+      fileRow({ name: "EN", type: "folder", description: t("product.enFolder"), availability: t("product.included"), route: `/product/${product.id}/en`, productId: product.id, fileKey: "en", action: t("product.open") }),
+      fileRow({ name: t("product.demoFolderName"), type: "folder", description: t("product.demosFolder"), availability: t("product.included"), route: `/product/${product.id}/demos`, productId: product.id, fileKey: "demos", action: t("product.open") })
     ];
     return `${productBanner(product)}<header class="subfolder-heading"><span class="folder-icon" style="--tone:${product.tone}"></span><div><h2>${t("product.contents")}</h2><p>${t("product.files", { count: rows.length })}</p></div></header>${fileList(rows)}${purchaseStrip(product)}`;
   };
@@ -554,7 +586,7 @@
     const keys = ["readme", "prompts", "negatives", "guide", "license"];
     const rows = keys.map((key) => {
       const definition = fileDefinition(product, section, key);
-      return fileRow({ name: definition.name, type: definition.format.toLowerCase(), description: definition.description, availability: t("product.included"), route: `#/product/${product.id}/${section}/${key}`, productId: product.id, fileKey: section, entry: key, action: t("product.details") });
+      return fileRow({ name: definition.name, type: definition.format.toLowerCase(), description: definition.description, availability: t("product.included"), route: `/product/${product.id}/${section}/${key}`, productId: product.id, fileKey: section, entry: key, action: t("product.details") });
     });
     return `<header class="subfolder-heading"><span class="folder-icon" style="--tone:${product.tone}"></span><div><h1>${section.toUpperCase()}</h1><p>${t("product.files", { count: rows.length })}</p></div></header>${fileList(rows)}${purchaseStrip(product)}`;
   };
@@ -575,7 +607,6 @@
 
   const helpView = () => `<article class="help-document"><header class="help-document__head">${t("help.kicker")}</header><div class="help-document__body"><h1>${t("help.title")}</h1><p class="help-document__lead">${t("help.lead")}</p><div class="two-part-map"><div class="map-block"><strong>${t("help.prompt")}</strong><span>${t("help.direction")}</span></div><div class="map-arrow">+</div><div class="map-block"><strong>${t("help.negative")}</strong><span>${t("help.outside")}</span></div></div><p class="help-document__lead">${t("help.together")}</p><div class="concept-grid"><section class="concept-card"><div class="concept-card__top"><span class="file-icon file-icon--pdf">PDF</span><h2>${t("help.prompt")}</h2></div><p>${t("help.promptText")}</p></section><section class="concept-card"><div class="concept-card__top"><span class="file-icon file-icon--pdf">PDF</span><h2>${t("help.negative")}</h2></div><p>${t("help.negativeText")}</p></section><section class="concept-card"><div class="concept-card__top"><span class="file-icon file-icon--pdf">PDF</span><h2>${t("help.guide")}</h2></div><p>${t("help.guideText")}</p></section><section class="concept-card"><div class="concept-card__top"><span class="file-icon file-icon--audio">AUDIO</span><h2>${t("help.demos")}</h2></div><p>${t("help.demosText")}</p></section></div><div class="availability"><strong>TXT / PDF / MP3</strong><span>${t("help.delivery")}</span></div></div></article>`;
 
-  const legalOrder = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
   const legalInline = (value) => escapeHtml(value)
     .replace(/([\w.+-]+@[\w.-]+\.[A-Za-z]{2,})/g, '<a href="mailto:$1">$1</a>')
     .replace(/(https:\/\/[^\s<]*[A-Za-z0-9/#?=&_%~-])([.,;:!?)])?/g, '<a href="$1" rel="noopener noreferrer">$1</a>$2')
@@ -584,7 +615,7 @@
   const legalFolderView = () => {
     const rows = legalOrder.map((key) => {
       const document = legalDocuments[language][key];
-      return fileRow({ name: document.file, type: "txt", description: document.description, availability: t("legalUi.public"), route: `#/legal/${key}`, action: t("legalUi.open") });
+      return fileRow({ name: document.file, type: "txt", description: document.description, availability: t("legalUi.public"), route: `/legal/${key}`, action: t("legalUi.open") });
     });
     return `<section class="legal-folder"><header class="view-heading"><div class="view-heading__copy"><p>${t("legalUi.folderKicker")}</p><h1>${t("legalUi.folderTitle")}</h1><p>${t("legalUi.folderLead")}</p></div></header><dl class="legal-identity"><div><dt>${t("legalUi.operator")}</dt><dd>${escapeHtml(legalProfile.legalName)}<small>${escapeHtml(legalProfile.brand)}</small></dd></div><div><dt>${t("legalUi.taxId")}</dt><dd>${escapeHtml(legalProfile.taxId)}</dd></div><div><dt>${t("legalUi.registry")}</dt><dd>${escapeHtml(legalProfile.registry)}</dd></div><div><dt>${t("legalUi.address")}</dt><dd>${escapeHtml(legalProfile.address)}</dd></div><div><dt>${t("legalUi.email")}</dt><dd><a href="mailto:${escapeHtml(legalProfile.supportEmail)}">${escapeHtml(legalProfile.supportEmail)}</a><small><a href="tel:${legalProfile.phone.replace(/\s/g, "")}">${escapeHtml(legalProfile.phone)}</a></small></dd></div></dl><div class="file-list"><div class="file-list__header"><span>${t("legalUi.name")}</span><span>${t("legalUi.type")}</span><span>${t("legalUi.description")}</span><span>${t("legalUi.access")}</span></div>${rows.join("")}</div></section>`;
   };
@@ -603,18 +634,18 @@
   };
 
   const bundleView = () => {
-    const rows = archive.members.map((id) => products[id]).map((product) => fileRow({ name: productName(product), type: "folder", description: product.description[language], availability: t("bundle.item"), route: `#/product/${product.id}`, productId: product.id, fileKey: "bundle-member", action: t("product.open") }));
+    const rows = archive.members.map((id) => products[id]).map((product) => fileRow({ name: productName(product), type: "folder", description: product.description[language], availability: t("bundle.item"), route: `/product/${product.id}`, action: t("product.open") }));
     return `<header class="view-heading"><div class="view-heading__copy"><p>${t("bundle.kicker")}</p><h1>${t("bundle.title")}</h1><p>${t("bundle.lead")}</p></div></header><header class="subfolder-heading"><span class="folder-icon folder-icon--bundle"></span><div><h2>${t("bundle.members")}</h2><p>${t("product.files", { count: archive.members.length })}</p></div></header>${fileList(rows)}${purchaseStrip(archive)}`;
   };
 
   const renderInspector = (route) => {
     const inspector = $("[data-inspector]");
-    if (selectedFile && route.type === "product") {
+    if (selectedFile && route.type === "product" && Object.hasOwn(products, selectedFile.productId)) {
       const product = products[selectedFile.productId];
       inspector.innerHTML = fileInspector(product, fileDefinition(product, selectedFile.key, selectedFile.entry));
       return;
     }
-    if (route.type === "product" && products[route.id]) {
+    if (route.type === "product" && Object.hasOwn(products, route.id)) {
       inspector.innerHTML = productInspector(products[route.id]);
       return;
     }
@@ -622,7 +653,7 @@
       inspector.innerHTML = productInspector(archive);
       return;
     }
-    if (selectedProductId && products[selectedProductId]) {
+    if (selectedProductId && Object.hasOwn(products, selectedProductId)) {
       inspector.innerHTML = productInspector(products[selectedProductId]);
       return;
     }
@@ -645,24 +676,23 @@
 
   const renderRoute = () => {
     const route = parseRoute();
-    const routeKey = routeHash(route);
+    const routeKey = routePath(route);
     const routeChanged = routeKey !== lastRenderedRoute;
     const product = route.type === "product" ? products[route.id] : null;
-    if (route.type === "product" && !product) {
-      navigate("#/home", { force: true });
+    if (route.type === "product" && !Object.hasOwn(products, route.id)) {
+      navigate("/", { force: true });
       return;
     }
     if (route.type === "product" && route.section) {
-      const documentEntries = ["readme", "prompts", "negatives", "guide", "license"];
-      const validLanguageRoute = ["es", "en"].includes(route.section) && (!route.entry || documentEntries.includes(route.entry));
+      const validLanguageRoute = ["es", "en"].includes(route.section) && (!route.entry || documentRouteEntries.has(route.entry));
       const validDemoRoute = route.section === "demos" && (!route.entry || route.entry === "preview");
       if (!validLanguageRoute && !validDemoRoute) {
-        navigate(`#/product/${route.id}`, { force: true });
+        navigate(`/product/${route.id}`, { force: true });
         return;
       }
     }
-    if (route.type === "legal" && route.document && !legalDocuments[language][route.document]) {
-      navigate("#/legal", { force: true });
+    if (route.type === "legal" && route.document && !Object.hasOwn(legalDocuments[language], route.document)) {
+      navigate("/legal", { force: true });
       return;
     }
     if (route.type !== "home" && route.type !== "category") selectedProductId = null;
@@ -683,7 +713,7 @@
     $("[data-view-content]").innerHTML = html;
     renderInspector(route);
     renderStatus(route);
-    const parent = parentHash(route);
+    const parent = parentPath(route);
     $("[data-up]").disabled = !parent;
     $("[data-back]").disabled = historyCursor <= 0;
     $("[data-forward]").disabled = historyCursor >= appHistory.length - 1;
@@ -719,6 +749,7 @@
   };
 
   const selectProduct = (id) => {
+    if (!Object.hasOwn(products, id)) return;
     selectedProductId = id;
     selectedFile = null;
     $$('[data-product-id]').forEach((item) => item.classList.toggle("is-selected", item.dataset.productId === id));
@@ -756,8 +787,8 @@
   };
 
   const addToCart = (id) => {
+    if (!Object.hasOwn(products, id)) return;
     const product = products[id];
-    if (!product) return;
     if (product.bundle) {
       const replaced = cart.some((item) => product.members.includes(item));
       cart = cart.filter((item) => !product.members.includes(item));
@@ -848,19 +879,19 @@
     }
     const productFolder = event.target.closest("[data-product-id]");
     if (productFolder) {
-      if (window.matchMedia("(max-width: 900px)").matches) navigate(`#/product/${productFolder.dataset.productId}`);
+      if (window.matchMedia("(max-width: 900px)").matches) navigate(`/product/${productFolder.dataset.productId}`);
       else selectProduct(productFolder.dataset.productId);
       return;
     }
     const openProduct = event.target.closest("[data-open-product]");
-    if (openProduct) { const id = openProduct.dataset.openProduct; navigate(id === "archive" ? "#/bundle" : `#/product/${id}`); return; }
+    if (openProduct) { const id = openProduct.dataset.openProduct; navigate(id === "archive" ? "/bundle" : `/product/${id}`); return; }
     const play = event.target.closest("[data-play]");
     if (play) { startTrack(play.dataset.play); return; }
     const file = event.target.closest("[data-file-key]");
     if (file) {
       const entry = file.dataset.fileEntry || null;
       if (file.dataset.fileKey === "demos" && entry === "1") startTrack(file.dataset.fileProduct);
-      else if (window.matchMedia("(max-width: 900px)").matches) navigate(`#/product/${file.dataset.fileProduct}/${file.dataset.fileKey}${entry ? `/${entry}` : ""}`);
+      else if (window.matchMedia("(max-width: 900px)").matches) navigate(`/product/${file.dataset.fileProduct}/${file.dataset.fileKey}${entry ? `/${entry}` : ""}`);
       else selectFile(file.dataset.fileProduct, file.dataset.fileKey, entry);
       return;
     }
@@ -873,7 +904,7 @@
     const remove = event.target.closest("[data-remove]");
     if (remove) { cart = cart.filter((id) => id !== remove.dataset.remove); renderCart(); return; }
     if (event.target.closest("[data-clear-cart]")) { cart = []; renderCart(); return; }
-    if (event.target.closest("[data-cart-browse]")) { closeCart(); navigate("#/home"); return; }
+    if (event.target.closest("[data-cart-browse]")) { closeCart(); navigate("/"); return; }
     if (event.target.closest("[data-clear-search]")) { query = ""; $("[data-search]").value = ""; renderRoute(); return; }
     const sectionButton = event.target.closest("[data-scroll-section]");
     if (sectionButton) { document.getElementById(sectionButton.dataset.scrollSection)?.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
@@ -883,9 +914,9 @@
 
   document.addEventListener("dblclick", (event) => {
     const productFolder = event.target.closest("[data-product-id]");
-    if (productFolder && !window.matchMedia("(max-width: 900px)").matches) navigate(`#/product/${productFolder.dataset.productId}`);
+    if (productFolder && !window.matchMedia("(max-width: 900px)").matches) navigate(`/product/${productFolder.dataset.productId}`);
     const file = event.target.closest("[data-file-key]");
-    if (file && !window.matchMedia("(max-width: 900px)").matches) navigate(`#/product/${file.dataset.fileProduct}/${file.dataset.fileKey}${file.dataset.fileEntry ? `/${file.dataset.fileEntry}` : ""}`);
+    if (file && !window.matchMedia("(max-width: 900px)").matches) navigate(`/product/${file.dataset.fileProduct}/${file.dataset.fileKey}${file.dataset.fileEntry ? `/${file.dataset.fileEntry}` : ""}`);
   });
 
   document.addEventListener("keydown", (event) => {
@@ -899,7 +930,7 @@
     }
     if (event.key === "Enter") {
       const productFolder = event.target.closest("[data-product-id]");
-      if (productFolder) navigate(`#/product/${productFolder.dataset.productId}`);
+      if (productFolder) navigate(`/product/${productFolder.dataset.productId}`);
     }
     if (event.altKey && event.key === "ArrowLeft") { event.preventDefault(); $("[data-back]").click(); }
     if (event.altKey && event.key === "ArrowRight") { event.preventDefault(); $("[data-forward]").click(); }
@@ -909,10 +940,10 @@
 
   $("[data-back]").addEventListener("click", () => { if (historyCursor > 0) history.back(); });
   $("[data-forward]").addEventListener("click", () => { if (historyCursor < appHistory.length - 1) history.forward(); });
-  $("[data-up]").addEventListener("click", () => { const parent = parentHash(parseRoute()); if (parent) navigate(parent); });
+  $("[data-up]").addEventListener("click", () => { const parent = parentPath(parseRoute()); if (parent) navigate(parent); });
   $$('[data-view-mode]').forEach((button) => button.addEventListener("click", () => { viewMode = button.dataset.viewMode; try { localStorage.setItem("subsuelo-view", viewMode); } catch { /* unavailable */ } renderRoute(); }));
   $$('[data-language]').forEach((button) => button.addEventListener("click", () => applyLanguage(button.dataset.language)));
-  $("[data-search]").addEventListener("input", (event) => { query = event.currentTarget.value; const route = parseRoute(); if (route.type !== "home" && route.type !== "category") navigate("#/home"); else renderRoute(); });
+  $("[data-search]").addEventListener("input", (event) => { query = event.currentTarget.value; const route = parseRoute(); if (route.type !== "home" && route.type !== "category") navigate("/"); else renderRoute(); });
   $("[data-close-cart]").addEventListener("click", closeCart);
   cartBackdrop.addEventListener("click", closeCart);
   sidebarBackdrop.addEventListener("click", closeSidebar);

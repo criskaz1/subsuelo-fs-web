@@ -1,0 +1,4 @@
+Contact: mailto:contacto@nombdi.es
+Expires: 2027-07-15T23:59:59.000Z
+Preferred-Languages: es, en
+Canonical: https://subsuelofs.com/.well-known/security.txt
