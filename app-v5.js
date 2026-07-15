@@ -27,7 +27,7 @@
 
   const copy = {
     es: {
-      meta: { title: "SUBSUELO FS — Carpetas de prompts", description: "Carpetas de prompts y negative prompts para crear instrumentales, con guías separadas en español e inglés." },
+      meta: { title: "SUBSUELO FS — Dirección sonora para instrumentales", description: "Colecciones de dirección sonora por género con prompts, negative prompts, guías ES/EN y referencias de audio." },
       a11y: { skip: "Saltar a los archivos", app: "SUBSUELO File System", appMenu: "Menú de aplicación", path: "Ruta actual", language: "Idioma", sidebar: "Navegación del archivo", inspector: "Detalles", mobileNav: "Navegación móvil" },
       titlebar: { browser: "EXPLORADOR DE ARCHIVOS", store: "TIENDA DIGITAL", open: "ARCHIVO ABIERTO" },
       menu: { file: "Archivo", view: "Ver", play: "Reproducir", help: "Ayuda", cart: "Carrito" },
@@ -51,7 +51,7 @@
       messages: { added: "{name} añadido al carrito.", duplicate: "Esa carpeta ya está en el carrito.", bundleContains: "El pack completo ya contiene esa carpeta.", bundleReplaced: "El pack completo ha sustituido las carpetas que ya incluía.", fileIncluded: "Este archivo se entrega dentro del ZIP." }
     },
     en: {
-      meta: { title: "SUBSUELO FS — Prompt folders", description: "Prompt and negative prompt folders for making instrumentals, with separate Spanish and English guides." },
+      meta: { title: "SUBSUELO FS — Sound direction for instrumentals", description: "Genre-focused sound direction collections with prompts, negative prompts, ES/EN guides and audio references." },
       a11y: { skip: "Skip to files", app: "SUBSUELO File System", appMenu: "Application menu", path: "Current path", language: "Language", sidebar: "Archive navigation", inspector: "Details", mobileNav: "Mobile navigation" },
       titlebar: { browser: "FILE BROWSER", store: "DIGITAL STORE", open: "STORE OPEN" },
       menu: { file: "File", view: "View", play: "Play", help: "Help", cart: "Cart" },
