@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SUBSUELO FS — Guías de producción</title>
+    <link>https://subsuelofs.com/guides/</link>
+    <description>Guías directas sobre prompts musicales, negative prompts y dirección sonora.</description>
+    <language>es</language>
+    <lastBuildDate>Thu, 16 Jul 2026 08:00:00 +0200</lastBuildDate>
+    <atom:link href="https://subsuelofs.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qué es un negative prompt en música y cuándo usarlo</title>
+      <link>https://subsuelofs.com/guides/negative-prompts/</link>
+      <guid isPermaLink="true">https://subsuelofs.com/guides/negative-prompts/</guid>
+      <description>Qué elimina, dónde se coloca y cuándo conviene usarlo para voces, instrumentos o acabados.</description>
+      <pubDate>Thu, 16 Jul 2026 08:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Cómo escribir prompts para crear música con una dirección clara</title>
+      <link>https://subsuelofs.com/guides/write-music-prompts/</link>
+      <guid isPermaLink="true">https://subsuelofs.com/guides/write-music-prompts/</guid>
+      <description>Una estructura práctica para describir género, pulso, batería, graves, fuente sonora, espacio y mezcla.</description>
+      <pubDate>Thu, 16 Jul 2026 08:00:00 +0200</pubDate>
+    </item>
+  </channel>
+</rss>

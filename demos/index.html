@@ -14,6 +14,7 @@
     <link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/demos/" />
     <link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/demos/" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://subsuelofs.com/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="SUBSUELO FS" href="https://subsuelofs.com/feed.xml" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://subsuelofs.com/demos/" />
     <meta property="og:site_name" content="SUBSUELO FS" />
@@ -78,8 +79,8 @@
     <!-- STATIC-SEO:END -->
     <base href="/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles-v5.css?v=29" />
-    <script src="./app-v5.js?v=31" defer></script>
+    <link rel="stylesheet" href="./styles-v5.css?v=30" />
+    <script src="./app-v5.js?v=32" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Saltar a los archivos</a>
@@ -95,6 +96,7 @@
           <a href="/" data-route="/" data-i18n="menu.file">Archivo</a>
           <button type="button" data-menu-view data-i18n="menu.view">Ver</button>
           <a href="/demos/" data-route="/demos/" data-i18n="menu.play">Reproducir</a>
+          <a href="/guides/" data-editorial-path="/guides/" data-i18n="menu.guides">Guías</a>
           <a href="/help/" data-route="/help/" data-i18n="menu.help">Ayuda</a>
         </nav>
 
@@ -137,12 +139,12 @@
               </header>
               <div class="file-list demo-list">
                 <div class="file-list__header"><span>Pista</span><span>Carpeta</span><span>Duración</span><span>Acción</span></div>
-                <div class="file-row" data-track="trap"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><strong>Ash Circle</strong></span><span><a href="/product/trap/" data-route="/product/trap/">Trap Ritual</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="trap">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="trap">Añadir · 15 €</button></span></div>
-                <div class="file-row" data-track="garage"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><strong>Alley Pressure</strong></span><span><a href="/product/garage/" data-route="/product/garage/">Garaje Oscuro</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="garage">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="garage">Añadir · 15 €</button></span></div>
-                <div class="file-row" data-track="jungle"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><strong>Limestone Roll</strong></span><span><a href="/product/jungle/" data-route="/product/jungle/">Fossil Jungle</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="jungle">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="jungle">Añadir · 15 €</button></span></div>
-                <div class="file-row" data-track="low"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><strong>Concrete Pulse</strong></span><span><a href="/product/low/" data-route="/product/low/">Low Pressure</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="low">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="low">Añadir · 15 €</button></span></div>
-                <div class="file-row" data-track="abyss"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><strong>Deep Chamber</strong></span><span><a href="/product/abyss/" data-route="/product/abyss/">Abyss Dub</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="abyss">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="abyss">Añadir · 15 €</button></span></div>
-                <div class="file-row" data-track="noir"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><strong>Rain Evidence</strong></span><span><a href="/product/noir/" data-route="/product/noir/">Noir Tapes</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="noir">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="noir">Añadir · 15 €</button></span></div>
+                <div class="file-row" data-track="trap"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>Ash Circle</strong><small class="demo-profile">Base seca y ceremonial con campana grave, golpes muy separados y un 808 que desciende al final de cada vuelta.</small></span></span><span><a href="/product/trap/" data-route="/product/trap/">Trap Ritual</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="trap">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="trap">Añadir · 15 €</button></span></div>
+                <div class="file-row" data-track="garage"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>Alley Pressure</strong><small class="demo-profile">2-step seco y frontal, con subgrave corto, acordes mínimos y una acústica de calle estrecha.</small></span></span><span><a href="/product/garage/" data-route="/product/garage/">Garaje Oscuro</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="garage">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="garage">Añadir · 15 €</button></span></div>
+                <div class="file-row" data-track="jungle"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>Limestone Roll</strong><small class="demo-profile">Batería recortada, rodante y seca, subgrave por pulsos y polvo de piedra en los agudos.</small></span></span><span><a href="/product/jungle/" data-route="/product/jungle/">Fossil Jungle</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="jungle">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="jungle">Añadir · 15 €</button></span></div>
+                <div class="file-row" data-track="low"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>Concrete Pulse</strong><small class="demo-profile">Bombo recortado, subgrave por golpes y percusión grabada sobre cemento.</small></span></span><span><a href="/product/low/" data-route="/product/low/">Low Pressure</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="low">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="low">Añadir · 15 €</button></span></div>
+                <div class="file-row" data-track="abyss"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>Deep Chamber</strong><small class="demo-profile">Hip-hop dub esencial: bombo corto, golpe de aro seco, subgrave sostenido y un acorde que desaparece en la profundidad.</small></span></span><span><a href="/product/abyss/" data-route="/product/abyss/">Abyss Dub</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="abyss">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="abyss">Añadir · 15 €</button></span></div>
+                <div class="file-row" data-track="noir"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>Rain Evidence</strong><small class="demo-profile">Batería recortada y polvorienta, piano de dos notas y lluvia contra una ventana cercana.</small></span></span><span><a href="/product/noir/" data-route="/product/noir/">Noir Tapes</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="noir">Escuchar</button><button class="file-row__action file-row__action--primary" type="button" data-add="noir">Añadir · 15 €</button></span></div>
               </div>
               <!-- STATIC-CONTENT:END -->
             </div>

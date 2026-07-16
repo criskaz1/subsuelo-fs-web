@@ -1,0 +1,26 @@
+# SUBSUELO FS
+
+> Bilingual digital store for genre-specific music prompt folders, negative prompts, practical guides and audio references.
+
+Official website: https://subsuelofs.com/
+Spanish guides: https://subsuelofs.com/guides/
+English guides: https://subsuelofs.com/en/guides/
+Folder comparison: https://subsuelofs.com/compare/
+Audio previews: https://subsuelofs.com/demos/
+Method: https://subsuelofs.com/method/
+
+## Catalogue
+
+- Trap Ritual: https://subsuelofs.com/product/trap/
+- Garaje Oscuro: https://subsuelofs.com/product/garage/
+- Fossil Jungle: https://subsuelofs.com/product/jungle/
+- Low Pressure: https://subsuelofs.com/product/low/
+- Abyss Dub: https://subsuelofs.com/product/abyss/
+- Noir Tapes: https://subsuelofs.com/product/noir/
+- Complete pack: https://subsuelofs.com/bundle/
+
+## Public content boundaries
+
+Product pages describe each folder, delivered files, variation axes and public audio preview. Complete paid prompts and complete paid negative-prompt lists are not published on the public website.
+
+SUBSUELO FS is operated by NOMBRE DIRECCION, S.L.U. Contact and purchase terms are available inside the store.
