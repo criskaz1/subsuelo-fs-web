@@ -6,6 +6,7 @@ import vm from "node:vm";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const templatePath = path.join(root, "index.html");
 const siteUrl = "https://subsuelofs.com";
+const freeSamplerUrl = "https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler";
 const lastModified = "2026-07-16";
 const openingPriceEnds = "2026-07-30";
 const socialImage = `${siteUrl}/social-card.png?v=20260716-2`;
@@ -218,6 +219,7 @@ const homeSchema = (page) => ({
       name: "SUBSUELO FS",
       legalName: "NOMBRE DIRECCION, S.L.U.",
       url: `${siteUrl}/`,
+      email: "soporte@subsuelofs.com",
       logo: `${siteUrl}/favicon.svg`,
       image: `${siteUrl}/social-card.png`,
       description: page.locale === "en"
@@ -349,6 +351,16 @@ const homeView = (locale) => {
   </div>
   <p class="view-heading__hint">${en ? "Select a folder · Double-click to open" : "Selecciona una carpeta · Doble clic para abrir"}</p>
 </header>
+<section class="sampler-file">
+  <span class="file-icon file-icon--zip" aria-hidden="true">ZIP</span>
+  <div class="sampler-file__copy">
+    <p>${en ? "FREE SAMPLER / ZIP" : "MUESTRA GRATUITA / ZIP"}</p>
+    <h2>${en ? "Try the format before choosing." : "Prueba el formato antes de elegir."}</h2>
+    <p>${en ? "Get 6 prompts, 7 negative prompts, separate Spanish and English guides, and six 30-second demos: one entry from every folder." : "Recibe 6 prompts, 7 negative prompts, guías separadas en español e inglés y 6 demos de 30 segundos: una entrada de cada carpeta."}</p>
+    <small>${en ? "Instant delivery by email · No account required" : "Descarga inmediata por email · Sin cuenta obligatoria"}</small>
+  </div>
+  <a class="sampler-file__action" href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" aria-label="${en ? "Get the free sampler (opens in a new tab)" : "Recibir la muestra gratuita (abre en una pestaña nueva)"}" data-sampler-download="home">${en ? "GET THE SAMPLER · 0 €" : "RECIBIR MUESTRA · 0 €"}<span aria-hidden="true">↗</span></a>
+</section>
 <span class="opening-price-note opening-price-note--catalog">${en ? "Opening price until 30.07.2026" : "Precio de apertura hasta 30.07.2026"}</span>
 <div class="folder-grid" data-folder-grid>
   ${products.map((product) => folderCard(product, locale)).join("\n  ")}
@@ -605,7 +617,7 @@ const pagesForLocale = (locale) => {
     page("/", "index.html", {
       heading: en ? "One genre. 30 ways in." : "Un género por carpeta",
       title: en ? "Music prompts for dark instrumentals | SUBSUELO FS" : "Prompts para instrumentales oscuras | SUBSUELO FS",
-      description: en ? "Genre-built prompt collections for dark instrumentals: 30 prompts, 10 negative prompts, guides in English and Spanish, and 4 audio references per folder." : "Colecciones por género con 30 prompts, 10 negative prompts, guías en español e inglés y 4 referencias de audio. Escucha las demos antes de elegir.",
+      description: en ? "Genre-built folders for dark instrumentals: 30 prompts, 10 negative prompts, ES/EN guides and 4 audio references. Download the free sampler first." : "Carpetas por género para instrumentales oscuras: 30 prompts, 10 negative prompts, guías ES/EN y 4 audios. Descarga una muestra gratuita antes de elegir.",
       type: "website",
       home: true,
       view: homeView(locale)

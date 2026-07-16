@@ -27,15 +27,15 @@
 
   const copy = {
     es: {
-      meta: { title: "SUBSUELO FS — Dirección sonora para instrumentales", description: "Colecciones de dirección sonora por género con prompts, negative prompts, guías ES/EN y referencias de audio." },
+      meta: { title: "SUBSUELO FS — Dirección sonora para instrumentales", description: "Carpetas por género para instrumentales oscuras: 30 prompts, 10 negative prompts, guías ES/EN y 4 audios. Descarga una muestra gratuita antes de elegir." },
       pricing: { opening: "Precio de apertura hasta 30.07.2026" },
       a11y: { skip: "Saltar a los archivos", app: "SUBSUELO File System", appMenu: "Menú de aplicación", path: "Ruta actual", language: "Idioma", sidebar: "Navegación del archivo", inspector: "Detalles", mobileNav: "Navegación móvil" },
       titlebar: { browser: "EXPLORADOR DE ARCHIVOS", store: "TIENDA DIGITAL", open: "ARCHIVO ABIERTO" },
       menu: { file: "Archivo", view: "Ver", play: "Reproducir", guides: "Guías", help: "Ayuda", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", cart: "Carrito" },
       toolbar: { back: "Atrás", forward: "Adelante", up: "Subir", sidebar: "Abrir navegación", search: "Buscar en el archivo…", viewGroup: "Vista", grid: "Vista de iconos", list: "Vista de lista" },
-      sidebar: { language: "IDIOMA", quick: "ACCESO RÁPIDO", sounds: "POR SONIDO", info: "INFORMACIÓN", home: "Todas las carpetas", demos: "Ejemplos de audio", bundle: "Pack completo", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", xAria: "@subsuelofs en X (abre en una pestaña nueva)", cart: "Carrito", guides: "Guías de producción", help: "Qué incluye cada carpeta", legalFolder: "Legal y privacidad" },
+      sidebar: { language: "IDIOMA", quick: "ACCESO RÁPIDO", sounds: "POR SONIDO", info: "INFORMACIÓN", home: "Todas las carpetas", demos: "Ejemplos de audio", bundle: "Pack completo", sampler: "Muestra gratuita", samplerAria: "Descargar la muestra gratuita (abre en una pestaña nueva)", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", xAria: "@subsuelofs en X (abre en una pestaña nueva)", cart: "Carrito", guides: "Guías de producción", help: "Qué incluye cada carpeta", legalFolder: "Legal y privacidad" },
       mobile: { home: "Inicio", pack: "Pack", demos: "Demos", help: "Ayuda", cart: "Carrito" },
-      home: { kicker: "SUBSUELO / CATÁLOGO", title: "Un género por carpeta", lead: "Entra en el género que quieres producir. Dentro encontrarás 30 prompts distintos que cambian la batería, el bajo, el motivo y el espacio sin abandonar esa familia sonora.", hint: "Selecciona una carpeta · Doble clic para abrir", mobileHint: "Toca una carpeta para abrirla", docs: "MÁS INFORMACIÓN", helpFile: "QUE_INCLUYE_CADA_CARPETA.txt", demoFile: "ESCUCHAR_EJEMPLOS.audio", guidesFile: "GUIAS_DE_PRODUCCION.folder", bundleFile: "PACK_COMPLETO.folder", legalFile: "LEGAL_Y_PRIVACIDAD.folder", empty: "No hay resultados para esta búsqueda.", emptyHint: "Prueba con otro nombre o limpia la búsqueda.", clear: "Limpiar búsqueda" },
+      home: { kicker: "SUBSUELO / CATÁLOGO", title: "Un género por carpeta", lead: "Entra en el género que quieres producir. Dentro encontrarás 30 prompts distintos que cambian la batería, el bajo, el motivo y el espacio sin abandonar esa familia sonora.", hint: "Selecciona una carpeta · Doble clic para abrir", mobileHint: "Toca una carpeta para abrirla", docs: "MÁS INFORMACIÓN", helpFile: "QUE_INCLUYE_CADA_CARPETA.txt", demoFile: "ESCUCHAR_EJEMPLOS.audio", guidesFile: "GUIAS_DE_PRODUCCION.folder", bundleFile: "PACK_COMPLETO.folder", legalFile: "LEGAL_Y_PRIVACIDAD.folder", empty: "No hay resultados para esta búsqueda.", emptyHint: "Prueba con otro nombre o limpia la búsqueda.", clear: "Limpiar búsqueda", samplerKicker: "MUESTRA GRATUITA / ZIP", samplerTitle: "Prueba el formato antes de elegir.", samplerText: "Recibe 6 prompts, 7 negative prompts, guías separadas en español e inglés y 6 demos de 30 segundos: una entrada de cada carpeta.", samplerDelivery: "Descarga inmediata por email · Sin cuenta obligatoria", samplerAction: "RECIBIR MUESTRA · 0 €", samplerAria: "Recibir la muestra gratuita (abre en una pestaña nueva)" },
       categories: { trap: "Trap ritual", garage: "Garage oscuro", jungle: "Jungle degradado", hiphop: "Hip-Hop abstracto", dub: "Hip-Hop dub", noir: "Hip-Hop noir" },
       inspector: { select: "Selecciona una carpeta", selectHint: "Aquí verás qué sonido trabaja, qué contiene, su ejemplo de audio y el precio.", open: "Abrir carpeta", play: "Escuchar ejemplo", add: "Añadir", prompts: "{count} prompts", negatives: "{count} negative prompts", guide: "Guía en español + guía en inglés", demo: "1 ejemplo de audio", demos: "{count} ejemplos de audio", folders: "{count} carpetas" },
       product: { edition: "CARPETA DE PROMPTS", demoFolderName: "AUDIO_EXAMPLES", add: "Añadir al carrito", play: "Escuchar muestra", contents: "Contenido de la descarga", name: "Nombre", type: "Tipo", folder: "Carpeta", description: "Qué contiene", availability: "Acceso", purchase: "Descarga disponible después del pago", files: "{count} elementos", included: "Incluido en la descarga", available: "Disponible después de la compra", public: "Información pública", details: "Ver información", open: "Abrir", listen: "Escuchar", readme: "Resumen de la descarga, organización de los archivos y primeros pasos.", promptsFolder: "PDF con todos los prompts en inglés, numerados y listos para copiar.", negativesFolder: "PDF separado con todos los negative prompts en inglés, numerados y listos para copiar.", guideFile: "Explica dónde pegar cada texto, cómo crear con o sin voz y qué cambia al mover los controles.", demosFolder: "Carpeta con 4 MP3 incluidos para escucha y referencia. El reproductor público ofrece una muestra.", audioIncluded: "MP3 completo incluido para escucha y referencia después del pago.", previewDescription: "Extracto público de 30 segundos de uno de los audios incluidos.", demosIncluded: "4 MP3 incluidos + muestra pública", licenseFile: "Condiciones de uso de los prompts, negative prompts y audios de ejemplo.", esFolder: "Documentos en español; los textos que se copian permanecen en inglés.", enFolder: "Documentos en inglés; los prompts preparados para copiar también están en inglés.", format: "Formato", language: "Idioma", content: "Contenido", english: "Inglés", spanishDocs: "Español · prompts en inglés", englishDocs: "Inglés · prompts en inglés", afterPurchase: "Se entrega dentro de la descarga después del pago.", review: "Puedes comprobar qué contiene y en qué idioma está antes de comprar.", mainPrompt: "Prompt completo en inglés, listo para copiar.", negativePrompt: "Lista en inglés para pegar en Exclude.", audioPreview: "Muestra pública", previewOnly: "Solo escucha", notInZip: "La escucha pública es una muestra; la compra incluye 4 MP3 para referencia." },
@@ -53,15 +53,15 @@
       messages: { added: "{name} añadido al carrito.", duplicate: "Esa carpeta ya está en el carrito.", bundleContains: "El pack completo ya contiene esa carpeta.", bundleReplaced: "El pack completo ha sustituido las carpetas que ya incluía.", fileIncluded: "Este archivo se entrega dentro del ZIP." }
     },
     en: {
-      meta: { title: "SUBSUELO FS — Sound direction for instrumentals", description: "Genre-built prompt collections for dark instrumentals: 30 prompts, 10 negative prompts, guides in English and Spanish, and 4 audio references per folder." },
+      meta: { title: "SUBSUELO FS — Sound direction for instrumentals", description: "Genre-built folders for dark instrumentals: 30 prompts, 10 negative prompts, ES/EN guides and 4 audio references. Download the free sampler first." },
       pricing: { opening: "Opening price until 30 Jul 2026" },
       a11y: { skip: "Skip to files", app: "SUBSUELO File System", appMenu: "Application menu", path: "Current path", language: "Language", sidebar: "Archive navigation", inspector: "Details", mobileNav: "Mobile navigation" },
       titlebar: { browser: "FILE BROWSER", store: "DIGITAL STORE", open: "STORE OPEN" },
       menu: { file: "File", view: "View", play: "Play", guides: "Guides", help: "Help", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", cart: "Cart" },
       toolbar: { back: "Back", forward: "Forward", up: "Up", sidebar: "Open navigation", search: "Search the archive…", viewGroup: "View", grid: "Icon view", list: "List view" },
-      sidebar: { language: "LANGUAGE", quick: "QUICK ACCESS", sounds: "BY SOUND", info: "INFO", home: "All folders", demos: "Audio examples", bundle: "Complete pack", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", xAria: "@subsuelofs on X (opens in a new tab)", cart: "Cart", guides: "Production guides", help: "What each folder includes", legalFolder: "Legal and privacy" },
+      sidebar: { language: "LANGUAGE", quick: "QUICK ACCESS", sounds: "BY SOUND", info: "INFO", home: "All folders", demos: "Audio examples", bundle: "Complete pack", sampler: "Free sampler", samplerAria: "Download the free sampler (opens in a new tab)", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", xAria: "@subsuelofs on X (opens in a new tab)", cart: "Cart", guides: "Production guides", help: "What each folder includes", legalFolder: "Legal and privacy" },
       mobile: { home: "Home", pack: "Pack", demos: "Demos", help: "Help", cart: "Cart" },
-      home: { kicker: "SUBSUELO / CATALOGUE", title: "One genre. 30 ways in.", lead: "Pick the sound you want to make. Each folder gives you 30 prompts that change the drums, bass, lead source and space while staying inside one coherent genre.", hint: "Select a folder · Double-click to open", mobileHint: "Tap a folder to open it", docs: "MORE INFORMATION", helpFile: "WHAT_EACH_FOLDER_INCLUDES.txt", demoFile: "HEAR_THE_EXAMPLES.audio", guidesFile: "PRODUCTION_GUIDES.folder", bundleFile: "COMPLETE_PACK.folder", legalFile: "LEGAL_AND_PRIVACY.folder", empty: "No results for this search.", emptyHint: "Try another name or clear the search.", clear: "Clear search" },
+      home: { kicker: "SUBSUELO / CATALOGUE", title: "One genre. 30 ways in.", lead: "Pick the sound you want to make. Each folder gives you 30 prompts that change the drums, bass, lead source and space while staying inside one coherent genre.", hint: "Select a folder · Double-click to open", mobileHint: "Tap a folder to open it", docs: "MORE INFORMATION", helpFile: "WHAT_EACH_FOLDER_INCLUDES.txt", demoFile: "HEAR_THE_EXAMPLES.audio", guidesFile: "PRODUCTION_GUIDES.folder", bundleFile: "COMPLETE_PACK.folder", legalFile: "LEGAL_AND_PRIVACY.folder", empty: "No results for this search.", emptyHint: "Try another name or clear the search.", clear: "Clear search", samplerKicker: "FREE SAMPLER / ZIP", samplerTitle: "Try the format before choosing.", samplerText: "Get 6 prompts, 7 negative prompts, separate Spanish and English guides, and six 30-second demos: one entry from every folder.", samplerDelivery: "Instant delivery by email · No account required", samplerAction: "GET THE SAMPLER · 0 €", samplerAria: "Get the free sampler (opens in a new tab)" },
       categories: { trap: "Ritual trap", garage: "Dark UK garage", jungle: "Degraded jungle", hiphop: "Abstract hip-hop", dub: "Dub hip-hop", noir: "Noir hip-hop" },
       inspector: { select: "Select a folder", selectHint: "Its sound, contents, audio example and price will appear here.", open: "Open folder", play: "Hear example", add: "Add", prompts: "{count} prompts", negatives: "{count} negative prompts", guide: "Spanish guide + English guide", demo: "1 audio example", demos: "{count} audio examples", folders: "{count} folders" },
       product: { edition: "PROMPT FOLDER", demoFolderName: "AUDIO_EXAMPLES", add: "Add to cart", play: "Hear preview", contents: "Download contents", name: "Name", type: "Type", folder: "Folder", description: "Contents", availability: "Access", purchase: "Download available after payment", files: "{count} items", included: "Included in the download", available: "Available after purchase", public: "Public information", details: "View information", open: "Open", listen: "Listen", readme: "Download summary, file organisation and first steps.", promptsFolder: "PDF containing every prompt in English, numbered and ready to copy.", negativesFolder: "Separate PDF containing every negative prompt in English, numbered and ready to copy.", guideFile: "Shows where each text goes, how to work with or without vocals, and what each control changes.", demosFolder: "Folder containing 4 MP3 files for listening and reference. The public player offers one preview.", audioIncluded: "Full MP3 included for listening and reference after payment.", previewDescription: "Public 30-second excerpt from one of the included audio files.", demosIncluded: "4 MP3 files included + public preview", licenseFile: "Usage terms for prompts, negative prompts and audio examples.", esFolder: "Documents in Spanish; the copy-ready prompts remain in English.", enFolder: "Documents in English; the copy-ready prompts remain in English.", format: "Format", language: "Language", content: "Content", english: "English", spanishDocs: "Spanish · prompts in English", englishDocs: "English · prompts in English", afterPurchase: "Delivered inside the download after payment.", review: "You can check what it contains and its language before buying.", mainPrompt: "Complete prompt in English, ready to copy.", negativePrompt: "English list for the Exclude field.", audioPreview: "Public preview", previewOnly: "Listen only", notInZip: "The public player is a preview; the purchase includes 4 MP3 reference tracks." },
@@ -381,6 +381,12 @@
   const separateCataloguePrice = catalog.reduce((total, product) => total + product.price, 0);
   const archiveSaving = separateCataloguePrice - archive.price;
   const payhipProductKeys = Object.freeze({ trap: "0GiEq", garage: "HunFY", jungle: "LmWUN", low: "LrzFf", abyss: "TxsAr", noir: "8sFfE", archive: "SPXoI" });
+  const freeSampler = Object.freeze({
+    url: "https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler",
+    prompts: 6,
+    negatives: 7,
+    demos: 6
+  });
   const customerAccountUrl = "https://payhip.com/subsuelofs/b-account";
   const products = Object.fromEntries([...catalog, archive].map((product) => [product.id, { ...product, payhipKey: payhipProductKeys[product.id] }]));
   const productSeo = Object.freeze({
@@ -420,6 +426,9 @@
   const get = (object, path) => path.split(".").reduce((value, key) => value?.[key], object);
   const interpolate = (value, values = {}) => String(value).replace(/\{(\w+)\}/g, (_, key) => values[key] ?? `{${key}}`);
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char]);
+  const trackEvent = (name, data = {}) => {
+    if (typeof window.umami?.track === "function") window.umami.track(name, data);
+  };
 
   let language = "es";
   let viewMode = "grid";
@@ -435,6 +444,7 @@
   let activeTrack = null;
   let lastTrackId = null;
   let lastRenderedRoute = null;
+  const trackedDemoIds = new Set();
 
   try {
     const savedLanguage = localStorage.getItem("subsuelo-language");
@@ -561,6 +571,8 @@
     appHistory.push(normalized);
     historyCursor = appHistory.length - 1;
     history.pushState({ appIndex: historyCursor, route: normalized }, "", normalized);
+    const nextRoute = parseRoute(normalized);
+    if (nextRoute.type === "product") trackEvent("pack_open", { pack: nextRoute.id });
     selectedFile = null;
     renderRoute();
     closeSidebar();
@@ -650,7 +662,8 @@
     $("[data-sidebar-main]").innerHTML = [
       treeItem({ route: "/", label: t("sidebar.home"), count: catalog.length, current: route.type === "home", crawlable: true }),
       treeItem({ route: "/demos", label: t("sidebar.demos"), icon: "play", current: route.type === "demos", crawlable: true }),
-      treeItem({ route: "/bundle", label: t("sidebar.bundle"), current: route.type === "bundle", crawlable: true })
+      treeItem({ route: "/bundle", label: t("sidebar.bundle"), current: route.type === "bundle", crawlable: true }),
+      `<a class="tree-item" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(t("sidebar.samplerAria"))}" data-sampler-download="sidebar"><span class="tree-icon tree-icon--doc"></span><span>${t("sidebar.sampler")}</span><small>0 € ↗</small></a>`
     ].join("");
     $("[data-sidebar-categories]").innerHTML = categories().map((category) => treeItem({ route: `/category/${category}`, label: categoryName(category), count: catalog.filter((product) => product.tags.includes(category)).length, current: route.type === "category" && route.category === category })).join("");
     $("[data-sidebar-info]").innerHTML = [
@@ -688,7 +701,8 @@
     const demosHref = routeHref("/demos/");
     const bundleHref = routeHref("/bundle/");
     const guidesHref = localizedPath("/guides/", language);
-    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${openingPriceNote("catalog")}${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><a class="system-file" href="${helpHref}" data-route="${helpHref}"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></a><a class="system-file" href="${demosHref}" data-route="${demosHref}"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></a><a class="system-file" href="${guidesHref}" data-editorial-path="/guides/"><span class="row-folder-icon"></span><strong>${t("home.guidesFile")}</strong></a><a class="system-file" href="${bundleHref}" data-route="${bundleHref}"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></a><button class="system-file" type="button" data-route="${routeHref("/legal")}"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></button></div></section>`;
+    const sampler = `<section class="sampler-file"><span class="file-icon file-icon--zip" aria-hidden="true">ZIP</span><div class="sampler-file__copy"><p>${t("home.samplerKicker")}</p><h2>${t("home.samplerTitle")}</h2><p>${t("home.samplerText")}</p><small>${t("home.samplerDelivery")}</small></div><a class="sampler-file__action" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(t("home.samplerAria"))}" data-sampler-download="home">${t("home.samplerAction")}<span aria-hidden="true">↗</span></a></section>`;
+    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${sampler}${openingPriceNote("catalog")}${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><a class="system-file" href="${helpHref}" data-route="${helpHref}"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></a><a class="system-file" href="${demosHref}" data-route="${demosHref}"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></a><a class="system-file" href="${guidesHref}" data-editorial-path="/guides/"><span class="row-folder-icon"></span><strong>${t("home.guidesFile")}</strong></a><a class="system-file" href="${bundleHref}" data-route="${bundleHref}"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></a><button class="system-file" type="button" data-route="${routeHref("/legal")}"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></button></div></section>`;
   };
 
   const bundleCounts = () => archive.members.map((id) => products[id]).reduce((sum, product) => ({ prompts: sum.prompts + product.counts.prompts, negatives: sum.negatives + product.counts.negatives, demos: sum.demos + product.counts.demos }), { prompts: 0, negatives: 0, demos: 0 });
@@ -989,6 +1003,7 @@
       cart = cart.filter((item) => !product.members.includes(item));
       if (!cart.includes(id)) cart.push(id);
       renderCart();
+      trackEvent("add_to_cart", { product: id });
       showToast(replaced ? t("messages.bundleReplaced") : t("messages.added", { name: productName(product) }));
       return;
     }
@@ -997,6 +1012,7 @@
     if (cart.includes(id)) return showToast(t("messages.duplicate"));
     cart.push(id);
     renderCart();
+    trackEvent("add_to_cart", { product: id });
     showToast(t("messages.added", { name: productName(product) }));
   };
 
@@ -1079,6 +1095,11 @@
   };
 
   document.addEventListener("click", (event) => {
+    const samplerDownload = event.target.closest("[data-sampler-download]");
+    if (samplerDownload) {
+      trackEvent("sampler_download", { placement: samplerDownload.dataset.samplerDownload });
+      return;
+    }
     const routeButton = event.target.closest("[data-route]");
     if (routeButton) {
       event.preventDefault();
@@ -1207,6 +1228,7 @@
     if (!cart.length || !updateCheckoutConsent(true)) return;
     const checkoutUrl = payhipCheckoutUrl();
     if (!checkoutUrl) return;
+    trackEvent("checkout_click", { cart_type: cart.length === 1 ? cart[0] : "multi" });
     window.location.assign(checkoutUrl);
   });
   checkoutDialog.addEventListener("click", (event) => { if (event.target === checkoutDialog) checkoutDialog.close(); });
@@ -1267,6 +1289,10 @@
     const audio = new Audio(product.demo.src);
     audio.preload = "metadata";
     activeTrack = { id, audio };
+    if (!trackedDemoIds.has(id)) {
+      trackedDemoIds.add(id);
+      trackEvent("demo_play", { pack: id });
+    }
     $("[data-audio-dock]").hidden = false;
     $("[data-dock-title]").textContent = product.demo.title;
     $("[data-dock-product]").textContent = productName(product);
