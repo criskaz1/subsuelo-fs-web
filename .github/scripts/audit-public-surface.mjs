@@ -136,9 +136,128 @@ const contentViolations = (text) => forbiddenContentRules
   .filter((rule) => rule.pattern.test(text))
   .map((rule) => rule.label);
 
+const synchsafeInteger = (buffer, offset) => {
+  if (offset + 4 > buffer.length) throw new Error("cabecera ID3 incompleta");
+  const bytes = buffer.subarray(offset, offset + 4);
+  if ([...bytes].some((byte) => byte > 0x7f)) throw new Error("entero ID3 no sincrónico");
+  return (bytes[0] << 21) | (bytes[1] << 14) | (bytes[2] << 7) | bytes[3];
+};
+
+const allowedTechnicalId3Frames = new Set(["TSSE", "TSS"]);
+
+const inspectId3 = (buffer) => {
+  let audioStart = 0;
+  let audioEnd = buffer.length;
+  const metadataFrames = [];
+
+  if (buffer.length >= 10 && buffer.subarray(0, 3).toString("ascii") === "ID3") {
+    const version = buffer[3];
+    const flags = buffer[5];
+    if (![2, 3, 4].includes(version)) throw new Error(`versión ID3 no permitida (${version})`);
+
+    const payloadBytes = synchsafeInteger(buffer, 6);
+    const tagEnd = 10 + payloadBytes;
+    if (tagEnd > buffer.length) throw new Error("etiqueta ID3 truncada");
+
+    let cursor = 10;
+    if (flags & 0x40) {
+      if (version === 2) throw new Error("cabecera ID3v2.2 extendida no admitida");
+      const extendedBytes = version === 4 ? synchsafeInteger(buffer, cursor) : buffer.readUInt32BE(cursor) + 4;
+      if (extendedBytes < 4 || cursor + extendedBytes > tagEnd) throw new Error("cabecera ID3 extendida inválida");
+      cursor += extendedBytes;
+    }
+
+    const frameHeaderBytes = version === 2 ? 6 : 10;
+    const idBytes = version === 2 ? 3 : 4;
+    while (cursor + frameHeaderBytes <= tagEnd) {
+      const frameId = buffer.subarray(cursor, cursor + idBytes).toString("ascii");
+      if (/^\0+$/u.test(frameId)) break;
+      if (!/^[A-Z0-9]{3,4}$/u.test(frameId)) throw new Error(`identificador ID3 inválido (${frameId})`);
+
+      const frameBytes = version === 2
+        ? buffer.readUIntBE(cursor + 3, 3)
+        : version === 4
+          ? synchsafeInteger(buffer, cursor + 4)
+          : buffer.readUInt32BE(cursor + 4);
+      const nextFrame = cursor + frameHeaderBytes + frameBytes;
+      if (nextFrame > tagEnd) throw new Error(`trama ID3 truncada (${frameId})`);
+      if (!allowedTechnicalId3Frames.has(frameId)) metadataFrames.push(frameId);
+      cursor = nextFrame;
+    }
+
+    audioStart = tagEnd + (version === 4 && (flags & 0x10) ? 10 : 0);
+    if (audioStart > buffer.length) throw new Error("pie ID3 truncado");
+  }
+
+  if (audioEnd >= 128 && buffer.subarray(audioEnd - 128, audioEnd - 125).toString("ascii") === "TAG") {
+    metadataFrames.push("ID3v1");
+    audioEnd -= 128;
+  }
+
+  const trailingMetadata = buffer.subarray(Math.max(audioStart, audioEnd - 256), audioEnd).toString("latin1");
+  if (trailingMetadata.includes("APETAGEX")) metadataFrames.push("APEv2");
+
+  if (audioStart >= audioEnd) throw new Error("el MP3 no contiene audio");
+  return { audioStart, audioEnd, metadataFrames };
+};
+
+const mpeg1Layer3Bitrates = [0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 0];
+const mpeg2Layer3Bitrates = [0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, 0];
+
+const parseMp3FrameHeader = (buffer, offset) => {
+  if (offset + 4 > buffer.length) return null;
+  const header = buffer.readUInt32BE(offset);
+  if ((header >>> 21) !== 0x7ff) return null;
+
+  const versionBits = (header >>> 19) & 0x03;
+  const layerBits = (header >>> 17) & 0x03;
+  const bitrateIndex = (header >>> 12) & 0x0f;
+  const sampleRateIndex = (header >>> 10) & 0x03;
+  const padding = (header >>> 9) & 0x01;
+  const emphasis = header & 0x03;
+  if (versionBits === 1 || layerBits !== 1 || bitrateIndex === 0 || bitrateIndex === 15 || sampleRateIndex === 3 || emphasis === 2) return null;
+
+  const isMpeg1 = versionBits === 3;
+  const sampleRateBase = [44_100, 48_000, 32_000][sampleRateIndex];
+  const sampleRate = isMpeg1 ? sampleRateBase : versionBits === 2 ? sampleRateBase / 2 : sampleRateBase / 4;
+  const bitrate = (isMpeg1 ? mpeg1Layer3Bitrates : mpeg2Layer3Bitrates)[bitrateIndex];
+  const frameBytes = Math.floor((isMpeg1 ? 144_000 : 72_000) * bitrate / sampleRate) + padding;
+  const samples = isMpeg1 ? 1_152 : 576;
+  if (!frameBytes || offset + frameBytes > buffer.length) return null;
+  return { frameBytes, seconds: samples / sampleRate };
+};
+
+const inspectMp3 = (buffer) => {
+  const { audioStart, audioEnd, metadataFrames } = inspectId3(buffer);
+  let cursor = audioStart;
+  let duration = 0;
+  let frames = 0;
+
+  while (cursor + 4 <= audioEnd) {
+    const frame = parseMp3FrameHeader(buffer, cursor);
+    if (!frame || cursor + frame.frameBytes > audioEnd) {
+      const remainder = buffer.subarray(cursor, audioEnd);
+      if (frames > 0 && remainder.every((byte) => byte === 0)) break;
+      throw new Error(`trama MPEG inválida en el byte ${cursor}`);
+    }
+    duration += frame.seconds;
+    frames += 1;
+    cursor += frame.frameBytes;
+  }
+
+  if (frames < 2) throw new Error("no se han encontrado suficientes tramas MPEG");
+  if (cursor < audioEnd && !buffer.subarray(cursor, audioEnd).every((byte) => byte === 0)) {
+    throw new Error(`datos no reconocidos desde el byte ${cursor}`);
+  }
+  return { duration, frames, metadataFrames };
+};
+
 if (process.argv.includes("--self-test")) {
   const syntheticToken = "github_pat_" + "A".repeat(30);
   const syntheticPassword = ["const pass", "word = \"test-value\""].join("");
+  const syntheticMp3 = Buffer.alloc(480 * 3);
+  for (let offset = 0; offset < syntheticMp3.length; offset += 480) syntheticMp3.set([0xff, 0xfb, 0xa4, 0x00], offset);
+  const syntheticAudio = inspectMp3(syntheticMp3);
   const cases = [
     pathViolations("private/prompts.pdf").length > 0,
     pathViolations("audio/full-track.mp3").length > 0,
@@ -148,7 +267,8 @@ if (process.argv.includes("--self-test")) {
     contentViolations(`made with ${excludedBrand}`).includes("marca excluida de la web"),
     pathViolations("product/noir/index.html").length === 0,
     pathViolations("guides/future-guide/index.html").length === 0,
-    contentViolations("SUBSUELO FS · archivo público").length === 0
+    contentViolations("SUBSUELO FS · archivo público").length === 0,
+    syntheticAudio.frames === 3 && Math.abs(syntheticAudio.duration - 0.072) < 0.000_001
   ];
   if (cases.some((result) => !result)) {
     throw new Error("La prueba interna del control de publicación no ha superado todos los casos.");
@@ -211,26 +331,21 @@ for (const [objectId, file] of historicalBlobs) {
 }
 
 for (const file of allowedAudio) {
-  let probe;
+  let inspection;
   try {
-    probe = JSON.parse(execFileSync("ffprobe", [
-      "-v", "error",
-      "-show_entries", "format=duration:format_tags=artist,album,comment,composer,copyright,publisher,encoded_by",
-      "-of", "json",
-      resolve(root, file)
-    ], { encoding: "utf8" }));
-  } catch {
-    failures.push(`${file}: no se ha podido inspeccionar con ffprobe`);
+    inspection = inspectMp3(readFileSync(resolve(root, file)));
+  } catch (error) {
+    failures.push(`${file}: MP3 inválido (${error instanceof Error ? error.message : "error desconocido"})`);
     continue;
   }
 
-  const duration = Number(probe?.format?.duration);
-  if (!Number.isFinite(duration) || duration > maxPreviewSeconds) {
-    failures.push(`${file}: duración pública no permitida (${probe?.format?.duration ?? "desconocida"} s)`);
+  if (!Number.isFinite(inspection.duration) || inspection.duration > maxPreviewSeconds) {
+    failures.push(`${file}: duración pública no permitida (${inspection.duration.toFixed(3)} s)`);
   }
 
-  const tags = probe?.format?.tags ?? {};
-  if (Object.keys(tags).length) failures.push(`${file}: contiene metadatos personales o editoriales no autorizados`);
+  if (inspection.metadataFrames.length) {
+    failures.push(`${file}: contiene metadatos personales o editoriales no autorizados (${inspection.metadataFrames.join(", ")})`);
+  }
 }
 
 if (failures.length) {
