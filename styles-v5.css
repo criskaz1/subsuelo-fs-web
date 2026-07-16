@@ -2179,6 +2179,39 @@ button {
   cursor: default;
 }
 
+.demo-row-actions {
+  display: flex;
+  justify-self: end;
+  gap: 6px;
+}
+
+.demo-row-actions .file-row__action {
+  min-width: 88px;
+}
+
+.file-row__action--primary {
+  color: white;
+  background: var(--rust);
+  box-shadow: inset 1px 1px 0 #d08c79, inset -1px -1px 0 #642b1f;
+}
+
+@container filepane (max-width: 790px) {
+  .demo-row-actions {
+    width: 100%;
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .demo-row-actions .file-row__action {
+    width: 100%;
+    min-width: 0;
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
 .empty-state {
   min-height: 330px;
   display: flex;
