@@ -220,7 +220,8 @@ button {
   padding: 0 3px;
 }
 
-.menubar button {
+.menubar button,
+.menubar a {
   width: 92px;
   min-width: 0;
   min-height: 28px;
@@ -231,12 +232,16 @@ button {
   padding: 0 10px;
   cursor: pointer;
   font: 13px/1 var(--ui);
+  color: inherit;
+  text-decoration: none;
   text-align: center;
   white-space: nowrap;
 }
 
 .menubar button:hover,
-.menubar button:focus-visible {
+.menubar button:focus-visible,
+.menubar a:hover,
+.menubar a:focus-visible {
   background: var(--select);
   color: white;
 }
@@ -364,8 +369,10 @@ button {
   background: transparent;
   padding: 8px 11px;
   cursor: pointer;
+  color: inherit;
   font-size: 13px;
   font-weight: 700;
+  text-decoration: none;
   white-space: nowrap;
 }
 
@@ -840,6 +847,8 @@ button {
   background: transparent;
   padding: 12px 8px 10px;
   cursor: default;
+  color: inherit;
+  text-decoration: none;
   text-align: center;
 }
 
@@ -985,6 +994,8 @@ button {
   background: var(--paper);
   padding: 10px 12px;
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
   text-align: left;
 }
 
@@ -1346,6 +1357,8 @@ button {
   background: var(--chrome);
   box-shadow: inset 1px 1px 0 var(--chrome-hi), inset -1px -1px 0 var(--chrome-low);
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 }
 
 .start-button {
@@ -1665,6 +1678,12 @@ button {
   padding: 7px 12px;
   cursor: default;
   text-align: left;
+}
+
+.file-row[href],
+.file-row a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .file-row:last-child {
@@ -2790,13 +2809,16 @@ button {
   border-bottom: 2px solid var(--ink);
 }
 
-.menubar button {
+.menubar button,
+.menubar a {
   position: relative;
   border-right: 1px solid rgba(18, 19, 15, 0.15);
 }
 
 .menubar button:hover,
-.menubar button:focus-visible {
+.menubar button:focus-visible,
+.menubar a:hover,
+.menubar a:focus-visible {
   background:
     repeating-linear-gradient(135deg, transparent 0 7px, rgba(255, 255, 255, 0.08) 7px 9px),
     var(--select);
@@ -3507,7 +3529,8 @@ button {
     box-shadow: inset 0 1px 0 var(--chrome-hi);
   }
 
-  .mobile-nav button {
+  .mobile-nav button,
+  .mobile-nav a {
     position: relative;
     min-width: 0;
     display: grid;
@@ -3518,10 +3541,12 @@ button {
     border: 0;
     background: transparent;
     padding: 0 2px;
+    color: inherit;
     font: 11px/12px var(--ui);
+    text-decoration: none;
   }
 
-  .mobile-nav button:not(:last-child)::after {
+  .mobile-nav > :not(:last-child)::after {
     content: "";
     position: absolute;
     top: 0;
@@ -3531,12 +3556,12 @@ button {
     background: var(--line);
   }
 
-  .mobile-nav button > span:first-child {
+  .mobile-nav :is(button, a) > span:first-child {
     grid-row: 1;
     align-self: center;
   }
 
-  .mobile-nav button > span:last-of-type {
+  .mobile-nav :is(button, a) > span:last-of-type {
     grid-row: 2;
     align-self: center;
     overflow-wrap: normal;
@@ -4099,7 +4124,7 @@ button {
     padding-bottom: env(safe-area-inset-bottom);
   }
 
-  .mobile-nav button[aria-current="page"] {
+  .mobile-nav :is(button, a)[aria-current="page"] {
     background: var(--select);
     color: var(--select-text);
   }
