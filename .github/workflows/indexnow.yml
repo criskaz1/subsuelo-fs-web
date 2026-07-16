@@ -1,0 +1,23 @@
+name: Notify IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: true
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the published site
+        uses: actions/checkout@v4
+
+      - name: Notify participating search engines
+        run: node .github/scripts/submit-indexnow.mjs
