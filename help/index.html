@@ -10,11 +10,15 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="description" content="Qué contienen los PDF de prompts y negative prompts, dónde se usa cada archivo y qué incluyen las guías y las referencias de audio." />
     <link rel="canonical" href="https://subsuelofs.com/help/" />
+    <link rel="alternate" hreflang="es" href="https://subsuelofs.com/help/" />
+    <link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/help/" />
+    <link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/help/" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://subsuelofs.com/sitemap.xml" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://subsuelofs.com/help/" />
     <meta property="og:site_name" content="SUBSUELO FS" />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_GB" />
     <meta property="og:title" content="Qué incluye una carpeta de prompts | SUBSUELO FS" />
     <meta property="og:description" content="Qué contienen los PDF de prompts y negative prompts, dónde se usa cada archivo y qué incluyen las guías y las referencias de audio." />
     <meta property="og:image" content="https://subsuelofs.com/social-card.png?v=20260716-2" />
@@ -75,7 +79,7 @@
     <base href="/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles-v5.css?v=29" />
-    <script src="./app-v5.js?v=30" defer></script>
+    <script src="./app-v5.js?v=31" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Saltar a los archivos</a>
@@ -84,7 +88,7 @@
       <main class="fs-window" aria-label="SUBSUELO File System" data-i18n-aria-label="a11y.app">
         <header class="titlebar">
           <div class="titlebar__brand"><span class="app-mark" aria-hidden="true">S</span><strong>SUBSUELO FS</strong><span data-i18n="titlebar.browser">EXPLORADOR DE ARCHIVOS</span></div>
-          <div class="titlebar__meta"><span data-i18n="titlebar.store">DIGITAL STORE</span><span class="titlebar__status" data-i18n="titlebar.open">ARCHIVO ABIERTO</span><i aria-hidden="true"></i></div>
+          <div class="titlebar__meta"><span data-i18n="titlebar.store">TIENDA DIGITAL</span><span class="titlebar__status" data-i18n="titlebar.open">ARCHIVO ABIERTO</span><i aria-hidden="true"></i></div>
         </header>
 
         <nav class="menubar" aria-label="Menú de aplicación" data-i18n-aria-label="a11y.appMenu">
@@ -105,7 +109,7 @@
           <nav class="address-bar" aria-label="Ruta actual" data-i18n-aria-label="a11y.path" data-breadcrumb></nav>
 
           <div class="toolbar__tools">
-            <label class="search-box"><span class="search-icon" aria-hidden="true"></span><input type="search" data-search placeholder="Buscar en el archivo…" data-i18n-placeholder="toolbar.search" aria-label="Buscar en el archivo" data-i18n-aria-label="toolbar.search" /></label>
+            <label class="search-box"><span class="search-icon" aria-hidden="true"></span><input type="search" data-search placeholder="Buscar en el archivo…" data-i18n-placeholder="toolbar.search" aria-label="Buscar en el archivo…" data-i18n-aria-label="toolbar.search" /></label>
             <div class="view-switch" role="group" aria-label="Vista" data-i18n-aria-label="toolbar.viewGroup">
               <button class="os-control view-button" type="button" data-view-mode="grid" aria-pressed="true" aria-label="Vista de iconos" data-i18n-aria-label="toolbar.grid"><span class="grid-glyph" aria-hidden="true"></span></button>
               <button class="os-control view-button" type="button" data-view-mode="list" aria-pressed="false" aria-label="Vista de lista" data-i18n-aria-label="toolbar.list"><span class="list-glyph" aria-hidden="true"></span></button>
@@ -177,9 +181,9 @@
     <div class="utility-backdrop" data-cart-backdrop hidden></div>
     <aside class="cart-panel" data-cart-panel role="dialog" aria-modal="true" aria-hidden="true" inert aria-labelledby="cart-title">
       <header class="utility-titlebar"><div><span class="cart-icon" aria-hidden="true"></span><strong id="cart-title" data-i18n="cart.title">CARRITO</strong></div><button type="button" data-close-cart aria-label="Cerrar carrito" data-i18n-aria-label="cart.close"><span class="dock-close-glyph" aria-hidden="true"></span></button></header>
-      <div class="cart-panel__heading"><p data-i18n="cart.subtitle">Ediciones seleccionadas</p><button type="button" data-clear-cart data-i18n="cart.clear">Vaciar carrito</button></div>
+      <div class="cart-panel__heading"><p data-i18n="cart.subtitle">Carpetas seleccionadas</p><button type="button" data-clear-cart data-i18n="cart.clear">Vaciar carrito</button></div>
       <div class="cart-items" data-cart-items></div>
-      <div class="cart-empty" data-cart-empty><div class="empty-folder" aria-hidden="true"></div><strong data-i18n="cart.empty">Aquí todavía no hay carpetas.</strong><p data-i18n="cart.emptyHint">Abre una colección y añade la que quieras guardar.</p><button type="button" data-cart-browse data-i18n="cart.browse">Volver al catálogo</button></div>
+      <div class="cart-empty" data-cart-empty><div class="empty-folder" aria-hidden="true"></div><strong data-i18n="cart.empty">Aquí todavía no hay carpetas.</strong><p data-i18n="cart.emptyHint">Abre una carpeta y añade la que quieras comprar.</p><button type="button" data-cart-browse data-i18n="cart.browse">Volver al catálogo</button></div>
       <footer data-cart-footer hidden><div><span data-i18n="cart.subtotal">Subtotal</span><strong data-cart-total>0 €</strong></div><p data-i18n="cart.delivery">Descarga digital · Sin gastos de envío</p><button type="button" data-checkout data-i18n="cart.checkout">Continuar al pago</button></footer>
     </aside>
 
@@ -188,7 +192,7 @@
       <form class="checkout-window__body" data-checkout-form novalidate>
         <span class="download-icon" aria-hidden="true"></span>
         <h2 data-i18n="checkout.title">Revisa tu pedido.</h2>
-        <p data-i18n="checkout.desc">Comprueba las carpetas y el total antes de continuar al pago seguro.</p>
+        <p data-i18n="checkout.desc">Comprueba las carpetas antes de continuar al pago seguro.</p>
         <section class="checkout-order" aria-labelledby="checkout-order-title">
           <h3 id="checkout-order-title" data-i18n="checkout.order">Tu pedido</h3>
           <div data-checkout-items></div>
@@ -203,7 +207,7 @@
         <p class="checkout-error" id="checkout-consent-error" data-consent-error role="status" aria-live="polite" hidden data-i18n="checkout.required">Marca las dos casillas para continuar.</p>
         <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Precio total · impuestos incluidos</small></span><strong data-checkout-total>0 €</strong></div>
         <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUAR AL CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
-        <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">El pago y la descarga se completan en Payhip. Allí verás el resumen final antes de confirmar.</p>
+        <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">En el checkout volverás a confirmar estas condiciones antes de pagar. Todavía no se realizará ningún cobro.</p>
         <button class="checkout-back" type="button" data-back-to-cart data-i18n="checkout.back">Volver al carrito</button>
       </form>
     </dialog>
