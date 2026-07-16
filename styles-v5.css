@@ -212,7 +212,7 @@ button {
 .menubar {
   height: 29px;
   display: grid;
-  grid-template-columns: repeat(5, 92px);
+  grid-template-columns: repeat(6, 92px);
   justify-content: start;
   align-items: stretch;
   border-bottom: 1px solid var(--chrome-low);
@@ -2422,6 +2422,26 @@ button {
   margin-top: 8px;
 }
 
+.cart-purchases {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border: 1px solid var(--ink);
+  background: var(--canvas);
+  padding: 7px 12px;
+  color: var(--ink);
+  font: 700 12px/1.2 var(--ui);
+  text-decoration: none;
+}
+
+.cart-purchases:hover,
+.cart-purchases:focus-visible {
+  background: var(--select);
+  color: white;
+}
+
 .cart-panel > footer {
   margin-top: auto;
   border-top: 1px solid var(--line);
@@ -2450,6 +2470,11 @@ button {
   cursor: pointer;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.cart-panel > footer .cart-purchases {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .checkout-window {
