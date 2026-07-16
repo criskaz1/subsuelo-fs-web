@@ -79,8 +79,8 @@
     <!-- STATIC-SEO:END -->
     <base href="/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles-v5.css?v=30" />
-    <script src="./app-v5.js?v=32" defer></script>
+    <link rel="stylesheet" href="./styles-v5.css?v=31" />
+    <script src="./app-v5.js?v=33" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Saltar a los archivos</a>
@@ -98,6 +98,7 @@
           <a href="/demos/" data-route="/demos/" data-i18n="menu.play">Reproducir</a>
           <a href="/guides/" data-editorial-path="/guides/" data-i18n="menu.guides">Guías</a>
           <a href="/help/" data-route="/help/" data-i18n="menu.help">Ayuda</a>
+          <a href="https://payhip.com/subsuelofs/b-account" target="_blank" rel="noopener noreferrer" aria-label="Mis compras (abre en una pestaña nueva)" data-i18n="menu.purchases" data-i18n-aria-label="menu.purchasesAria">Mis compras</a>
         </nav>
 
         <div class="toolbar">
@@ -181,11 +182,11 @@
       <header class="utility-titlebar"><div><span class="cart-icon" aria-hidden="true"></span><strong id="cart-title" data-i18n="cart.title">CARRITO</strong></div><button type="button" data-close-cart aria-label="Cerrar carrito" data-i18n-aria-label="cart.close"><span class="dock-close-glyph" aria-hidden="true"></span></button></header>
       <div class="cart-panel__heading"><p data-i18n="cart.subtitle">Carpetas seleccionadas</p><button type="button" data-clear-cart data-i18n="cart.clear">Vaciar carrito</button></div>
       <div class="cart-items" data-cart-items></div>
-      <div class="cart-empty" data-cart-empty><div class="empty-folder" aria-hidden="true"></div><strong data-i18n="cart.empty">Aquí todavía no hay carpetas.</strong><p data-i18n="cart.emptyHint">Abre una carpeta y añade la que quieras comprar.</p><button type="button" data-cart-browse data-i18n="cart.browse">Volver al catálogo</button></div>
-      <footer data-cart-footer hidden><div><span data-i18n="cart.subtotal">Subtotal</span><strong data-cart-total>0 €</strong></div><p data-i18n="cart.delivery">Descarga digital · Sin gastos de envío</p><button type="button" data-checkout data-i18n="cart.checkout">Continuar al pago</button></footer>
+      <div class="cart-empty" data-cart-empty><div class="empty-folder" aria-hidden="true"></div><strong data-i18n="cart.empty">Aquí todavía no hay carpetas.</strong><p data-i18n="cart.emptyHint">Abre una carpeta y añade la que quieras comprar.</p><button type="button" data-cart-browse data-i18n="cart.browse">Volver al catálogo</button><a class="cart-purchases" href="https://payhip.com/subsuelofs/b-account" target="_blank" rel="noopener noreferrer" aria-label="Abrir mis compras (abre en una pestaña nueva)" data-i18n="cart.purchases" data-i18n-aria-label="cart.purchasesAria">Abrir mis compras</a></div>
+      <footer data-cart-footer hidden><div><span data-i18n="cart.subtotal">Subtotal</span><strong data-cart-total>0 €</strong></div><p data-i18n="cart.delivery">Descarga digital · Sin gastos de envío</p><button type="button" data-checkout data-i18n="cart.checkout">Continuar al pago</button><a class="cart-purchases" href="https://payhip.com/subsuelofs/b-account" target="_blank" rel="noopener noreferrer" aria-label="Abrir mis compras (abre en una pestaña nueva)" data-i18n="cart.purchases" data-i18n-aria-label="cart.purchasesAria">Abrir mis compras</a></footer>
     </aside>
 
-    <dialog class="checkout-window" data-checkout-dialog data-legal-version="2026-07-15.4">
+    <dialog class="checkout-window" data-checkout-dialog data-legal-version="2026-07-16.1">
       <header class="utility-titlebar"><strong data-i18n="checkout.titlebar">REVISAR COMPRA</strong><button type="button" data-close-checkout aria-label="Cerrar" data-i18n-aria-label="dialog.close"><span class="dock-close-glyph" aria-hidden="true"></span></button></header>
       <form class="checkout-window__body" data-checkout-form novalidate>
         <span class="download-icon" aria-hidden="true"></span>
@@ -205,7 +206,7 @@
         <p class="checkout-error" id="checkout-consent-error" data-consent-error role="status" aria-live="polite" hidden data-i18n="checkout.required">Marca las dos casillas para continuar.</p>
         <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Precio total · impuestos incluidos</small></span><strong data-checkout-total>0 €</strong></div>
         <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUAR AL CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
-        <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">En el checkout volverás a confirmar estas condiciones antes de pagar. Todavía no se realizará ningún cobro.</p>
+        <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">El correo que indiques se usa para enviarte el recibo y la descarga. No necesitas crear una cuenta. El consentimiento para recibir novedades es opcional y se solicita por separado. Todavía no se realizará ningún cobro.</p>
         <button class="checkout-back" type="button" data-back-to-cart data-i18n="checkout.back">Volver al carrito</button>
       </form>
     </dialog>
