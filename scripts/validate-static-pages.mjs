@@ -10,6 +10,11 @@ const basePages = [
   { basePath: "/demos/", output: "demos/index.html", schemaType: "WebPage" },
   { basePath: "/bundle/", output: "bundle/index.html", schemaType: "Product" },
   { basePath: "/help/", output: "help/index.html", schemaType: "WebPage" },
+  { basePath: "/guides/", output: "guides/index.html", schemaType: "WebPage" },
+  { basePath: "/guides/negative-prompts/", output: "guides/negative-prompts/index.html", schemaType: "Article" },
+  { basePath: "/guides/write-music-prompts/", output: "guides/write-music-prompts/index.html", schemaType: "Article" },
+  { basePath: "/compare/", output: "compare/index.html", schemaType: "WebPage" },
+  { basePath: "/method/", output: "method/index.html", schemaType: "WebPage" },
   ...productIds.map((id) => ({ basePath: `/product/${id}/`, output: `product/${id}/index.html`, schemaType: "Product" }))
 ];
 
@@ -44,7 +49,7 @@ for (const page of pages) {
   if (metaContent(html, "property", "og:locale") !== (page.locale === "en" ? "en_GB" : "es_ES")) throw new Error(`${page.output}: og:locale incorrecto`);
   if (metaContent(html, "property", "og:locale:alternate") !== (page.locale === "en" ? "es_ES" : "en_GB")) throw new Error(`${page.output}: og:locale:alternate incorrecto`);
   if (!title || !description) throw new Error(`${page.output}: faltan title o description`);
-  if (!/<div class="view-content" data-view-content>[\s\S]*?<h1>/u.test(html)) throw new Error(`${page.output}: falta contenido inicial con H1`);
+  if (!/<div class="[^"]*\bview-content\b[^"]*"[^>]*>[\s\S]*?<h1>/u.test(html)) throw new Error(`${page.output}: falta contenido inicial con H1`);
   if (!jsonLdSource) throw new Error(`${page.output}: falta JSON-LD`);
 
   const jsonLd = JSON.parse(jsonLdSource);
@@ -54,7 +59,7 @@ for (const page of pages) {
 
   if (page.locale === "en") {
     const routeHrefs = [...html.matchAll(/<a\b[^>]*\bhref="(\/(?!\/)[^"?#]*)"/gu)].map((match) => match[1]);
-    const unlocalizedRoute = routeHrefs.find((href) => /^(?:\/$|\/(?:demos|help|bundle|legal|category|product)(?:\/|$))/u.test(href));
+    const unlocalizedRoute = routeHrefs.find((href) => /^(?:\/$|\/(?:demos|help|bundle|guides|compare|method|legal|category|product)(?:\/|$))/u.test(href));
     if (unlocalizedRoute) throw new Error(`${page.output}: enlace interno sin prefijo inglés (${unlocalizedRoute})`);
     const dataRoutes = [...html.matchAll(/\bdata-route="([^"]+)"/gu)].map((match) => match[1]);
     const unlocalizedDataRoute = dataRoutes.find((route) => !route.startsWith("/en/"));
@@ -87,4 +92,12 @@ for (const [index, block] of sitemapBlocks.entries()) {
 const robots = await readFile(path.join(root, "robots.txt"), "utf8");
 if (!robots.includes(`Sitemap: ${siteUrl}/sitemap.xml`)) throw new Error("robots.txt no declara el sitemap");
 
-console.log(`Validadas ${pages.length} páginas estáticas bilingües, hreflang, JSON-LD, robots.txt y sitemap.xml`);
+for (const feedPath of ["feed.xml", "en/feed.xml"]) {
+  const feed = await readFile(path.join(root, feedPath), "utf8");
+  if (!feed.includes('<rss version="2.0"') || !feed.includes("<item>")) throw new Error(`${feedPath}: feed RSS inválido`);
+}
+
+const llms = await readFile(path.join(root, "llms.txt"), "utf8");
+if (!llms.includes("https://subsuelofs.com/guides/") || !llms.includes("## Catalogue")) throw new Error("llms.txt incompleto");
+
+console.log(`Validadas ${pages.length} páginas estáticas bilingües, hreflang, JSON-LD, feeds, robots.txt y sitemap.xml`);
