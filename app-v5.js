@@ -52,7 +52,7 @@
       messages: { added: "{name} añadido al carrito.", duplicate: "Esa carpeta ya está en el carrito.", bundleContains: "El pack completo ya contiene esa carpeta.", bundleReplaced: "El pack completo ha sustituido las carpetas que ya incluía.", fileIncluded: "Este archivo se entrega dentro del ZIP." }
     },
     en: {
-      meta: { title: "SUBSUELO FS — Sound direction for instrumentals", description: "Genre-focused sound direction collections with prompts, negative prompts, ES/EN guides and audio references." },
+      meta: { title: "SUBSUELO FS — Sound direction for instrumentals", description: "Genre-built prompt collections for dark instrumentals: 30 prompts, 10 negative prompts, guides in English and Spanish, and 4 audio references per folder." },
       pricing: { opening: "Opening price until 30 Jul 2026" },
       a11y: { skip: "Skip to files", app: "SUBSUELO File System", appMenu: "Application menu", path: "Current path", language: "Language", sidebar: "Archive navigation", inspector: "Details", mobileNav: "Mobile navigation" },
       titlebar: { browser: "FILE BROWSER", store: "DIGITAL STORE", open: "STORE OPEN" },
@@ -60,13 +60,13 @@
       toolbar: { back: "Back", forward: "Forward", up: "Up", sidebar: "Open navigation", search: "Search the archive…", viewGroup: "View", grid: "Icon view", list: "List view" },
       sidebar: { language: "LANGUAGE", quick: "QUICK ACCESS", sounds: "BY SOUND", info: "INFO", home: "All folders", demos: "Audio examples", bundle: "Complete pack", cart: "Cart", help: "What each folder includes", legalFolder: "Legal and privacy" },
       mobile: { home: "Home", pack: "Pack", demos: "Demos", help: "Help", cart: "Cart" },
-      home: { kicker: "SUBSUELO / CATALOGUE", title: "One genre per folder", lead: "Open the genre you want to produce. Inside are 30 different prompts that change the drums, bass, main motif and space without leaving that sound family.", hint: "Select a folder · Double-click to open", mobileHint: "Tap a folder to open it", docs: "MORE INFORMATION", helpFile: "WHAT_EACH_FOLDER_INCLUDES.txt", demoFile: "HEAR_EXAMPLES.audio", bundleFile: "COMPLETE_PACK.folder", legalFile: "LEGAL_AND_PRIVACY.folder", empty: "No results for this search.", emptyHint: "Try another name or clear the search.", clear: "Clear search" },
-      categories: { trap: "Ritual trap", garage: "Dark garage", jungle: "Degraded jungle", hiphop: "Abstract hip-hop", dub: "Dub hip-hop", noir: "Noir hip-hop" },
+      home: { kicker: "SUBSUELO / CATALOGUE", title: "One genre. 30 ways in.", lead: "Pick the sound you want to make. Each folder gives you 30 prompts that change the drums, bass, lead source and space while staying inside one coherent genre.", hint: "Select a folder · Double-click to open", mobileHint: "Tap a folder to open it", docs: "MORE INFORMATION", helpFile: "WHAT_EACH_FOLDER_INCLUDES.txt", demoFile: "HEAR_THE_EXAMPLES.audio", bundleFile: "COMPLETE_PACK.folder", legalFile: "LEGAL_AND_PRIVACY.folder", empty: "No results for this search.", emptyHint: "Try another name or clear the search.", clear: "Clear search" },
+      categories: { trap: "Ritual trap", garage: "Dark UK garage", jungle: "Degraded jungle", hiphop: "Abstract hip-hop", dub: "Dub hip-hop", noir: "Noir hip-hop" },
       inspector: { select: "Select a folder", selectHint: "Its sound, contents, audio example and price will appear here.", open: "Open folder", play: "Hear example", add: "Add", prompts: "{count} prompts", negatives: "{count} negative prompts", guide: "Spanish guide + English guide", demo: "1 audio example", demos: "{count} audio examples", folders: "{count} folders" },
       product: { edition: "PROMPT FOLDER", demoFolderName: "AUDIO_EXAMPLES", add: "Add to cart", play: "Hear preview", contents: "Download contents", name: "Name", type: "Type", folder: "Folder", description: "Contents", availability: "Access", purchase: "Download available after payment", files: "{count} items", included: "Included in the download", available: "Available after purchase", public: "Public information", details: "View information", open: "Open", listen: "Listen", readme: "Download summary, file organisation and first steps.", promptsFolder: "PDF containing every prompt in English, numbered and ready to copy.", negativesFolder: "Separate PDF containing every negative prompt in English, numbered and ready to copy.", guideFile: "Shows where each text goes, how to work with or without vocals, and what each control changes.", demosFolder: "Folder containing 4 MP3 files for listening and reference. The public player offers one preview.", audioIncluded: "Full MP3 included for listening and reference after payment.", previewDescription: "Public 30-second excerpt from one of the included audio files.", demosIncluded: "4 MP3 files included + public preview", licenseFile: "Usage terms for prompts, negative prompts and audio examples.", esFolder: "Documents in Spanish; the copy-ready prompts remain in English.", enFolder: "Documents in English; the copy-ready prompts remain in English.", format: "Format", language: "Language", content: "Content", english: "English", spanishDocs: "Spanish · prompts in English", englishDocs: "English · prompts in English", afterPurchase: "Delivered inside the download after payment.", review: "You can check what it contains and its language before buying.", mainPrompt: "Complete prompt in English, ready to copy.", negativePrompt: "English list for the Exclude field.", audioPreview: "Public preview", previewOnly: "Listen only", notInZip: "The public player is a preview; the purchase includes 4 MP3 reference tracks." },
-      help: { kicker: "HELP / START_HERE.txt", title: "What each folder includes", lead: "Each purchase includes an ES folder, an EN folder and AUDIO_EXAMPLES. Explanations change language; copy-ready prompts remain in English in both versions.", prompt: "PROMPTS", promptText: "The PROMPTS PDF contains every prompt in the folder. Choose one and paste it in full into the Styles field.", negative: "NEGATIVE PROMPTS", negativeText: "The NEGATIVE PROMPTS PDF contains lists for the Exclude field. Use one when you want to avoid vocals or another specific element named by the list.", guide: "GUIDE", guideText: "There is one Spanish guide and the same guide in English. It shows where each block goes, how to work with or without vocals, and what each control changes.", demos: "AUDIO EXAMPLES", demosText: "The download includes 4 MP3 files as sound references. They are not licensed for sampling, release or reuse.", direction: "Choose one prompt and paste it into Styles", outside: "Use Exclude only when you want to remove something", together: "You only need one prompt to begin. A negative prompt is optional and is used to exclude something specific.", delivery: "After payment, you receive the ES, EN and AUDIO_EXAMPLES folders." },
-      demos: { kicker: "AUDIO / PREVIEWS", title: "Audio previews", lead: "Hear one public preview from each folder. Every purchase also includes 4 full MP3 reference tracks.", track: "Track", edition: "Folder", length: "Length", action: "Action", open: "Open folder" },
-      bundle: { kicker: "COMPLETE PACK", title: "All folders", lead: "Includes every folder listed below in one ZIP. Your purchase covers only those folders; future releases are sold separately.", members: "Included folders", add: "Add complete pack", item: "Included in the pack", folderCount: "{count} folders", saving: "{separate} separately · save {saving}" },
+      help: { kicker: "HELP / START_HERE.txt", title: "What each folder includes", lead: "Every purchase contains an ES folder, an EN folder and AUDIO_EXAMPLES. The prompts are ready to copy in English; the guides explain where each block goes and how optional negative prompts work.", prompt: "PROMPTS", promptText: "The PROMPTS PDF contains every prompt in the folder. Choose one and paste it in full into the Styles field.", negative: "NEGATIVE PROMPTS", negativeText: "The NEGATIVE PROMPTS PDF contains lists for the Exclude field. Use one when you want to avoid vocals or another specific element named by the list.", guide: "GUIDE", guideText: "There is one Spanish guide and the same guide in English. It shows where each block goes, how to work with or without vocals, and what each control changes.", demos: "AUDIO EXAMPLES", demosText: "The download includes 4 MP3 files as sound references. They are not licensed for sampling, release or reuse.", direction: "Choose one prompt and paste it into Styles", outside: "Use Exclude only when you want to remove something", together: "You only need one prompt to begin. A negative prompt is optional and is used to exclude something specific.", delivery: "After payment, you receive the ES, EN and AUDIO_EXAMPLES folders." },
+      demos: { kicker: "AUDIO / PREVIEWS", title: "Hear every folder before you choose.", lead: "Play one public preview from each collection. Every folder also includes four full MP3 references that show its sound in practice.", track: "Track", edition: "Folder", length: "Length", action: "Action", open: "Open folder" },
+      bundle: { kicker: "COMPLETE PACK", title: "All six folders. One download.", lead: "180 prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. This pack contains the six collections listed below; future releases are separate.", members: "Included folders", add: "Add complete pack", item: "Included in the pack", folderCount: "{count} folders", saving: "{separate} separately · save {saving}" },
       status: { delivery: "DIGITAL DOWNLOAD · ONE-TIME PAYMENT", legal: "LEGAL", item: "1 item", items: "{count} items", selected: "{count} selected", none: "No item selected", playing: "Playing: {title}" },
       taskbar: { online: "ONLINE" },
       cart: { title: "CART", close: "Close cart", subtitle: "Selected folders", clear: "Clear cart", empty: "No folders here yet.", emptyHint: "Open a folder and add the one you want to buy.", browse: "Back to catalogue", item: "Digital folder", bundle: "Complete pack", remove: "Remove", subtotal: "Subtotal", delivery: "Digital download · No shipping", checkout: "Continue to checkout" },
@@ -299,12 +299,12 @@
 
   // Añadir una carpeta aquí actualiza automáticamente navegación, filtros y totales del pack.
   const catalog = [
-    { id: "trap", sku: "TRAP-RITUAL", name: "Trap Ritual", price: 15, tone: "#713d46", tags: ["trap"], category: { es: "Trap ritual", en: "Ritual trap" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 formas distintas de construir trap ritual oscuro. Cambian la batería, el movimiento del 808, la fuente principal y el espacio sin salir de la misma familia sonora.", en: "30 distinct ways to build dark ritual trap. The drum pocket, 808 movement, lead source and space change while the sound family stays coherent." }, demo: { title: "Ash Circle", src: "./audio/trap-ritual-ash-circle-preview.mp3", durationLabel: "00:30", files: ["001_ASH_CIRCLE_A.mp3", "001_ASH_CIRCLE_B.mp3", "018_SMOKE_SCRIPT_A.mp3", "018_SMOKE_SCRIPT_B.mp3"] } },
-    { id: "garage", sku: "GARAJE-OSCURO", name: "Garaje Oscuro", price: 15, tone: "#425763", tags: ["garage"], category: { es: "Garage oscuro", en: "Dark garage" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de UK garage oscuro con patrones 2-step, swing humano, subgrave y ambiente urbano. Cada una cambia la batería, el bajo, el motivo y el espacio.", en: "30 dark UK garage beats built on 2-step patterns, human swing, sub-bass and urban atmosphere. Each changes the drums, bass movement, main motif and space." }, demo: { title: "Alley Pressure", src: "./audio/garaje-oscuro-alley-pressure-preview.mp3", durationLabel: "00:30", files: ["001_ALLEY_PRESSURE_A.mp3", "001_ALLEY_PRESSURE_B.mp3", "021_DUBBED_CORNER_A.mp3", "021_DUBBED_CORNER_B.mp3"] } },
-    { id: "jungle", sku: "FOSSIL-JUNGLE", name: "Fossil Jungle", price: 15, tone: "#66705a", tags: ["jungle"], category: { es: "Jungle degradado", en: "Degraded jungle" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 piezas de jungle oscuro y degradado. Cambian la arquitectura de la batería, el comportamiento del bajo, la fuente de la muestra y el espacio.", en: "30 pieces of dark degraded jungle. The break architecture, bass behaviour, sample source and space change from one prompt to the next." }, demo: { title: "Limestone Roll", src: "./audio/fossil-jungle-limestone-roll-preview.mp3", durationLabel: "00:30", files: ["001_LIMESTONE_ROLL_A.mp3", "001_LIMESTONE_ROLL_B.mp3", "020_CAVERN_CASSETTE_A.mp3", "020_CAVERN_CASSETTE_B.mp3"] } },
-    { id: "low", sku: "LOW-PRESSURE", name: "Low Pressure", price: 15, tone: "#b34b35", tags: ["hiphop"], category: { es: "Hip-Hop abstracto", en: "Abstract hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases pesadas, oscuras y texturales. Cada propuesta cambia la batería, el bajo, la fuente sonora o el espacio sin salir del hip-hop experimental abstracto.", en: "30 heavy, dark and textural beats. Each changes the drums, bass, sound source or space without leaving abstract experimental hip-hop." }, demo: { title: "Concrete Pulse", src: "./audio/low-pressure-concrete-pulse-preview.mp3", durationLabel: "00:30", files: ["001_CONCRETE_PULSE_A.mp3", "001_CONCRETE_PULSE_B.mp3", "019_CRACKED_RELAY_A.mp3", "019_CRACKED_RELAY_B.mp3"] } },
-    { id: "abyss", sku: "ABYSS-DUB", name: "Abyss Dub", price: 15, tone: "#596352", tags: ["dub"], category: { es: "Hip-Hop dub", en: "Dub hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop dub oscuro con batería de rap, subgrave enorme, acordes aislados y ecos profundos. Cambian el patrón, el bajo y la forma de mezclar el espacio.", en: "30 dark dub-inflected hip-hop beats with rap drums, immense sub-bass, isolated chords and deep echoes. The pocket, bass and use of space change across the folder." }, demo: { title: "Deep Chamber", src: "./audio/abyss-dub-deep-chamber-preview.mp3", durationLabel: "00:30", files: ["001_DEEP_CHAMBER_A.mp3", "001_DEEP_CHAMBER_B.mp3", "014_OCEAN_FLOOR_BREAK_A.mp3", "014_OCEAN_FLOOR_BREAK_B.mp3"] } },
-    { id: "noir", sku: "NOIR-TAPES", name: "Noir Tapes", price: 15, tone: "#705e6b", tags: ["noir"], category: { es: "Hip-Hop noir", en: "Noir hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop noir y boom bap abstracto construidas con muestras. Cambian el corte de batería, el bajo, la fuente y el tratamiento de cinta.", en: "30 sample-based noir hip-hop and abstract boom-bap beats. The drum cut, bass, sample source and tape treatment change across the folder." }, demo: { title: "Rain Evidence", src: "./audio/noir-tapes-rain-evidence-preview.mp3", durationLabel: "00:30", files: ["001_RAIN_EVIDENCE_A.mp3", "001_RAIN_EVIDENCE_B.mp3", "029_BURNT_ARCHIVE_A.mp3", "029_BURNT_ARCHIVE_B.mp3"] } }
+    { id: "trap", sku: "TRAP-RITUAL", name: "Trap Ritual", price: 15, tone: "#713d46", tags: ["trap"], category: { es: "Trap ritual", en: "Ritual trap" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 formas distintas de construir trap ritual oscuro. Cambian la batería, el movimiento del 808, la fuente principal y el espacio sin salir de la misma familia sonora.", en: "30 distinct routes into dark ritual trap. The drum pocket, 808 movement, lead source and space change from prompt to prompt without leaving the genre." }, demo: { title: "Ash Circle", src: "./audio/trap-ritual-ash-circle-preview.mp3", durationLabel: "00:30", files: ["001_ASH_CIRCLE_A.mp3", "001_ASH_CIRCLE_B.mp3", "018_SMOKE_SCRIPT_A.mp3", "018_SMOKE_SCRIPT_B.mp3"] } },
+    { id: "garage", sku: "GARAJE-OSCURO", name: "Garaje Oscuro", price: 15, tone: "#425763", tags: ["garage"], category: { es: "Garage oscuro", en: "Dark UK garage" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de UK garage oscuro con patrones 2-step, swing humano, subgrave y ambiente urbano. Cada una cambia la batería, el bajo, el motivo y el espacio.", en: "30 dark UK garage beats built on 2-step patterns, human swing, sub-bass and urban space. Each prompt changes the drums, bass movement, main motif and use of space." }, demo: { title: "Alley Pressure", src: "./audio/garaje-oscuro-alley-pressure-preview.mp3", durationLabel: "00:30", files: ["001_ALLEY_PRESSURE_A.mp3", "001_ALLEY_PRESSURE_B.mp3", "021_DUBBED_CORNER_A.mp3", "021_DUBBED_CORNER_B.mp3"] } },
+    { id: "jungle", sku: "FOSSIL-JUNGLE", name: "Fossil Jungle", price: 15, tone: "#66705a", tags: ["jungle"], category: { es: "Jungle degradado", en: "Degraded jungle" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 piezas de jungle oscuro y degradado. Cambian la arquitectura de la batería, el comportamiento del bajo, la fuente de la muestra y el espacio.", en: "30 pieces of dark, degraded jungle. Break architecture, bass behaviour, sample source and space change from one prompt to the next while the genre stays intact." }, demo: { title: "Limestone Roll", src: "./audio/fossil-jungle-limestone-roll-preview.mp3", durationLabel: "00:30", files: ["001_LIMESTONE_ROLL_A.mp3", "001_LIMESTONE_ROLL_B.mp3", "020_CAVERN_CASSETTE_A.mp3", "020_CAVERN_CASSETTE_B.mp3"] } },
+    { id: "low", sku: "LOW-PRESSURE", name: "Low Pressure", price: 15, tone: "#b34b35", tags: ["hiphop"], category: { es: "Hip-Hop abstracto", en: "Abstract hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases pesadas, oscuras y texturales. Cada propuesta cambia la batería, el bajo, la fuente sonora o el espacio sin salir del hip-hop experimental abstracto.", en: "30 heavy, dark and textural abstract hip-hop beats. Each prompt changes the drums, bass, sound source or space while staying rooted in abstract experimental hip-hop." }, demo: { title: "Concrete Pulse", src: "./audio/low-pressure-concrete-pulse-preview.mp3", durationLabel: "00:30", files: ["001_CONCRETE_PULSE_A.mp3", "001_CONCRETE_PULSE_B.mp3", "019_CRACKED_RELAY_A.mp3", "019_CRACKED_RELAY_B.mp3"] } },
+    { id: "abyss", sku: "ABYSS-DUB", name: "Abyss Dub", price: 15, tone: "#596352", tags: ["dub"], category: { es: "Hip-Hop dub", en: "Dub hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop dub oscuro con batería de rap, subgrave enorme, acordes aislados y ecos profundos. Cambian el patrón, el bajo y la forma de mezclar el espacio.", en: "30 dark dub-inflected hip-hop beats with rap drums, immense sub-bass, isolated chords and deep echoes. The pocket, bass movement and use of space change across the folder." }, demo: { title: "Deep Chamber", src: "./audio/abyss-dub-deep-chamber-preview.mp3", durationLabel: "00:30", files: ["001_DEEP_CHAMBER_A.mp3", "001_DEEP_CHAMBER_B.mp3", "014_OCEAN_FLOOR_BREAK_A.mp3", "014_OCEAN_FLOOR_BREAK_B.mp3"] } },
+    { id: "noir", sku: "NOIR-TAPES", name: "Noir Tapes", price: 15, tone: "#705e6b", tags: ["noir"], category: { es: "Hip-Hop noir", en: "Noir hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop noir y boom bap abstracto construidas con muestras. Cambian el corte de batería, el bajo, la fuente y el tratamiento de cinta.", en: "30 sample-based noir hip-hop and abstract boom-bap beats. Each prompt changes the drum cut, bass, source material or tape treatment without leaving the collection's core sound." }, demo: { title: "Rain Evidence", src: "./audio/noir-tapes-rain-evidence-preview.mp3", durationLabel: "00:30", files: ["001_RAIN_EVIDENCE_A.mp3", "001_RAIN_EVIDENCE_B.mp3", "029_BURNT_ARCHIVE_A.mp3", "029_BURNT_ARCHIVE_B.mp3"] } }
   ];
 
   const catalogueTotals = catalog.reduce((totals, item) => ({ prompts: totals.prompts + item.counts.prompts, negatives: totals.negatives + item.counts.negatives }), { prompts: 0, negatives: 0 });
@@ -313,6 +313,32 @@
   const archiveSaving = separateCataloguePrice - archive.price;
   const payhipProductKeys = Object.freeze({ trap: "0GiEq", garage: "HunFY", jungle: "LmWUN", low: "LrzFf", abyss: "TxsAr", noir: "8sFfE", archive: "SPXoI" });
   const products = Object.fromEntries([...catalog, archive].map((product) => [product.id, { ...product, payhipKey: payhipProductKeys[product.id] }]));
+  const productSeo = Object.freeze({
+    trap: {
+      es: { title: "Trap Ritual: 30 prompts de trap oscuro | SUBSUELO FS", description: "30 direcciones de trap ritual oscuro con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €." },
+      en: { title: "Trap Ritual: 30 dark trap prompts | SUBSUELO FS", description: "30 dark ritual trap prompts, 10 negative prompts, guides in English and Spanish, and 4 MP3 references. One coherent sound, 30 distinct beats." }
+    },
+    garage: {
+      es: { title: "Garaje Oscuro: 30 prompts de UK garage | SUBSUELO FS", description: "30 direcciones de UK garage oscuro con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €." },
+      en: { title: "Garaje Oscuro: 30 dark UK garage prompts | SUBSUELO FS", description: "30 dark UK garage prompts built around 2-step drums, human swing, sub-bass and urban space, plus 10 negative prompts and 4 MP3 references." }
+    },
+    jungle: {
+      es: { title: "Fossil Jungle: 30 prompts de jungle oscuro | SUBSUELO FS", description: "30 direcciones de jungle oscuro y degradado con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €." },
+      en: { title: "Fossil Jungle: 30 dark jungle prompts | SUBSUELO FS", description: "30 dark, degraded jungle prompts with changing break architecture, bass behaviour and sample sources, plus 10 negative prompts and 4 MP3 references." }
+    },
+    low: {
+      es: { title: "Low Pressure: 30 prompts de hip-hop abstracto | SUBSUELO FS", description: "30 direcciones de hip-hop abstracto con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €." },
+      en: { title: "Low Pressure: 30 abstract hip-hop prompts | SUBSUELO FS", description: "30 dark instrumental prompts for heavy, textural abstract hip-hop, plus 10 negative prompts, guides in English and Spanish, and 4 MP3 references." }
+    },
+    abyss: {
+      es: { title: "Abyss Dub: 30 prompts de hip-hop dub | SUBSUELO FS", description: "30 direcciones de hip-hop dub oscuro con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €." },
+      en: { title: "Abyss Dub: 30 dark dub hip-hop prompts | SUBSUELO FS", description: "30 dub-inflected hip-hop prompts with rap drums, immense sub-bass, isolated chords and deep echoes, plus 10 negative prompts and 4 MP3 references." }
+    },
+    noir: {
+      es: { title: "Noir Tapes: 30 prompts de hip-hop noir | SUBSUELO FS", description: "30 direcciones de hip-hop noir y boom bap abstracto con 10 negative prompts, guías ES/EN y 4 audios. Descarga digital: 15 €." },
+      en: { title: "Noir Tapes: 30 noir hip-hop prompts | SUBSUELO FS", description: "30 sample-based noir hip-hop and abstract boom-bap prompts with changing drum cuts and tape treatment, plus 10 negative prompts and 4 MP3 references." }
+    }
+  });
   const legalOrder = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
   const productRouteIds = new Set(catalog.map((product) => product.id));
   const categoryRouteIds = new Set(catalog.flatMap((product) => product.tags));
@@ -363,66 +389,72 @@
   const legacyPath = () => location.hash.startsWith("#/") ? location.hash.slice(1) : null;
   const currentPath = () => legacyPath() || recoveredPath() || location.pathname || "/";
 
-  const parseRoute = (path = currentPath()) => {
+  const localizedPath = (path, locale = language) => {
+    const normalized = path.startsWith("/") ? path : `/${path}`;
+    if (locale !== "en") return normalized;
+    return normalized === "/" ? "/en/" : `/en${normalized}`;
+  };
+
+  language = /^\/en(?:\/|$)/u.test(currentPath()) ? "en" : "es";
+
+  const parseRoute = (path = currentPath(), fallbackLocale = null) => {
     const cleanPath = typeof path === "string" ? path.split(/[?#]/, 1)[0] : "/";
     const parts = cleanPath.replace(/^\/+|\/+$/g, "").split("/").filter(Boolean);
-    if (!parts.length || (parts[0] === "home" && parts.length === 1)) return { type: "home" };
-    if (parts[0] === "category" && parts.length === 2 && categoryRouteIds.has(parts[1])) return { type: "category", category: parts[1] };
+    const locale = parts[0] === "en" ? "en" : fallbackLocale || "es";
+    if (parts[0] === "en") parts.shift();
+    const routed = (route) => ({ ...route, locale });
+    if (!parts.length || (parts[0] === "home" && parts.length === 1)) return routed({ type: "home" });
+    if (parts[0] === "category" && parts.length === 2 && categoryRouteIds.has(parts[1])) return routed({ type: "category", category: parts[1] });
     if (parts[0] === "product" && productRouteIds.has(parts[1])) {
-      if (parts.length === 2) return { type: "product", id: parts[1], section: null, entry: null };
+      if (parts.length === 2) return routed({ type: "product", id: parts[1], section: null, entry: null });
       if ((parts[2] === "es" || parts[2] === "en") && (parts.length === 3 || (parts.length === 4 && documentRouteEntries.has(parts[3])))) {
-        return { type: "product", id: parts[1], section: parts[2], entry: parts[3] || null };
+        return routed({ type: "product", id: parts[1], section: parts[2], entry: parts[3] || null });
       }
       if (parts[2] === "demos" && (parts.length === 3 || (parts.length === 4 && parts[3] === "preview"))) {
-        return { type: "product", id: parts[1], section: "demos", entry: parts[3] || null };
+        return routed({ type: "product", id: parts[1], section: "demos", entry: parts[3] || null });
       }
     }
-    if (parts[0] === "demos" && parts.length === 1) return { type: "demos" };
-    if (parts[0] === "help" && parts.length === 1) return { type: "help" };
-    if (parts[0] === "legal" && (parts.length === 1 || (parts.length === 2 && legalRouteIds.has(parts[1])))) return { type: "legal", document: parts[1] || null };
-    if (parts[0] === "bundle" && parts.length === 1) return { type: "bundle" };
-    return { type: "home" };
+    if (parts[0] === "demos" && parts.length === 1) return routed({ type: "demos" });
+    if (parts[0] === "help" && parts.length === 1) return routed({ type: "help" });
+    if (parts[0] === "legal" && (parts.length === 1 || (parts.length === 2 && legalRouteIds.has(parts[1])))) return routed({ type: "legal", document: parts[1] || null });
+    if (parts[0] === "bundle" && parts.length === 1) return routed({ type: "bundle" });
+    return routed({ type: "home" });
   };
 
   const routePath = (route) => {
-    if (route.type === "category") return `/category/${route.category}/`;
-    if (route.type === "product") return `/product/${route.id}${route.section ? `/${route.section}` : ""}${route.entry ? `/${route.entry}` : ""}/`;
-    if (route.type === "demos") return "/demos/";
-    if (route.type === "help") return "/help/";
-    if (route.type === "legal") return `/legal${route.document ? `/${route.document}` : ""}/`;
-    if (route.type === "bundle") return "/bundle/";
-    return "/";
+    let path = "/";
+    if (route.type === "category") path = `/category/${route.category}/`;
+    if (route.type === "product") path = `/product/${route.id}${route.section ? `/${route.section}` : ""}${route.entry ? `/${route.entry}` : ""}/`;
+    if (route.type === "demos") path = "/demos/";
+    if (route.type === "help") path = "/help/";
+    if (route.type === "legal") path = `/legal${route.document ? `/${route.document}` : ""}/`;
+    if (route.type === "bundle") path = "/bundle/";
+    return localizedPath(path, route.locale || language);
   };
 
-  const normalizeRoute = (path) => routePath(parseRoute(path));
+  const normalizeRoute = (path) => routePath(parseRoute(path, language));
   const routeHref = (path) => normalizeRoute(path);
 
   const routeMetadata = (route) => {
     if (route.type === "product") {
       const product = products[route.id];
-      const genre = product?.category?.[language] || "";
-      const title = language === "es"
-        ? `${productName(product)}: 30 prompts de ${genre.toLowerCase()} | ${legalProfile.brand}`
-        : `${productName(product)}: 30 ${genre.toLowerCase()} prompts | ${legalProfile.brand}`;
-      const extra = language === "es"
-        ? ` Incluye 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: ${price(product.price)}.`
-        : ` Includes 10 negative prompts, ES/EN guides and 4 audio references. Digital download: ${price(product.price)}.`;
-      return { title, description: `${product.description[language]}${extra}`, canonicalPath: `/product/${product.id}/`, type: "product" };
+      const seo = productSeo[route.id]?.[language];
+      return { ...seo, canonicalPath: localizedPath(`/product/${product.id}/`, route.locale), type: "product" };
     }
     if (route.type === "bundle") return language === "es"
-      ? { title: `Pack completo: 180 prompts para instrumentales | ${legalProfile.brand}`, description: `Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Descarga digital: ${price(archive.price)}.`, canonicalPath: "/bundle/", type: "product" }
-      : { title: `Complete pack: 180 prompts for instrumentals | ${legalProfile.brand}`, description: `All 6 collections in one ZIP: 180 prompts, 60 negative prompts, ES/EN guides and 24 audio references. Digital download: ${price(archive.price)}.`, canonicalPath: "/bundle/", type: "product" };
+      ? { title: `Pack completo: 180 prompts para instrumentales | ${legalProfile.brand}`, description: `Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Descarga digital: ${price(archive.price)}.`, canonicalPath: localizedPath("/bundle/", route.locale), type: "product" }
+      : { title: `180 dark music prompts: complete pack | ${legalProfile.brand}`, description: "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references.", canonicalPath: localizedPath("/bundle/", route.locale), type: "product" };
     if (route.type === "demos") return language === "es"
-      ? { title: `Demos de instrumentales oscuras | ${legalProfile.brand}`, description: "Escucha una muestra de trap ritual, UK garage oscuro, jungle degradado, hip-hop abstracto, dub y noir antes de elegir una carpeta.", canonicalPath: "/demos/", type: "website" }
-      : { title: `Dark instrumental demos | ${legalProfile.brand}`, description: "Hear ritual trap, dark UK garage, degraded jungle, abstract hip-hop, dub and noir previews before choosing a collection.", canonicalPath: "/demos/", type: "website" };
+      ? { title: `Demos de instrumentales oscuras | ${legalProfile.brand}`, description: "Escucha una muestra de trap ritual, UK garage oscuro, jungle degradado, hip-hop abstracto, dub y noir antes de elegir una carpeta.", canonicalPath: localizedPath("/demos/", route.locale), type: "website" }
+      : { title: `Dark instrumental prompt demos | ${legalProfile.brand}`, description: "Listen to audio examples for ritual trap, dark UK garage, degraded jungle, abstract hip-hop, dub and noir before choosing a prompt collection.", canonicalPath: localizedPath("/demos/", route.locale), type: "website" };
     if (route.type === "help") return language === "es"
-      ? { title: `Qué incluye una carpeta de prompts | ${legalProfile.brand}`, description: "Qué contienen los PDF de prompts y negative prompts, dónde se usa cada archivo y qué incluyen las guías y las referencias de audio.", canonicalPath: "/help/", type: "website" }
-      : { title: `What a prompt collection includes | ${legalProfile.brand}`, description: "What the prompt and negative prompt PDFs contain, where each file is used, and what the guides and audio references include.", canonicalPath: "/help/", type: "website" };
+      ? { title: `Qué incluye una carpeta de prompts | ${legalProfile.brand}`, description: "Qué contienen los PDF de prompts y negative prompts, dónde se usa cada archivo y qué incluyen las guías y las referencias de audio.", canonicalPath: localizedPath("/help/", route.locale), type: "website" }
+      : { title: `How music generation prompts work | ${legalProfile.brand}`, description: "See what each prompt folder contains, where to paste each block, how optional negative prompts work and what the audio references are for.", canonicalPath: localizedPath("/help/", route.locale), type: "website" };
     if (route.type === "category") return { title: `${categoryName(route.category)} | ${legalProfile.brand}`, description: t("meta.description"), canonicalPath: routePath(route), type: "website" };
     if (route.type === "legal") return { title: `${breadcrumbData(route).at(-1)?.label || "Legal"} | ${legalProfile.brand}`, description: t("meta.description"), canonicalPath: routePath(route), type: "website" };
     return language === "es"
-      ? { title: `Prompts para instrumentales oscuras | ${legalProfile.brand}`, description: "Colecciones por género con 30 prompts, 10 negative prompts, guías en español e inglés y 4 referencias de audio. Escucha las demos antes de elegir.", canonicalPath: "/", type: "website" }
-      : { title: `Prompts for dark instrumentals | ${legalProfile.brand}`, description: "Genre-focused collections with 30 prompts, 10 negative prompts, Spanish and English guides, and 4 audio references. Hear the demos before choosing.", canonicalPath: "/", type: "website" };
+      ? { title: `Prompts para instrumentales oscuras | ${legalProfile.brand}`, description: "Colecciones por género con 30 prompts, 10 negative prompts, guías en español e inglés y 4 referencias de audio. Escucha las demos antes de elegir.", canonicalPath: localizedPath("/", route.locale), type: "website" }
+      : { title: `Music prompts for dark instrumentals | ${legalProfile.brand}`, description: "Genre-built prompt collections for dark instrumentals: 30 prompts, 10 negative prompts, guides in English and Spanish, and 4 audio references per folder.", canonicalPath: localizedPath("/", route.locale), type: "website" };
   };
 
   const syncRouteMetadata = (route) => {
@@ -434,10 +466,15 @@
     $("meta[property='og:type']")?.setAttribute("content", metadata.type);
     $("meta[property='og:url']")?.setAttribute("content", canonicalUrl);
     $("meta[property='og:locale']")?.setAttribute("content", language === "es" ? "es_ES" : "en_GB");
+    $("meta[property='og:locale:alternate']")?.setAttribute("content", language === "es" ? "en_GB" : "es_ES");
     $("meta[property='og:title']")?.setAttribute("content", metadata.title);
     $("meta[property='og:description']")?.setAttribute("content", metadata.description);
     $("meta[name='twitter:title']")?.setAttribute("content", metadata.title);
     $("meta[name='twitter:description']")?.setAttribute("content", metadata.description);
+    const basePath = metadata.canonicalPath.replace(/^\/en(?=\/)/u, "") || "/";
+    $("link[rel='alternate'][hreflang='es']")?.setAttribute("href", `https://subsuelofs.com${localizedPath(basePath, "es")}`);
+    $("link[rel='alternate'][hreflang='en']")?.setAttribute("href", `https://subsuelofs.com${localizedPath(basePath, "en")}`);
+    $("link[rel='alternate'][hreflang='x-default']")?.setAttribute("href", `https://subsuelofs.com${localizedPath(basePath, "es")}`);
   };
   const initialRoute = normalizeRoute(currentPath());
   appHistory = [initialRoute];
@@ -460,7 +497,9 @@
   };
 
   window.addEventListener("popstate", (event) => {
-    const route = normalizeRoute(currentPath());
+    const parsedRoute = parseRoute(currentPath());
+    if (parsedRoute.locale !== language) syncLanguageUi(parsedRoute.locale);
+    const route = routePath(parsedRoute);
     if (Number.isInteger(event.state?.appIndex)) historyCursor = Math.max(0, Math.min(event.state.appIndex, appHistory.length - 1));
     else {
       const existing = appHistory.lastIndexOf(route);
@@ -473,7 +512,9 @@
   window.addEventListener("hashchange", () => {
     const path = legacyPath();
     if (!path) return;
-    const normalized = normalizeRoute(path);
+    const parsedRoute = parseRoute(path);
+    if (parsedRoute.locale !== language) syncLanguageUi(parsedRoute.locale);
+    const normalized = routePath(parsedRoute);
     appHistory = appHistory.slice(0, historyCursor + 1);
     appHistory.push(normalized);
     historyCursor = appHistory.length - 1;
@@ -554,7 +595,7 @@
     const name = productName(product);
     const detail = product.bundle ? t("bundle.folderCount", { count: product.members.length }) : `${categoryName(product.tags[0])} · ${t("inspector.prompts", { count: product.counts.prompts })}`;
     const label = `${name}. ${detail}. ${price(product.price)}`;
-    const href = product.bundle ? "/bundle/" : `/product/${product.id}/`;
+    const href = routeHref(product.bundle ? "/bundle/" : `/product/${product.id}/`);
     return `<a class="folder-item ${selectedProductId === product.id ? "is-selected" : ""}" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(label)}"><span class="folder-icon ${product.bundle ? "folder-icon--bundle" : ""}" style="--tone:${product.tone}"></span><strong>${escapeHtml(name)}</strong><small>${escapeHtml(detail)}</small><span class="folder-list-price">${price(product.price)}</span></a>`;
   };
 
@@ -571,7 +612,10 @@
     const lead = route.type === "category" ? `${t("home.lead")}` : t("home.lead");
     const folders = matches.length ? `<div class="folder-grid ${viewMode === "list" ? "is-list" : ""}" data-folder-grid>${matches.map(folderMarkup).join("")}</div>` : `<div class="empty-state"><div class="empty-folder"></div><h2>${t("home.empty")}</h2><p>${t("home.emptyHint")}</p><button class="help-action" type="button" data-clear-search>${t("home.clear")}</button></div>`;
     const hint = window.matchMedia("(max-width: 900px)").matches ? t("home.mobileHint") : t("home.hint");
-    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${openingPriceNote("catalog")}${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><a class="system-file" href="/help/" data-route="/help/"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></a><a class="system-file" href="/demos/" data-route="/demos/"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></a><a class="system-file" href="/bundle/" data-route="/bundle/"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></a><button class="system-file" type="button" data-route="/legal"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></button></div></section>`;
+    const helpHref = routeHref("/help/");
+    const demosHref = routeHref("/demos/");
+    const bundleHref = routeHref("/bundle/");
+    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${openingPriceNote("catalog")}${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><a class="system-file" href="${helpHref}" data-route="${helpHref}"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></a><a class="system-file" href="${demosHref}" data-route="${demosHref}"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></a><a class="system-file" href="${bundleHref}" data-route="${bundleHref}"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></a><button class="system-file" type="button" data-route="${routeHref("/legal")}"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></button></div></section>`;
   };
 
   const bundleCounts = () => archive.members.map((id) => products[id]).reduce((sum, product) => ({ prompts: sum.prompts + product.counts.prompts, negatives: sum.negatives + product.counts.negatives, demos: sum.demos + product.counts.demos }), { prompts: 0, negatives: 0, demos: 0 });
@@ -744,6 +788,7 @@
 
   const renderRoute = () => {
     const route = parseRoute();
+    if (route.locale !== language) syncLanguageUi(route.locale);
     const routeKey = routePath(route);
     const routeChanged = routeKey !== lastRenderedRoute;
     const product = route.type === "product" ? products[route.id] : null;
@@ -923,7 +968,7 @@
   sidebarMedia.addEventListener("change", () => { if (!sidebarMedia.matches) closeSidebar(); else syncSidebarA11y(); });
   syncSidebarA11y();
 
-  const applyLanguage = (nextLanguage) => {
+  const syncLanguageUi = (nextLanguage) => {
     language = nextLanguage;
     document.documentElement.lang = language;
     $$('[data-i18n]').forEach((element) => { const value = get(copy[language], element.dataset.i18n); if (value !== undefined) element.textContent = value; });
@@ -931,10 +976,23 @@
     $$('[data-i18n-placeholder]').forEach((element) => { const value = get(copy[language], element.dataset.i18nPlaceholder); if (value !== undefined) element.setAttribute("placeholder", value); });
     $$('[data-i18n-content]').forEach((element) => { const value = get(copy[language], element.dataset.i18nContent); if (value !== undefined) element.setAttribute("content", value); });
     $$('[data-language]').forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.language === language)));
+    $$('[data-route]').forEach((element) => {
+      const localizedRoute = routePath({ ...parseRoute(element.dataset.route), locale: language });
+      element.dataset.route = localizedRoute;
+      if (element.matches("a[href]")) element.setAttribute("href", localizedRoute);
+    });
+    $$('a[data-product-id][href]').forEach((element) => element.setAttribute("href", localizedPath(`/product/${element.dataset.productId}/`, language)));
     try { localStorage.setItem("subsuelo-language", language); } catch { /* unavailable */ }
     renderCart();
-    renderRoute();
     updateAudioUi();
+  };
+
+  const applyLanguage = (nextLanguage) => {
+    const localizedRoute = routePath({ ...parseRoute(), locale: nextLanguage });
+    syncLanguageUi(nextLanguage);
+    appHistory[historyCursor] = localizedRoute;
+    history.replaceState({ appIndex: historyCursor, route: localizedRoute }, "", localizedRoute);
+    renderRoute();
   };
 
   document.addEventListener("click", (event) => {

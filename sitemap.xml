@@ -1,43 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://subsuelofs.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/demos/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/demos/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/demos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/demos/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/bundle/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/bundle/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/bundle/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/bundle/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/help/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/help/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/help/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/help/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/product/trap/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/trap/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/trap/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/trap/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/product/garage/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/garage/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/garage/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/garage/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/product/jungle/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/jungle/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/jungle/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/jungle/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/product/low/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/low/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/low/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/low/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/product/abyss/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/abyss/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/abyss/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/abyss/" />
     <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://subsuelofs.com/product/noir/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/noir/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/noir/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/noir/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/demos/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/demos/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/demos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/demos/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/bundle/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/bundle/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/bundle/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/bundle/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/help/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/help/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/help/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/help/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/product/trap/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/trap/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/trap/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/trap/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/product/garage/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/garage/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/garage/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/garage/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/product/jungle/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/jungle/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/jungle/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/jungle/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/product/low/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/low/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/low/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/low/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/product/abyss/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/abyss/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/abyss/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/abyss/" />
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/product/noir/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/product/noir/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/product/noir/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/product/noir/" />
     <lastmod>2026-07-16</lastmod>
   </url>
 </urlset>
