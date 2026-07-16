@@ -9,19 +9,18 @@
     supportEmail: "soporte@subsuelofs.com",
     privacyEmail: "privacidad@subsuelofs.com",
     legalEmail: "hola@subsuelofs.com",
-    phone: "+34 722 71 56 95",
     xUrl: "https://x.com/subsuelofs",
     updated: { es: "16 de julio de 2026", en: "16 July 2026" }
   });
 
   const legalVersions = Object.freeze({
-    notice: "2026-07-16.1",
+    notice: "2026-07-16.2",
     privacy: "2026-07-16.1",
-    terms: "2026-07-16.1",
+    terms: "2026-07-16.2",
     license: "2026-07-16.1",
     storage: "2026-07-16.1",
     refund: "2026-07-16.1",
-    accessibility: "2026-07-16.1",
+    accessibility: "2026-07-16.2",
     immediateSupply: "2026-07-16.1"
   });
 
@@ -47,7 +46,7 @@
       taskbar: { online: "ONLINE" },
       cart: { title: "CARRITO", close: "Cerrar carrito", subtitle: "Carpetas seleccionadas", clear: "Vaciar carrito", empty: "Aquí todavía no hay carpetas.", emptyHint: "Abre una carpeta y añade la que quieras comprar.", browse: "Volver al catálogo", purchases: "Abrir mis compras", purchasesAria: "Abrir mis compras (abre en una pestaña nueva)", item: "Carpeta digital", bundle: "Pack completo", remove: "Eliminar", subtotal: "Subtotal", delivery: "Descarga digital · Sin gastos de envío", checkout: "Continuar al pago" },
       checkout: { titlebar: "REVISAR COMPRA", title: "Revisa tu pedido.", desc: "Comprueba las carpetas antes de continuar al pago seguro.", order: "Tu pedido", unit: "Producto digital", taxes: "Precio total · impuestos incluidos", confirmations: "Confirmaciones de compra", privacyLead: "Tus datos se tratarán para gestionar el pedido según la", privacy: "política de privacidad", termsConsent: "He leído y acepto las condiciones de compra y la licencia digital. Entiendo que los archivos fuente no se pueden compartir, publicar ni revender.", terms: "Condiciones de compra", license: "Licencia digital", supplyConsent: "Solicito la entrega inmediata del contenido digital y reconozco que, cuando comience la descarga o el acceso, perderé el derecho de desistimiento, sin perjuicio de mis derechos legales por falta de conformidad.", required: "Marca las dos casillas para continuar.", total: "Total", paySecure: "CONTINUAR AL CHECKOUT", payhipNote: "El correo que indiques se usa para enviarte el recibo y la descarga. No necesitas crear una cuenta. El consentimiento para recibir novedades es opcional y se solicita por separado. Todavía no se realizará ningún cobro.", back: "Volver al carrito" },
-      legalUi: { folderKicker: "SISTEMA / LEGAL_Y_PRIVACIDAD", folderTitle: "Legal y privacidad", folderLead: "Quién opera la tienda, cómo funciona la compra y qué ocurre con los datos y los archivos.", name: "Documento", type: "Tipo", description: "Qué contiene", access: "Acción", public: "Público", open: "Abrir", sections: "EN ESTE ARCHIVO", system: "DOCUMENTO DEL SISTEMA", updated: "Última actualización", version: "Versión", operator: "Operador", taxId: "NIF", registry: "Registro", address: "Domicilio", email: "Atención" },
+      legalUi: { folderKicker: "SISTEMA / LEGAL_Y_PRIVACIDAD", folderTitle: "Legal y privacidad", folderLead: "Consulta las condiciones de compra, la política de privacidad, la licencia y el resto de documentos de la tienda.", name: "Documento", type: "Tipo", description: "Qué contiene", access: "Acción", public: "Público", open: "Abrir", sections: "EN ESTE ARCHIVO", system: "DOCUMENTO DEL SISTEMA", updated: "Última actualización", version: "Versión" },
       dialog: { close: "Cerrar" },
       audio: { play: "Reproducir", pause: "Pausar", close: "Cerrar reproductor", unavailable: "No se ha podido cargar esta muestra de audio." },
       messages: { added: "{name} añadido al carrito.", duplicate: "Esa carpeta ya está en el carrito.", bundleContains: "El pack completo ya contiene esa carpeta.", bundleReplaced: "El pack completo ha sustituido las carpetas que ya incluía.", fileIncluded: "Este archivo se entrega dentro del ZIP." }
@@ -73,7 +72,7 @@
       taskbar: { online: "ONLINE" },
       cart: { title: "CART", close: "Close cart", subtitle: "Selected folders", clear: "Clear cart", empty: "No folders here yet.", emptyHint: "Open a folder and add the one you want to buy.", browse: "Back to catalogue", purchases: "Open my purchases", purchasesAria: "Open my purchases (opens in a new tab)", item: "Digital folder", bundle: "Complete pack", remove: "Remove", subtotal: "Subtotal", delivery: "Digital download · No shipping", checkout: "Continue to checkout" },
       checkout: { titlebar: "REVIEW ORDER", title: "Review your order.", desc: "Check the folders before continuing to secure checkout.", order: "Your order", unit: "Digital product", taxes: "Final price · taxes included", confirmations: "Purchase confirmations", privacyLead: "Your data will be processed to manage the order as described in the", privacy: "privacy notice", termsConsent: "I have read and accept the purchase terms and digital licence. I understand that the source files may not be shared, published or resold.", terms: "Purchase terms", license: "Digital licence", supplyConsent: "I request immediate delivery of the digital content and acknowledge that, when download or access begins, I will lose the right of withdrawal, without affecting my statutory rights if the content is not in conformity.", required: "Tick both boxes to continue.", total: "Total", paySecure: "CONTINUE TO CHECKOUT", payhipNote: "The email you enter is used to send your receipt and download. No account is required. Consent to receive product news is optional and requested separately. No charge is made yet.", back: "Back to cart" },
-      legalUi: { folderKicker: "SYSTEM / LEGAL_AND_PRIVACY", folderTitle: "Legal and privacy", folderLead: "Who operates the store, how purchases work and what happens to data and files.", name: "Document", type: "Type", description: "Contents", access: "Action", public: "Public", open: "Open", sections: "IN THIS FILE", system: "SYSTEM DOCUMENT", updated: "Last updated", version: "Version", operator: "Operator", taxId: "Tax ID", registry: "Registry", address: "Address", email: "Support" },
+      legalUi: { folderKicker: "SYSTEM / LEGAL_AND_PRIVACY", folderTitle: "Legal and privacy", folderLead: "Read the purchase terms, privacy policy, licence and the store's other documents.", name: "Document", type: "Type", description: "Contents", access: "Action", public: "Public", open: "Open", sections: "IN THIS FILE", system: "SYSTEM DOCUMENT", updated: "Last updated", version: "Version" },
       dialog: { close: "Close" },
       audio: { play: "Play", pause: "Pause", close: "Close player", unavailable: "This audio preview could not be loaded." },
       messages: { added: "{name} added to cart.", duplicate: "That folder is already in your cart.", bundleContains: "The complete pack already contains that folder.", bundleReplaced: "The complete pack replaced the folders it already included.", fileIncluded: "This file is delivered inside the ZIP." }
@@ -90,7 +89,7 @@
         version: legalVersions.notice,
         sections: [
           { title: "Quién opera la tienda", paragraphs: [`${legalProfile.brand} es una marca comercial operada por ${legalProfile.legalName}, sociedad limitada unipersonal con NIF ${legalProfile.taxId} y domicilio social en ${legalProfile.address}.`, `Inscripción: ${legalProfile.registry}. EUID: ${legalProfile.euid}.`] },
-          { title: "Contacto", paragraphs: [`Cuestiones generales o legales: ${legalProfile.legalEmail}. Pedidos, descargas y facturación: ${legalProfile.supportEmail}. Teléfono: ${legalProfile.phone}. Privacidad: ${legalProfile.privacyEmail}.`] },
+          { title: "Contacto", paragraphs: [`Cuestiones generales o legales: ${legalProfile.legalEmail}. Pedidos, descargas y facturación: ${legalProfile.supportEmail}. Privacidad: ${legalProfile.privacyEmail}.`] },
           { title: "Actividad y precios", paragraphs: ["La tienda vende carpetas digitales con prompts, negative prompts, guías y archivos de audio cuando así se indique en la ficha. Antes del pago se muestra el contenido exacto, formato, idioma, precio total e impuestos aplicables. Las descargas no tienen gastos de envío."] },
           { title: "Uso del sitio", paragraphs: ["El sitio puede utilizarse para consultar el catálogo, escuchar muestras y comprar los productos publicados. No está permitido interferir en su funcionamiento, intentar acceder a contenido restringido ni utilizarlo con fines ilícitos. La versión de las condiciones mostrada al confirmar el pedido será la aplicable a esa compra."] },
           { title: "Propiedad intelectual", paragraphs: [`La marca, el diseño, los textos, la selección de contenidos y los archivos originales pertenecen a ${legalProfile.legalName} o se utilizan con autorización. La compra concede únicamente la licencia indicada para el producto; no transmite la propiedad intelectual de los archivos fuente.`] },
@@ -130,7 +129,7 @@
           { title: "Desistimiento", paragraphs: ["Antes de que comience el suministro digital, la persona consumidora dispone del plazo legal de catorce días cuando resulte aplicable. La entrega inmediata solo comenzará si marca una casilla separada, solicita expresamente que el suministro empiece durante ese plazo y reconoce que perderá el derecho de desistimiento una vez iniciado. La confirmación del pedido reproducirá esa declaración en un soporte duradero."], checkbox: "Solicito el suministro inmediato del contenido digital durante el plazo de desistimiento y reconozco que, una vez iniciado, perderé mi derecho de desistimiento." },
           { title: "Modelo de desistimiento", paragraphs: [`Si el derecho sigue vigente, puedes escribir a ${legalProfile.supportEmail} indicando: «Comunico mi desistimiento del pedido [número], contratado el [fecha]», junto con tu nombre, dirección y fecha de la solicitud. La firma solo es necesaria si se envía en papel.`] },
           { title: "Archivos defectuosos o distintos de lo anunciado", paragraphs: ["La pérdida del desistimiento no elimina los derechos legales de conformidad. Para contenido digital suministrado una sola vez, el vendedor responde por faltas de conformidad manifestadas durante dos años. Si un producto está incompleto, dañado o no coincide con su descripción, el comprador puede pedir que se ponga en conformidad y, cuando corresponda, una reducción del precio o la resolución y el reembolso."] },
-          { title: "Atención, reclamaciones y ley aplicable", paragraphs: [`Pedidos, descargas, facturas y reclamaciones: ${legalProfile.supportEmail} o ${legalProfile.phone}. La reclamación se responderá en el plazo más breve posible y, en todo caso, en un máximo de quince días. Si no queda resuelta, se informará de la entidad de resolución alternativa competente y de si la empresa participa en el procedimiento.`, "Se aplica la legislación española, sin privar al consumidor de la protección imperativa de su país de residencia ni imponerle tribunales distintos de los que le reconoce la normativa aplicable."] }
+          { title: "Atención, reclamaciones y ley aplicable", paragraphs: [`Pedidos, descargas, facturas y reclamaciones: ${legalProfile.supportEmail}. La reclamación se responderá en el plazo más breve posible y, en todo caso, en un máximo de quince días. Si no queda resuelta, se informará de la entidad de resolución alternativa competente y de si la empresa participa en el procedimiento.`, "Se aplica la legislación española, sin privar al consumidor de la protección imperativa de su país de residencia ni imponerle tribunales distintos de los que le reconoce la normativa aplicable."] }
         ]
       },
       license: {
@@ -186,7 +185,7 @@
         sections: [
           { title: "Compromiso", paragraphs: ["La tienda se diseña para poder utilizarse con teclado, ampliación de pantalla, contraste suficiente, movimiento reducido y tecnologías de apoyo. El catálogo, la información previa a la compra y las condiciones deben poder consultarse sin depender solo del color, el sonido o el ratón."] },
           { title: "Alcance", paragraphs: ["Esta declaración cubre la tienda y su proceso de compra. Los PDF descargables cuentan con texto seleccionable, pero todavía no están etiquetados de forma estructural para todos los lectores de pantalla; se revisarán antes de la publicación definitiva o se ofrecerá una alternativa textual equivalente."] },
-          { title: "Comunicar una barrera", paragraphs: [`Si encuentras una barrera, indica la página, el dispositivo, el navegador y la ayuda técnica utilizada en un correo a ${legalProfile.supportEmail} o llama al ${legalProfile.phone}. Confirmaremos la recepción y daremos una respuesta en un plazo razonable.`] },
+          { title: "Comunicar una barrera", paragraphs: [`Si encuentras una barrera, indica la página, el dispositivo, el navegador y la ayuda técnica utilizada en un correo a ${legalProfile.supportEmail}. Confirmaremos la recepción y daremos una respuesta en un plazo razonable.`] },
           { title: "Preparación", paragraphs: ["Declaración preparada mediante revisión interna de navegación con teclado, foco, contraste, zoom y adaptación móvil. Se actualizará cuando cambie la plataforma de venta o se complete una auditoría externa."] }
         ]
       }
@@ -200,7 +199,7 @@
         version: legalVersions.notice,
         sections: [
           { title: "Store operator", paragraphs: [`${legalProfile.brand} is a trading name operated by ${legalProfile.legalName}, a Spanish single-member limited company with tax ID ${legalProfile.taxId} and registered office at ${legalProfile.address}.`, `Registration: ${legalProfile.registry}. EUID: ${legalProfile.euid}.`] },
-          { title: "Contact", paragraphs: [`General or legal matters: ${legalProfile.legalEmail}. Orders, downloads and invoices: ${legalProfile.supportEmail}. Telephone: ${legalProfile.phone}. Privacy: ${legalProfile.privacyEmail}.`] },
+          { title: "Contact", paragraphs: [`General or legal matters: ${legalProfile.legalEmail}. Orders, downloads and invoices: ${legalProfile.supportEmail}. Privacy: ${legalProfile.privacyEmail}.`] },
           { title: "Activity and prices", paragraphs: ["The store sells digital folders containing prompts, negative prompts, guides and audio files where stated on the product page. Exact contents, format, language, final price and applicable taxes are shown before payment. Digital downloads have no shipping charge."] },
           { title: "Use of the site", paragraphs: ["The site may be used to browse the catalogue, hear previews and purchase published products. Interfering with its operation, attempting to access restricted content or using it unlawfully is prohibited. The version of the terms displayed when the order is confirmed applies to that purchase."] },
           { title: "Intellectual property", paragraphs: [`The brand, design, text, content selection and original files belong to ${legalProfile.legalName} or are used with permission. Purchase grants only the licence stated for the product and does not transfer intellectual property ownership of the source files.`] },
@@ -240,7 +239,7 @@
           { title: "Withdrawal rights", paragraphs: ["Before digital supply begins, consumers have the applicable statutory fourteen-day withdrawal period. Immediate delivery will only begin where a separate box is ticked to expressly request supply during that period and acknowledge that the withdrawal right will be lost once supply begins. The order confirmation will reproduce that declaration on a durable medium."], checkbox: "I request the immediate supply of the digital content during the withdrawal period and acknowledge that, once supply begins, I will lose my right of withdrawal." },
           { title: "Model withdrawal notice", paragraphs: [`Where the right still applies, write to ${legalProfile.supportEmail} stating: ‘I hereby withdraw from order [number], placed on [date]’, together with your name, address and request date. A signature is only required for a paper notice.`] },
           { title: "Defective or misdescribed files", paragraphs: ["Loss of the withdrawal right does not remove statutory conformity rights. For digital content supplied once, the seller is liable for a lack of conformity that becomes apparent within two years. If a product is incomplete, damaged or does not match its description, the buyer may request that it be brought into conformity and, where appropriate, a price reduction or termination and refund."] },
-          { title: "Support, complaints and governing law", paragraphs: [`Orders, downloads, invoices and complaints: ${legalProfile.supportEmail} or ${legalProfile.phone}. A complaint will be answered as soon as possible and in all cases within fifteen days. If it remains unresolved, information on the competent alternative dispute resolution body and whether the company will participate will be provided.`, "Spanish law applies without depriving a consumer of mandatory protection in their country of residence or imposing courts other than those available under applicable law."] }
+          { title: "Support, complaints and governing law", paragraphs: [`Orders, downloads, invoices and complaints: ${legalProfile.supportEmail}. A complaint will be answered as soon as possible and in all cases within fifteen days. If it remains unresolved, information on the competent alternative dispute resolution body and whether the company will participate will be provided.`, "Spanish law applies without depriving a consumer of mandatory protection in their country of residence or imposing courts other than those available under applicable law."] }
         ]
       },
       license: {
@@ -296,7 +295,7 @@
         sections: [
           { title: "Commitment", paragraphs: ["The store is designed for keyboard use, screen magnification, sufficient contrast, reduced motion and assistive technologies. The catalogue, pre-purchase information and terms should not depend on colour, sound or mouse use alone."] },
           { title: "Scope", paragraphs: ["This statement covers the store and purchase flow. Downloadable PDFs contain selectable text, but are not yet structurally tagged for every screen reader; they will be reviewed before final publication or an equivalent text alternative will be offered."] },
-          { title: "Report a barrier", paragraphs: [`When reporting a barrier, include the page, device, browser and assistive technology used in an email to ${legalProfile.supportEmail}, or call ${legalProfile.phone}. Receipt will be acknowledged and a response provided within a reasonable period.`] },
+          { title: "Report a barrier", paragraphs: [`When reporting a barrier, include the page, device, browser and assistive technology used in an email to ${legalProfile.supportEmail}. Receipt will be acknowledged and a response provided within a reasonable period.`] },
           { title: "Preparation", paragraphs: ["This statement was prepared through an internal review of keyboard navigation, focus, contrast, zoom and mobile adaptation. It will be updated when the sales platform changes or an external audit is completed."] }
         ]
       }
@@ -817,15 +816,14 @@
 
   const legalInline = (value) => escapeHtml(value)
     .replace(/([\w.+-]+@[\w.-]+\.[A-Za-z]{2,})/g, '<a href="mailto:$1">$1</a>')
-    .replace(/(https:\/\/[^\s<]*[A-Za-z0-9/#?=&_%~-])([.,;:!?)])?/g, '<a href="$1" rel="noopener noreferrer">$1</a>$2')
-    .replace(/(\+34\s?\d{3}\s?\d{2}\s?\d{2}\s?\d{2})/g, (number) => `<a href="tel:${number.replace(/\s/g, "")}">${number}</a>`);
+    .replace(/(https:\/\/[^\s<]*[A-Za-z0-9/#?=&_%~-])([.,;:!?)])?/g, '<a href="$1" rel="noopener noreferrer">$1</a>$2');
 
   const legalFolderView = () => {
     const rows = legalOrder.map((key) => {
       const document = legalDocuments[language][key];
       return fileRow({ name: document.file, type: "txt", description: document.description, availability: t("legalUi.public"), route: `/legal/${key}`, action: t("legalUi.open") });
     });
-    return `<section class="legal-folder"><header class="view-heading"><div class="view-heading__copy"><p>${t("legalUi.folderKicker")}</p><h1>${t("legalUi.folderTitle")}</h1><p>${t("legalUi.folderLead")}</p></div></header><dl class="legal-identity"><div><dt>${t("legalUi.operator")}</dt><dd>${escapeHtml(legalProfile.legalName)}<small>${escapeHtml(legalProfile.brand)}</small></dd></div><div><dt>${t("legalUi.taxId")}</dt><dd>${escapeHtml(legalProfile.taxId)}</dd></div><div><dt>${t("legalUi.registry")}</dt><dd>${escapeHtml(legalProfile.registry)}</dd></div><div><dt>${t("legalUi.address")}</dt><dd>${escapeHtml(legalProfile.address)}</dd></div><div><dt>${t("legalUi.email")}</dt><dd><a href="mailto:${escapeHtml(legalProfile.supportEmail)}">${escapeHtml(legalProfile.supportEmail)}</a><small><a href="tel:${legalProfile.phone.replace(/\s/g, "")}">${escapeHtml(legalProfile.phone)}</a></small></dd></div></dl><div class="file-list"><div class="file-list__header"><span>${t("legalUi.name")}</span><span>${t("legalUi.type")}</span><span>${t("legalUi.description")}</span><span>${t("legalUi.access")}</span></div>${rows.join("")}</div></section>`;
+    return `<section class="legal-folder"><header class="view-heading"><div class="view-heading__copy"><p>${t("legalUi.folderKicker")}</p><h1>${t("legalUi.folderTitle")}</h1><p>${t("legalUi.folderLead")}</p></div></header><div class="file-list"><div class="file-list__header"><span>${t("legalUi.name")}</span><span>${t("legalUi.type")}</span><span>${t("legalUi.description")}</span><span>${t("legalUi.access")}</span></div>${rows.join("")}</div></section>`;
   };
 
   const legalDocumentView = (key) => {
