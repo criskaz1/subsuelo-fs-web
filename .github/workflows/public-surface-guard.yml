@@ -1,0 +1,30 @@
+name: Public surface guard
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-surface-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Audit public files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out every reachable commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Confirm the guard catches simulated leaks
+        run: node .github/scripts/audit-public-surface.mjs --self-test
+
+      - name: Audit files, history, credentials and audio previews
+        run: node .github/scripts/audit-public-surface.mjs

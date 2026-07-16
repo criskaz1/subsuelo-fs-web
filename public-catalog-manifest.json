@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "products": [
+    {
+      "id": "trap",
+      "route": "trap",
+      "previews": ["audio/trap-ritual-ash-circle-preview.mp3"],
+      "images": []
+    },
+    {
+      "id": "garage",
+      "route": "garage",
+      "previews": ["audio/garaje-oscuro-alley-pressure-preview.mp3"],
+      "images": []
+    },
+    {
+      "id": "jungle",
+      "route": "jungle",
+      "previews": ["audio/fossil-jungle-limestone-roll-preview.mp3"],
+      "images": []
+    },
+    {
+      "id": "low",
+      "route": "low",
+      "previews": ["audio/low-pressure-concrete-pulse-preview.mp3"],
+      "images": []
+    },
+    {
+      "id": "abyss",
+      "route": "abyss",
+      "previews": ["audio/abyss-dub-deep-chamber-preview.mp3"],
+      "images": []
+    },
+    {
+      "id": "noir",
+      "route": "noir",
+      "previews": ["audio/noir-tapes-rain-evidence-preview.mp3"],
+      "images": []
+    }
+  ]
+}
