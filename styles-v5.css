@@ -1945,61 +1945,6 @@ button {
   box-shadow: 5px 6px 0 rgba(0, 0, 0, 0.14);
 }
 
-.legal-identity {
-  display: grid;
-  grid-template-columns: 1.35fr 0.65fr 1.35fr;
-  margin: 0 0 22px;
-  border: 1px solid var(--ink);
-  background: var(--paper);
-  box-shadow: 5px 6px 0 rgba(0, 0, 0, 0.14);
-}
-
-.legal-identity > div {
-  min-width: 0;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 13px 15px;
-}
-
-.legal-identity > div:nth-child(3),
-.legal-identity > div:last-child {
-  border-right: 0;
-}
-
-.legal-identity > div:nth-last-child(-n + 2) {
-  border-bottom: 0;
-}
-
-.legal-identity > div:nth-child(4) {
-  grid-column: span 2;
-}
-
-.legal-identity dt {
-  margin-bottom: 5px;
-  color: var(--rust);
-  font: 800 10px/1.25 var(--mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.legal-identity dd {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.legal-identity dd small {
-  display: block;
-  margin-top: 3px;
-  color: var(--muted);
-  font: 11px/1.35 var(--mono);
-}
-
-.legal-identity a {
-  color: var(--select);
-  overflow-wrap: anywhere;
-}
-
 .legal-view {
   max-width: 980px;
   margin: 0 auto;
@@ -4043,23 +3988,6 @@ button {
   .legal-copy {
     padding: 24px 18px;
     font-size: 15px;
-  }
-
-  .legal-identity {
-    grid-template-columns: 1fr;
-  }
-
-  .legal-identity > div,
-  .legal-identity > div:nth-child(3),
-  .legal-identity > div:nth-child(4),
-  .legal-identity > div:last-child {
-    grid-column: auto;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .legal-identity > div:last-child {
-    border-bottom: 0;
   }
 
   .cart-panel {
