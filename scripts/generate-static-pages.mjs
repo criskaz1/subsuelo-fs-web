@@ -8,6 +8,7 @@ const templatePath = path.join(root, "index.html");
 const siteUrl = "https://subsuelofs.com";
 const freeSamplerUrl = "https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler";
 const lastModified = "2026-07-16";
+const openingPriceStarts = "2026-07-16";
 const openingPriceEnds = "2026-07-30";
 const socialImage = `${siteUrl}/social-card.png?v=20260716-2`;
 
@@ -280,6 +281,7 @@ const productSchema = (page, product) => ({
         url: canonicalUrl(page.pathname),
         priceCurrency: "EUR",
         price: product.price.toFixed(2),
+        validFrom: openingPriceStarts,
         priceValidUntil: openingPriceEnds,
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
