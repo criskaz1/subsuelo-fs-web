@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://subsuelofs.com";
+const openingPriceStarts = "2026-07-16";
 const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir"];
 const basePages = [
   { basePath: "/", output: "index.html", schemaType: "CollectionPage" },
@@ -56,6 +57,11 @@ for (const page of pages) {
   const mainEntity = graphEntries(jsonLd).find((entry) => entry["@type"] === page.schemaType);
   if (!mainEntity) throw new Error(`${page.output}: falta ${page.schemaType} en JSON-LD`);
   if (mainEntity.inLanguage !== page.locale) throw new Error(`${page.output}: inLanguage incorrecto en JSON-LD`);
+  if (page.schemaType === "Product") {
+    const offers = mainEntity.offers;
+    if (!offers || offers["@type"] !== "Offer") throw new Error(`${page.output}: falta Offer en JSON-LD`);
+    if (offers.validFrom !== openingPriceStarts) throw new Error(`${page.output}: validFrom incorrecto en Offer`);
+  }
 
   if (page.locale === "en") {
     const routeHrefs = [...html.matchAll(/<a\b[^>]*\bhref="(\/(?!\/)[^"?#]*)"/gu)].map((match) => match[1]);
