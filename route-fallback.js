@@ -2,6 +2,19 @@
   "use strict";
 
   const path = location.pathname.length > 1 ? location.pathname.replace(/\/+$/, "") : "/";
+  const configuredRedirect = document.documentElement.dataset.redirectTarget;
+  const routeAliases = { "/en/product/dub": "/en/product/abyss/" };
+  const redirectTarget = configuredRedirect || routeAliases[path];
+
+  if (redirectTarget) {
+    const destination = new URL(redirectTarget, location.origin);
+    destination.search = location.search;
+    destination.hash = location.hash;
+    document.querySelector("[data-redirect-link]")?.setAttribute("href", destination.href);
+    location.replace(destination.href);
+    return;
+  }
+
   const validRoutePatterns = [
     /^\/en$/,
     /^\/(?:en\/)?(?:home|demos|help|bundle|legal)$/,

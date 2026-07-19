@@ -23,6 +23,7 @@ README.md
 app-v5.js
 en/feed.xml
 en/index.html
+en/product/dub/index.html
 favicon.svg
 feed.xml
 google4547210dcb970066.html
@@ -101,6 +102,10 @@ const forbiddenPathRules = [
 const privateAccount = ["cris", "kaz1"].join("");
 const privateMailbox = ["videoclipsconfiltro", "gmail.com"].join("@");
 const excludedBrand = ["su", "no"].join("");
+const approvedBrandDisclaimers = [
+  "Los prompts se entregan en inglés, listos para copiar en Styles; los negative prompts opcionales se usan en Exclude de Suno. SUBSUELO FS es independiente y no está afiliado a Suno.",
+  "Prompts are delivered in English, ready to paste into Styles; optional negative prompts go in Suno's Exclude field. SUBSUELO FS is independent and is not affiliated with Suno."
+];
 const forbiddenContentRules = [
   { label: "clave privada", pattern: /-----BEGIN (?:RSA |OPENSSH |EC |DSA )?PRIVATE KEY-----/u },
   { label: "token de GitHub", pattern: /(?:github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9_]{20,})/u },
@@ -132,9 +137,12 @@ const pathViolations = (file, enforceAllowlist = true) => {
   return violations;
 };
 
-const contentViolations = (text) => forbiddenContentRules
-  .filter((rule) => rule.pattern.test(text))
-  .map((rule) => rule.label);
+const contentViolations = (text) => {
+  const auditedText = approvedBrandDisclaimers.reduce((value, disclaimer) => value.replaceAll(disclaimer, ""), text);
+  return forbiddenContentRules
+    .filter((rule) => rule.pattern.test(auditedText))
+    .map((rule) => rule.label);
+};
 
 const synchsafeInteger = (buffer, offset) => {
   if (offset + 4 > buffer.length) throw new Error("cabecera ID3 incompleta");
@@ -268,6 +276,7 @@ if (process.argv.includes("--self-test")) {
     pathViolations("product/noir/index.html").length === 0,
     pathViolations("guides/future-guide/index.html").length === 0,
     contentViolations("SUBSUELO FS · archivo público").length === 0,
+    contentViolations(approvedBrandDisclaimers.join("\n")).length === 0,
     syntheticAudio.frames === 3 && Math.abs(syntheticAudio.duration - 0.072) < 0.000_001
   ];
   if (cases.some((result) => !result)) {

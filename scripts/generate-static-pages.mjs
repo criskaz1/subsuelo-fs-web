@@ -353,15 +353,19 @@ const homeView = (locale) => {
   </div>
   <p class="view-heading__hint">${en ? "Click a folder to open it" : "Haz clic en una carpeta para abrirla"}</p>
 </header>
-<section class="sampler-file">
-  <span class="file-icon file-icon--zip" aria-hidden="true">ZIP</span>
-  <div class="sampler-file__copy">
-    <p>${en ? "FREE SAMPLER / ZIP" : "MUESTRA GRATUITA / ZIP"}</p>
-    <h2>${en ? "Try the format before choosing." : "Prueba el formato antes de elegir."}</h2>
-    <p>${en ? "Get 6 prompts, 7 negative prompts, separate Spanish and English guides, and six 30-second demos: one entry from every folder." : "Recibe 6 prompts, 7 negative prompts, guías separadas en español e inglés y 6 demos de 30 segundos: una entrada de cada carpeta."}</p>
-    <small>${en ? "Instant delivery by email · No account required" : "Descarga inmediata por email · Sin cuenta obligatoria"}</small>
+<section class="home-offer" aria-label="${en ? "Complete pack offer" : "Oferta del pack completo"}">
+  <span class="folder-icon folder-icon--bundle home-offer__icon" aria-hidden="true"></span>
+  <div class="home-offer__copy">
+    <p>${en ? "COMPLETE PACK / 6 FOLDERS" : "PACK COMPLETO / 6 CARPETAS"}</p>
+    <h2>${en ? "The full current catalogue in one ZIP." : "Todo el catálogo actual en un solo ZIP."}</h2>
+    <p>${en ? "180 prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references." : "180 prompts, 60 negative prompts, guías en español e inglés y 24 referencias MP3."}</p>
+    <small>${en ? "Prompts are delivered in English, ready to paste into Styles; optional negative prompts go in Suno's Exclude field. SUBSUELO FS is independent and is not affiliated with Suno." : "Los prompts se entregan en inglés, listos para copiar en Styles; los negative prompts opcionales se usan en Exclude de Suno. SUBSUELO FS es independiente y no está afiliado a Suno."}</small>
   </div>
-  <a class="sampler-file__action" href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" aria-label="${en ? "Get the free sampler (opens in a new tab)" : "Recibir la muestra gratuita (abre en una pestaña nueva)"}" data-sampler-download="home">${en ? "GET THE SAMPLER · 0 €" : "RECIBIR MUESTRA · 0 €"}<span aria-hidden="true">↗</span></a>
+  <div class="home-offer__buy">
+    <div class="home-offer__price"><s>${en ? "€90 separately" : "90 € por separado"}</s><strong>${en ? "€59" : "59 €"}</strong><b>${en ? "SAVE €31" : "AHORRAS 31 €"}</b><span>${en ? "Opening price until 30.07.2026" : "Precio de apertura hasta 30.07.2026"}</span></div>
+    <a class="home-offer__primary" href="${bundleHref}" data-buy="archive">${en ? "BUY COMPLETE PACK · €59" : "COMPRAR PACK COMPLETO · 59 €"}</a>
+    <a class="home-offer__secondary" href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" aria-label="${en ? "Get the free sampler (opens in a new tab)" : "Recibir la muestra gratuita (abre en una pestaña nueva)"}" data-sampler-download="home">${en ? "TRY FREE SAMPLER · €0" : "PROBAR MUESTRA GRATIS · 0 €"}<span aria-hidden="true">↗</span></a>
+  </div>
 </section>
 <span class="opening-price-note opening-price-note--catalog">${en ? "Opening price until 30.07.2026" : "Precio de apertura hasta 30.07.2026"}</span>
 <div class="folder-grid" data-folder-grid>
@@ -620,7 +624,7 @@ const pagesForLocale = (locale) => {
     page("/", "index.html", {
       heading: en ? "One genre. 30 ways in." : "Un género por carpeta",
       title: en ? "Music prompts for dark instrumentals | SUBSUELO FS" : "Prompts para instrumentales oscuras | SUBSUELO FS",
-      description: en ? "Genre-built folders for dark instrumentals: 30 prompts, 10 negative prompts, ES/EN guides and 4 audio references. Download the free sampler first." : "Carpetas por género para instrumentales oscuras: 30 prompts, 10 negative prompts, guías ES/EN y 4 audios. Descarga una muestra gratuita antes de elegir.",
+      description: en ? "Six folders for dark instrumentals: 180 prompts, 60 negative prompts, ES/EN guides and 24 MP3s. Complete pack for €59; free sampler available." : "Seis carpetas para instrumentales oscuras: 180 prompts, 60 negative prompts, guías ES/EN y 24 MP3. Pack completo por 59 €; muestra gratis disponible.",
       type: "website",
       home: true,
       view: homeView(locale)
