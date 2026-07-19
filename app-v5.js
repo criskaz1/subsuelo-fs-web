@@ -496,6 +496,13 @@
   };
   const legacyPath = () => location.hash.startsWith("#/") ? location.hash.slice(1) : null;
   const currentPath = () => legacyPath() || recoveredPath() || location.pathname || "/";
+  const initialLocationSuffix = () => {
+    const parameters = new URLSearchParams(location.search);
+    parameters.delete("__route");
+    const search = parameters.toString();
+    const hash = legacyPath() ? "" : location.hash;
+    return `${search ? `?${search}` : ""}${hash}`;
+  };
 
   const localizedPath = (path, locale = language) => {
     const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -587,7 +594,7 @@
   const initialRoute = normalizeRoute(currentPath());
   appHistory = [initialRoute];
   historyCursor = 0;
-  history.replaceState({ appIndex: 0, route: initialRoute }, "", initialRoute);
+  history.replaceState({ appIndex: 0, route: initialRoute }, "", `${initialRoute}${initialLocationSuffix()}`);
 
   const navigate = (path, options = {}) => {
     const normalized = normalizeRoute(path);
@@ -1117,7 +1124,7 @@
     const localizedRoute = routePath({ ...parseRoute(), locale: nextLanguage });
     syncLanguageUi(nextLanguage);
     appHistory[historyCursor] = localizedRoute;
-    history.replaceState({ appIndex: historyCursor, route: localizedRoute }, "", localizedRoute);
+    history.replaceState({ appIndex: historyCursor, route: localizedRoute }, "", `${localizedRoute}${initialLocationSuffix()}`);
     renderRoute();
   };
 
