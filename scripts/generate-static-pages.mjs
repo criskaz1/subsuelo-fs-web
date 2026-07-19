@@ -351,7 +351,7 @@ const homeView = (locale) => {
     <h1>${en ? "One genre. 30 ways in." : "Un género por carpeta"}</h1>
     <p>${en ? "Pick the sound you want to make. Each folder gives you 30 prompts that change the drums, bass, lead source and space while staying inside one coherent genre." : "Entra en el género que quieres producir. Dentro encontrarás 30 prompts distintos que cambian la batería, el bajo, el motivo y el espacio sin abandonar esa familia sonora."}</p>
   </div>
-  <p class="view-heading__hint">${en ? "Select a folder · Double-click to open" : "Selecciona una carpeta · Doble clic para abrir"}</p>
+  <p class="view-heading__hint">${en ? "Click a folder to open it" : "Haz clic en una carpeta para abrirla"}</p>
 </header>
 <section class="sampler-file">
   <span class="file-icon file-icon--zip" aria-hidden="true">ZIP</span>
@@ -402,7 +402,8 @@ const productView = (product, locale) => {
   </div>
   <div class="product-banner__buy">
     <div class="product-banner__price"><strong>${product.price} €</strong><span class="opening-price-note">${en ? "Opening price until 30.07.2026" : "Precio de apertura hasta 30.07.2026"}</span></div>
-    <button type="button" data-add="${product.id}">${en ? "Add to cart" : "Añadir al carrito"}</button>
+    <div class="product-banner__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-buy="${product.id}">${en ? "Buy now" : "Comprar ahora"} · ${product.price} €</button></div>
+    <a class="product-banner__sampler" href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a>
   </div>
 </section>
 <header class="subfolder-heading">
@@ -428,7 +429,7 @@ const productView = (product, locale) => {
 </section>
 <div class="purchase-strip">
   <div><strong>${escapeHtml(product.name)} · ${product.price} €</strong><span>${en ? "Download available after payment" : "Descarga disponible después del pago"}</span></div>
-  <div class="purchase-strip__actions"><button type="button" data-play="${product.id}">${en ? "Hear preview" : "Escuchar muestra"}</button><button class="primary-action" type="button" data-add="${product.id}">${en ? "Add to cart" : "Añadir al carrito"}</button></div>
+  <div class="purchase-strip__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-add="${product.id}">${en ? "Add to cart" : "Añadir al carrito"}</button></div>
 </div>`;
 };
 

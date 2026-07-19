@@ -1627,6 +1627,11 @@ button {
   text-align: right;
 }
 
+.product-banner__actions {
+  display: grid;
+  gap: 6px;
+}
+
 .product-banner__buy button {
   width: 100%;
   min-height: 44px;
@@ -1637,6 +1642,22 @@ button {
   cursor: pointer;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.product-banner__actions [data-play] {
+  background: var(--chrome);
+  color: var(--ink);
+  box-shadow: inset 1px 1px 0 var(--chrome-hi), inset -1px -1px 0 var(--chrome-low);
+}
+
+.product-banner__sampler {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font: 700 11px/1.25 var(--mono);
+  text-align: center;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .file-list {
@@ -3654,9 +3675,10 @@ button {
 
   .product-banner__buy {
     grid-column: 1 / -1;
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
+    grid-template-columns: auto minmax(210px, 1fr);
+    gap: 8px 16px;
     text-align: left;
   }
 
@@ -3668,6 +3690,11 @@ button {
     max-width: none;
     margin: 4px 0 0;
     text-align: left;
+  }
+
+  .product-banner__sampler {
+    grid-column: 1 / -1;
+    margin-top: 0;
   }
 }
 
@@ -3874,8 +3901,12 @@ button {
 
   .product-banner__buy {
     align-items: stretch;
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 9px;
+  }
+
+  .product-banner__sampler {
+    grid-column: auto;
   }
 
   .file-list {
