@@ -4,7 +4,10 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://subsuelofs.com";
-const openingPriceStarts = "2026-07-16";
+const individualSaleStarts = "2026-07-21";
+const individualSaleEnds = "2026-07-24";
+const bundleOpeningPriceStarts = "2026-07-16";
+const bundleOpeningPriceEnds = "2026-07-30";
 const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir"];
 const basePages = [
   { basePath: "/", output: "index.html", schemaType: "CollectionPage" },
@@ -60,7 +63,16 @@ for (const page of pages) {
   if (page.schemaType === "Product") {
     const offers = mainEntity.offers;
     if (!offers || offers["@type"] !== "Offer") throw new Error(`${page.output}: falta Offer en JSON-LD`);
-    if (offers.validFrom !== openingPriceStarts) throw new Error(`${page.output}: validFrom incorrecto en Offer`);
+    const bundle = page.basePath === "/bundle/";
+    const expectedPrice = bundle ? "59.00" : "9.00";
+    const expectedValidFrom = bundle ? bundleOpeningPriceStarts : individualSaleStarts;
+    const expectedValidUntil = bundle ? bundleOpeningPriceEnds : individualSaleEnds;
+    if (offers.price !== expectedPrice) throw new Error(`${page.output}: precio incorrecto en Offer`);
+    if (offers.validFrom !== expectedValidFrom) throw new Error(`${page.output}: validFrom incorrecto en Offer`);
+    if (offers.priceValidUntil !== expectedValidUntil) throw new Error(`${page.output}: priceValidUntil incorrecto en Offer`);
+    if (metaContent(html, "property", "product:price:amount") !== expectedPrice) throw new Error(`${page.output}: precio Open Graph incorrecto`);
+    if (!bundle && (!html.includes("<s>15 €</s>") || !html.includes("9 €"))) throw new Error(`${page.output}: falta precio promocional visible`);
+    if (bundle && html.includes("59 €</strong><b>")) throw new Error(`${page.output}: el bundle no debe presentarse como la promoción individual`);
   }
 
   if (page.locale === "en") {
@@ -72,6 +84,14 @@ for (const page of pages) {
     if (unlocalizedDataRoute) throw new Error(`${page.output}: data-route sin prefijo inglés (${unlocalizedDataRoute})`);
     if (html.includes('data-i18n="menu.file">Archivo') || html.includes('data-i18n="menu.cart">Carrito')) throw new Error(`${page.output}: interfaz inicial mezclada con español`);
   }
+}
+
+for (const homePath of ["index.html", "en/index.html"]) {
+  const home = await readFile(path.join(root, homePath), "utf8");
+  if (!home.includes('href="#packs-en-oferta"')) throw new Error(`${homePath}: falta CTA hacia los packs en oferta`);
+  if (!home.includes('id="packs-en-oferta"')) throw new Error(`${homePath}: falta destino del CTA de oferta`);
+  if (!home.includes("24.07.2026") && !home.includes("24 Jul 2026")) throw new Error(`${homePath}: falta fecha de fin de la oferta`);
+  if (!home.includes("descuento automático") && !home.includes("automatic discount")) throw new Error(`${homePath}: falta aclarar que el descuento es automático`);
 }
 
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");

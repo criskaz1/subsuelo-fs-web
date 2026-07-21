@@ -962,9 +962,23 @@ button {
 }
 
 .folder-list-price {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 6px;
   font-weight: 700;
   text-align: right;
   white-space: nowrap;
+}
+
+.folder-list-price s {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.folder-list-price b {
+  color: var(--rust);
 }
 
 .system-files {
@@ -1614,6 +1628,13 @@ button {
   min-width: 0;
 }
 
+.product-banner__price > s {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font: 11px/1.2 var(--mono);
+}
+
 .product-banner__buy strong {
   display: block;
   margin-bottom: 10px;
@@ -1851,6 +1872,11 @@ button {
 .purchase-strip strong {
   font-size: 15px;
   white-space: nowrap;
+}
+
+.purchase-strip strong s {
+  color: var(--muted);
+  font-weight: 500;
 }
 
 .purchase-strip span {
