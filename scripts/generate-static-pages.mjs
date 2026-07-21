@@ -8,8 +8,10 @@ const templatePath = path.join(root, "index.html");
 const siteUrl = "https://subsuelofs.com";
 const freeSamplerUrl = "https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler";
 const lastModified = "2026-07-16";
-const openingPriceStarts = "2026-07-16";
-const openingPriceEnds = "2026-07-30";
+const individualSaleStarts = "2026-07-21";
+const individualSaleEnds = "2026-07-24";
+const bundleOpeningPriceStarts = "2026-07-16";
+const bundleOpeningPriceEnds = "2026-07-30";
 const socialImage = `${siteUrl}/social-card.png?v=20260716-2`;
 
 const products = [
@@ -21,12 +23,13 @@ const products = [
     categoryEn: "Ritual trap",
     seoTitle: "Trap Ritual: 30 prompts de trap oscuro | SUBSUELO FS",
     seoTitleEn: "Trap Ritual: 30 dark trap prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de trap ritual oscuro con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €.",
-    metaDescriptionEn: "30 dark ritual trap prompts, 10 negative prompts, guides in English and Spanish, and 4 MP3 references. One coherent sound, 30 distinct beats.",
+    metaDescription: "30 direcciones de trap ritual oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
+    metaDescriptionEn: "30 dark ritual trap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
     description: "30 formas distintas de construir trap ritual oscuro. Cambian la batería, el movimiento del 808, la fuente principal y el espacio sin salir de la misma familia sonora.",
     descriptionEn: "30 distinct routes into dark ritual trap. The drum pocket, 808 movement, lead source and space change from prompt to prompt without leaving the genre.",
     tone: "#713d46",
-    price: 15,
+    price: 9,
+    originalPrice: 15,
     demo: "Ash Circle"
   },
   {
@@ -37,12 +40,13 @@ const products = [
     categoryEn: "Dark UK garage",
     seoTitle: "Garaje Oscuro: 30 prompts de UK garage | SUBSUELO FS",
     seoTitleEn: "Garaje Oscuro: 30 dark UK garage prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de UK garage oscuro con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €.",
-    metaDescriptionEn: "30 dark UK garage prompts built around 2-step drums, human swing, sub-bass and urban space, plus 10 negative prompts and 4 MP3 references.",
+    metaDescription: "30 direcciones de UK garage oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
+    metaDescriptionEn: "30 dark UK garage prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
     description: "30 bases de UK garage oscuro con patrones 2-step, swing humano, subgrave y ambiente urbano. Cada una cambia la batería, el bajo, el motivo y el espacio.",
     descriptionEn: "30 dark UK garage beats built on 2-step patterns, human swing, sub-bass and urban space. Each prompt changes the drums, bass movement, main motif and use of space.",
     tone: "#425763",
-    price: 15,
+    price: 9,
+    originalPrice: 15,
     demo: "Alley Pressure"
   },
   {
@@ -53,12 +57,13 @@ const products = [
     categoryEn: "Degraded jungle",
     seoTitle: "Fossil Jungle: 30 prompts de jungle oscuro | SUBSUELO FS",
     seoTitleEn: "Fossil Jungle: 30 dark jungle prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de jungle oscuro y degradado con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €.",
-    metaDescriptionEn: "30 dark, degraded jungle prompts with changing break architecture, bass behaviour and sample sources, plus 10 negative prompts and 4 MP3 references.",
+    metaDescription: "30 direcciones de jungle oscuro y degradado, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
+    metaDescriptionEn: "30 dark, degraded jungle prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
     description: "30 piezas de jungle oscuro y degradado. Cambian la arquitectura de la batería, el comportamiento del bajo, la fuente de la muestra y el espacio.",
     descriptionEn: "30 pieces of dark, degraded jungle. Break architecture, bass behaviour, sample source and space change from one prompt to the next while the genre stays intact.",
     tone: "#66705a",
-    price: 15,
+    price: 9,
+    originalPrice: 15,
     demo: "Limestone Roll"
   },
   {
@@ -69,12 +74,13 @@ const products = [
     categoryEn: "Abstract hip-hop",
     seoTitle: "Low Pressure: 30 prompts de hip-hop abstracto | SUBSUELO FS",
     seoTitleEn: "Low Pressure: 30 abstract hip-hop prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de hip-hop abstracto con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €.",
-    metaDescriptionEn: "30 dark instrumental prompts for heavy, textural abstract hip-hop, plus 10 negative prompts, guides in English and Spanish, and 4 MP3 references.",
+    metaDescription: "30 direcciones de hip-hop abstracto, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
+    metaDescriptionEn: "30 dark abstract hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
     description: "30 bases pesadas, oscuras y texturales. Cada propuesta cambia la batería, el bajo, la fuente sonora o el espacio sin salir del hip-hop experimental abstracto.",
     descriptionEn: "30 heavy, dark and textural abstract hip-hop beats. Each prompt changes the drums, bass, sound source or space while staying rooted in abstract experimental hip-hop.",
     tone: "#b34b35",
-    price: 15,
+    price: 9,
+    originalPrice: 15,
     demo: "Concrete Pulse"
   },
   {
@@ -85,12 +91,13 @@ const products = [
     categoryEn: "Dub hip-hop",
     seoTitle: "Abyss Dub: 30 prompts de hip-hop dub | SUBSUELO FS",
     seoTitleEn: "Abyss Dub: 30 dark dub hip-hop prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de hip-hop dub oscuro con 10 negative prompts, guías ES/EN y 4 audios de referencia. Descarga digital: 15 €.",
-    metaDescriptionEn: "30 dub-inflected hip-hop prompts with rap drums, immense sub-bass, isolated chords and deep echoes, plus 10 negative prompts and 4 MP3 references.",
+    metaDescription: "30 direcciones de hip-hop dub oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
+    metaDescriptionEn: "30 dark dub hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
     description: "30 bases de hip-hop dub oscuro con batería de rap, subgrave enorme, acordes aislados y ecos profundos. Cambian el patrón, el bajo y la forma de mezclar el espacio.",
     descriptionEn: "30 dark dub-inflected hip-hop beats with rap drums, immense sub-bass, isolated chords and deep echoes. The pocket, bass movement and use of space change across the folder.",
     tone: "#596352",
-    price: 15,
+    price: 9,
+    originalPrice: 15,
     demo: "Deep Chamber"
   },
   {
@@ -101,12 +108,13 @@ const products = [
     categoryEn: "Noir hip-hop",
     seoTitle: "Noir Tapes: 30 prompts de hip-hop noir | SUBSUELO FS",
     seoTitleEn: "Noir Tapes: 30 noir hip-hop prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de hip-hop noir y boom bap abstracto con 10 negative prompts, guías ES/EN y 4 audios. Descarga digital: 15 €.",
-    metaDescriptionEn: "30 sample-based noir hip-hop and abstract boom-bap prompts with changing drum cuts and tape treatment, plus 10 negative prompts and 4 MP3 references.",
+    metaDescription: "30 direcciones de hip-hop noir y boom bap, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
+    metaDescriptionEn: "30 noir hip-hop and abstract boom-bap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
     description: "30 bases de hip-hop noir y boom bap abstracto construidas con muestras. Cambian el corte de batería, el bajo, la fuente y el tratamiento de cinta.",
     descriptionEn: "30 sample-based noir hip-hop and abstract boom-bap beats. Each prompt changes the drum cut, bass, source material or tape treatment without leaving the collection's core sound.",
     tone: "#705e6b",
-    price: 15,
+    price: 9,
+    originalPrice: 15,
     demo: "Rain Evidence"
   }
 ];
@@ -281,8 +289,8 @@ const productSchema = (page, product) => ({
         url: canonicalUrl(page.pathname),
         priceCurrency: "EUR",
         price: product.price.toFixed(2),
-        validFrom: openingPriceStarts,
-        priceValidUntil: openingPriceEnds,
+        validFrom: product.id === "archive" ? bundleOpeningPriceStarts : individualSaleStarts,
+        priceValidUntil: product.id === "archive" ? bundleOpeningPriceEnds : individualSaleEnds,
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
         seller: { "@type": "Organization", name: "NOMBRE DIRECCION, S.L.U." }
@@ -334,7 +342,8 @@ const articleSchema = (page) => ({
 const folderCard = (product, locale) => {
   const category = productValue(product, "category", locale);
   const href = localizedPath(`/product/${product.id}/`, locale);
-  return `<a class="folder-item" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(`${product.name}. ${category} · 30 prompts. ${product.price} €`)}"><span class="folder-icon" style="--tone:${product.tone}"></span><strong>${escapeHtml(product.name)}</strong><small>${escapeHtml(category)} · 30 prompts</small><span class="folder-list-price">${product.price} €</span></a>`;
+  const priceLabel = locale === "en" ? `€${product.price}; was €${product.originalPrice}` : `${product.price} €; antes ${product.originalPrice} €`;
+  return `<a class="folder-item" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(`${product.name}. ${category} · 30 prompts. ${priceLabel}`)}"><span class="folder-icon" style="--tone:${product.tone}"></span><strong>${escapeHtml(product.name)}</strong><small>${escapeHtml(category)} · 30 prompts</small><span class="folder-list-price"><s>${product.originalPrice} €</s><b>${product.price} €</b></span></a>`;
 };
 
 const homeView = (locale) => {
@@ -353,22 +362,22 @@ const homeView = (locale) => {
   </div>
   <p class="view-heading__hint">${en ? "Click a folder to open it" : "Haz clic en una carpeta para abrirla"}</p>
 </header>
-<section class="home-offer" aria-label="${en ? "Complete pack offer" : "Oferta del pack completo"}">
-  <span class="folder-icon folder-icon--bundle home-offer__icon" aria-hidden="true"></span>
+<section class="home-offer" aria-label="${en ? "Individual pack sale" : "Oferta de packs individuales"}">
+  <span class="folder-icon home-offer__icon" style="--tone:#a44730" aria-hidden="true"></span>
   <div class="home-offer__copy">
-    <p>${en ? "COMPLETE PACK / 6 FOLDERS" : "PACK COMPLETO / 6 CARPETAS"}</p>
-    <h2>${en ? "The full current catalogue in one ZIP." : "Todo el catálogo actual en un solo ZIP."}</h2>
-    <p>${en ? "180 prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references." : "180 prompts, 60 negative prompts, guías en español e inglés y 24 referencias MP3."}</p>
-    <small>${en ? "Prompts are delivered in English, ready to paste into Styles; optional negative prompts go in Suno's Exclude field. SUBSUELO FS is independent and is not affiliated with Suno." : "Los prompts se entregan en inglés, listos para copiar en Styles; los negative prompts opcionales se usan en Exclude de Suno. SUBSUELO FS es independiente y no está afiliado a Suno."}</small>
+    <p>${en ? "SALE / 6 INDIVIDUAL PACKS" : "OFERTA / 6 PACKS INDIVIDUALES"}</p>
+    <h2>${en ? "Choose any pack for €9." : "Elige cualquier pack por 9 €."}</h2>
+    <p>${en ? "30 prompts, 10 negative prompts, ES/EN guides and 4 MP3 references in every pack." : "Cada pack incluye 30 prompts, 10 negative prompts, guías ES/EN y 4 referencias MP3."}</p>
+    <small>${en ? "Choose Trap, Garage, Jungle, Abstract Hip-Hop, Dub or Noir. Payhip applies the discount automatically at checkout; no code needed." : "Elige Trap, Garage, Jungle, Hip-Hop abstracto, Dub o Noir. Payhip aplica el descuento automáticamente al pagar; no necesitas código."}</small>
   </div>
   <div class="home-offer__buy">
-    <div class="home-offer__price"><s>${en ? "€90 separately" : "90 € por separado"}</s><strong>${en ? "€59" : "59 €"}</strong><b>${en ? "SAVE €31" : "AHORRAS 31 €"}</b><span>${en ? "Opening price until 30.07.2026" : "Precio de apertura hasta 30.07.2026"}</span></div>
-    <a class="home-offer__primary" href="${bundleHref}" data-buy="archive">${en ? "BUY COMPLETE PACK · €59" : "COMPRAR PACK COMPLETO · 59 €"}</a>
-    <a class="home-offer__secondary" href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" aria-label="${en ? "Get the free sampler (opens in a new tab)" : "Recibir la muestra gratuita (abre en una pestaña nueva)"}" data-sampler-download="home">${en ? "TRY FREE SAMPLER · €0" : "PROBAR MUESTRA GRATIS · 0 €"}<span aria-hidden="true">↗</span></a>
+    <div class="home-offer__price"><s>${en ? "Was €15" : "Antes 15 €"}</s><strong>${en ? "€9" : "9 €"}</strong><b>−40 %</b><span>${en ? "Until 24 Jul 2026 · automatic discount" : "Hasta 24.07.2026 · descuento automático"}</span></div>
+    <a class="home-offer__primary" href="#packs-en-oferta">${en ? "CHOOSE A PACK · €9" : "ELEGIR PACK · 9 €"}</a>
+    <a class="home-offer__secondary" href="${demosHref}" data-route="${demosHref}">${en ? "HEAR THE 6 DEMOS" : "ESCUCHAR LAS 6 DEMOS"}</a>
   </div>
 </section>
-<span class="opening-price-note opening-price-note--catalog">${en ? "Opening price until 30.07.2026" : "Precio de apertura hasta 30.07.2026"}</span>
-<div class="folder-grid" data-folder-grid>
+<span class="opening-price-note opening-price-note--catalog">${en ? "Automatic €9 price until 24 Jul 2026 · was €15" : "Precio automático de 9 € hasta el 24.07.2026 · antes 15 €"}</span>
+<div class="folder-grid" id="packs-en-oferta" data-folder-grid>
   ${products.map((product) => folderCard(product, locale)).join("\n  ")}
 </div>
 <section class="system-files">
@@ -405,7 +414,7 @@ const productView = (product, locale) => {
     <p>${escapeHtml(description)}</p>
   </div>
   <div class="product-banner__buy">
-    <div class="product-banner__price"><strong>${product.price} €</strong><span class="opening-price-note">${en ? "Opening price until 30.07.2026" : "Precio de apertura hasta 30.07.2026"}</span></div>
+    <div class="product-banner__price"><s>${en ? `Was €${product.originalPrice}` : `Antes ${product.originalPrice} €`}</s><strong>${product.price} €</strong><span class="opening-price-note">${en ? "Automatic sale until 24 Jul 2026 · no code" : "Oferta automática hasta el 24.07.2026 · sin código"}</span></div>
     <div class="product-banner__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-buy="${product.id}">${en ? "Buy now" : "Comprar ahora"} · ${product.price} €</button></div>
     <a class="product-banner__sampler" href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a>
   </div>
@@ -432,7 +441,7 @@ const productView = (product, locale) => {
   <div class="related-folders"><strong>${en ? "Related folders" : "Carpetas cercanas"}</strong><div>${related}</div></div>
 </section>
 <div class="purchase-strip">
-  <div><strong>${escapeHtml(product.name)} · ${product.price} €</strong><span>${en ? "Download available after payment" : "Descarga disponible después del pago"}</span></div>
+  <div><strong>${escapeHtml(product.name)} · <s>${product.originalPrice} €</s> ${product.price} €</strong><span>${en ? "Discount applied automatically at Payhip checkout" : "Descuento aplicado automáticamente en el checkout de Payhip"}</span></div>
   <div class="purchase-strip__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-add="${product.id}">${en ? "Add to cart" : "Añadir al carrito"}</button></div>
 </div>`;
 };
@@ -445,7 +454,7 @@ const demosView = (locale) => {
 </header>
 <div class="file-list demo-list">
   <div class="file-list__header"><span>${en ? "Track" : "Pista"}</span><span>${en ? "Folder" : "Carpeta"}</span><span>${en ? "Length" : "Duración"}</span><span>${en ? "Action" : "Acción"}</span></div>
-  ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<div class="file-row" data-track="${product.id}"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>${escapeHtml(product.demo)}</strong><small class="demo-profile">${escapeHtml(productValue(productEditorial[product.id], "demoProfile", locale))}</small></span></span><span><a href="${href}" data-route="${href}">${escapeHtml(product.name)}</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="${product.id}">${en ? "Listen" : "Escuchar"}</button><button class="file-row__action file-row__action--primary" type="button" data-add="${product.id}">${en ? "Add" : "Añadir"} · 15 €</button></span></div>`; }).join("\n  ")}
+  ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<div class="file-row" data-track="${product.id}"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>${escapeHtml(product.demo)}</strong><small class="demo-profile">${escapeHtml(productValue(productEditorial[product.id], "demoProfile", locale))}</small></span></span><span><a href="${href}" data-route="${href}">${escapeHtml(product.name)}</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="${product.id}">${en ? "Listen" : "Escuchar"}</button><button class="file-row__action file-row__action--primary" type="button" data-add="${product.id}">${en ? "Add" : "Añadir"} · ${product.price} €</button></span></div>`; }).join("\n  ")}
 </div>`;
 };
 
@@ -470,7 +479,7 @@ const bundleView = (locale) => {
   <div class="file-list__header"><span>${en ? "Name" : "Nombre"}</span><span>${en ? "Type" : "Tipo"}</span><span>${en ? "Contents" : "Qué contiene"}</span><span>${en ? "Access" : "Acceso"}</span></div>
   ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<a class="file-row" href="${href}" data-route="${href}"><span class="file-row__name"><span class="row-folder-icon"></span><strong>${escapeHtml(product.name)}</strong></span><span>${en ? "Folder" : "Carpeta"}</span><span>${escapeHtml(productValue(product, "description", locale))}</span><span class="file-row__action">${en ? "Open" : "Abrir"}</span></a>`; }).join("\n  ")}
 </div>
-<div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · 59 €</strong><span>${en ? "90 € separately · save 31 €" : "90 € por separado · ahorras 31 €"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-add="archive">${en ? "Add complete pack" : "Añadir pack completo"}</button></div></div>`;
+<div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · 59 €</strong><span>${en ? "Regular price for all six separately: €90" : "Precio habitual de los seis por separado: 90 €"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-add="archive">${en ? "Add complete pack" : "Añadir pack completo"}</button></div></div>`;
 };
 
 const helpView = (locale) => {
@@ -624,7 +633,7 @@ const pagesForLocale = (locale) => {
     page("/", "index.html", {
       heading: en ? "One genre. 30 ways in." : "Un género por carpeta",
       title: en ? "Music prompts for dark instrumentals | SUBSUELO FS" : "Prompts para instrumentales oscuras | SUBSUELO FS",
-      description: en ? "Six folders for dark instrumentals: 180 prompts, 60 negative prompts, ES/EN guides and 24 MP3s. Complete pack for €59; free sampler available." : "Seis carpetas para instrumentales oscuras: 180 prompts, 60 negative prompts, guías ES/EN y 24 MP3. Pack completo por 59 €; muestra gratis disponible.",
+      description: en ? "Six dark instrumental prompt packs. Each individual pack is €9 until 24 Jul 2026, reduced automatically from €15 at Payhip checkout." : "Seis packs de prompts para instrumentales oscuras. Cada pack individual cuesta 9 € hasta el 24/07/2026; Payhip lo rebaja automáticamente desde 15 €.",
       type: "website",
       home: true,
       view: homeView(locale)
