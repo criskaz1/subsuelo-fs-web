@@ -79,8 +79,8 @@
     <!-- STATIC-SEO:END -->
     <base href="/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles-v5.css?v=33" />
-    <script src="./app-v5.js?v=37" defer></script>
+    <link rel="stylesheet" href="./styles-v5.css?v=34" />
+    <script src="./app-v5.js?v=39" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Saltar a los archivos</a>
@@ -208,8 +208,10 @@
           <label><input type="checkbox" required data-consent-supply /><span data-i18n="checkout.supplyConsent">Solicito la entrega inmediata del contenido digital y reconozco que, cuando comience la descarga o el acceso, perderé el derecho de desistimiento, sin perjuicio de mis derechos legales por falta de conformidad.</span></label>
         </fieldset>
         <p class="checkout-error" id="checkout-consent-error" data-consent-error role="status" aria-live="polite" hidden data-i18n="checkout.required">Marca las dos casillas para continuar.</p>
-        <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Precio total · impuestos incluidos</small></span><strong data-checkout-total>0 €</strong></div>
-        <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUAR AL CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
+        <div class="checkout-conversion-bar">
+          <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Precio total · impuestos incluidos</small></span><strong data-checkout-total>0 €</strong></div>
+          <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUAR AL CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
+        </div>
         <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">El correo que indiques se usa para enviarte el recibo y la descarga. No necesitas crear una cuenta. El consentimiento para recibir novedades es opcional y se solicita por separado. Todavía no se realizará ningún cobro.</p>
         <button class="checkout-back" type="button" data-back-to-cart data-i18n="checkout.back">Volver al carrito</button>
       </form>

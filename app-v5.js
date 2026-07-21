@@ -6,8 +6,8 @@
     address: "Travesía Luxemburgo, n.º 27, 30392 Cartagena (Murcia), España",
     registry: "Registro Mercantil de Murcia, hoja MU-115010, inscripción 1",
     euid: "ES30011.000388846",
-    supportEmail: "soporte@subsuelofs.com",
-    privacyEmail: "privacidad@subsuelofs.com",
+    supportEmail: "hola@subsuelofs.com",
+    privacyEmail: "hola@subsuelofs.com",
     legalEmail: "hola@subsuelofs.com",
     xUrl: "https://x.com/subsuelofs",
     updated: { es: "16 de julio de 2026", en: "16 July 2026" }
@@ -27,7 +27,7 @@
   const copy = {
     es: {
       meta: { title: "SUBSUELO FS — Dirección sonora para instrumentales", description: "Seis packs de prompts para instrumentales oscuras. Cada pack individual cuesta 9 € hasta el 24/07/2026; Payhip lo rebaja automáticamente desde 15 €." },
-      pricing: { individualSale: "Oferta automática hasta 24.07.2026 · antes 15 €", bundleOpening: "Precio de apertura hasta 30.07.2026" },
+      pricing: { individualSale: "Oferta automática hasta 24.07.2026 · antes 15 €", bundleOpening: "Oferta automática hasta 24.07.2026 · antes 59 €" },
       a11y: { skip: "Saltar a los archivos", app: "SUBSUELO File System", appMenu: "Menú de aplicación", path: "Ruta actual", language: "Idioma", sidebar: "Navegación del archivo", inspector: "Detalles", mobileNav: "Navegación móvil" },
       titlebar: { browser: "EXPLORADOR DE ARCHIVOS", store: "TIENDA DIGITAL", open: "ARCHIVO ABIERTO" },
       menu: { file: "Archivo", view: "Ver", play: "Reproducir", guides: "Guías", help: "Ayuda", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", cart: "Carrito" },
@@ -42,10 +42,11 @@
       categories: { trap: "Trap ritual", garage: "Garage oscuro", jungle: "Jungle degradado", hiphop: "Hip-Hop abstracto", dub: "Hip-Hop dub", noir: "Hip-Hop noir" },
       inspector: { select: "Selecciona una carpeta", selectHint: "Aquí verás qué sonido trabaja, qué contiene, su ejemplo de audio y el precio.", open: "Abrir carpeta", play: "Escuchar ejemplo", add: "Añadir", prompts: "{count} prompts", negatives: "{count} negative prompts", guide: "Guía en español + guía en inglés", demo: "1 ejemplo de audio", demos: "{count} ejemplos de audio", folders: "{count} carpetas" },
       product: { edition: "CARPETA DE PROMPTS", demoFolderName: "AUDIO_EXAMPLES", add: "Añadir al carrito", buy: "Comprar ahora", play: "Escuchar 30 s", sampler: "Probar muestra gratis · 0 €", contents: "Contenido de la descarga", name: "Nombre", type: "Tipo", folder: "Carpeta", description: "Qué contiene", availability: "Acceso", purchase: "Descarga disponible después del pago", files: "{count} elementos", included: "Incluido en la descarga", available: "Disponible después de la compra", public: "Información pública", details: "Ver información", open: "Abrir", listen: "Escuchar", readme: "Resumen de la descarga, organización de los archivos y primeros pasos.", promptsFolder: "PDF con todos los prompts en inglés, numerados y listos para copiar.", negativesFolder: "PDF separado con todos los negative prompts en inglés, numerados y listos para copiar.", guideFile: "Explica dónde pegar cada texto, cómo crear con o sin voz y qué cambia al mover los controles.", demosFolder: "Carpeta con 4 MP3 incluidos para escucha y referencia. El reproductor público ofrece una muestra.", audioIncluded: "MP3 completo incluido para escucha y referencia después del pago.", previewDescription: "Extracto público de 30 segundos de uno de los audios incluidos.", demosIncluded: "4 MP3 incluidos + muestra pública", licenseFile: "Condiciones de uso de los prompts, negative prompts y audios de ejemplo.", esFolder: "Documentos en español; los textos que se copian permanecen en inglés.", enFolder: "Documentos en inglés; los prompts preparados para copiar también están en inglés.", format: "Formato", language: "Idioma", content: "Contenido", english: "Inglés", spanishDocs: "Español · prompts en inglés", englishDocs: "Inglés · prompts en inglés", afterPurchase: "Se entrega dentro de la descarga después del pago.", review: "Puedes comprobar qué contiene y en qué idioma está antes de comprar.", mainPrompt: "Prompt completo en inglés, listo para copiar.", negativePrompt: "Lista en inglés para pegar en Exclude.", audioPreview: "Muestra pública", previewOnly: "Solo escucha", notInZip: "La escucha pública es una muestra; la compra incluye 4 MP3 para referencia." },
+      proof: { kicker: "PRUEBA REAL / PROMPT 001", title: "Pruébalo antes de comprar.", lead: "Este es 1 de los 30 prompts del pack. Cópialo completo en Styles y escucha la referencia de 30 segundos sin salir de la ficha.", promptLabel: "PROMPT EN INGLÉS · LISTO PARA COPIAR", copy: "COPIAR PROMPT", copied: "Prompt copiado.", stepsTitle: "PRUEBA EN 3 PASOS", steps: ["Abre Create, activa Custom e Instrumental.", "Pega el bloque completo en Styles.", "Deja Exclude vacío y genera dos versiones."], demo: "ESCUCHAR EL RESULTADO · 30 S", pause: "PAUSAR RESULTADO", resume: "REANUDAR RESULTADO", value: "Si esta dirección te sirve, el pack abre otras 29 variaciones y añade 10 negative prompts, guías ES/EN y 4 referencias MP3.", trust: "Pago único · descarga inmediata · licencia personal/comercial para los prompts · MP3 solo como referencia", buy: "CONSEGUIR LOS OTROS 29 · 9 €", sampler: "Prefiero probar las seis carpetas gratis" },
       editorial: { kicker: "PERFIL DE LA CARPETA", title: "Un mismo género, 30 enfoques", core: "Sonido central", changes: "Qué cambia", fit: "Encaja si buscas", demo: "La muestra que escuchas", compare: "Comparar todas las carpetas", negativeGuide: "Entender los negative prompts", more: "Carpetas cercanas" },
       help: { kicker: "AYUDA / EMPIEZA_AQUI.txt", title: "Qué incluye cada carpeta", lead: "Cada compra incluye una carpeta ES, otra EN y AUDIO_EXAMPLES. Las explicaciones cambian de idioma; los prompts que se copian están en inglés en las dos versiones.", prompt: "PROMPTS", promptText: "El PDF PROMPTS reúne todos los prompts de la carpeta. Elige uno y pégalo completo en el campo Styles.", negative: "NEGATIVE PROMPTS", negativeText: "El PDF NEGATIVE PROMPTS reúne listas para el campo Exclude. Usa una cuando quieras evitar voces u otro elemento concreto indicado en la lista.", guide: "GUÍA", guideText: "Hay una guía en español y la misma guía en inglés. Explica dónde pegar cada bloque, cómo trabajar con o sin voz y qué hace cada control.", demos: "EJEMPLOS DE AUDIO", demosText: "La descarga incluye 4 MP3 para escuchar como referencia del sonido. No tienen licencia de sampleo, publicación o reutilización.", direction: "Elige un prompt y pégalo en Styles", outside: "Usa Exclude solo si quieres quitar algo", together: "Para empezar solo necesitas un prompt. El negative prompt es opcional y sirve para excluir algo concreto.", delivery: "Después del pago recibes las carpetas ES, EN y AUDIO_EXAMPLES." },
       demos: { kicker: "AUDIO / MUESTRAS", title: "Muestras de audio", lead: "Escucha una muestra pública de cada carpeta. Cada compra incluye además 4 MP3 completos para referencia sonora.", track: "Pista", edition: "Carpeta", length: "Duración", action: "Acción", open: "Abrir carpeta" },
-      bundle: { kicker: "PACK COMPLETO", title: "Todas las carpetas", lead: "Incluye en un solo ZIP todas las carpetas enumeradas debajo. La compra cubre únicamente esas carpetas; las publicaciones futuras se venden por separado.", members: "Carpetas incluidas", add: "Añadir pack completo", item: "Incluida en el pack", folderCount: "{count} carpetas", saving: "Precio habitual de los seis por separado: {separate}" },
+      bundle: { kicker: "PACK COMPLETO", title: "Todas las carpetas", lead: "Incluye en un solo ZIP todas las carpetas enumeradas debajo. La compra cubre únicamente esas carpetas; las publicaciones futuras se venden por separado.", members: "Carpetas incluidas", add: "Añadir pack completo", item: "Incluida en el pack", folderCount: "{count} carpetas", saving: "Precio actual de los seis por separado: {separate} · Ahorras {saving}" },
       status: { delivery: "DESCARGA DIGITAL · PAGO ÚNICO", legal: "LEGAL", item: "1 elemento", items: "{count} elementos", selected: "{count} seleccionado", none: "Ningún elemento seleccionado", playing: "Reproduciendo: {title}" },
       taskbar: { online: "ONLINE" },
       cart: { title: "CARRITO", close: "Cerrar carrito", subtitle: "Carpetas seleccionadas", clear: "Vaciar carrito", empty: "Aquí todavía no hay carpetas.", emptyHint: "Abre una carpeta y añade la que quieras comprar.", browse: "Volver al catálogo", purchases: "Abrir mis compras", purchasesAria: "Abrir mis compras (abre en una pestaña nueva)", item: "Carpeta digital", bundle: "Pack completo", remove: "Eliminar", subtotal: "Subtotal", delivery: "Descarga digital · Sin gastos de envío", checkout: "Continuar al pago" },
@@ -57,7 +58,7 @@
     },
     en: {
       meta: { title: "SUBSUELO FS — Sound direction for instrumentals", description: "Six dark instrumental prompt packs. Each individual pack is €9 until 24 Jul 2026, reduced automatically from €15 at Payhip checkout." },
-      pricing: { individualSale: "Automatic sale until 24 Jul 2026 · was €15", bundleOpening: "Opening price until 30 Jul 2026" },
+      pricing: { individualSale: "Automatic sale until 24 Jul 2026 · was €15", bundleOpening: "Automatic sale until 24 Jul 2026 · was €59" },
       a11y: { skip: "Skip to files", app: "SUBSUELO File System", appMenu: "Application menu", path: "Current path", language: "Language", sidebar: "Archive navigation", inspector: "Details", mobileNav: "Mobile navigation" },
       titlebar: { browser: "FILE BROWSER", store: "DIGITAL STORE", open: "STORE OPEN" },
       menu: { file: "File", view: "View", play: "Play", guides: "Guides", help: "Help", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", cart: "Cart" },
@@ -72,10 +73,11 @@
       categories: { trap: "Ritual trap", garage: "Dark UK garage", jungle: "Degraded jungle", hiphop: "Abstract hip-hop", dub: "Dub hip-hop", noir: "Noir hip-hop" },
       inspector: { select: "Select a folder", selectHint: "Its sound, contents, audio example and price will appear here.", open: "Open folder", play: "Hear example", add: "Add", prompts: "{count} prompts", negatives: "{count} negative prompts", guide: "Spanish guide + English guide", demo: "1 audio example", demos: "{count} audio examples", folders: "{count} folders" },
       product: { edition: "PROMPT FOLDER", demoFolderName: "AUDIO_EXAMPLES", add: "Add to cart", buy: "Buy now", play: "Hear 30 sec", sampler: "Try free sampler · €0", contents: "Download contents", name: "Name", type: "Type", folder: "Folder", description: "Contents", availability: "Access", purchase: "Download available after payment", files: "{count} items", included: "Included in the download", available: "Available after purchase", public: "Public information", details: "View information", open: "Open", listen: "Listen", readme: "Download summary, file organisation and first steps.", promptsFolder: "PDF containing every prompt in English, numbered and ready to copy.", negativesFolder: "Separate PDF containing every negative prompt in English, numbered and ready to copy.", guideFile: "Shows where each text goes, how to work with or without vocals, and what each control changes.", demosFolder: "Folder containing 4 MP3 files for listening and reference. The public player offers one preview.", audioIncluded: "Full MP3 included for listening and reference after payment.", previewDescription: "Public 30-second excerpt from one of the included audio files.", demosIncluded: "4 MP3 files included + public preview", licenseFile: "Usage terms for prompts, negative prompts and audio examples.", esFolder: "Documents in Spanish; the copy-ready prompts remain in English.", enFolder: "Documents in English; the copy-ready prompts remain in English.", format: "Format", language: "Language", content: "Content", english: "English", spanishDocs: "Spanish · prompts in English", englishDocs: "English · prompts in English", afterPurchase: "Delivered inside the download after payment.", review: "You can check what it contains and its language before buying.", mainPrompt: "Complete prompt in English, ready to copy.", negativePrompt: "English list for the Exclude field.", audioPreview: "Public preview", previewOnly: "Listen only", notInZip: "The public player is a preview; the purchase includes 4 MP3 reference tracks." },
+      proof: { kicker: "REAL TEST / PROMPT 001", title: "Try it before you buy.", lead: "This is 1 of the 30 prompts in the pack. Copy the full block into Styles and hear its 30-second reference without leaving this page.", promptLabel: "ENGLISH PROMPT · READY TO COPY", copy: "COPY PROMPT", copied: "Prompt copied.", stepsTitle: "TEST IT IN 3 STEPS", steps: ["Open Create and turn on Custom and Instrumental.", "Paste the complete block into Styles.", "Leave Exclude empty and generate two versions."], demo: "HEAR THE RESULT · 30 SEC", pause: "PAUSE RESULT", resume: "RESUME RESULT", value: "If this direction works for you, the pack opens 29 more variations and adds 10 negative prompts, ES/EN guides and 4 MP3 references.", trust: "One-off payment · instant download · personal/commercial prompt licence · MP3 files are reference only", buy: "GET THE OTHER 29 · €9", sampler: "I want to try all six folders free" },
       editorial: { kicker: "FOLDER PROFILE", title: "One genre, 30 approaches", core: "Core sound", changes: "What changes", fit: "A good fit if you want", demo: "The preview you hear", compare: "Compare every folder", negativeGuide: "Understand negative prompts", more: "Related folders" },
       help: { kicker: "HELP / START_HERE.txt", title: "What each folder includes", lead: "Every purchase contains an ES folder, an EN folder and AUDIO_EXAMPLES. The prompts are ready to copy in English; the guides explain where each block goes and how optional negative prompts work.", prompt: "PROMPTS", promptText: "The PROMPTS PDF contains every prompt in the folder. Choose one and paste it in full into the Styles field.", negative: "NEGATIVE PROMPTS", negativeText: "The NEGATIVE PROMPTS PDF contains lists for the Exclude field. Use one when you want to avoid vocals or another specific element named by the list.", guide: "GUIDE", guideText: "There is one Spanish guide and the same guide in English. It shows where each block goes, how to work with or without vocals, and what each control changes.", demos: "AUDIO EXAMPLES", demosText: "The download includes 4 MP3 files as sound references. They are not licensed for sampling, release or reuse.", direction: "Choose one prompt and paste it into Styles", outside: "Use Exclude only when you want to remove something", together: "You only need one prompt to begin. A negative prompt is optional and is used to exclude something specific.", delivery: "After payment, you receive the ES, EN and AUDIO_EXAMPLES folders." },
       demos: { kicker: "AUDIO / PREVIEWS", title: "Hear every folder before you choose.", lead: "Play one public preview from each collection. Every folder also includes four full MP3 references that show its sound in practice.", track: "Track", edition: "Folder", length: "Length", action: "Action", open: "Open folder" },
-      bundle: { kicker: "COMPLETE PACK", title: "All six folders. One download.", lead: "180 prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. This pack contains the six collections listed below; future releases are separate.", members: "Included folders", add: "Add complete pack", item: "Included in the pack", folderCount: "{count} folders", saving: "Regular price for all six separately: {separate}" },
+      bundle: { kicker: "COMPLETE PACK", title: "All six folders. One download.", lead: "180 prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. This pack contains the six collections listed below; future releases are separate.", members: "Included folders", add: "Add complete pack", item: "Included in the pack", folderCount: "{count} folders", saving: "Current price of all six separately: {separate} · Save {saving}" },
       status: { delivery: "DIGITAL DOWNLOAD · ONE-TIME PAYMENT", legal: "LEGAL", item: "1 item", items: "{count} items", selected: "{count} selected", none: "No item selected", playing: "Playing: {title}" },
       taskbar: { online: "ONLINE" },
       cart: { title: "CART", close: "Close cart", subtitle: "Selected folders", clear: "Clear cart", empty: "No folders here yet.", emptyHint: "Open a folder and add the one you want to buy.", browse: "Back to catalogue", purchases: "Open my purchases", purchasesAria: "Open my purchases (opens in a new tab)", item: "Digital folder", bundle: "Complete pack", remove: "Remove", subtotal: "Subtotal", delivery: "Digital download · No shipping", checkout: "Continue to checkout" },
@@ -320,6 +322,34 @@
     { id: "noir", sku: "NOIR-TAPES", name: "Noir Tapes", price: 9, originalPrice: 15, tone: "#705e6b", tags: ["noir"], category: { es: "Hip-Hop noir", en: "Noir hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop noir y boom bap abstracto construidas con muestras. Cambian el corte de batería, el bajo, la fuente y el tratamiento de cinta.", en: "30 sample-based noir hip-hop and abstract boom-bap beats. Each prompt changes the drum cut, bass, source material or tape treatment without leaving the collection's core sound." }, demo: { title: "Rain Evidence", src: "./audio/noir-tapes-rain-evidence-preview.mp3", durationLabel: "00:30", files: ["001_RAIN_EVIDENCE_A.mp3", "001_RAIN_EVIDENCE_B.mp3", "029_BURNT_ARCHIVE_A.mp3", "029_BURNT_ARCHIVE_B.mp3"] } }
   ];
 
+  // Public prompt 001 selections from the approved free sampler.
+  const samplerProofs = Object.freeze({
+    trap: Object.freeze({
+      title: "ASH CIRCLE",
+      prompt: "Dark ritual experimental trap instrumental at 144 BPM in a steady half-time 4/4 pocket. Build the drums from a blunt kick on sparse anchor points, a dry snare, narrow closed hats and two low frame-drum accents per bar. Use a deep 808 that holds the root, then bends downward only at the end of the four-bar loop. Make one struck bronze bell the central motif, answered by breathy low strings and faint ash-like surface noise. Keep the mix close, matte and heavy, with short room reflections. Preserve the same pocket and main motif throughout, varying only bell placement, hat density and the length of the 808 tail. Instrumental only."
+    }),
+    garage: Object.freeze({
+      title: "ALLEY PRESSURE",
+      prompt: "Dark UK garage instrumental at 132 BPM with a steady two-step groove and natural human swing. Place a compact kick on the opening beat, a second kick just after the midpoint, dry snares on two and four, and softly shuffled closed hats. Use short mono sub-bass notes that answer the kicks, one muted minor chord and distant alley reflections. Keep the drums close and firm while footsteps, a metal gate rattle and damp street ambience sit low in the mix. Hold this exact pocket for the whole track, adding detail through brief chord mutes and changes in ambience. Instrumental, nocturnal, restrained and unmistakably garage."
+    }),
+    jungle: Object.freeze({
+      title: "LIMESTONE ROLL",
+      prompt: "Dark degraded jungle instrumental at 168 BPM. Build a rolling two-bar acoustic break with a firm kick, a dry main snare, low ghost snares and clipped ride fragments. Keep the edits readable and repeatable, with one half-bar variation at the end of every fourth cycle. Use a deep sine sub in short pulses that answer the kick rather than following every drum hit. Add scraped limestone, crushed gravel and a low unresolved sample chord, all worn down with tape loss and narrow filtering. Keep the drums forward, the sub clean and the mineral texture behind them. The track should feel old, buried and physical while remaining clearly jungle from beginning to end."
+    }),
+    low: Object.freeze({
+      title: "CONCRETE PULSE",
+      prompt: "Heavy abstract experimental hip-hop instrumental at 148 BPM, felt as a slow half-time groove. Build a blunt two-bar drum pattern from a clipped kick, a dry snare, short closed hats and quiet concrete knocks placed between the main hits. Use a deep sub bass that answers selected kicks with compact notes instead of a continuous line. Add one distorted minor synth chord, reversed room tone and small pieces of scraped pavement as background texture. Keep the centre of the mix narrow and physical, with the ambience spreading only at the edges. The beat should stay recognisable throughout while brief mutes, filter pressure and changing distortion reveal new details. Dark, sparse, weighty and made for rapping."
+    }),
+    abyss: Object.freeze({
+      title: "DEEP CHAMBER",
+      prompt: "Dark dub-inflected experimental hip-hop instrumental at 78 BPM with a steady two-bar rap pocket. Use a short heavy kick on the downbeat and before beat three, a dry rimshot on two and four, and sparse closed hats with human timing. Hold an enormous clean sub note beneath each first half-bar, leaving silence before the next phrase. Add one minor organ stab and send only selected stabs into a long dark echo that recedes behind the drums. Keep the kick, rim and sub centred and nearly dry while the return opens wide. Preserve this riddim throughout, changing only echo feedback and chord tone. Minimal, physical and unmistakably hip-hop dub."
+    }),
+    noir: Object.freeze({
+      title: "RAIN EVIDENCE",
+      prompt: "Sample-based noir hip-hop instrumental with abstract boom-bap drums at 84 BPM. Chop a dusty acoustic break into a loose two-bar pocket with a deep kick, dry snare, restrained closed hats and a few original ghost notes. Build the sample loop from two low piano notes, a reversed key tail and rain striking a nearby window. Use a rounded electric bass phrase that answers the kick with clear rests. Keep the piano unresolved and leave room for a rapper. Let alternate rain cuts, short sample mutes and changes in tape darkness create movement while the same drum pocket remains recognisable. Close, nocturnal and worn without becoming soft background music."
+    })
+  });
+
   const productEditorial = Object.freeze({
     trap: {
       core: { es: "Trap oscuro e hipnótico con batería seca, 808 dominante y motivos rituales usados como textura.", en: "Dark, hypnotic trap with dry drums, a dominant 808 and ritual motifs used as texture." },
@@ -384,8 +414,8 @@
   });
 
   const catalogueTotals = catalog.reduce((totals, item) => ({ prompts: totals.prompts + item.counts.prompts, negatives: totals.negatives + item.counts.negatives }), { prompts: 0, negatives: 0 });
-  const archive = { id: "archive", sku: "COMPLETE-PACK", name: { es: "Pack completo", en: "Complete pack" }, price: 59, tone: "#a44730", bundle: true, members: catalog.map((item) => item.id), description: { es: `Todo el catálogo en un solo ZIP: ${catalogueTotals.prompts} prompts y ${catalogueTotals.negatives} negative prompts.`, en: `The full catalogue in one ZIP: ${catalogueTotals.prompts} prompts and ${catalogueTotals.negatives} negative prompts.` } };
-  const separateCataloguePrice = catalog.reduce((total, product) => total + product.originalPrice, 0);
+  const archive = { id: "archive", sku: "COMPLETE-PACK", name: { es: "Pack completo", en: "Complete pack" }, price: 49, originalPrice: 59, tone: "#a44730", bundle: true, members: catalog.map((item) => item.id), description: { es: `Todo el catálogo en un solo ZIP: ${catalogueTotals.prompts} prompts y ${catalogueTotals.negatives} negative prompts.`, en: `The full catalogue in one ZIP: ${catalogueTotals.prompts} prompts and ${catalogueTotals.negatives} negative prompts.` } };
+  const separateCataloguePrice = catalog.reduce((total, product) => total + product.price, 0);
   const archiveSaving = separateCataloguePrice - archive.price;
   const payhipProductKeys = Object.freeze({ trap: "0GiEq", garage: "HunFY", jungle: "LmWUN", low: "LrzFf", abyss: "TxsAr", noir: "8sFfE", archive: "SPXoI" });
   const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
@@ -558,8 +588,8 @@
       return { ...seo, canonicalPath: localizedPath(`/product/${product.id}/`, route.locale), type: "product" };
     }
     if (route.type === "bundle") return language === "es"
-      ? { title: `Pack completo: 180 prompts para instrumentales | ${legalProfile.brand}`, description: `Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Descarga digital: ${price(archive.price)}.`, canonicalPath: localizedPath("/bundle/", route.locale), type: "product" }
-      : { title: `180 dark music prompts: complete pack | ${legalProfile.brand}`, description: "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references.", canonicalPath: localizedPath("/bundle/", route.locale), type: "product" };
+      ? { title: `Pack completo: 180 prompts para instrumentales | ${legalProfile.brand}`, description: `Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Oferta automática: ${price(archive.price)} hasta 24.07.2026; antes ${price(archive.originalPrice)}.`, canonicalPath: localizedPath("/bundle/", route.locale), type: "product" }
+      : { title: `180 dark music prompts: complete pack | ${legalProfile.brand}`, description: `All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. Automatic sale: ${price(archive.price)} until 24 Jul 2026; was ${price(archive.originalPrice)}.`, canonicalPath: localizedPath("/bundle/", route.locale), type: "product" };
     if (route.type === "demos") return language === "es"
       ? { title: `Demos de instrumentales oscuras | ${legalProfile.brand}`, description: "Escucha una muestra de trap ritual, UK garage oscuro, jungle degradado, hip-hop abstracto, dub y noir antes de elegir una carpeta.", canonicalPath: localizedPath("/demos/", route.locale), type: "website" }
       : { title: `Dark instrumental prompt demos | ${legalProfile.brand}`, description: "Listen to audio examples for ritual trap, dark UK garage, degraded jungle, abstract hip-hop, dub and noir before choosing a prompt collection.", canonicalPath: localizedPath("/demos/", route.locale), type: "website" };
@@ -795,6 +825,13 @@
 
   const productBanner = (product) => `<section class="product-banner" style="--tone:${product.tone}"><div class="product-banner__art"></div><div><p class="kicker">${t("product.edition")} / ${escapeHtml(categoryName(product.tags[0]))}</p><h1>${escapeHtml(productName(product))}</h1><p>${escapeHtml(product.description[language])}</p></div><div class="product-banner__buy"><div class="product-banner__price"><s>${language === "en" ? "Was" : "Antes"} ${price(product.originalPrice)}</s><strong>${price(product.price)}</strong>${openingPriceNote()}</div><div class="product-banner__actions"><button type="button" data-play="${product.id}">${t("product.play")}</button><button class="primary-action" type="button" data-buy="${product.id}">${t("product.buy")} · ${price(product.price)}</button></div><a class="product-banner__sampler" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${t("product.sampler")} ↗</a></div></section>`;
 
+  const promptProofView = (product) => {
+    const proof = samplerProofs[product.id];
+    if (!proof) return "";
+    const steps = copy[language].proof.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("");
+    return `<section class="prompt-proof" id="try-prompt" style="--tone:${product.tone}" data-prompt-proof="${product.id}"><header class="prompt-proof__header"><div><p>${t("proof.kicker")}</p><h2>${t("proof.title")}</h2></div><span>${escapeHtml(proof.title)} · 001</span></header><p class="prompt-proof__lead">${t("proof.lead")}</p><div class="prompt-proof__grid"><div class="prompt-proof__source"><div class="prompt-proof__label"><span>${t("proof.promptLabel")}</span><button type="button" data-copy-prompt="${product.id}" aria-label="${escapeHtml(`${t("proof.copy")}: ${proof.title}`)}">${t("proof.copy")}</button></div><pre tabindex="0"><code lang="en">${escapeHtml(proof.prompt)}</code></pre></div><aside class="prompt-proof__test"><h3>${t("proof.stepsTitle")}</h3><ol>${steps}</ol><button class="prompt-proof__demo" type="button" data-play="${product.id}" data-play-context="proof">${t("proof.demo")}</button><p>${t("proof.value")}</p><small class="prompt-proof__assurance">${t("proof.trust")}</small><button class="primary-action prompt-proof__buy" type="button" data-buy="${product.id}">${t("proof.buy")}</button><a href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">${t("proof.sampler")} ↗</a></aside></div></section>`;
+  };
+
   const rowIcon = (type) => {
     if (type === "folder") return `<span class="row-folder-icon" aria-hidden="true"></span>`;
     const label = type === "audio" ? "AUDIO" : type === "pdf" ? "PDF" : "TXT";
@@ -806,9 +843,9 @@
 
   const purchaseStrip = (product) => {
     const detail = product.bundle ? t("bundle.saving", { separate: price(separateCataloguePrice), saving: price(archiveSaving) }) : t("product.purchase");
-    const productPrice = product.bundle ? price(product.price) : `<s>${price(product.originalPrice)}</s> ${price(product.price)}`;
+    const productPrice = `<s>${price(product.originalPrice)}</s> ${price(product.price)}`;
     const productDetail = product.bundle ? detail : (language === "en" ? "Discount applied automatically at Payhip checkout" : "Descuento aplicado automáticamente en el checkout de Payhip");
-    return `<div class="purchase-strip"><div><strong>${escapeHtml(productName(product))} · ${productPrice}</strong><span>${escapeHtml(productDetail)}</span></div><div class="purchase-strip__actions">${product.demo ? `<button type="button" data-play="${product.id}">${t("product.play")}</button>` : ""}<button class="primary-action" type="button" data-add="${product.id}">${t("product.add")}</button></div></div>`;
+    return `<div class="purchase-strip"><div><strong>${escapeHtml(productName(product))} · ${productPrice}</strong><span>${escapeHtml(productDetail)}</span></div><div class="purchase-strip__actions">${product.demo ? `<button type="button" data-play="${product.id}">${t("product.play")}</button>` : ""}<button class="primary-action" type="button" data-buy="${product.id}">${t("product.buy")} · ${price(product.price)}</button></div></div>`;
   };
 
   const productRootView = (product) => {
@@ -826,7 +863,7 @@
       return `<a href="${href}" data-route="${href}"><span class="folder-icon" style="--tone:${item.tone}"></span><span><strong>${escapeHtml(productName(item))}</strong><small>${escapeHtml(categoryName(item.tags[0]))}</small></span></a>`;
     }).join("");
     const profile = `<section class="product-editorial"><header><p>${t("editorial.kicker")}</p><h2>${t("editorial.title")}</h2></header><div class="product-editorial__grid"><div><h3>${t("editorial.core")}</h3><p>${escapeHtml(editorial.core[language])}</p></div><div><h3>${t("editorial.fit")}</h3><p>${escapeHtml(editorial.fit[language])}</p></div><div class="product-editorial__wide"><h3>${t("editorial.changes")}</h3><div class="editorial-tags">${editorial.changes[language].map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div></div><div class="product-editorial__wide demo-profile-card"><h3>${t("editorial.demo")}: ${escapeHtml(product.demo.title)}</h3><p>${escapeHtml(editorial.demo[language])}</p></div></div><nav class="editorial-actions" aria-label="${t("editorial.kicker")}"><a href="${compareHref}">${t("editorial.compare")}</a><a href="${negativeHref}">${t("editorial.negativeGuide")}</a></nav><div class="related-folders"><strong>${t("editorial.more")}</strong><div>${related}</div></div></section>`;
-    return `${productBanner(product)}<header class="subfolder-heading"><span class="folder-icon" style="--tone:${product.tone}"></span><div><h2>${t("product.contents")}</h2><p>${t("product.files", { count: rows.length })}</p></div></header>${fileList(rows)}${profile}${purchaseStrip(product)}`;
+    return `${productBanner(product)}${promptProofView(product)}<header class="subfolder-heading"><span class="folder-icon" style="--tone:${product.tone}"></span><div><h2>${t("product.contents")}</h2><p>${t("product.files", { count: rows.length })}</p></div></header>${fileList(rows)}${profile}${purchaseStrip(product)}`;
   };
 
   const languageFolderView = (product, section) => {
@@ -993,6 +1030,27 @@
     toast.classList.add("is-visible");
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2400);
+  };
+
+  const copySamplerPrompt = async (id) => {
+    const proof = samplerProofs[id];
+    if (!proof) return;
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error("Clipboard API unavailable");
+      await navigator.clipboard.writeText(proof.prompt);
+    } catch {
+      const fallback = document.createElement("textarea");
+      fallback.value = proof.prompt;
+      fallback.setAttribute("readonly", "");
+      fallback.style.position = "fixed";
+      fallback.style.opacity = "0";
+      document.body.append(fallback);
+      fallback.select();
+      const copied = document.execCommand("copy");
+      fallback.remove();
+      if (!copied) return;
+    }
+    showToast(t("proof.copied"));
   };
 
   const selectProduct = (id) => {
@@ -1165,6 +1223,8 @@
     }
     const node = event.target.closest("[data-open-node]");
     if (node) { navigate(node.dataset.openNode); return; }
+    const promptCopy = event.target.closest("[data-copy-prompt]");
+    if (promptCopy) { copySamplerPrompt(promptCopy.dataset.copyPrompt); return; }
     const buy = event.target.closest("[data-buy]");
     if (buy) {
       event.preventDefault();
@@ -1297,7 +1357,10 @@
       if (!product?.demo) return;
       const current = activeTrack?.id === product.id;
       const playing = current && !activeTrack.audio.paused;
-      const action = playing ? t("audio.pause") : current ? t("audio.play") : t("product.listen");
+      const proofContext = button.dataset.playContext === "proof";
+      const action = proofContext
+        ? playing ? t("proof.pause") : current ? t("proof.resume") : t("proof.demo")
+        : playing ? t("audio.pause") : current ? t("audio.play") : t("product.listen");
       button.textContent = action;
       button.setAttribute("aria-label", `${action} ${product.demo.title}`);
     });
