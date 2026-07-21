@@ -79,8 +79,8 @@
     <!-- STATIC-SEO:END -->
     <base href="/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles-v5.css?v=33" />
-    <script src="./app-v5.js?v=37" defer></script>
+    <link rel="stylesheet" href="./styles-v5.css?v=34" />
+    <script src="./app-v5.js?v=39" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Skip to files</a>
@@ -208,8 +208,10 @@
           <label><input type="checkbox" required data-consent-supply /><span data-i18n="checkout.supplyConsent">I request immediate delivery of the digital content and acknowledge that, when download or access begins, I will lose the right of withdrawal, without affecting my statutory rights if the content is not in conformity.</span></label>
         </fieldset>
         <p class="checkout-error" id="checkout-consent-error" data-consent-error role="status" aria-live="polite" hidden data-i18n="checkout.required">Tick both boxes to continue.</p>
-        <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Final price · taxes included</small></span><strong data-checkout-total>0 €</strong></div>
-        <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUE TO CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
+        <div class="checkout-conversion-bar">
+          <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Final price · taxes included</small></span><strong data-checkout-total>0 €</strong></div>
+          <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUE TO CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
+        </div>
         <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">The email you enter is used to send your receipt and download. No account is required. Consent to receive product news is optional and requested separately. No charge is made yet.</p>
         <button class="checkout-back" type="button" data-back-to-cart data-i18n="checkout.back">Back to cart</button>
       </form>

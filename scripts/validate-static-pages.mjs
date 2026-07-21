@@ -1,13 +1,14 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import vm from "node:vm";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://subsuelofs.com";
 const individualSaleStarts = "2026-07-21";
 const individualSaleEnds = "2026-07-24";
-const bundleOpeningPriceStarts = "2026-07-16";
-const bundleOpeningPriceEnds = "2026-07-30";
+const bundleSaleStarts = "2026-07-21";
+const bundleSaleEnds = "2026-07-24";
 const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir"];
 const basePages = [
   { basePath: "/", output: "index.html", schemaType: "CollectionPage" },
@@ -35,6 +36,20 @@ const expectedUrls = pages.map((page) => `${siteUrl}${page.pathname}`);
 const metaContent = (html, attribute, value) => html.match(new RegExp(`<meta\\s+${attribute}="${value}"\\s+content="([^"]+)"`, "u"))?.[1];
 const alternateHref = (html, hreflang) => html.match(new RegExp(`<link\\s+rel="alternate"\\s+hreflang="${hreflang}"\\s+href="([^"]+)"`, "u"))?.[1];
 const graphEntries = (jsonLd) => Array.isArray(jsonLd["@graph"]) ? jsonLd["@graph"] : [jsonLd];
+const escapeHtml = (value) => String(value).replace(/[&<>"']/gu, (character) => ({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#039;"
+})[character]);
+
+const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
+const samplerDeclaration = "  const samplerProofs = ";
+const samplerStart = appSource.indexOf(samplerDeclaration);
+const samplerEnd = appSource.indexOf("\n\n  const productEditorial", samplerStart);
+if (samplerStart < 0 || samplerEnd < 0) throw new Error("No se pudieron leer las pruebas públicas desde app-v5.js");
+const samplerProofs = vm.runInNewContext(`(${appSource.slice(samplerStart + samplerDeclaration.length, samplerEnd).replace(/;\s*$/u, "")})`, Object.create(null));
 
 for (const page of pages) {
   const html = await readFile(path.join(root, page.output), "utf8");
@@ -53,6 +68,7 @@ for (const page of pages) {
   if (metaContent(html, "property", "og:locale") !== (page.locale === "en" ? "en_GB" : "es_ES")) throw new Error(`${page.output}: og:locale incorrecto`);
   if (metaContent(html, "property", "og:locale:alternate") !== (page.locale === "en" ? "es_ES" : "en_GB")) throw new Error(`${page.output}: og:locale:alternate incorrecto`);
   if (!title || !description) throw new Error(`${page.output}: faltan title o description`);
+  if ((page.schemaType === "Product" || page.basePath === "/") && !html.includes('class="checkout-conversion-bar"')) throw new Error(`${page.output}: falta la barra de conversión del checkout`);
   if (!/<div class="[^"]*\bview-content\b[^"]*"[^>]*>[\s\S]*?<h1>/u.test(html)) throw new Error(`${page.output}: falta contenido inicial con H1`);
   if (!jsonLdSource) throw new Error(`${page.output}: falta JSON-LD`);
 
@@ -64,15 +80,39 @@ for (const page of pages) {
     const offers = mainEntity.offers;
     if (!offers || offers["@type"] !== "Offer") throw new Error(`${page.output}: falta Offer en JSON-LD`);
     const bundle = page.basePath === "/bundle/";
-    const expectedPrice = bundle ? "59.00" : "9.00";
-    const expectedValidFrom = bundle ? bundleOpeningPriceStarts : individualSaleStarts;
-    const expectedValidUntil = bundle ? bundleOpeningPriceEnds : individualSaleEnds;
+    const expectedPrice = bundle ? "49.00" : "9.00";
+    const expectedValidFrom = bundle ? bundleSaleStarts : individualSaleStarts;
+    const expectedValidUntil = bundle ? bundleSaleEnds : individualSaleEnds;
     if (offers.price !== expectedPrice) throw new Error(`${page.output}: precio incorrecto en Offer`);
     if (offers.validFrom !== expectedValidFrom) throw new Error(`${page.output}: validFrom incorrecto en Offer`);
     if (offers.priceValidUntil !== expectedValidUntil) throw new Error(`${page.output}: priceValidUntil incorrecto en Offer`);
     if (metaContent(html, "property", "product:price:amount") !== expectedPrice) throw new Error(`${page.output}: precio Open Graph incorrecto`);
     if (!bundle && (!html.includes("<s>15 €</s>") || !html.includes("9 €"))) throw new Error(`${page.output}: falta precio promocional visible`);
-    if (bundle && html.includes("59 €</strong><b>")) throw new Error(`${page.output}: el bundle no debe presentarse como la promoción individual`);
+    if (bundle) {
+      const expectedBundleNote = page.locale === "en" ? "Automatic sale until 24 Jul 2026 · was €59" : "Oferta automática hasta 24.07.2026 · antes 59 €";
+      const expectedBundleComparison = page.locale === "en" ? "Current price of all six separately: €54 · Save €5" : "Precio actual de los seis por separado: 54 € · Ahorras 5 €";
+      const expectedBundleCta = page.locale === "en" ? "Buy now · €49" : "Comprar ahora · 49 €";
+      if (!html.includes("<s>59 €</s> 49 €")) throw new Error(`${page.output}: falta el precio promocional visible del bundle`);
+      if (!html.includes(expectedBundleNote)) throw new Error(`${page.output}: falta la vigencia visible del bundle`);
+      if (!html.includes(expectedBundleComparison)) throw new Error(`${page.output}: comparación o ahorro incorrectos del bundle`);
+      if (!html.includes(`data-buy="archive">${expectedBundleCta}</button>`)) throw new Error(`${page.output}: CTA directo del bundle incorrecto`);
+      if (html.includes('data-add="archive"')) throw new Error(`${page.output}: el bundle conserva un CTA intermedio de carrito`);
+      if (!description.includes("49") || !description.includes("24")) throw new Error(`${page.output}: metadata del bundle sin precio o vigencia`);
+      if (!mainEntity.description.includes("49") || !mainEntity.description.includes("59")) throw new Error(`${page.output}: descripción JSON-LD del bundle sin promoción`);
+    }
+    if (!bundle) {
+      const productId = page.basePath.match(/^\/product\/([^/]+)\/$/u)?.[1];
+      const proof = samplerProofs[productId];
+      if (!proof?.title || !proof?.prompt) throw new Error(`${page.output}: falta la prueba pública en app-v5.js`);
+      if (!html.includes(`data-prompt-proof="${productId}"`)) throw new Error(`${page.output}: falta el bloque de prueba real`);
+      if (!html.includes(`data-copy-prompt="${productId}"`)) throw new Error(`${page.output}: falta el botón para copiar el prompt`);
+      if (!html.includes(`<code lang="en">${escapeHtml(proof.prompt)}</code>`)) throw new Error(`${page.output}: el prompt público no coincide con app-v5.js`);
+      if (!html.includes(`class="prompt-proof__demo" type="button" data-play="${productId}" data-play-context="proof"`)) throw new Error(`${page.output}: falta la demo de 30 segundos en la prueba`);
+      if (!html.includes('class="prompt-proof__assurance"')) throw new Error(`${page.output}: faltan las condiciones breves junto al CTA`);
+      if (!html.includes(`class="primary-action prompt-proof__buy" type="button" data-buy="${productId}"`)) throw new Error(`${page.output}: falta el CTA de compra en la prueba`);
+      const expectedCta = page.locale === "en" ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €";
+      if (!html.includes(expectedCta)) throw new Error(`${page.output}: CTA de prueba incorrecto`);
+    }
   }
 
   if (page.locale === "en") {
@@ -92,6 +132,7 @@ for (const homePath of ["index.html", "en/index.html"]) {
   if (!home.includes('id="packs-en-oferta"')) throw new Error(`${homePath}: falta destino del CTA de oferta`);
   if (!home.includes("24.07.2026") && !home.includes("24 Jul 2026")) throw new Error(`${homePath}: falta fecha de fin de la oferta`);
   if (!home.includes("descuento automático") && !home.includes("automatic discount")) throw new Error(`${homePath}: falta aclarar que el descuento es automático`);
+  if (!home.includes('"email": "hola@subsuelofs.com"')) throw new Error(`${homePath}: el correo corporativo no está unificado`);
 }
 
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");

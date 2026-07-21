@@ -10,9 +10,15 @@ const freeSamplerUrl = "https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_med
 const lastModified = "2026-07-16";
 const individualSaleStarts = "2026-07-21";
 const individualSaleEnds = "2026-07-24";
-const bundleOpeningPriceStarts = "2026-07-16";
-const bundleOpeningPriceEnds = "2026-07-30";
+const bundleSaleStarts = "2026-07-21";
+const bundleSaleEnds = "2026-07-24";
 const socialImage = `${siteUrl}/social-card.png?v=20260716-2`;
+const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
+const samplerDeclaration = "  const samplerProofs = ";
+const samplerStart = appSource.indexOf(samplerDeclaration);
+const samplerEnd = appSource.indexOf("\n\n  const productEditorial", samplerStart);
+if (samplerStart < 0 || samplerEnd < 0) throw new Error("No se pudieron leer las pruebas públicas desde app-v5.js");
+const samplerProofs = vm.runInNewContext(`(${appSource.slice(samplerStart + samplerDeclaration.length, samplerEnd).replace(/;\s*$/u, "")})`, Object.create(null));
 
 const products = [
   {
@@ -118,6 +124,12 @@ const products = [
     demo: "Rain Evidence"
   }
 ];
+
+for (const product of products) {
+  const proof = samplerProofs[product.id];
+  if (!proof?.title || !proof?.prompt) throw new Error(`Falta la prueba pública de ${product.id}`);
+  product.proof = proof;
+}
 
 const productEditorial = {
   trap: {
@@ -228,7 +240,7 @@ const homeSchema = (page) => ({
       name: "SUBSUELO FS",
       legalName: "NOMBRE DIRECCION, S.L.U.",
       url: `${siteUrl}/`,
-      email: "soporte@subsuelofs.com",
+      email: "hola@subsuelofs.com",
       logo: `${siteUrl}/favicon.svg`,
       image: `${siteUrl}/social-card.png`,
       description: page.locale === "en"
@@ -289,8 +301,8 @@ const productSchema = (page, product) => ({
         url: canonicalUrl(page.pathname),
         priceCurrency: "EUR",
         price: product.price.toFixed(2),
-        validFrom: product.id === "archive" ? bundleOpeningPriceStarts : individualSaleStarts,
-        priceValidUntil: product.id === "archive" ? bundleOpeningPriceEnds : individualSaleEnds,
+        validFrom: product.id === "archive" ? bundleSaleStarts : individualSaleStarts,
+        priceValidUntil: product.id === "archive" ? bundleSaleEnds : individualSaleEnds,
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
         seller: { "@type": "Organization", name: "NOMBRE DIRECCION, S.L.U." }
@@ -392,6 +404,33 @@ const homeView = (locale) => {
 </section>`;
 };
 
+const promptProofView = (product, locale) => {
+  const en = locale === "en";
+  const proof = product.proof;
+  const steps = en
+    ? ["Open Create and turn on Custom and Instrumental.", "Paste the complete block into Styles.", "Leave Exclude empty and generate two versions."]
+    : ["Abre Create, activa Custom e Instrumental.", "Pega el bloque completo en Styles.", "Deja Exclude vacío y genera dos versiones."];
+  return `<section class="prompt-proof" id="try-prompt" style="--tone:${product.tone}" data-prompt-proof="${product.id}">
+  <header class="prompt-proof__header"><div><p>${en ? "REAL TEST / PROMPT 001" : "PRUEBA REAL / PROMPT 001"}</p><h2>${en ? "Try it before you buy." : "Pruébalo antes de comprar."}</h2></div><span>${escapeHtml(proof.title)} · 001</span></header>
+  <p class="prompt-proof__lead">${en ? "This is 1 of the 30 prompts in the pack. Copy the full block into Styles and hear its 30-second reference without leaving this page." : "Este es 1 de los 30 prompts del pack. Cópialo completo en Styles y escucha la referencia de 30 segundos sin salir de la ficha."}</p>
+  <div class="prompt-proof__grid">
+    <div class="prompt-proof__source">
+      <div class="prompt-proof__label"><span>${en ? "ENGLISH PROMPT · READY TO COPY" : "PROMPT EN INGLÉS · LISTO PARA COPIAR"}</span><button type="button" data-copy-prompt="${product.id}" aria-label="${en ? "Copy prompt" : "Copiar prompt"}: ${escapeHtml(proof.title)}">${en ? "COPY PROMPT" : "COPIAR PROMPT"}</button></div>
+      <pre tabindex="0"><code lang="en">${escapeHtml(proof.prompt)}</code></pre>
+    </div>
+    <aside class="prompt-proof__test">
+      <h3>${en ? "TEST IT IN 3 STEPS" : "PRUEBA EN 3 PASOS"}</h3>
+      <ol>${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
+      <button class="prompt-proof__demo" type="button" data-play="${product.id}" data-play-context="proof">${en ? "HEAR THE RESULT · 30 SEC" : "ESCUCHAR EL RESULTADO · 30 S"}</button>
+      <p>${en ? "If this direction works for you, the pack opens 29 more variations and adds 10 negative prompts, ES/EN guides and 4 MP3 references." : "Si esta dirección te sirve, el pack abre otras 29 variaciones y añade 10 negative prompts, guías ES/EN y 4 referencias MP3."}</p>
+      <small class="prompt-proof__assurance">${en ? "One-off payment · instant download · personal/commercial prompt licence · MP3 files are reference only" : "Pago único · descarga inmediata · licencia personal/comercial para los prompts · MP3 solo como referencia"}</small>
+      <button class="primary-action prompt-proof__buy" type="button" data-buy="${product.id}">${en ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €"}</button>
+      <a href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">${en ? "I want to try all six folders free" : "Prefiero probar las seis carpetas gratis"} ↗</a>
+    </aside>
+  </div>
+</section>`;
+};
+
 const productView = (product, locale) => {
   const en = locale === "en";
   const category = productValue(product, "category", locale);
@@ -419,6 +458,7 @@ const productView = (product, locale) => {
     <a class="product-banner__sampler" href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a>
   </div>
 </section>
+${promptProofView(product, locale)}
 <header class="subfolder-heading">
   <span class="folder-icon" style="--tone:${product.tone}"></span>
   <div><h2>${en ? "Download contents" : "Contenido de la descarga"}</h2><p>${en ? "3 items" : "3 elementos"}</p></div>
@@ -464,22 +504,23 @@ const bundleProduct = {
   name: "Pack completo SUBSUELO FS",
   category: "Colección de prompts para instrumentales",
   categoryEn: "Prompt collection for dark instrumentals",
-  description: "Las 6 colecciones en un solo ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio.",
-  descriptionEn: "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, ES/EN guides and 24 audio references.",
-  price: 59
+  description: "Las 6 colecciones en un solo ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Oferta automática: 49 € hasta el 24/07/2026; antes 59 €.",
+  descriptionEn: "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, ES/EN guides and 24 audio references. Automatic sale: €49 until 24 Jul 2026; was €59.",
+  price: 49,
+  originalPrice: 59
 };
 
 const bundleView = (locale) => {
   const en = locale === "en";
   return `
 <header class="view-heading"><div class="view-heading__copy"><p>${en ? "COMPLETE PACK" : "PACK COMPLETO"}</p><h1>${en ? "All six folders. One download." : "Todas las carpetas"}</h1><p>${en ? "180 prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. This pack contains the six collections listed below; future releases are separate." : "Incluye en un solo ZIP todas las carpetas enumeradas debajo. La compra cubre únicamente esas carpetas; las publicaciones futuras se venden por separado."}</p></div></header>
-<span class="opening-price-note opening-price-note--heading">${en ? "Opening price until 30.07.2026" : "Precio de apertura hasta 30.07.2026"}</span>
+<span class="opening-price-note opening-price-note--heading">${en ? "Automatic sale until 24 Jul 2026 · was €59" : "Oferta automática hasta 24.07.2026 · antes 59 €"}</span>
 <header class="subfolder-heading"><span class="folder-icon folder-icon--bundle"></span><div><h2>${en ? "Included folders" : "Carpetas incluidas"}</h2><p>${en ? "6 items" : "6 elementos"}</p></div></header>
 <div class="file-list">
   <div class="file-list__header"><span>${en ? "Name" : "Nombre"}</span><span>${en ? "Type" : "Tipo"}</span><span>${en ? "Contents" : "Qué contiene"}</span><span>${en ? "Access" : "Acceso"}</span></div>
   ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<a class="file-row" href="${href}" data-route="${href}"><span class="file-row__name"><span class="row-folder-icon"></span><strong>${escapeHtml(product.name)}</strong></span><span>${en ? "Folder" : "Carpeta"}</span><span>${escapeHtml(productValue(product, "description", locale))}</span><span class="file-row__action">${en ? "Open" : "Abrir"}</span></a>`; }).join("\n  ")}
 </div>
-<div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · 59 €</strong><span>${en ? "Regular price for all six separately: €90" : "Precio habitual de los seis por separado: 90 €"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-add="archive">${en ? "Add complete pack" : "Añadir pack completo"}</button></div></div>`;
+<div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · <s>59 €</s> 49 €</strong><span>${en ? "Current price of all six separately: €54 · Save €5" : "Precio actual de los seis por separado: 54 € · Ahorras 5 €"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-buy="archive">${en ? "Buy now · €49" : "Comprar ahora · 49 €"}</button></div></div>`;
 };
 
 const helpView = (locale) => {
@@ -648,9 +689,9 @@ const pagesForLocale = (locale) => {
     page("/bundle/", "bundle/index.html", {
       heading: en ? "All six folders. One download." : "Pack completo",
       title: en ? "180 dark music prompts: complete pack | SUBSUELO FS" : "Pack completo: 180 prompts para instrumentales | SUBSUELO FS",
-      description: en ? "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references." : "Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Descarga digital: 59 €.",
+      description: en ? "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. Automatic sale: €49 until 24 Jul 2026; was €59." : "Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Oferta automática: 49 € hasta el 24/07/2026; antes 59 €.",
       type: "product",
-      price: 59,
+      price: 49,
       product: localizedBundle,
       productDescription: productValue(bundleProduct, "description", locale),
       productCategory: productValue(bundleProduct, "category", locale),
@@ -823,7 +864,6 @@ const replaceMarker = (html, marker, value) => {
 };
 
 const template = await readFile(templatePath, "utf8");
-const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
 const copyDeclaration = "  const copy = ";
 const copyStart = appSource.indexOf(copyDeclaration);
 const copyEnd = appSource.indexOf("\n\n  const legalDocuments", copyStart);

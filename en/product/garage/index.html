@@ -115,8 +115,8 @@
     <!-- STATIC-SEO:END -->
     <base href="/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles-v5.css?v=33" />
-    <script src="./app-v5.js?v=37" defer></script>
+    <link rel="stylesheet" href="./styles-v5.css?v=34" />
+    <script src="./app-v5.js?v=39" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Skip to files</a>
@@ -182,6 +182,25 @@
                   <div class="product-banner__price"><s>Was €15</s><strong>9 €</strong><span class="opening-price-note">Automatic sale until 24 Jul 2026 · no code</span></div>
                   <div class="product-banner__actions"><button type="button" data-play="garage">Hear 30 sec</button><button class="primary-action" type="button" data-buy="garage">Buy now · 9 €</button></div>
                   <a class="product-banner__sampler" href="https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler" target="_blank" rel="noopener noreferrer" data-sampler-download="product">Try free sampler · €0 ↗</a>
+                </div>
+              </section>
+              <section class="prompt-proof" id="try-prompt" style="--tone:#425763" data-prompt-proof="garage">
+                <header class="prompt-proof__header"><div><p>REAL TEST / PROMPT 001</p><h2>Try it before you buy.</h2></div><span>ALLEY PRESSURE · 001</span></header>
+                <p class="prompt-proof__lead">This is 1 of the 30 prompts in the pack. Copy the full block into Styles and hear its 30-second reference without leaving this page.</p>
+                <div class="prompt-proof__grid">
+                  <div class="prompt-proof__source">
+                    <div class="prompt-proof__label"><span>ENGLISH PROMPT · READY TO COPY</span><button type="button" data-copy-prompt="garage" aria-label="Copy prompt: ALLEY PRESSURE">COPY PROMPT</button></div>
+                    <pre tabindex="0"><code lang="en">Dark UK garage instrumental at 132 BPM with a steady two-step groove and natural human swing. Place a compact kick on the opening beat, a second kick just after the midpoint, dry snares on two and four, and softly shuffled closed hats. Use short mono sub-bass notes that answer the kicks, one muted minor chord and distant alley reflections. Keep the drums close and firm while footsteps, a metal gate rattle and damp street ambience sit low in the mix. Hold this exact pocket for the whole track, adding detail through brief chord mutes and changes in ambience. Instrumental, nocturnal, restrained and unmistakably garage.</code></pre>
+                  </div>
+                  <aside class="prompt-proof__test">
+                    <h3>TEST IT IN 3 STEPS</h3>
+                    <ol><li>Open Create and turn on Custom and Instrumental.</li><li>Paste the complete block into Styles.</li><li>Leave Exclude empty and generate two versions.</li></ol>
+                    <button class="prompt-proof__demo" type="button" data-play="garage" data-play-context="proof">HEAR THE RESULT · 30 SEC</button>
+                    <p>If this direction works for you, the pack opens 29 more variations and adds 10 negative prompts, ES/EN guides and 4 MP3 references.</p>
+                    <small class="prompt-proof__assurance">One-off payment · instant download · personal/commercial prompt licence · MP3 files are reference only</small>
+                    <button class="primary-action prompt-proof__buy" type="button" data-buy="garage">GET THE OTHER 29 · €9</button>
+                    <a href="https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">I want to try all six folders free ↗</a>
+                  </aside>
                 </div>
               </section>
               <header class="subfolder-heading">
@@ -266,8 +285,10 @@
           <label><input type="checkbox" required data-consent-supply /><span data-i18n="checkout.supplyConsent">I request immediate delivery of the digital content and acknowledge that, when download or access begins, I will lose the right of withdrawal, without affecting my statutory rights if the content is not in conformity.</span></label>
         </fieldset>
         <p class="checkout-error" id="checkout-consent-error" data-consent-error role="status" aria-live="polite" hidden data-i18n="checkout.required">Tick both boxes to continue.</p>
-        <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Final price · taxes included</small></span><strong data-checkout-total>0 €</strong></div>
-        <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUE TO CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
+        <div class="checkout-conversion-bar">
+          <div class="checkout-summary"><span><span data-i18n="checkout.total">Total</span><small data-i18n="checkout.taxes">Final price · taxes included</small></span><strong data-checkout-total>0 €</strong></div>
+          <button class="checkout-pay" type="submit" data-place-order disabled aria-describedby="checkout-consent-error checkout-payhip-note"><span data-i18n="checkout.paySecure">CONTINUE TO CHECKOUT</span><strong data-checkout-pay-total>0 €</strong></button>
+        </div>
         <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">The email you enter is used to send your receipt and download. No account is required. Consent to receive product news is optional and requested separately. No charge is made yet.</p>
         <button class="checkout-back" type="button" data-back-to-cart data-i18n="checkout.back">Back to cart</button>
       </form>
