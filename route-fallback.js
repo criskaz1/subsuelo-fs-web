@@ -26,6 +26,7 @@
   if (!validRoutePatterns.some((pattern) => pattern.test(path))) return;
 
   const destination = new URL(path === "/en" || path.startsWith("/en/") ? "/en/" : "/", location.origin);
+  destination.search = location.search;
   destination.searchParams.set("__route", path);
   location.replace(destination.href);
 })();

@@ -1,20 +1,27 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import vm from "node:vm";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://subsuelofs.com";
-const individualSaleStarts = "2026-07-21";
-const individualSaleEnds = "2026-07-24";
-const bundleSaleStarts = "2026-07-21";
-const bundleSaleEnds = "2026-07-24";
+const lastModified = "2026-07-23";
 const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir"];
+const legalIds = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
+const samplerSourceProductIds = Object.freeze({
+  "source/low_pressure_v2/content.json": "low",
+  "source/abyss_dub/content.json": "abyss",
+  "source/noir_tapes/content.json": "noir",
+  "source/trap_ritual/content.json": "trap",
+  "source/garaje_oscuro/content.json": "garage",
+  "source/fossil_jungle/content.json": "jungle"
+});
 const basePages = [
   { basePath: "/", output: "index.html", schemaType: "CollectionPage" },
   { basePath: "/demos/", output: "demos/index.html", schemaType: "WebPage" },
   { basePath: "/bundle/", output: "bundle/index.html", schemaType: "Product" },
   { basePath: "/help/", output: "help/index.html", schemaType: "WebPage" },
+  { basePath: "/legal/", output: "legal/index.html", schemaType: "WebPage" },
+  ...legalIds.map((id) => ({ basePath: `/legal/${id}/`, output: `legal/${id}/index.html`, schemaType: "WebPage" })),
   { basePath: "/guides/", output: "guides/index.html", schemaType: "WebPage" },
   { basePath: "/guides/negative-prompts/", output: "guides/negative-prompts/index.html", schemaType: "Article" },
   { basePath: "/guides/write-music-prompts/", output: "guides/write-music-prompts/index.html", schemaType: "Article" },
@@ -41,15 +48,17 @@ const escapeHtml = (value) => String(value).replace(/[&<>"']/gu, (character) => 
   "<": "&lt;",
   ">": "&gt;",
   '"': "&quot;",
-  "'": "&#039;"
+  "'": "&#39;"
 })[character]);
-
-const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
-const samplerDeclaration = "  const samplerProofs = ";
-const samplerStart = appSource.indexOf(samplerDeclaration);
-const samplerEnd = appSource.indexOf("\n\n  const productEditorial", samplerStart);
-if (samplerStart < 0 || samplerEnd < 0) throw new Error("No se pudieron leer las pruebas públicas desde app-v5.js");
-const samplerProofs = vm.runInNewContext(`(${appSource.slice(samplerStart + samplerDeclaration.length, samplerEnd).replace(/;\s*$/u, "")})`, Object.create(null));
+const samplerManifest = JSON.parse(await readFile(path.resolve(root, "../source/free_sampler/content.json"), "utf8"));
+const samplerProofs = {};
+for (const selection of samplerManifest.collections || []) {
+  const productId = samplerSourceProductIds[selection.source];
+  const source = JSON.parse(await readFile(path.resolve(root, "..", selection.source), "utf8"));
+  const proof = (source.prompts || []).find((prompt) => prompt.id === selection.prompt_id);
+  if (!productId || !proof || selection.prompt_id !== "001") throw new Error(`Sampler inválido para ${selection.source}`);
+  samplerProofs[productId] = proof;
+}
 
 for (const page of pages) {
   const html = await readFile(path.join(root, page.output), "utf8");
@@ -69,7 +78,7 @@ for (const page of pages) {
   if (metaContent(html, "property", "og:locale:alternate") !== (page.locale === "en" ? "es_ES" : "en_GB")) throw new Error(`${page.output}: og:locale:alternate incorrecto`);
   if (!title || !description) throw new Error(`${page.output}: faltan title o description`);
   if ((page.schemaType === "Product" || page.basePath === "/") && !html.includes('class="checkout-conversion-bar"')) throw new Error(`${page.output}: falta la barra de conversión del checkout`);
-  if (!/<div class="[^"]*\bview-content\b[^"]*"[^>]*>[\s\S]*?<h1>/u.test(html)) throw new Error(`${page.output}: falta contenido inicial con H1`);
+  if (!/<div class="[^"]*\bview-content\b[^"]*"[^>]*>[\s\S]*?<h1(?:\s[^>]*)?>/u.test(html)) throw new Error(`${page.output}: falta contenido inicial con H1`);
   if (!jsonLdSource) throw new Error(`${page.output}: falta JSON-LD`);
 
   const jsonLd = JSON.parse(jsonLdSource);
@@ -81,37 +90,30 @@ for (const page of pages) {
     if (!offers || offers["@type"] !== "Offer") throw new Error(`${page.output}: falta Offer en JSON-LD`);
     const bundle = page.basePath === "/bundle/";
     const expectedPrice = bundle ? "49.00" : "9.00";
-    const expectedValidFrom = bundle ? bundleSaleStarts : individualSaleStarts;
-    const expectedValidUntil = bundle ? bundleSaleEnds : individualSaleEnds;
     if (offers.price !== expectedPrice) throw new Error(`${page.output}: precio incorrecto en Offer`);
-    if (offers.validFrom !== expectedValidFrom) throw new Error(`${page.output}: validFrom incorrecto en Offer`);
-    if (offers.priceValidUntil !== expectedValidUntil) throw new Error(`${page.output}: priceValidUntil incorrecto en Offer`);
+    if (Object.hasOwn(offers, "validFrom") || Object.hasOwn(offers, "priceValidUntil")) throw new Error(`${page.output}: el precio permanente conserva vigencia temporal`);
     if (metaContent(html, "property", "product:price:amount") !== expectedPrice) throw new Error(`${page.output}: precio Open Graph incorrecto`);
-    if (!bundle && (!html.includes("<s>15 €</s>") || !html.includes("9 €"))) throw new Error(`${page.output}: falta precio promocional visible`);
+    if (html.includes("<s>") || !html.includes(bundle ? "49 €" : "9 €")) throw new Error(`${page.output}: precio permanente visible incorrecto`);
     if (bundle) {
-      const expectedBundleNote = page.locale === "en" ? "Automatic sale until 24 Jul 2026 · was €59" : "Oferta automática hasta 24.07.2026 · antes 59 €";
-      const expectedBundleComparison = page.locale === "en" ? "Current price of all six separately: €54 · Save €5" : "Precio actual de los seis por separado: 54 € · Ahorras 5 €";
+      const expectedBundleComparison = page.locale === "en" ? "All six separately: €54 · Complete pack: €49" : "Los seis por separado: 54 € · Pack completo: 49 €";
       const expectedBundleCta = page.locale === "en" ? "Buy now · €49" : "Comprar ahora · 49 €";
-      if (!html.includes("<s>59 €</s> 49 €")) throw new Error(`${page.output}: falta el precio promocional visible del bundle`);
-      if (!html.includes(expectedBundleNote)) throw new Error(`${page.output}: falta la vigencia visible del bundle`);
       if (!html.includes(expectedBundleComparison)) throw new Error(`${page.output}: comparación o ahorro incorrectos del bundle`);
       if (!html.includes(`data-buy="archive">${expectedBundleCta}</button>`)) throw new Error(`${page.output}: CTA directo del bundle incorrecto`);
       if (html.includes('data-add="archive"')) throw new Error(`${page.output}: el bundle conserva un CTA intermedio de carrito`);
-      if (!description.includes("49") || !description.includes("24")) throw new Error(`${page.output}: metadata del bundle sin precio o vigencia`);
-      if (!mainEntity.description.includes("49") || !mainEntity.description.includes("59")) throw new Error(`${page.output}: descripción JSON-LD del bundle sin promoción`);
+      if (!description.includes("49")) throw new Error(`${page.output}: metadata del bundle sin precio`);
+      if (!mainEntity.description.includes("49")) throw new Error(`${page.output}: descripción JSON-LD del bundle sin precio`);
     }
     if (!bundle) {
-      const productId = page.basePath.match(/^\/product\/([^/]+)\/$/u)?.[1];
+      const productId = page.basePath.match(/^\/product\/([^/]+)\//u)?.[1];
       const proof = samplerProofs[productId];
-      if (!proof?.title || !proof?.prompt) throw new Error(`${page.output}: falta la prueba pública en app-v5.js`);
-      if (!html.includes(`data-prompt-proof="${productId}"`)) throw new Error(`${page.output}: falta el bloque de prueba real`);
-      if (!html.includes(`data-copy-prompt="${productId}"`)) throw new Error(`${page.output}: falta el botón para copiar el prompt`);
-      if (!html.includes(`<code lang="en">${escapeHtml(proof.prompt)}</code>`)) throw new Error(`${page.output}: el prompt público no coincide con app-v5.js`);
-      if (!html.includes(`class="prompt-proof__demo" type="button" data-play="${productId}" data-play-context="proof"`)) throw new Error(`${page.output}: falta la demo de 30 segundos en la prueba`);
+      if (!proof) throw new Error(`${page.output}: falta fuente del prompt de prueba`);
+      if (!html.includes(`data-prompt-proof="${productId}"`)) throw new Error(`${page.output}: falta bloque de prueba inline`);
+      if (!html.includes(`data-copy-prompt="${productId}"`)) throw new Error(`${page.output}: falta botón de copia`);
+      if (!html.includes(`<code lang="en">${escapeHtml(proof.prompt)}</code>`)) throw new Error(`${page.output}: el prompt no coincide con el sampler`);
+      if (!html.includes(`class="prompt-proof__demo" type="button" data-play="${productId}"`)) throw new Error(`${page.output}: falta demo de la prueba`);
       if (!html.includes('class="prompt-proof__assurance"')) throw new Error(`${page.output}: faltan las condiciones breves junto al CTA`);
-      if (!html.includes(`class="primary-action prompt-proof__buy" type="button" data-buy="${productId}"`)) throw new Error(`${page.output}: falta el CTA de compra en la prueba`);
-      const expectedCta = page.locale === "en" ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €";
-      if (!html.includes(expectedCta)) throw new Error(`${page.output}: CTA de prueba incorrecto`);
+      if (!html.includes(`class="primary-action prompt-proof__buy" type="button" data-buy="${productId}"`)) throw new Error(`${page.output}: falta CTA de compra de la prueba`);
+      if (!html.includes(page.locale === "en" ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €")) throw new Error(`${page.output}: CTA de la prueba incorrecto`);
     }
   }
 
@@ -130,9 +132,27 @@ for (const homePath of ["index.html", "en/index.html"]) {
   const home = await readFile(path.join(root, homePath), "utf8");
   if (!home.includes('href="#packs-en-oferta"')) throw new Error(`${homePath}: falta CTA hacia los packs en oferta`);
   if (!home.includes('id="packs-en-oferta"')) throw new Error(`${homePath}: falta destino del CTA de oferta`);
-  if (!home.includes("24.07.2026") && !home.includes("24 Jul 2026")) throw new Error(`${homePath}: falta fecha de fin de la oferta`);
-  if (!home.includes("descuento automático") && !home.includes("automatic discount")) throw new Error(`${homePath}: falta aclarar que el descuento es automático`);
+  if (!home.includes("PRECIO ACTUAL POR PACK") && !home.includes("CURRENT PRICE PER PACK")) throw new Error(`${homePath}: falta el precio permanente`);
+  if (/<s>|24\.07\.2026|24 Jul 2026|descuento automático|automatic discount/iu.test(home)) throw new Error(`${homePath}: conserva urgencia o comparación de la oferta caducada`);
   if (!home.includes('"email": "hola@subsuelofs.com"')) throw new Error(`${homePath}: el correo corporativo no está unificado`);
+  for (const socialUrl of ["https://x.com/subsuelofs", "https://www.tiktok.com/@subsuelofs", "https://www.youtube.com/@subsuelofs"]) {
+    if (!home.includes(JSON.stringify(socialUrl)) || !home.includes(`rel="me" href="${socialUrl}"`)) throw new Error(`${homePath}: falta perfil social ${socialUrl}`);
+  }
+  const legalHref = homePath.startsWith("en/") ? "/en/legal/" : "/legal/";
+  if (!home.includes(`<a class="system-file" href="${legalHref}" data-route="${legalHref}">`)) throw new Error(`${homePath}: la carpeta legal no es un enlace rastreable`);
+}
+
+for (const locale of ["es", "en"]) {
+  const prefix = locale === "en" ? "en/" : "";
+  const routePrefix = locale === "en" ? "/en" : "";
+  const folder = await readFile(path.join(root, `${prefix}legal/index.html`), "utf8");
+  for (const key of legalIds) {
+    const href = `${routePrefix}/legal/${key}/`;
+    if (!folder.includes(`href="${href}" data-route="${href}"`)) throw new Error(`${prefix}legal/index.html: falta enlace directo a ${key}`);
+    const documentHtml = await readFile(path.join(root, `${prefix}legal/${key}/index.html`), "utf8");
+    if (!documentHtml.includes('class="legal-view"') || !documentHtml.includes('class="legal-copy"')) throw new Error(`${prefix}legal/${key}/index.html: documento legal sin contenido estático`);
+    if (!documentHtml.includes('class="legal-toc"') || !documentHtml.includes('href="#legal-section-0"')) throw new Error(`${prefix}legal/${key}/index.html: índice legal sin enlaces`);
+  }
 }
 
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
@@ -154,6 +174,7 @@ for (const [index, block] of sitemapBlocks.entries()) {
   for (const alternate of expectedAlternates) {
     if (!block.includes(alternate)) throw new Error(`sitemap.xml: alternates incompletos para ${page.pathname}`);
   }
+  if (!block.includes(`<lastmod>${lastModified}</lastmod>`)) throw new Error(`sitemap.xml: lastmod incorrecto para ${page.pathname}`);
 }
 
 const robots = await readFile(path.join(root, "robots.txt"), "utf8");
@@ -167,4 +188,40 @@ for (const feedPath of ["feed.xml", "en/feed.xml"]) {
 const llms = await readFile(path.join(root, "llms.txt"), "utf8");
 if (!llms.includes("https://subsuelofs.com/guides/") || !llms.includes("## Catalogue")) throw new Error("llms.txt incompleto");
 
-console.log(`Validadas ${pages.length} páginas estáticas bilingües, hreflang, JSON-LD, feeds, robots.txt y sitemap.xml`);
+const abyssAliasPath = "en/product/dub/index.html";
+const abyssAlias = await readFile(path.join(root, abyssAliasPath), "utf8");
+if (!abyssAlias.includes('<meta name="robots" content="noindex, follow"')) throw new Error(`${abyssAliasPath}: falta noindex`);
+if (!abyssAlias.includes('<link rel="canonical" href="https://subsuelofs.com/en/product/abyss/"')) throw new Error(`${abyssAliasPath}: canonical incorrecto`);
+if (!abyssAlias.includes('data-redirect-target="/en/product/abyss/"')) throw new Error(`${abyssAliasPath}: destino de redirección incorrecto`);
+if (!abyssAlias.includes('href="/en/product/abyss/" data-redirect-link')) throw new Error(`${abyssAliasPath}: falta enlace accesible al destino`);
+if (sitemap.includes("https://subsuelofs.com/en/product/dub/")) throw new Error("sitemap.xml no debe incluir el alias noindex");
+
+const routeFallback = await readFile(path.join(root, "route-fallback.js"), "utf8");
+if (!routeFallback.includes('"/en/product/dub": "/en/product/abyss/"')) throw new Error("route-fallback.js: falta el alias de Abyss Dub");
+if (!routeFallback.includes("destination.search = location.search")) throw new Error("route-fallback.js: la redirección no conserva query params");
+
+const analyticsConfig = JSON.parse(await readFile(path.join(root, "analytics-config.json"), "utf8"));
+const analyticsRuntime = await readFile(path.join(root, "analytics-runtime.js"), "utf8");
+const analyticsLoader = await readFile(path.join(root, "analytics-loader.js"), "utf8");
+const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
+if (analyticsConfig.enabled && (!analyticsConfig.websiteId || !/^https:\/\//u.test(analyticsConfig.scriptUrl || ""))) throw new Error("analytics-config.json: activación incompleta");
+if (!analyticsConfig.enabled && !analyticsRuntime.includes('"enabled": false')) throw new Error("analytics-runtime.js: Umami debe seguir inactivo sin configuración real");
+for (const event of ["page_view", "demo_start", "demo_complete", "sampler_click", "checkout_start", "outbound_payhip"]) {
+  if (!analyticsLoader.includes(`"${event}"`) && !appSource.includes(`"${event}"`)) throw new Error(`Analítica: falta el evento ${event}`);
+}
+if (!appSource.includes('localStorage.getItem(attributionStorageKey)') || appSource.includes('sessionStorage.getItem("subsuelo-attribution-v1")')) throw new Error("Atribución: no se conserva entre pestañas");
+if (!appSource.includes('target.searchParams.set("utm_source", "subsuelofs")') || !appSource.includes('target.searchParams.set("utm_medium", "website")')) throw new Error("Atribución: UTM de Payhip sin normalizar");
+
+for (const page of pages) {
+  const html = await readFile(path.join(root, page.output), "utf8");
+  if (/<s>|24\.07\.2026|24 Jul 2026|descuento automático|automatic discount|automatic sale/iu.test(html)) throw new Error(`${page.output}: conserva urgencia o comparación caducada`);
+  const payhipHrefs = [...html.matchAll(/href="(https:\/\/(?:[^"]*\.)?payhip\.com[^"]*)"/gu)].map((match) => match[1].replaceAll("&amp;", "&"));
+  for (const href of payhipHrefs) {
+    const url = new URL(href);
+    if (url.searchParams.get("utm_source") !== "subsuelofs" || url.searchParams.get("utm_medium") !== "website" || !url.searchParams.get("utm_campaign")) {
+      throw new Error(`${page.output}: enlace Payhip sin UTM normalizada (${url.pathname})`);
+    }
+  }
+}
+
+console.log(`Validadas ${pages.length} páginas estáticas bilingües, legales directas, precios permanentes, UTM, analítica preparada, hreflang, JSON-LD, feeds, robots.txt y sitemap.xml`);
