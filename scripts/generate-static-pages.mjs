@@ -7,8 +7,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const templatePath = path.join(root, "index.html");
 const siteUrl = "https://subsuelofs.com";
 const freeSamplerUrl = "https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler";
-const lastModified = "2026-07-23";
+const lastModified = "2026-07-25";
 const socialImage = `${siteUrl}/social-card.png?v=20260716-2`;
+const productSocialImage = (productId) => `${siteUrl}/media/${productId}/social-card.png?v=20260725`;
 const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
 const analyticsConfig = JSON.parse(await readFile(path.join(root, "analytics-config.json"), "utf8"));
 const analyticsEnabled = analyticsConfig.provider === "umami"
@@ -128,6 +129,8 @@ const products = [
     demo: "Rain Evidence"
   }
 ];
+
+const guideArticles = JSON.parse(await readFile(path.join(root, "scripts/guide-articles.json"), "utf8"));
 
 const workspaceRoot = path.resolve(root, "..");
 const samplerManifestPath = path.join(workspaceRoot, "source/free_sampler/content.json");
@@ -320,7 +323,7 @@ const productSchema = (page, product) => ({
       name: product.name,
       description: page.productDescription,
       sku: product.sku,
-      image: [`${siteUrl}/social-card.png`],
+      image: [product.id === "archive" ? `${siteUrl}/social-card.png` : `${siteUrl}/media/${product.id}/social-card.png`],
       category: page.productCategory,
       inLanguage: page.locale,
       brand: { "@type": "Brand", name: "SUBSUELO FS" },
@@ -572,6 +575,42 @@ const helpView = (locale) => {
 </article>`;
 };
 
+const guideLinkPaths = new Set([
+  "/", "/demos/", "/compare/", "/method/", "/bundle/",
+  "/guides/write-music-prompts/", "/guides/negative-prompts/",
+  "/guides/describe-drums/", "/guides/low-end-808/", "/guides/fix-generic-ai-music/", "/guides/space-texture/",
+  "/product/trap/", "/product/garage/", "/product/jungle/", "/product/low/", "/product/abyss/", "/product/noir/"
+]);
+
+const guideInline = (value, locale) => escapeHtml(value)
+  .replace(/\[([^\]]+)\]\(([^)\s]+)\)/gu, (match, label, target) => {
+    if (!guideLinkPaths.has(target)) throw new Error(`Enlace interno no permitido en una guía: ${target}`);
+    return `<a href="${localizedPath(target, locale)}">${label}</a>`;
+  })
+  .replace(/`([^`]+)`/gu, "<code>$1</code>");
+
+const guideArticleView = (guide, locale) => {
+  const en = locale === "en";
+  const copy = guide[locale];
+  const index = copy.sections.map((section) => `<a href="#${section.id}">${escapeHtml(section.heading)}</a>`).join("");
+  const sections = copy.sections.map((section) => {
+    const paragraphs = section.paragraphs.map((paragraph) => `<p>${guideInline(paragraph, locale)}</p>`).join("");
+    const list = section.list?.length ? `<ul>${section.list.map((item) => `<li>${guideInline(item, locale)}</li>`).join("")}</ul>` : "";
+    return `<section id="${section.id}"><h2>${escapeHtml(section.heading)}</h2>${paragraphs}${list}</section>`;
+  }).join("\n      ");
+  const next = copy.nextLinks.map((link) => {
+    if (!guideLinkPaths.has(link.path)) throw new Error(`Enlace de cierre no permitido en una guía: ${link.path}`);
+    return `<a href="${localizedPath(link.path, locale)}">${escapeHtml(link.label)}</a>`;
+  }).join("");
+  return `<article class="editorial-document article-document">
+    <header class="editorial-hero"><p>${escapeHtml(copy.heroKicker)}</p><h1>${escapeHtml(copy.title)}</h1><p>${escapeHtml(copy.heroLead)}</p></header>
+    <div class="article-layout"><nav class="article-index" aria-label="${en ? "On this page" : "En esta página"}"><strong>${en ? "IN THIS FILE" : "EN ESTE ARCHIVO"}</strong>${index}</nav><div class="article-copy">
+      ${sections}
+      <section class="article-next"><h2>${en ? "Continue with these files" : "Sigue con estos archivos"}</h2><nav>${next}</nav></section>
+    </div></div>
+  </article>`;
+};
+
 const guideCard = ({ path: targetPath, code, title, description, locale }) => {
   const href = localizedPath(targetPath, locale);
   return `<a class="guide-card" href="${href}"><span>${escapeHtml(code)}</span><h2>${escapeHtml(title)}</h2><p>${escapeHtml(description)}</p><strong>${locale === "en" ? "Open file" : "Abrir archivo"} →</strong></a>`;
@@ -581,14 +620,22 @@ const guidesView = (locale) => {
   const en = locale === "en";
   const demosHref = localizedPath("/demos/", locale);
   const catalogueHref = localizedPath("/", locale);
+  const articleCards = guideArticles.map((guide, index) => ({
+    path: `/guides/${guide.slug}/`,
+    code: `${en ? "GUIDE" : "GUIA"}_${String(index + 3).padStart(2, "0")}`,
+    title: guide[locale].navTitle,
+    description: guide[locale].cardDescription
+  }));
   const cards = en ? [
     { path: "/guides/negative-prompts/", code: "GUIDE_01", title: "What is a negative prompt in music?", description: "What it removes, where it goes and when it is worth using." },
     { path: "/guides/write-music-prompts/", code: "GUIDE_02", title: "How to write music prompts", description: "A practical structure for rhythm, low end, source material, space and mix." },
+    ...articleCards,
     { path: "/compare/", code: "INDEX_01", title: "Compare the six folders", description: "Drums, bass, source material and intended use, side by side." },
     { path: "/method/", code: "METHOD_01", title: "How a 30-prompt folder is built", description: "The fixed genre core, the variation axes and the files delivered." }
   ] : [
     { path: "/guides/negative-prompts/", code: "GUIA_01", title: "Qué es un negative prompt en música", description: "Qué quita, dónde se coloca y cuándo merece la pena usarlo." },
     { path: "/guides/write-music-prompts/", code: "GUIA_02", title: "Cómo escribir prompts para crear música", description: "Una estructura práctica para ritmo, graves, fuente sonora, espacio y mezcla." },
+    ...articleCards,
     { path: "/compare/", code: "INDICE_01", title: "Comparar las seis carpetas", description: "Batería, bajo, material sonoro y uso previsto, uno al lado del otro." },
     { path: "/method/", code: "METODO_01", title: "Cómo se construye una carpeta de 30", description: "El núcleo fijo del género, los ejes de variación y los archivos entregados." }
   ];
@@ -822,6 +869,19 @@ const pagesForLocale = (locale) => {
       breadcrumbs: [{ name: en ? "Production guides" : "Guías de producción", path: "/guides/" }, { name: en ? "Writing music prompts" : "Escribir prompts musicales", path: "/guides/write-music-prompts/" }],
       view: writingGuideView(locale)
     }),
+    ...guideArticles.map((guide) => {
+      const copy = guide[locale];
+      return page(`/guides/${guide.slug}/`, `guides/${guide.slug}/index.html`, {
+        heading: copy.title,
+        title: `${copy.seoTitle} | SUBSUELO FS`,
+        description: copy.metaDescription,
+        type: "article",
+        article: true,
+        standalone: true,
+        breadcrumbs: [{ name: en ? "Production guides" : "Guías de producción", path: "/guides/" }, { name: copy.navTitle, path: `/guides/${guide.slug}/` }],
+        view: guideArticleView(guide, locale)
+      });
+    }),
     page("/compare/", "compare/index.html", {
       heading: en ? "Compare the six prompt folders" : "Compara las seis carpetas de prompts",
       title: en ? "Compare music prompt folders by sound | SUBSUELO FS" : "Compara carpetas de prompts por sonido | SUBSUELO FS",
@@ -847,6 +907,8 @@ const pagesForLocale = (locale) => {
       product,
       productDescription: productValue(product, "description", locale),
       productCategory: productValue(product, "category", locale),
+      socialImage: productSocialImage(product.id),
+      socialAlt: `${product.name}: ${productValue(product, "category", locale)} · 30 prompts`,
       view: productView(product, locale)
     }))
   ];
@@ -862,7 +924,8 @@ const seoBlock = (page) => {
   const enUrl = canonicalUrl(localizedPath(page.basePath, "en"));
   const locale = page.locale === "en" ? "en_GB" : "es_ES";
   const alternateLocale = page.locale === "en" ? "es_ES" : "en_GB";
-  const socialAlt = page.locale === "en" ? "SUBSUELO FS: genre-built sound direction in a file explorer." : "SUBSUELO FS: dirección sonora por género en un explorador de archivos.";
+  const socialAlt = page.socialAlt || (page.locale === "en" ? "SUBSUELO FS: genre-built sound direction in a file explorer." : "SUBSUELO FS: dirección sonora por género en un explorador de archivos.");
+  const pageImage = page.socialImage || socialImage;
   const productMeta = page.type === "product"
     ? `\n<meta property="product:price:amount" content="${page.price.toFixed(2)}" />\n<meta property="product:price:currency" content="EUR" />`
     : "";
@@ -882,8 +945,8 @@ const seoBlock = (page) => {
 <meta property="og:locale:alternate" content="${alternateLocale}" />
 <meta property="og:title" content="${escapeHtml(page.title)}" />
 <meta property="og:description" content="${escapeHtml(page.description)}" />
-<meta property="og:image" content="${socialImage}" />
-<meta property="og:image:secure_url" content="${socialImage}" />
+<meta property="og:image" content="${pageImage}" />
+<meta property="og:image:secure_url" content="${pageImage}" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="600" />
@@ -893,7 +956,7 @@ const seoBlock = (page) => {
 <meta name="twitter:creator" content="@subsuelofs" />
 <meta name="twitter:title" content="${escapeHtml(page.title)}" />
 <meta name="twitter:description" content="${escapeHtml(page.description)}" />
-<meta name="twitter:image" content="${socialImage}" />
+<meta name="twitter:image" content="${pageImage}" />
 <meta name="twitter:image:alt" content="${socialAlt}" />
 <link rel="me" href="https://x.com/subsuelofs" />
 <link rel="me" href="https://www.tiktok.com/@subsuelofs" />
@@ -939,7 +1002,7 @@ const standaloneHtml = (page) => {
         <nav class="menubar" aria-label="${en ? "Main menu" : "Menú principal"}"><a href="${homeHref}">${en ? "File" : "Archivo"}</a><a href="${demosHref}">${en ? "Play" : "Reproducir"}</a><a href="${guidesHref}"${page.basePath.startsWith("/guides/") || page.basePath === "/guides/" ? ' aria-current="page"' : ""}>${en ? "Guides" : "Guías"}</a><a href="${methodHref}"${page.basePath === "/method/" ? ' aria-current="page"' : ""}>${en ? "Method" : "Método"}</a><a href="${helpHref}">${en ? "Help" : "Ayuda"}</a></nav>
         <div class="toolbar editorial-toolbar"><div class="toolbar__nav"><a class="os-control icon-control icon-back" href="${parentHref}" aria-label="${en ? "Back" : "Atrás"}"><span class="nav-glyph" aria-hidden="true"></span></a></div><nav class="address-bar" aria-label="${en ? "Current path" : "Ruta actual"}">${address}</nav><div class="toolbar__tools"><a class="editorial-language" href="${languageHref}" hreflang="${en ? "es" : "en"}"><span>${en ? "EN" : "ES"}</span><b>/</b><span>${en ? "ES" : "EN"}</span></a></div></div>
         <div class="workspace editorial-workspace">
-          <aside class="sidebar editorial-sidebar" aria-label="${en ? "Guide index" : "Índice de guías"}"><section><h2>${en ? "GUIDES" : "GUÍAS"}</h2><nav>${sideLink(guidesHref, en ? "All guides" : "Todas las guías", "folder")}${sideLink(negativeHref, en ? "Negative prompts" : "Negative prompts")}${sideLink(writingHref, en ? "Writing prompts" : "Escribir prompts")}</nav></section><section><h2>${en ? "CATALOGUE" : "CATÁLOGO"}</h2><nav>${sideLink(compareHref, en ? "Compare folders" : "Comparar carpetas")}${sideLink(methodHref, en ? "Method" : "Método")}${sideLink(demosHref, en ? "Audio previews" : "Muestras de audio", "play")}${sideLink(homeHref, en ? "All folders" : "Todas las carpetas", "folder")}</nav></section></aside>
+          <aside class="sidebar editorial-sidebar" aria-label="${en ? "Guide index" : "Índice de guías"}"><section><h2>${en ? "GUIDES" : "GUÍAS"}</h2><nav>${sideLink(guidesHref, en ? "All guides" : "Todas las guías", "folder")}${sideLink(negativeHref, en ? "Negative prompts" : "Negative prompts")}${sideLink(writingHref, en ? "Writing prompts" : "Escribir prompts")}${guideArticles.map((guide) => sideLink(localizedPath(`/guides/${guide.slug}/`, page.locale), guide[page.locale].navTitle)).join("")}</nav></section><section><h2>${en ? "CATALOGUE" : "CATÁLOGO"}</h2><nav>${sideLink(compareHref, en ? "Compare folders" : "Comparar carpetas")}${sideLink(methodHref, en ? "Method" : "Método")}${sideLink(demosHref, en ? "Audio previews" : "Muestras de audio", "play")}${sideLink(homeHref, en ? "All folders" : "Todas las carpetas", "folder")}</nav></section></aside>
           <section class="file-pane editorial-pane" id="article" tabindex="-1"><div class="view-content editorial-view">${page.view}</div></section>
         </div>
         <footer class="statusbar"><span>${en ? "PUBLIC FILE" : "ARCHIVO PÚBLICO"}</span><span>SUBSUELO FS</span><span>NOMBRE DIRECCION, S.L.U.</span></footer>
@@ -1078,14 +1141,22 @@ ${pages.map((page) => `  <url>\n    <loc>${canonicalUrl(page.pathname)}</loc>\n 
 await writeFile(path.join(root, "sitemap.xml"), sitemap, "utf8");
 await writeFile(path.join(root, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`, "utf8");
 
+const guideFeedItems = (locale) => guideArticles.map((guide) => ({
+  path: `/guides/${guide.slug}/`,
+  title: guide[locale].title,
+  description: guide[locale].metaDescription,
+  pubDate: "Sat, 25 Jul 2026 08:00:00 +0200"
+}));
 const feedItems = {
   es: [
     { path: "/guides/negative-prompts/", title: "Qué es un negative prompt en música y cuándo usarlo", description: "Qué elimina, dónde se coloca y cuándo conviene usarlo para voces, instrumentos o acabados." },
-    { path: "/guides/write-music-prompts/", title: "Cómo escribir prompts para crear música con una dirección clara", description: "Una estructura práctica para describir género, pulso, batería, graves, fuente sonora, espacio y mezcla." }
+    { path: "/guides/write-music-prompts/", title: "Cómo escribir prompts para crear música con una dirección clara", description: "Una estructura práctica para describir género, pulso, batería, graves, fuente sonora, espacio y mezcla." },
+    ...guideFeedItems("es")
   ],
   en: [
     { path: "/guides/negative-prompts/", title: "What is a negative prompt in music and when should you use one?", description: "What it removes, where it goes and when it helps with vocals, instruments or finish." },
-    { path: "/guides/write-music-prompts/", title: "How to write music prompts that give a clear direction", description: "A practical structure for genre, pulse, drums, low end, source material, space and mix." }
+    { path: "/guides/write-music-prompts/", title: "How to write music prompts that give a clear direction", description: "A practical structure for genre, pulse, drums, low end, source material, space and mix." },
+    ...guideFeedItems("en")
   ]
 };
 
@@ -1099,9 +1170,9 @@ for (const locale of ["es", "en"]) {
     <link>${canonicalUrl(localizedPath("/guides/", locale))}</link>
     <description>${en ? "Direct guides for music prompts, negative prompts and sound direction." : "Guías directas sobre prompts musicales, negative prompts y dirección sonora."}</description>
     <language>${en ? "en" : "es"}</language>
-    <lastBuildDate>Thu, 23 Jul 2026 08:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2026 08:00:00 +0200</lastBuildDate>
     <atom:link href="${canonicalUrl(feedPath)}" rel="self" type="application/rss+xml" />
-${feedItems[locale].map((item) => { const url = canonicalUrl(localizedPath(item.path, locale)); return `    <item>\n      <title>${escapeHtml(item.title)}</title>\n      <link>${url}</link>\n      <guid isPermaLink="true">${url}</guid>\n      <description>${escapeHtml(item.description)}</description>\n      <pubDate>Thu, 16 Jul 2026 08:00:00 +0200</pubDate>\n    </item>`; }).join("\n")}
+${feedItems[locale].map((item) => { const url = canonicalUrl(localizedPath(item.path, locale)); return `    <item>\n      <title>${escapeHtml(item.title)}</title>\n      <link>${url}</link>\n      <guid isPermaLink="true">${url}</guid>\n      <description>${escapeHtml(item.description)}</description>\n      <pubDate>${item.pubDate || "Thu, 16 Jul 2026 08:00:00 +0200"}</pubDate>\n    </item>`; }).join("\n")}
   </channel>
 </rss>
 `;
@@ -1122,6 +1193,12 @@ Audio previews: https://subsuelofs.com/demos/
 Method: https://subsuelofs.com/method/
 Spanish legal information: https://subsuelofs.com/legal/
 English legal information: https://subsuelofs.com/en/legal/
+
+## Guides
+
+- What is a negative prompt in music: https://subsuelofs.com/guides/negative-prompts/
+- How to write music prompts: https://subsuelofs.com/guides/write-music-prompts/
+${guideArticles.map((guide) => `- ${guide.en.navTitle}: https://subsuelofs.com/guides/${guide.slug}/`).join("\n")}
 
 ## Catalogue
 

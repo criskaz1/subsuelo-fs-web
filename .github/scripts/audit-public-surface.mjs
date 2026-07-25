@@ -36,6 +36,7 @@ public-catalog-manifest.json
 robots.txt
 route-fallback.js
 scripts/generate-static-pages.mjs
+scripts/guide-articles.json
 scripts/validate-static-pages.mjs
 sitemap.xml
 social-card.png
@@ -289,6 +290,8 @@ if (process.argv.includes("--self-test")) {
     pathViolations("legal/privacy/index.html").length === 0,
     pathViolations("en/legal/terms/index.html").length === 0,
     pathViolations("analytics-loader.js").length === 0,
+    pathViolations("scripts/guide-articles.json").length === 0,
+    pathViolations("media/noir/social-card.png").length === 0,
     pathViolations("guides/future-guide/index.html").length === 0,
     contentViolations("SUBSUELO FS · archivo público").length === 0,
     contentViolations(approvedBrandDisclaimers.join("\n")).length === 0,

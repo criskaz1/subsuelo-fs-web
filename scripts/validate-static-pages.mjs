@@ -1,10 +1,10 @@
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://subsuelofs.com";
-const lastModified = "2026-07-23";
+const lastModified = "2026-07-25";
 const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir"];
 const legalIds = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
 const samplerSourceProductIds = Object.freeze({
@@ -25,6 +25,10 @@ const basePages = [
   { basePath: "/guides/", output: "guides/index.html", schemaType: "WebPage" },
   { basePath: "/guides/negative-prompts/", output: "guides/negative-prompts/index.html", schemaType: "Article" },
   { basePath: "/guides/write-music-prompts/", output: "guides/write-music-prompts/index.html", schemaType: "Article" },
+  { basePath: "/guides/describe-drums/", output: "guides/describe-drums/index.html", schemaType: "Article" },
+  { basePath: "/guides/low-end-808/", output: "guides/low-end-808/index.html", schemaType: "Article" },
+  { basePath: "/guides/fix-generic-ai-music/", output: "guides/fix-generic-ai-music/index.html", schemaType: "Article" },
+  { basePath: "/guides/space-texture/", output: "guides/space-texture/index.html", schemaType: "Article" },
   { basePath: "/compare/", output: "compare/index.html", schemaType: "WebPage" },
   { basePath: "/method/", output: "method/index.html", schemaType: "WebPage" },
   ...productIds.map((id) => ({ basePath: `/product/${id}/`, output: `product/${id}/index.html`, schemaType: "Product" }))
@@ -105,6 +109,10 @@ for (const page of pages) {
     }
     if (!bundle) {
       const productId = page.basePath.match(/^\/product\/([^/]+)\//u)?.[1];
+      const productCard = `${siteUrl}/media/${productId}/social-card.png?v=20260725`;
+      if (metaContent(html, "property", "og:image") !== productCard) throw new Error(`${page.output}: og:image sin tarjeta propia del producto`);
+      if (metaContent(html, "name", "twitter:image") !== productCard) throw new Error(`${page.output}: twitter:image sin tarjeta propia del producto`);
+      await access(path.join(root, `media/${productId}/social-card.png`));
       const proof = samplerProofs[productId];
       if (!proof) throw new Error(`${page.output}: falta fuente del prompt de prueba`);
       if (!html.includes(`data-prompt-proof="${productId}"`)) throw new Error(`${page.output}: falta bloque de prueba inline`);

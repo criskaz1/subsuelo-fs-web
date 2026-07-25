@@ -4,38 +4,62 @@
     {
       "id": "trap",
       "route": "trap",
-      "previews": ["audio/trap-ritual-ash-circle-preview.mp3"],
-      "images": []
+      "previews": [
+        "audio/trap-ritual-ash-circle-preview.mp3"
+      ],
+      "images": [
+        "media/trap/social-card.png"
+      ]
     },
     {
       "id": "garage",
       "route": "garage",
-      "previews": ["audio/garaje-oscuro-alley-pressure-preview.mp3"],
-      "images": []
+      "previews": [
+        "audio/garaje-oscuro-alley-pressure-preview.mp3"
+      ],
+      "images": [
+        "media/garage/social-card.png"
+      ]
     },
     {
       "id": "jungle",
       "route": "jungle",
-      "previews": ["audio/fossil-jungle-limestone-roll-preview.mp3"],
-      "images": []
+      "previews": [
+        "audio/fossil-jungle-limestone-roll-preview.mp3"
+      ],
+      "images": [
+        "media/jungle/social-card.png"
+      ]
     },
     {
       "id": "low",
       "route": "low",
-      "previews": ["audio/low-pressure-concrete-pulse-preview.mp3"],
-      "images": []
+      "previews": [
+        "audio/low-pressure-concrete-pulse-preview.mp3"
+      ],
+      "images": [
+        "media/low/social-card.png"
+      ]
     },
     {
       "id": "abyss",
       "route": "abyss",
-      "previews": ["audio/abyss-dub-deep-chamber-preview.mp3"],
-      "images": []
+      "previews": [
+        "audio/abyss-dub-deep-chamber-preview.mp3"
+      ],
+      "images": [
+        "media/abyss/social-card.png"
+      ]
     },
     {
       "id": "noir",
       "route": "noir",
-      "previews": ["audio/noir-tapes-rain-evidence-preview.mp3"],
-      "images": []
+      "previews": [
+        "audio/noir-tapes-rain-evidence-preview.mp3"
+      ],
+      "images": [
+        "media/noir/social-card.png"
+      ]
     }
   ]
 }
