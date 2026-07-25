@@ -20,6 +20,9 @@ const staticAllowedFiles = new Set(`
 404.html
 CNAME
 README.md
+analytics-config.json
+analytics-loader.js
+analytics-runtime.js
 app-v5.js
 en/feed.xml
 en/index.html
@@ -41,6 +44,14 @@ styles-v5.css
 
 const products = Array.isArray(manifest?.products) ? manifest.products : [];
 const productRoutes = new Set();
+const legalIds = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
+const legalRoutes = new Set(["es", "en"].flatMap((locale) => {
+  const prefix = locale === "en" ? "en/" : "";
+  return [
+    `${prefix}legal/index.html`,
+    ...legalIds.map((id) => `${prefix}legal/${id}/index.html`)
+  ];
+}));
 const allowedAudio = new Set();
 const allowedImages = new Set();
 const productIds = new Set();
@@ -83,11 +94,12 @@ for (const product of products) {
 const editorialRoute = /^(?:en\/)?(?:bundle|compare|demos|guides|help|method)(?:\/[a-z0-9-]+)*\/index\.html$/u;
 const isAllowedFile = (file) => staticAllowedFiles.has(file)
   || productRoutes.has(file)
+  || legalRoutes.has(file)
   || allowedAudio.has(file)
   || allowedImages.has(file)
   || editorialRoute.test(file);
 
-const requiredFiles = new Set([...staticAllowedFiles, ...productRoutes, ...allowedAudio, ...allowedImages]);
+const requiredFiles = new Set([...staticAllowedFiles, ...productRoutes, ...legalRoutes, ...allowedAudio, ...allowedImages]);
 const maxFileBytes = 1_600_000;
 const maxRepositoryBytes = 4_000_000 + (allowedAudio.size * 1_100_000) + (allowedImages.size * maxFileBytes);
 const maxPreviewSeconds = 30.5;
@@ -274,6 +286,9 @@ if (process.argv.includes("--self-test")) {
     contentViolations(`visit ${privateAccount}`).includes("usuario personal"),
     contentViolations(`made with ${excludedBrand}`).includes("marca excluida de la web"),
     pathViolations("product/noir/index.html").length === 0,
+    pathViolations("legal/privacy/index.html").length === 0,
+    pathViolations("en/legal/terms/index.html").length === 0,
+    pathViolations("analytics-loader.js").length === 0,
     pathViolations("guides/future-guide/index.html").length === 0,
     contentViolations("SUBSUELO FS · archivo público").length === 0,
     contentViolations(approvedBrandDisclaimers.join("\n")).length === 0,
@@ -286,7 +301,8 @@ if (process.argv.includes("--self-test")) {
   process.exit(0);
 }
 
-const trackedFiles = splitNull(git(["ls-files", "-z"]));
+const trackedFiles = splitNull(git(["ls-files", "--cached", "--others", "--exclude-standard", "-z"]))
+  .filter((file) => file !== ".DS_Store");
 
 for (const file of trackedFiles) {
   for (const violation of pathViolations(file)) failures.push(`${file}: ${violation}`);

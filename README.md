@@ -23,3 +23,14 @@ SUBSUELO FS publishes genre-specific sound-direction folders for instrumental mu
 [Browse the catalogue](https://subsuelofs.com/en/) · [Compare folders](https://subsuelofs.com/en/compare/) · [Read the guides](https://subsuelofs.com/en/guides/)
 
 The paid prompt texts and complete negative-prompt lists are not included in this public repository.
+
+## Generación y medición
+
+La superficie estática se regenera y valida dentro de este repositorio:
+
+```sh
+node scripts/generate-static-pages.mjs
+node scripts/validate-static-pages.mjs
+```
+
+`analytics-config.json` deja preparado el cargador de Umami, pero permanece desactivado mientras no exista un `websiteId` real. Con la configuración desactivada, la política CSP no autoriza orígenes externos y el navegador no descarga ni envía datos a Umami.

@@ -15,10 +15,10 @@
 
   const legalVersions = Object.freeze({
     notice: "2026-07-16.2",
-    privacy: "2026-07-16.1",
+    privacy: "2026-07-23.1",
     terms: "2026-07-16.2",
     license: "2026-07-16.1",
-    storage: "2026-07-16.1",
+    storage: "2026-07-23.1",
     refund: "2026-07-16.1",
     accessibility: "2026-07-16.2",
     immediateSupply: "2026-07-16.1"
@@ -26,8 +26,7 @@
 
   const copy = {
     es: {
-      meta: { title: "SUBSUELO FS — Dirección sonora para instrumentales", description: "Seis packs de prompts para instrumentales oscuras. Cada pack individual cuesta 9 € hasta el 24/07/2026; Payhip lo rebaja automáticamente desde 15 €." },
-      pricing: { individualSale: "Oferta automática hasta 24.07.2026 · antes 15 €", bundleOpening: "Oferta automática hasta 24.07.2026 · antes 59 €" },
+      meta: { title: "SUBSUELO FS — Dirección sonora para instrumentales", description: "Seis packs de prompts para instrumentales oscuras. Cada pack individual cuesta 9 € y el pack completo cuesta 49 €." },
       a11y: { skip: "Saltar a los archivos", app: "SUBSUELO File System", appMenu: "Menú de aplicación", path: "Ruta actual", language: "Idioma", sidebar: "Navegación del archivo", inspector: "Detalles", mobileNav: "Navegación móvil" },
       titlebar: { browser: "EXPLORADOR DE ARCHIVOS", store: "TIENDA DIGITAL", open: "ARCHIVO ABIERTO" },
       menu: { file: "Archivo", view: "Ver", play: "Reproducir", guides: "Guías", help: "Ayuda", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", cart: "Carrito" },
@@ -36,7 +35,7 @@
       mobile: { home: "Inicio", pack: "Pack", demos: "Demos", help: "Ayuda", cart: "Carrito" },
       home: {
         kicker: "SUBSUELO / CATÁLOGO", title: "Un género por carpeta", lead: "Entra en el género que quieres producir. Dentro encontrarás 30 prompts distintos que cambian la batería, el bajo, el motivo y el espacio sin abandonar esa familia sonora.", hint: "Haz clic en una carpeta para abrirla", mobileHint: "Toca una carpeta para abrirla", docs: "MÁS INFORMACIÓN", helpFile: "QUE_INCLUYE_CADA_CARPETA.txt", demoFile: "ESCUCHAR_EJEMPLOS.audio", guidesFile: "GUIAS_DE_PRODUCCION.folder", bundleFile: "PACK_COMPLETO.folder", legalFile: "LEGAL_Y_PRIVACIDAD.folder", empty: "No hay resultados para esta búsqueda.", emptyHint: "Prueba con otro nombre o limpia la búsqueda.", clear: "Limpiar búsqueda",
-        offerAria: "Oferta de packs individuales", offerKicker: "OFERTA / 6 PACKS INDIVIDUALES", offerTitle: "Elige cualquier pack por 9 €.", offerText: "Cada pack incluye 30 prompts, 10 negative prompts, guías ES/EN y 4 referencias MP3.", offerCompatibility: "Elige Trap, Garage, Jungle, Hip-Hop abstracto, Dub o Noir. Payhip aplica el descuento automáticamente al pagar; no necesitas código.", offerSeparate: "Antes 15 €", offerPrice: "9 €", offerSaving: "−40 %", offerOpening: "Hasta 24.07.2026 · descuento automático", offerAction: "ELEGIR PACK · 9 €", offerSecondary: "ESCUCHAR LAS 6 DEMOS",
+        offerAria: "Packs individuales", offerKicker: "CATÁLOGO / 6 PACKS INDIVIDUALES", offerTitle: "Elige cualquier pack por 9 €.", offerText: "Cada pack incluye 30 prompts, 10 negative prompts, guías ES/EN y 4 referencias MP3.", offerCompatibility: "Elige Trap, Garage, Jungle, Hip-Hop abstracto, Dub o Noir. Precio final por pack: 9 €.", offerPrice: "9 €", offerOpening: "PRECIO ACTUAL POR PACK", offerAction: "ELEGIR PACK · 9 €", offerSecondary: "ESCUCHAR LAS 6 DEMOS",
         samplerAction: "PROBAR MUESTRA GRATIS · 0 €", samplerAria: "Recibir la muestra gratuita (abre en una pestaña nueva)"
       },
       categories: { trap: "Trap ritual", garage: "Garage oscuro", jungle: "Jungle degradado", hiphop: "Hip-Hop abstracto", dub: "Hip-Hop dub", noir: "Hip-Hop noir" },
@@ -57,8 +56,7 @@
       messages: { added: "{name} añadido al carrito.", duplicate: "Esa carpeta ya está en el carrito.", bundleContains: "El pack completo ya contiene esa carpeta.", bundleReplaced: "El pack completo ha sustituido las carpetas que ya incluía.", fileIncluded: "Este archivo se entrega dentro del ZIP." }
     },
     en: {
-      meta: { title: "SUBSUELO FS — Sound direction for instrumentals", description: "Six dark instrumental prompt packs. Each individual pack is €9 until 24 Jul 2026, reduced automatically from €15 at Payhip checkout." },
-      pricing: { individualSale: "Automatic sale until 24 Jul 2026 · was €15", bundleOpening: "Automatic sale until 24 Jul 2026 · was €59" },
+      meta: { title: "SUBSUELO FS — Sound direction for instrumentals", description: "Six dark instrumental prompt packs. Each individual pack costs €9 and the complete pack costs €49." },
       a11y: { skip: "Skip to files", app: "SUBSUELO File System", appMenu: "Application menu", path: "Current path", language: "Language", sidebar: "Archive navigation", inspector: "Details", mobileNav: "Mobile navigation" },
       titlebar: { browser: "FILE BROWSER", store: "DIGITAL STORE", open: "STORE OPEN" },
       menu: { file: "File", view: "View", play: "Play", guides: "Guides", help: "Help", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", cart: "Cart" },
@@ -67,7 +65,7 @@
       mobile: { home: "Home", pack: "Pack", demos: "Demos", help: "Help", cart: "Cart" },
       home: {
         kicker: "SUBSUELO / CATALOGUE", title: "One genre. 30 ways in.", lead: "Pick the sound you want to make. Each folder gives you 30 prompts that change the drums, bass, lead source and space while staying inside one coherent genre.", hint: "Click a folder to open it", mobileHint: "Tap a folder to open it", docs: "MORE INFORMATION", helpFile: "WHAT_EACH_FOLDER_INCLUDES.txt", demoFile: "HEAR_THE_EXAMPLES.audio", guidesFile: "PRODUCTION_GUIDES.folder", bundleFile: "COMPLETE_PACK.folder", legalFile: "LEGAL_AND_PRIVACY.folder", empty: "No results for this search.", emptyHint: "Try another name or clear the search.", clear: "Clear search",
-        offerAria: "Individual pack sale", offerKicker: "SALE / 6 INDIVIDUAL PACKS", offerTitle: "Choose any pack for €9.", offerText: "Every pack includes 30 prompts, 10 negative prompts, ES/EN guides and 4 MP3 references.", offerCompatibility: "Choose Trap, Garage, Jungle, Abstract Hip-Hop, Dub or Noir. Payhip applies the discount automatically at checkout; no code needed.", offerSeparate: "Was €15", offerPrice: "€9", offerSaving: "−40 %", offerOpening: "Until 24 Jul 2026 · automatic discount", offerAction: "CHOOSE A PACK · €9", offerSecondary: "HEAR THE 6 DEMOS",
+        offerAria: "Individual packs", offerKicker: "CATALOGUE / 6 INDIVIDUAL PACKS", offerTitle: "Choose any pack for €9.", offerText: "Every pack includes 30 prompts, 10 negative prompts, ES/EN guides and 4 MP3 references.", offerCompatibility: "Choose Trap, Garage, Jungle, Abstract Hip-Hop, Dub or Noir. Final price per pack: €9.", offerPrice: "€9", offerOpening: "CURRENT PRICE PER PACK", offerAction: "CHOOSE A PACK · €9", offerSecondary: "HEAR THE 6 DEMOS",
         samplerAction: "TRY FREE SAMPLER · €0", samplerAria: "Get the free sampler (opens in a new tab)"
       },
       categories: { trap: "Ritual trap", garage: "Dark UK garage", jungle: "Degraded jungle", hiphop: "Abstract hip-hop", dub: "Dub hip-hop", noir: "Noir hip-hop" },
@@ -111,11 +109,11 @@
         file: "PRIVACIDAD.txt",
         title: "Privacidad",
         description: "Datos tratados, finalidades, proveedores, conservación y derechos.",
-        updated: legalProfile.updated.es,
+        updated: "23 de julio de 2026",
         version: legalVersions.privacy,
         sections: [
           { title: "Responsable", paragraphs: [`El responsable del tratamiento es ${legalProfile.legalName}, NIF ${legalProfile.taxId}, con domicilio en ${legalProfile.address}. Contacto de privacidad: ${legalProfile.privacyEmail}.`] },
-          { title: "Qué datos tratamos y de dónde proceden", paragraphs: ["Podemos tratar datos de identificación y contacto, facturación, productos adquiridos, importe y estado del pago, descargas, consultas, preferencias de comunicación y datos técnicos básicos de conexión, dispositivo y seguridad. Proceden del propio usuario y de los servicios utilizados para tramitar el pedido, el pago y la entrega.", "Los datos completos de la tarjeta son tratados por el proveedor de pago habilitado. La tienda recibe la confirmación y los datos de operación necesarios para gestionar el pedido. Los datos marcados como obligatorios son necesarios para contratar; sin ellos no podremos procesar la compra."] },
+          { title: "Qué datos tratamos y de dónde proceden", paragraphs: ["Podemos tratar datos de identificación y contacto, facturación, productos adquiridos, importe y estado del pago, descargas, consultas, preferencias de comunicación y datos técnicos básicos de conexión, dispositivo y seguridad. Proceden del propio usuario y de los servicios utilizados para tramitar el pedido, el pago y la entrega.", "Los parámetros UTM que acompañan una visita se guardan localmente durante un máximo de 30 días para conservar la procedencia de la campaña entre páginas y pestañas. No se envían a un servicio de analítica en este dominio; al abrir Payhip se añaden al enlace de salida para poder atribuir allí la visita o compra.", "Los datos completos de la tarjeta son tratados por el proveedor de pago habilitado. La tienda recibe la confirmación y los datos de operación necesarios para gestionar el pedido. Los datos marcados como obligatorios son necesarios para contratar; sin ellos no podremos procesar la compra."] },
           { title: "Cuenta de cliente y acceso a compras", paragraphs: ["No hace falta crear una cuenta para comprar. Payhip solicita un correo para enviar el recibo y el enlace de descarga. De forma opcional, el comprador puede crear una cuenta de cliente para reunir sus compras en una biblioteca; una compra anterior puede vincularse desde su recibo o página de descarga.", `Esta web no guarda contraseñas ni ofrece un sistema propio de inicio de sesión. Las incidencias de acceso y descarga se atienden en ${legalProfile.supportEmail}.`] },
           { title: "Para qué y con qué base jurídica", paragraphs: ["No pedimos consentimiento para tratar los datos imprescindibles de un pedido."], list: ["Compra, pago, factura, entrega y soporte asociado: ejecución del contrato o medidas precontractuales.", "Obligaciones fiscales, contables y de consumo: cumplimiento de obligaciones legales.", "Seguridad, prevención del fraude y defensa de reclamaciones: interés legítimo en proteger la tienda y sus usuarios.", "Novedades comerciales y tecnologías no necesarias: consentimiento, revocable en cualquier momento."] },
           { title: "Comunicaciones comerciales", paragraphs: ["La compra y el marketing están separados. El checkout pide permiso mediante una casilla no premarcada a todos los compradores, con independencia de su país. No aceptar no impide comprar ni recibir el pedido. El consentimiento puede retirarse desde el enlace de baja de cada mensaje o escribiendo al contacto de privacidad."] },
@@ -162,14 +160,14 @@
         file: "COOKIES_Y_ALMACENAMIENTO.txt",
         title: "Cookies y almacenamiento",
         description: "Preferencias locales y tecnologías necesarias u opcionales de la tienda.",
-        updated: legalProfile.updated.es,
+        updated: "23 de julio de 2026",
         version: legalVersions.storage,
         sections: [
-          { title: "Qué guarda esta versión", paragraphs: ["Este sitio no instala analítica ni publicidad. Solo usa almacenamiento local del navegador con tres claves funcionales: subsuelo-language para el idioma, subsuelo-view para la vista de iconos o lista y subsuelo-cart-v5 para el contenido del carrito. No tienen caducidad automática y permanecen hasta que el usuario borra los datos del sitio. No permiten completar un pago por sí solas."] },
+          { title: "Qué guarda esta versión", paragraphs: ["Este sitio no instala analítica ni publicidad. Usa almacenamiento local del navegador con cuatro claves funcionales: subsuelo-language para el idioma, subsuelo-view para la vista de iconos o lista, subsuelo-cart-v5 para el contenido del carrito y subsuelo-attribution-v2 para conservar los parámetros UTM de la campaña de entrada.", "La atribución caduca y se elimina al superar 30 días. El idioma, la vista y el carrito permanecen hasta que el usuario borra los datos del sitio. Ninguna de estas claves permite completar un pago por sí sola."] },
           { title: "Tecnologías necesarias", paragraphs: ["Al continuar al checkout alojado de Payhip, esa plataforma y el proveedor de pago pueden utilizar cookies o tecnologías estrictamente necesarias para mantener la sesión, proteger el pago y entregar la compra. No se solicita consentimiento cuando sean indispensables para prestar el servicio pedido por el usuario."] },
-          { title: "Analítica, personalización y publicidad", paragraphs: ["Actualmente no se cargan tecnologías de analítica, personalización o publicidad en este dominio. Si se activa una herramienta no necesaria, se explicará su finalidad y se solicitará consentimiento previo cuando la ley lo exija, sin opciones premarcadas."] },
+          { title: "Analítica, personalización y publicidad", paragraphs: ["Actualmente no se cargan tecnologías de analítica, personalización o publicidad en este dominio. El cargador preparado para Umami permanece desactivado: sin un identificador de sitio no solicita scripts externos ni envía eventos. Si se activa una herramienta no necesaria, se explicará su finalidad y se solicitará consentimiento previo cuando la ley lo exija, sin opciones premarcadas."] },
           { title: "Servicios externos", paragraphs: ["Payhip y Stripe pueden utilizar tecnologías necesarias propias en sus páginas para mantener la sesión, proteger el pago y entregar la compra. El webmail y el correo profesional son prestados por OVHcloud/Zimbra."] },
-          { title: "Cómo borrar los datos", paragraphs: [`Puedes borrar cookies y almacenamiento local desde la configuración del navegador. Al hacerlo pueden desaparecer el carrito, el idioma elegido o la sesión. Contacto: ${legalProfile.privacyEmail}.`] }
+          { title: "Cómo borrar los datos", paragraphs: [`Puedes borrar cookies y almacenamiento local desde la configuración del navegador. Al hacerlo pueden desaparecer el carrito, el idioma elegido y la atribución de campaña. Contacto: ${legalProfile.privacyEmail}.`] }
         ]
       },
       refund: {
@@ -221,11 +219,11 @@
         file: "PRIVACY.txt",
         title: "Privacy",
         description: "Data, purposes, providers, retention and individual rights.",
-        updated: legalProfile.updated.en,
+        updated: "23 July 2026",
         version: legalVersions.privacy,
         sections: [
           { title: "Controller", paragraphs: [`The controller is ${legalProfile.legalName}, tax ID ${legalProfile.taxId}, registered office at ${legalProfile.address}. Privacy contact: ${legalProfile.privacyEmail}.`] },
-          { title: "Data we process and its source", paragraphs: ["We may process identification and contact details, billing information, purchased products, transaction amount and status, downloads, enquiries, communication preferences, and basic connection, device and security data. Data comes from the user and from services used to process the order, payment and delivery.", "Complete card details are handled by the enabled payment provider. The store receives payment confirmation and the transaction details needed to manage the order. Fields marked as required are needed to enter into the contract; without them, we cannot process the purchase."] },
+          { title: "Data we process and its source", paragraphs: ["We may process identification and contact details, billing information, purchased products, transaction amount and status, downloads, enquiries, communication preferences, and basic connection, device and security data. Data comes from the user and from services used to process the order, payment and delivery.", "UTM parameters accompanying a visit are stored locally for up to 30 days so campaign origin can be retained across pages and tabs. They are not sent to an analytics service on this domain; when Payhip is opened, they are added to the outbound link so that the visit or purchase can be attributed there.", "Complete card details are handled by the enabled payment provider. The store receives payment confirmation and the transaction details needed to manage the order. Fields marked as required are needed to enter into the contract; without them, we cannot process the purchase."] },
           { title: "Customer account and purchase access", paragraphs: ["No account is required to buy. Payhip asks for an email address so it can send the receipt and download link. Buyers may optionally create a customer account to keep purchases together in a library; an earlier purchase can be linked from its receipt or download page.", `This website stores no passwords and provides no sign-in system of its own. Access and download issues are handled at ${legalProfile.supportEmail}.`] },
           { title: "Purposes and legal bases", paragraphs: ["Consent is not requested for processing that is necessary to fulfil an order."], list: ["Purchase, payment, invoice, delivery and related support: performance of the contract or pre-contractual steps.", "Tax, accounting and consumer obligations: compliance with legal duties.", "Security, fraud prevention and defence of claims: legitimate interest in protecting the store and its users.", "Marketing updates and non-essential technologies: consent, which may be withdrawn at any time."] },
           { title: "Marketing communications", paragraphs: ["Purchasing and marketing are separate. Checkout asks every buyer for permission through an unticked box, regardless of country. Refusing does not prevent a purchase or delivery. Consent can be withdrawn through the unsubscribe link in each message or by writing to the privacy contact."] },
@@ -272,14 +270,14 @@
         file: "COOKIES_AND_STORAGE.txt",
         title: "Cookies and storage",
         description: "Local preferences and necessary or optional store technologies.",
-        updated: legalProfile.updated.en,
+        updated: "23 July 2026",
         version: legalVersions.storage,
         sections: [
-          { title: "What this version stores", paragraphs: ["This website installs no analytics or advertising. It only uses three functional browser-local-storage keys: subsuelo-language for the language, subsuelo-view for icon or list view, and subsuelo-cart-v5 for cart contents. They have no automatic expiry and remain until the user clears site data. They cannot complete a payment by themselves."] },
+          { title: "What this version stores", paragraphs: ["This website installs no analytics or advertising. It uses four functional browser-local-storage keys: subsuelo-language for the language, subsuelo-view for icon or list view, subsuelo-cart-v5 for cart contents, and subsuelo-attribution-v2 to retain incoming campaign UTM parameters.", "Attribution expires and is removed after 30 days. Language, view and cart data remain until the user clears site data. None of these keys can complete a payment by itself."] },
           { title: "Necessary technologies", paragraphs: ["When continuing to Payhip's hosted checkout, that platform and the payment provider may use strictly necessary cookies or similar technologies to maintain the session, secure payment and deliver the purchase. Consent is not requested where they are essential to provide the service requested by the user."] },
-          { title: "Analytics, personalisation and advertising", paragraphs: ["No analytics, personalisation or advertising technologies currently load on this domain. If a non-essential tool is enabled, its purpose will be explained and prior consent requested where the law requires it, with no option pre-selected."] },
+          { title: "Analytics, personalisation and advertising", paragraphs: ["No analytics, personalisation or advertising technologies currently load on this domain. The prepared Umami loader remains disabled: without a website ID it requests no external script and sends no events. If a non-essential tool is enabled, its purpose will be explained and prior consent requested where the law requires it, with no option pre-selected."] },
           { title: "External services", paragraphs: ["Payhip and Stripe may use necessary technologies on their own pages to maintain the session, secure payment and deliver the purchase. Professional webmail and email are provided by OVHcloud/Zimbra."] },
-          { title: "Removing stored data", paragraphs: [`Cookies and local storage can be removed through browser settings. Doing so may clear the cart, selected language or active session. Contact: ${legalProfile.privacyEmail}.`] }
+          { title: "Removing stored data", paragraphs: [`Cookies and local storage can be removed through browser settings. Doing so may clear the cart, selected language and campaign attribution. Contact: ${legalProfile.privacyEmail}.`] }
         ]
       },
       refund: {
@@ -314,15 +312,15 @@
 
   // Añadir una carpeta aquí actualiza automáticamente navegación, filtros y totales del pack.
   const catalog = [
-    { id: "trap", sku: "TRAP-RITUAL", name: "Trap Ritual", price: 9, originalPrice: 15, tone: "#713d46", tags: ["trap"], category: { es: "Trap ritual", en: "Ritual trap" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 formas distintas de construir trap ritual oscuro. Cambian la batería, el movimiento del 808, la fuente principal y el espacio sin salir de la misma familia sonora.", en: "30 distinct routes into dark ritual trap. The drum pocket, 808 movement, lead source and space change from prompt to prompt without leaving the genre." }, demo: { title: "Ash Circle", src: "./audio/trap-ritual-ash-circle-preview.mp3", durationLabel: "00:30", files: ["001_ASH_CIRCLE_A.mp3", "001_ASH_CIRCLE_B.mp3", "018_SMOKE_SCRIPT_A.mp3", "018_SMOKE_SCRIPT_B.mp3"] } },
-    { id: "garage", sku: "GARAJE-OSCURO", name: "Garaje Oscuro", price: 9, originalPrice: 15, tone: "#425763", tags: ["garage"], category: { es: "Garage oscuro", en: "Dark UK garage" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de UK garage oscuro con patrones 2-step, swing humano, subgrave y ambiente urbano. Cada una cambia la batería, el bajo, el motivo y el espacio.", en: "30 dark UK garage beats built on 2-step patterns, human swing, sub-bass and urban space. Each prompt changes the drums, bass movement, main motif and use of space." }, demo: { title: "Alley Pressure", src: "./audio/garaje-oscuro-alley-pressure-preview.mp3", durationLabel: "00:30", files: ["001_ALLEY_PRESSURE_A.mp3", "001_ALLEY_PRESSURE_B.mp3", "021_DUBBED_CORNER_A.mp3", "021_DUBBED_CORNER_B.mp3"] } },
-    { id: "jungle", sku: "FOSSIL-JUNGLE", name: "Fossil Jungle", price: 9, originalPrice: 15, tone: "#66705a", tags: ["jungle"], category: { es: "Jungle degradado", en: "Degraded jungle" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 piezas de jungle oscuro y degradado. Cambian la arquitectura de la batería, el comportamiento del bajo, la fuente de la muestra y el espacio.", en: "30 pieces of dark, degraded jungle. Break architecture, bass behaviour, sample source and space change from one prompt to the next while the genre stays intact." }, demo: { title: "Limestone Roll", src: "./audio/fossil-jungle-limestone-roll-preview.mp3", durationLabel: "00:30", files: ["001_LIMESTONE_ROLL_A.mp3", "001_LIMESTONE_ROLL_B.mp3", "020_CAVERN_CASSETTE_A.mp3", "020_CAVERN_CASSETTE_B.mp3"] } },
-    { id: "low", sku: "LOW-PRESSURE", name: "Low Pressure", price: 9, originalPrice: 15, tone: "#b34b35", tags: ["hiphop"], category: { es: "Hip-Hop abstracto", en: "Abstract hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases pesadas, oscuras y texturales. Cada propuesta cambia la batería, el bajo, la fuente sonora o el espacio sin salir del hip-hop experimental abstracto.", en: "30 heavy, dark and textural abstract hip-hop beats. Each prompt changes the drums, bass, sound source or space while staying rooted in abstract experimental hip-hop." }, demo: { title: "Concrete Pulse", src: "./audio/low-pressure-concrete-pulse-preview.mp3", durationLabel: "00:30", files: ["001_CONCRETE_PULSE_A.mp3", "001_CONCRETE_PULSE_B.mp3", "019_CRACKED_RELAY_A.mp3", "019_CRACKED_RELAY_B.mp3"] } },
-    { id: "abyss", sku: "ABYSS-DUB", name: "Abyss Dub", price: 9, originalPrice: 15, tone: "#596352", tags: ["dub"], category: { es: "Hip-Hop dub", en: "Dub hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop dub oscuro con batería de rap, subgrave enorme, acordes aislados y ecos profundos. Cambian el patrón, el bajo y la forma de mezclar el espacio.", en: "30 dark dub-inflected hip-hop beats with rap drums, immense sub-bass, isolated chords and deep echoes. The pocket, bass movement and use of space change across the folder." }, demo: { title: "Deep Chamber", src: "./audio/abyss-dub-deep-chamber-preview.mp3", durationLabel: "00:30", files: ["001_DEEP_CHAMBER_A.mp3", "001_DEEP_CHAMBER_B.mp3", "014_OCEAN_FLOOR_BREAK_A.mp3", "014_OCEAN_FLOOR_BREAK_B.mp3"] } },
-    { id: "noir", sku: "NOIR-TAPES", name: "Noir Tapes", price: 9, originalPrice: 15, tone: "#705e6b", tags: ["noir"], category: { es: "Hip-Hop noir", en: "Noir hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop noir y boom bap abstracto construidas con muestras. Cambian el corte de batería, el bajo, la fuente y el tratamiento de cinta.", en: "30 sample-based noir hip-hop and abstract boom-bap beats. Each prompt changes the drum cut, bass, source material or tape treatment without leaving the collection's core sound." }, demo: { title: "Rain Evidence", src: "./audio/noir-tapes-rain-evidence-preview.mp3", durationLabel: "00:30", files: ["001_RAIN_EVIDENCE_A.mp3", "001_RAIN_EVIDENCE_B.mp3", "029_BURNT_ARCHIVE_A.mp3", "029_BURNT_ARCHIVE_B.mp3"] } }
+    { id: "trap", sku: "TRAP-RITUAL", name: "Trap Ritual", price: 9, tone: "#713d46", tags: ["trap"], category: { es: "Trap ritual", en: "Ritual trap" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 formas distintas de construir trap ritual oscuro. Cambian la batería, el movimiento del 808, la fuente principal y el espacio sin salir de la misma familia sonora.", en: "30 distinct routes into dark ritual trap. The drum pocket, 808 movement, lead source and space change from prompt to prompt without leaving the genre." }, demo: { title: "Ash Circle", src: "./audio/trap-ritual-ash-circle-preview.mp3", durationLabel: "00:30", files: ["001_ASH_CIRCLE_A.mp3", "001_ASH_CIRCLE_B.mp3", "018_SMOKE_SCRIPT_A.mp3", "018_SMOKE_SCRIPT_B.mp3"] } },
+    { id: "garage", sku: "GARAJE-OSCURO", name: "Garaje Oscuro", price: 9, tone: "#425763", tags: ["garage"], category: { es: "Garage oscuro", en: "Dark UK garage" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de UK garage oscuro con patrones 2-step, swing humano, subgrave y ambiente urbano. Cada una cambia la batería, el bajo, el motivo y el espacio.", en: "30 dark UK garage beats built on 2-step patterns, human swing, sub-bass and urban space. Each prompt changes the drums, bass movement, main motif and use of space." }, demo: { title: "Alley Pressure", src: "./audio/garaje-oscuro-alley-pressure-preview.mp3", durationLabel: "00:30", files: ["001_ALLEY_PRESSURE_A.mp3", "001_ALLEY_PRESSURE_B.mp3", "021_DUBBED_CORNER_A.mp3", "021_DUBBED_CORNER_B.mp3"] } },
+    { id: "jungle", sku: "FOSSIL-JUNGLE", name: "Fossil Jungle", price: 9, tone: "#66705a", tags: ["jungle"], category: { es: "Jungle degradado", en: "Degraded jungle" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 piezas de jungle oscuro y degradado. Cambian la arquitectura de la batería, el comportamiento del bajo, la fuente de la muestra y el espacio.", en: "30 pieces of dark, degraded jungle. Break architecture, bass behaviour, sample source and space change from one prompt to the next while the genre stays intact." }, demo: { title: "Limestone Roll", src: "./audio/fossil-jungle-limestone-roll-preview.mp3", durationLabel: "00:30", files: ["001_LIMESTONE_ROLL_A.mp3", "001_LIMESTONE_ROLL_B.mp3", "020_CAVERN_CASSETTE_A.mp3", "020_CAVERN_CASSETTE_B.mp3"] } },
+    { id: "low", sku: "LOW-PRESSURE", name: "Low Pressure", price: 9, tone: "#b34b35", tags: ["hiphop"], category: { es: "Hip-Hop abstracto", en: "Abstract hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases pesadas, oscuras y texturales. Cada propuesta cambia la batería, el bajo, la fuente sonora o el espacio sin salir del hip-hop experimental abstracto.", en: "30 heavy, dark and textural abstract hip-hop beats. Each prompt changes the drums, bass, sound source or space while staying rooted in abstract experimental hip-hop." }, demo: { title: "Concrete Pulse", src: "./audio/low-pressure-concrete-pulse-preview.mp3", durationLabel: "00:30", files: ["001_CONCRETE_PULSE_A.mp3", "001_CONCRETE_PULSE_B.mp3", "019_CRACKED_RELAY_A.mp3", "019_CRACKED_RELAY_B.mp3"] } },
+    { id: "abyss", sku: "ABYSS-DUB", name: "Abyss Dub", price: 9, tone: "#596352", tags: ["dub"], category: { es: "Hip-Hop dub", en: "Dub hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop dub oscuro con batería de rap, subgrave enorme, acordes aislados y ecos profundos. Cambian el patrón, el bajo y la forma de mezclar el espacio.", en: "30 dark dub-inflected hip-hop beats with rap drums, immense sub-bass, isolated chords and deep echoes. The pocket, bass movement and use of space change across the folder." }, demo: { title: "Deep Chamber", src: "./audio/abyss-dub-deep-chamber-preview.mp3", durationLabel: "00:30", files: ["001_DEEP_CHAMBER_A.mp3", "001_DEEP_CHAMBER_B.mp3", "014_OCEAN_FLOOR_BREAK_A.mp3", "014_OCEAN_FLOOR_BREAK_B.mp3"] } },
+    { id: "noir", sku: "NOIR-TAPES", name: "Noir Tapes", price: 9, tone: "#705e6b", tags: ["noir"], category: { es: "Hip-Hop noir", en: "Noir hip-hop" }, counts: { prompts: 30, negatives: 10, demos: 4 }, description: { es: "30 bases de hip-hop noir y boom bap abstracto construidas con muestras. Cambian el corte de batería, el bajo, la fuente y el tratamiento de cinta.", en: "30 sample-based noir hip-hop and abstract boom-bap beats. Each prompt changes the drum cut, bass, source material or tape treatment without leaving the collection's core sound." }, demo: { title: "Rain Evidence", src: "./audio/noir-tapes-rain-evidence-preview.mp3", durationLabel: "00:30", files: ["001_RAIN_EVIDENCE_A.mp3", "001_RAIN_EVIDENCE_B.mp3", "029_BURNT_ARCHIVE_A.mp3", "029_BURNT_ARCHIVE_B.mp3"] } }
   ];
 
-  // Public prompt 001 selections from the approved free sampler.
+  // Public prompt 001 selections included in the free sampler.
   const samplerProofs = Object.freeze({
     trap: Object.freeze({
       title: "ASH CIRCLE",
@@ -414,29 +412,53 @@
   });
 
   const catalogueTotals = catalog.reduce((totals, item) => ({ prompts: totals.prompts + item.counts.prompts, negatives: totals.negatives + item.counts.negatives }), { prompts: 0, negatives: 0 });
-  const archive = { id: "archive", sku: "COMPLETE-PACK", name: { es: "Pack completo", en: "Complete pack" }, price: 49, originalPrice: 59, tone: "#a44730", bundle: true, members: catalog.map((item) => item.id), description: { es: `Todo el catálogo en un solo ZIP: ${catalogueTotals.prompts} prompts y ${catalogueTotals.negatives} negative prompts.`, en: `The full catalogue in one ZIP: ${catalogueTotals.prompts} prompts and ${catalogueTotals.negatives} negative prompts.` } };
+  const archive = { id: "archive", sku: "COMPLETE-PACK", name: { es: "Pack completo", en: "Complete pack" }, price: 49, tone: "#a44730", bundle: true, members: catalog.map((item) => item.id), description: { es: `Todo el catálogo en un solo ZIP: ${catalogueTotals.prompts} prompts y ${catalogueTotals.negatives} negative prompts.`, en: `The full catalogue in one ZIP: ${catalogueTotals.prompts} prompts and ${catalogueTotals.negatives} negative prompts.` } };
   const separateCataloguePrice = catalog.reduce((total, product) => total + product.price, 0);
   const archiveSaving = separateCataloguePrice - archive.price;
   const payhipProductKeys = Object.freeze({ trap: "0GiEq", garage: "HunFY", jungle: "LmWUN", low: "LrzFf", abyss: "TxsAr", noir: "8sFfE", archive: "SPXoI" });
-  const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+  const attributionStorageKey = "subsuelo-attribution-v2";
+  const attributionMaxAge = 30 * 24 * 60 * 60 * 1000;
+  const attributionValue = (value) => typeof value === "string"
+    ? value.trim().toLowerCase().replace(/[^a-z0-9._-]+/gu, "_").replace(/^_+|_+$/gu, "").slice(0, 60)
+    : "";
   const attribution = (() => {
     const incoming = new URLSearchParams(window.location.search);
-    let stored = {};
-    try { stored = JSON.parse(sessionStorage.getItem("subsuelo-attribution-v1") || "{}"); } catch { stored = {}; }
-    const next = { ...stored };
+    let stored = null;
+    try {
+      const candidate = JSON.parse(localStorage.getItem(attributionStorageKey) || "null");
+      if (candidate?.updatedAt > Date.now() - attributionMaxAge && candidate.values && typeof candidate.values === "object") {
+        stored = candidate;
+      } else if (candidate) {
+        localStorage.removeItem(attributionStorageKey);
+      }
+    } catch { stored = null; }
+    const next = { ...(stored?.values || {}) };
+    let hasIncomingAttribution = false;
     attributionKeys.forEach((key) => {
-      const value = incoming.get(key)?.trim();
-      if (value) next[key] = value.slice(0, 120);
+      const value = attributionValue(incoming.get(key));
+      if (value) {
+        next[key] = value;
+        hasIncomingAttribution = true;
+      }
     });
-    try { sessionStorage.setItem("subsuelo-attribution-v1", JSON.stringify(next)); } catch { /* unavailable */ }
+    if (hasIncomingAttribution || stored) {
+      try { localStorage.setItem(attributionStorageKey, JSON.stringify({ updatedAt: hasIncomingAttribution ? Date.now() : stored.updatedAt, values: next })); } catch { /* unavailable */ }
+    }
     return Object.freeze(next);
   })();
-  const attributedPayhipUrl = (url, fallbackCampaign) => {
+  const originalAttribution = () => attributionKeys
+    .map((key) => attribution[key])
+    .filter(Boolean)
+    .join(".");
+  const attributedPayhipUrl = (url, campaign, content = "") => {
     const target = new URL(url);
-    target.searchParams.set("utm_source", attribution.utm_source || "subsuelofs");
-    target.searchParams.set("utm_medium", attribution.utm_medium || "website");
-    target.searchParams.set("utm_campaign", attribution.utm_campaign || fallbackCampaign);
-    ["utm_content", "utm_term"].forEach((key) => { if (attribution[key]) target.searchParams.set(key, attribution[key]); });
+    target.searchParams.set("utm_source", "subsuelofs");
+    target.searchParams.set("utm_medium", "website");
+    target.searchParams.set("utm_campaign", attributionValue(campaign) || "outbound");
+    if (content) target.searchParams.set("utm_content", attributionValue(content));
+    const origin = originalAttribution();
+    if (origin) target.searchParams.set("utm_term", origin.slice(0, 120));
     return target.toString();
   };
   const freeSampler = Object.freeze({
@@ -445,32 +467,32 @@
     negatives: 7,
     demos: 6
   });
-  const customerAccountUrl = "https://payhip.com/subsuelofs/b-account";
+  const customerAccountUrl = attributedPayhipUrl("https://payhip.com/subsuelofs/b-account", "customer_account");
   const products = Object.fromEntries([...catalog, archive].map((product) => [product.id, { ...product, payhipKey: payhipProductKeys[product.id] }]));
   const productSeo = Object.freeze({
     trap: {
-      es: { title: "Trap Ritual: 30 prompts de trap oscuro | SUBSUELO FS", description: "30 direcciones de trap ritual oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €." },
-      en: { title: "Trap Ritual: 30 dark trap prompts | SUBSUELO FS", description: "30 dark ritual trap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15." }
+      es: { title: "Trap Ritual: 30 prompts de trap oscuro | SUBSUELO FS", description: "30 direcciones de trap ritual oscuro, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €." },
+      en: { title: "Trap Ritual: 30 dark trap prompts | SUBSUELO FS", description: "30 dark ritual trap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9." }
     },
     garage: {
-      es: { title: "Garaje Oscuro: 30 prompts de UK garage | SUBSUELO FS", description: "30 direcciones de UK garage oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €." },
-      en: { title: "Garaje Oscuro: 30 dark UK garage prompts | SUBSUELO FS", description: "30 dark UK garage prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15." }
+      es: { title: "Garaje Oscuro: 30 prompts de UK garage | SUBSUELO FS", description: "30 direcciones de UK garage oscuro, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €." },
+      en: { title: "Garaje Oscuro: 30 dark UK garage prompts | SUBSUELO FS", description: "30 dark UK garage prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9." }
     },
     jungle: {
-      es: { title: "Fossil Jungle: 30 prompts de jungle oscuro | SUBSUELO FS", description: "30 direcciones de jungle oscuro y degradado, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €." },
-      en: { title: "Fossil Jungle: 30 dark jungle prompts | SUBSUELO FS", description: "30 dark degraded jungle prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15." }
+      es: { title: "Fossil Jungle: 30 prompts de jungle oscuro | SUBSUELO FS", description: "30 direcciones de jungle oscuro y degradado, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €." },
+      en: { title: "Fossil Jungle: 30 dark jungle prompts | SUBSUELO FS", description: "30 dark degraded jungle prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9." }
     },
     low: {
-      es: { title: "Low Pressure: 30 prompts de hip-hop abstracto | SUBSUELO FS", description: "30 direcciones de hip-hop abstracto, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €." },
-      en: { title: "Low Pressure: 30 abstract hip-hop prompts | SUBSUELO FS", description: "30 dark abstract hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15." }
+      es: { title: "Low Pressure: 30 prompts de hip-hop abstracto | SUBSUELO FS", description: "30 direcciones de hip-hop abstracto, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €." },
+      en: { title: "Low Pressure: 30 abstract hip-hop prompts | SUBSUELO FS", description: "30 dark abstract hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9." }
     },
     abyss: {
-      es: { title: "Abyss Dub: 30 prompts de hip-hop dub | SUBSUELO FS", description: "30 direcciones de hip-hop dub oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €." },
-      en: { title: "Abyss Dub: 30 dark dub hip-hop prompts | SUBSUELO FS", description: "30 dark dub hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15." }
+      es: { title: "Abyss Dub: 30 prompts de hip-hop dub | SUBSUELO FS", description: "30 direcciones de hip-hop dub oscuro, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €." },
+      en: { title: "Abyss Dub: 30 dark dub hip-hop prompts | SUBSUELO FS", description: "30 dark dub hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9." }
     },
     noir: {
-      es: { title: "Noir Tapes: 30 prompts de hip-hop noir | SUBSUELO FS", description: "30 direcciones de hip-hop noir y boom bap, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €." },
-      en: { title: "Noir Tapes: 30 noir hip-hop prompts | SUBSUELO FS", description: "30 noir hip-hop and abstract boom-bap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15." }
+      es: { title: "Noir Tapes: 30 prompts de hip-hop noir | SUBSUELO FS", description: "30 direcciones de hip-hop noir y boom bap, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €." },
+      en: { title: "Noir Tapes: 30 noir hip-hop prompts | SUBSUELO FS", description: "30 noir hip-hop and abstract boom-bap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9." }
     }
   });
   const legalOrder = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
@@ -484,9 +506,7 @@
   const get = (object, path) => path.split(".").reduce((value, key) => value?.[key], object);
   const interpolate = (value, values = {}) => String(value).replace(/\{(\w+)\}/g, (_, key) => values[key] ?? `{${key}}`);
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char]);
-  const trackEvent = (name, data = {}) => {
-    if (typeof window.umami?.track === "function") window.umami.track(name, data);
-  };
+  const trackEvent = (name, data = {}) => window.SUBSUELO_TRACK?.(name, data);
 
   let language = "es";
   let viewMode = "grid";
@@ -503,6 +523,7 @@
   let lastTrackId = null;
   let lastRenderedRoute = null;
   const trackedDemoIds = new Set();
+  const completedDemoIds = new Set();
 
   try {
     const savedLanguage = localStorage.getItem("subsuelo-language");
@@ -519,8 +540,6 @@
   const productName = (product) => typeof product?.name === "object" ? product.name[language] : product?.name || "";
   const categoryName = (category) => catalog.find((product) => product.tags.includes(category))?.category?.[language] || category;
   const price = (value) => new Intl.NumberFormat(language === "es" ? "es-ES" : "en-GB", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(value);
-  const openingPriceNote = (modifier = "") => `<span class="opening-price-note${modifier ? ` opening-price-note--${modifier}` : ""}">${t("pricing.individualSale")}</span>`;
-  const bundleOpeningPriceNote = (modifier = "") => `<span class="opening-price-note${modifier ? ` opening-price-note--${modifier}` : ""}">${t("pricing.bundleOpening")}</span>`;
   const recoveredPath = () => {
     const route = new URLSearchParams(location.search).get("__route");
     return route && route.startsWith("/") && !route.startsWith("//") ? route : null;
@@ -588,8 +607,8 @@
       return { ...seo, canonicalPath: localizedPath(`/product/${product.id}/`, route.locale), type: "product" };
     }
     if (route.type === "bundle") return language === "es"
-      ? { title: `Pack completo: 180 prompts para instrumentales | ${legalProfile.brand}`, description: `Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Oferta automática: ${price(archive.price)} hasta 24.07.2026; antes ${price(archive.originalPrice)}.`, canonicalPath: localizedPath("/bundle/", route.locale), type: "product" }
-      : { title: `180 dark music prompts: complete pack | ${legalProfile.brand}`, description: `All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. Automatic sale: ${price(archive.price)} until 24 Jul 2026; was ${price(archive.originalPrice)}.`, canonicalPath: localizedPath("/bundle/", route.locale), type: "product" };
+      ? { title: `Pack completo: 180 prompts para instrumentales | ${legalProfile.brand}`, description: `Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Precio: ${price(archive.price)}.`, canonicalPath: localizedPath("/bundle/", route.locale), type: "product" }
+      : { title: `180 dark music prompts: complete pack | ${legalProfile.brand}`, description: `All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. Price: ${price(archive.price)}.`, canonicalPath: localizedPath("/bundle/", route.locale), type: "product" };
     if (route.type === "demos") return language === "es"
       ? { title: `Demos de instrumentales oscuras | ${legalProfile.brand}`, description: "Escucha una muestra de trap ritual, UK garage oscuro, jungle degradado, hip-hop abstracto, dub y noir antes de elegir una carpeta.", canonicalPath: localizedPath("/demos/", route.locale), type: "website" }
       : { title: `Dark instrumental prompt demos | ${legalProfile.brand}`, description: "Listen to audio examples for ritual trap, dark UK garage, degraded jungle, abstract hip-hop, dub and noir before choosing a prompt collection.", canonicalPath: localizedPath("/demos/", route.locale), type: "website" };
@@ -599,8 +618,8 @@
     if (route.type === "category") return { title: `${categoryName(route.category)} | ${legalProfile.brand}`, description: t("meta.description"), canonicalPath: routePath(route), type: "website" };
     if (route.type === "legal") return { title: `${breadcrumbData(route).at(-1)?.label || "Legal"} | ${legalProfile.brand}`, description: t("meta.description"), canonicalPath: routePath(route), type: "website" };
     return language === "es"
-      ? { title: `Prompts para instrumentales oscuras | ${legalProfile.brand}`, description: "Seis packs de prompts para instrumentales oscuras. Cada pack individual cuesta 9 € hasta el 24/07/2026; Payhip lo rebaja automáticamente desde 15 €.", canonicalPath: localizedPath("/", route.locale), type: "website" }
-      : { title: `Music prompts for dark instrumentals | ${legalProfile.brand}`, description: "Six dark instrumental prompt packs. Each individual pack is €9 until 24 Jul 2026, reduced automatically from €15 at Payhip checkout.", canonicalPath: localizedPath("/", route.locale), type: "website" };
+      ? { title: `Prompts para instrumentales oscuras | ${legalProfile.brand}`, description: "Seis packs de prompts para instrumentales oscuras. Cada pack individual cuesta 9 € y el pack completo cuesta 49 €.", canonicalPath: localizedPath("/", route.locale), type: "website" }
+      : { title: `Music prompts for dark instrumentals | ${legalProfile.brand}`, description: "Six dark instrumental prompt packs. Each individual pack costs €9 and the complete pack costs €49.", canonicalPath: localizedPath("/", route.locale), type: "website" };
   };
 
   const syncRouteMetadata = (route) => {
@@ -638,7 +657,6 @@
     historyCursor = appHistory.length - 1;
     history.pushState({ appIndex: historyCursor, route: normalized }, "", normalized);
     const nextRoute = parseRoute(normalized);
-    if (nextRoute.type === "product") trackEvent("pack_open", { pack: nextRoute.id });
     selectedFile = null;
     renderRoute();
     closeSidebar();
@@ -705,7 +723,7 @@
     $("[data-breadcrumb]").innerHTML = items.map((item, index) => {
       const href = routeHref(item.route);
       const target = parseRoute(href);
-      const crawlable = target.type === "home" || target.type === "demos" || target.type === "bundle" || target.type === "help" || (target.type === "product" && !target.section);
+      const crawlable = target.type === "home" || target.type === "demos" || target.type === "bundle" || target.type === "help" || target.type === "legal" || (target.type === "product" && !target.section);
       return crawlable
         ? `<a class="breadcrumb-button" href="${escapeHtml(href)}" data-route="${escapeHtml(href)}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a>`
         : `<button class="breadcrumb-button" type="button" data-route="${escapeHtml(href)}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</button>`;
@@ -736,7 +754,7 @@
       `<a class="tree-item" href="${localizedPath("/guides/", language)}"><span class="tree-icon tree-icon--folder"></span><span>${t("sidebar.guides")}</span></a>`,
       treeItem({ route: "/help", label: t("sidebar.help"), icon: "doc", current: route.type === "help", crawlable: true }),
       `<a class="tree-item" href="${customerAccountUrl}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(t("sidebar.purchasesAria"))}"><span class="tree-icon tree-icon--doc"></span><span>${t("sidebar.purchases")}</span><small>↗</small></a>`,
-      treeItem({ route: "/legal", label: t("sidebar.legalFolder"), icon: "folder", count: legalOrder.length, current: route.type === "legal" }),
+      treeItem({ route: "/legal", label: t("sidebar.legalFolder"), icon: "folder", count: legalOrder.length, current: route.type === "legal", crawlable: true }),
       `<button class="tree-item" type="button" data-open-cart><span class="cart-icon"></span><span>${t("sidebar.cart")}</span><small>${cart.length}</small></button>`,
       `<a class="tree-item" href="${legalProfile.xUrl}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(t("sidebar.xAria"))}"><span class="tree-icon tree-icon--doc"></span><span>@subsuelofs</span><small>X</small></a>`
     ].join("");
@@ -745,9 +763,9 @@
   const folderMarkup = (product) => {
     const name = productName(product);
     const detail = product.bundle ? t("bundle.folderCount", { count: product.members.length }) : `${categoryName(product.tags[0])} · ${t("inspector.prompts", { count: product.counts.prompts })}`;
-    const label = product.bundle ? `${name}. ${detail}. ${price(product.price)}` : `${name}. ${detail}. ${price(product.price)}; ${t("pricing.individualSale")}`;
+    const label = `${name}. ${detail}. ${price(product.price)}`;
     const href = routeHref(product.bundle ? "/bundle/" : `/product/${product.id}/`);
-    const priceMarkup = product.bundle ? price(product.price) : `<s>${price(product.originalPrice)}</s><b>${price(product.price)}</b>`;
+    const priceMarkup = `<b>${price(product.price)}</b>`;
     return `<a class="folder-item ${selectedProductId === product.id ? "is-selected" : ""}" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(label)}"><span class="folder-icon ${product.bundle ? "folder-icon--bundle" : ""}" style="--tone:${product.tone}"></span><strong>${escapeHtml(name)}</strong><small>${escapeHtml(detail)}</small><span class="folder-list-price">${priceMarkup}</span></a>`;
   };
 
@@ -768,8 +786,9 @@
     const demosHref = routeHref("/demos/");
     const bundleHref = routeHref("/bundle/");
     const guidesHref = localizedPath("/guides/", language);
-    const offer = `<section class="home-offer" aria-label="${escapeHtml(t("home.offerAria"))}"><span class="folder-icon home-offer__icon" style="--tone:#a44730" aria-hidden="true"></span><div class="home-offer__copy"><p>${t("home.offerKicker")}</p><h2>${t("home.offerTitle")}</h2><p>${t("home.offerText")}</p><small>${t("home.offerCompatibility")}</small></div><div class="home-offer__buy"><div class="home-offer__price"><s>${t("home.offerSeparate")}</s><strong>${t("home.offerPrice")}</strong><b>${t("home.offerSaving")}</b><span>${t("home.offerOpening")}</span></div><a class="home-offer__primary" href="#packs-en-oferta">${t("home.offerAction")}</a><a class="home-offer__secondary" href="${demosHref}" data-route="${demosHref}">${t("home.offerSecondary")}</a></div></section>`;
-    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${offer}${openingPriceNote("catalog")}${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><a class="system-file" href="${helpHref}" data-route="${helpHref}"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></a><a class="system-file" href="${demosHref}" data-route="${demosHref}"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></a><a class="system-file" href="${guidesHref}" data-editorial-path="/guides/"><span class="row-folder-icon"></span><strong>${t("home.guidesFile")}</strong></a><a class="system-file" href="${bundleHref}" data-route="${bundleHref}"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></a><button class="system-file" type="button" data-route="${routeHref("/legal")}"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></button></div></section>`;
+    const offer = `<section class="home-offer" aria-label="${escapeHtml(t("home.offerAria"))}"><span class="folder-icon home-offer__icon" style="--tone:#a44730" aria-hidden="true"></span><div class="home-offer__copy"><p>${t("home.offerKicker")}</p><h2>${t("home.offerTitle")}</h2><p>${t("home.offerText")}</p><small>${t("home.offerCompatibility")}</small></div><div class="home-offer__buy"><div class="home-offer__price"><strong>${t("home.offerPrice")}</strong><span>${t("home.offerOpening")}</span></div><a class="home-offer__primary" href="#packs-en-oferta">${t("home.offerAction")}</a><a class="home-offer__secondary" href="${demosHref}" data-route="${demosHref}">${t("home.offerSecondary")}</a></div></section>`;
+    const legalHref = routeHref("/legal/");
+    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${offer}${folders}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><a class="system-file" href="${helpHref}" data-route="${helpHref}"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></a><a class="system-file" href="${demosHref}" data-route="${demosHref}"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></a><a class="system-file" href="${guidesHref}" data-editorial-path="/guides/"><span class="row-folder-icon"></span><strong>${t("home.guidesFile")}</strong></a><a class="system-file" href="${bundleHref}" data-route="${bundleHref}"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></a><a class="system-file" href="${legalHref}" data-route="${legalHref}"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></a></div></section>`;
   };
 
   const bundleCounts = () => archive.members.map((id) => products[id]).reduce((sum, product) => ({ prompts: sum.prompts + product.counts.prompts, negatives: sum.negatives + product.counts.negatives, demos: sum.demos + product.counts.demos }), { prompts: 0, negatives: 0, demos: 0 });
@@ -823,7 +842,7 @@
     return `<div class="file-details"><div class="file-details__icon">${icon}</div><h2>${escapeHtml(definition.name)}</h2><p>${escapeHtml(definition.description)}</p><dl><div><dt>${t("product.format")}</dt><dd>${escapeHtml(definition.format)}</dd></div><div><dt>${t("product.language")}</dt><dd>${escapeHtml(definition.language)}</dd></div><div><dt>${t("product.content")}</dt><dd>${accessLabel}</dd></div></dl><div class="availability"><strong>${availabilityTitle}</strong><span>${availabilityText}</span></div>${actions}</div>`;
   };
 
-  const productBanner = (product) => `<section class="product-banner" style="--tone:${product.tone}"><div class="product-banner__art"></div><div><p class="kicker">${t("product.edition")} / ${escapeHtml(categoryName(product.tags[0]))}</p><h1>${escapeHtml(productName(product))}</h1><p>${escapeHtml(product.description[language])}</p></div><div class="product-banner__buy"><div class="product-banner__price"><s>${language === "en" ? "Was" : "Antes"} ${price(product.originalPrice)}</s><strong>${price(product.price)}</strong>${openingPriceNote()}</div><div class="product-banner__actions"><button type="button" data-play="${product.id}">${t("product.play")}</button><button class="primary-action" type="button" data-buy="${product.id}">${t("product.buy")} · ${price(product.price)}</button></div><a class="product-banner__sampler" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${t("product.sampler")} ↗</a></div></section>`;
+  const productBanner = (product) => `<section class="product-banner" style="--tone:${product.tone}"><div class="product-banner__art"></div><div><p class="kicker">${t("product.edition")} / ${escapeHtml(categoryName(product.tags[0]))}</p><h1>${escapeHtml(productName(product))}</h1><p>${escapeHtml(product.description[language])}</p></div><div class="product-banner__buy"><div class="product-banner__price"><strong>${price(product.price)}</strong></div><div class="product-banner__actions"><button type="button" data-play="${product.id}">${t("product.play")}</button><button class="primary-action" type="button" data-buy="${product.id}">${t("product.buy")} · ${price(product.price)}</button></div><a class="product-banner__sampler" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${t("product.sampler")} ↗</a></div></section>`;
 
   const promptProofView = (product) => {
     const proof = samplerProofs[product.id];
@@ -837,14 +856,21 @@
     const label = type === "audio" ? "AUDIO" : type === "pdf" ? "PDF" : "TXT";
     return `<span class="file-icon ${type === "pdf" ? "file-icon--pdf" : type === "audio" ? "file-icon--audio" : "file-icon--text"}">${label}</span>`;
   };
-  const fileRow = ({ name, type, description, availability, route, action, productId, fileKey, entry, playId, disabled = false }) => `<button class="file-row ${selectedFile?.key === fileKey && selectedFile?.entry === entry ? "is-selected" : ""}" type="button" ${route ? `data-open-node="${escapeHtml(route)}"` : ""} ${playId ? `data-play="${playId}"` : ""} ${productId ? `data-file-product="${productId}" data-file-key="${fileKey}" ${entry ? `data-file-entry="${entry}"` : ""}` : ""}${disabled ? " disabled" : ""}><span class="file-row__name">${rowIcon(type)}<strong>${escapeHtml(name)}</strong></span><span>${escapeHtml(type === "folder" ? t("product.folder") : type.toUpperCase())}</span><span>${escapeHtml(description)}</span><span class="file-row__action">${escapeHtml(action)}</span></button>`;
+  const fileRow = ({ name, type, description, availability, route, action, productId, fileKey, entry, playId, disabled = false, crawlable = false }) => {
+    const content = `<span class="file-row__name">${rowIcon(type)}<strong>${escapeHtml(name)}</strong></span><span>${escapeHtml(type === "folder" ? t("product.folder") : type.toUpperCase())}</span><span>${escapeHtml(description)}</span><span class="file-row__action">${escapeHtml(action)}</span>`;
+    if (crawlable && route) {
+      const href = routeHref(route);
+      return `<a class="file-row" href="${escapeHtml(href)}" data-route="${escapeHtml(href)}">${content}</a>`;
+    }
+    return `<button class="file-row ${selectedFile?.key === fileKey && selectedFile?.entry === entry ? "is-selected" : ""}" type="button" ${route ? `data-open-node="${escapeHtml(route)}"` : ""} ${playId ? `data-play="${playId}"` : ""} ${productId ? `data-file-product="${productId}" data-file-key="${fileKey}" ${entry ? `data-file-entry="${entry}"` : ""}` : ""}${disabled ? " disabled" : ""}>${content}</button>`;
+  };
 
   const fileList = (rows) => `<div class="file-list"><div class="file-list__header"><span>${t("product.name")}</span><span>${t("product.type")}</span><span>${t("product.description")}</span><span>${t("product.availability")}</span></div>${rows.join("")}</div>`;
 
   const purchaseStrip = (product) => {
     const detail = product.bundle ? t("bundle.saving", { separate: price(separateCataloguePrice), saving: price(archiveSaving) }) : t("product.purchase");
-    const productPrice = `<s>${price(product.originalPrice)}</s> ${price(product.price)}`;
-    const productDetail = product.bundle ? detail : (language === "en" ? "Discount applied automatically at Payhip checkout" : "Descuento aplicado automáticamente en el checkout de Payhip");
+    const productPrice = price(product.price);
+    const productDetail = product.bundle ? detail : (language === "en" ? "One-off payment · instant download" : "Pago único · descarga inmediata");
     return `<div class="purchase-strip"><div><strong>${escapeHtml(productName(product))} · ${productPrice}</strong><span>${escapeHtml(productDetail)}</span></div><div class="purchase-strip__actions">${product.demo ? `<button type="button" data-play="${product.id}">${t("product.play")}</button>` : ""}<button class="primary-action" type="button" data-buy="${product.id}">${t("product.buy")} · ${price(product.price)}</button></div></div>`;
   };
 
@@ -898,7 +924,7 @@
   const legalFolderView = () => {
     const rows = legalOrder.map((key) => {
       const document = legalDocuments[language][key];
-      return fileRow({ name: document.file, type: "txt", description: document.description, availability: t("legalUi.public"), route: `/legal/${key}`, action: t("legalUi.open") });
+      return fileRow({ name: document.file, type: "txt", description: document.description, availability: t("legalUi.public"), route: `/legal/${key}/`, action: t("legalUi.open"), crawlable: true });
     });
     return `<section class="legal-folder"><header class="view-heading"><div class="view-heading__copy"><p>${t("legalUi.folderKicker")}</p><h1>${t("legalUi.folderTitle")}</h1><p>${t("legalUi.folderLead")}</p></div></header><div class="file-list"><div class="file-list__header"><span>${t("legalUi.name")}</span><span>${t("legalUi.type")}</span><span>${t("legalUi.description")}</span><span>${t("legalUi.access")}</span></div>${rows.join("")}</div></section>`;
   };
@@ -906,7 +932,7 @@
   const legalDocumentView = (key) => {
     const document = legalDocuments[language][key];
     if (!document) return legalFolderView();
-    const toc = document.sections.map((section, index) => `<button type="button" data-scroll-section="legal-section-${index}">${escapeHtml(section.title)}</button>`).join("");
+    const toc = document.sections.map((section, index) => `<a href="#legal-section-${index}">${escapeHtml(section.title)}</a>`).join("");
     const sections = document.sections.map((section, index) => `<section id="legal-section-${index}"><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${legalInline(paragraph)}</p>`).join("")}${section.list ? `<ul>${section.list.map((item) => `<li>${legalInline(item)}</li>`).join("")}</ul>` : ""}${section.checkbox ? `<p class="consent-example"><strong aria-hidden="true">☐</strong> ${legalInline(section.checkbox)}</p>` : ""}</section>`).join("");
     return `<article class="legal-view"><header class="legal-view__header"><span class="file-icon file-icon--text">TXT</span><div><p>${t("legalUi.system")}</p><h1 class="document-filename">${escapeHtml(document.file)}</h1><small>${t("legalUi.updated")}: ${escapeHtml(document.updated)} · ${t("legalUi.version")}: ${escapeHtml(document.version)}</small></div></header><div class="legal-view__layout"><nav class="legal-toc" aria-label="${t("legalUi.sections")}"><strong>${t("legalUi.sections")}</strong>${toc}</nav><div class="legal-copy">${sections}</div></div></article>`;
   };
@@ -918,7 +944,7 @@
 
   const bundleView = () => {
     const rows = archive.members.map((id) => products[id]).map((product) => fileRow({ name: productName(product), type: "folder", description: product.description[language], availability: t("bundle.item"), route: `/product/${product.id}`, action: t("product.open") }));
-    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("bundle.kicker")}</p><h1>${t("bundle.title")}</h1><p>${t("bundle.lead")}</p></div></header>${bundleOpeningPriceNote("heading")}<header class="subfolder-heading"><span class="folder-icon folder-icon--bundle"></span><div><h2>${t("bundle.members")}</h2><p>${t("product.files", { count: archive.members.length })}</p></div></header>${fileList(rows)}${purchaseStrip(archive)}`;
+    return `<header class="view-heading"><div class="view-heading__copy"><p>${t("bundle.kicker")}</p><h1>${t("bundle.title")}</h1><p>${t("bundle.lead")}</p></div></header><header class="subfolder-heading"><span class="folder-icon folder-icon--bundle"></span><div><h2>${t("bundle.members")}</h2><p>${t("product.files", { count: archive.members.length })}</p></div></header>${fileList(rows)}${purchaseStrip(archive)}`;
   };
 
   const renderInspector = (route) => {
@@ -1012,6 +1038,7 @@
     syncRouteMetadata(route);
     $("[data-route-announcer]").textContent = pageLabel;
     if (routeChanged) {
+      if (lastRenderedRoute !== null) trackEvent("page_view", { path: routeKey, locale: language });
       const pane = $(".file-pane");
       pane.scrollTop = 0;
       const heading = $("[data-view-content] h1");
@@ -1099,7 +1126,6 @@
       cart = cart.filter((item) => !product.members.includes(item));
       if (!cart.includes(id)) cart.push(id);
       renderCart();
-      trackEvent("add_to_cart", { product: id });
       showToast(replaced ? t("messages.bundleReplaced") : t("messages.added", { name: productName(product) }));
       return;
     }
@@ -1108,7 +1134,6 @@
     if (cart.includes(id)) return showToast(t("messages.duplicate"));
     cart.push(id);
     renderCart();
-    trackEvent("add_to_cart", { product: id });
     showToast(t("messages.added", { name: productName(product) }));
   };
 
@@ -1193,8 +1218,19 @@
   document.addEventListener("click", (event) => {
     const samplerDownload = event.target.closest("[data-sampler-download]");
     if (samplerDownload) {
-      trackEvent("sampler_download", { placement: samplerDownload.dataset.samplerDownload });
+      const placement = samplerDownload.dataset.samplerDownload || "unknown";
+      samplerDownload.href = attributedPayhipUrl(samplerDownload.href, "free_sampler", placement);
+      trackEvent("sampler_click", { placement });
+      trackEvent("outbound_payhip", { intent: "free_sampler", placement });
       return;
+    }
+    const payhipLink = event.target.closest("a[href]");
+    if (payhipLink) {
+      const destination = new URL(payhipLink.href, location.href);
+      if (destination.hostname === "payhip.com" || destination.hostname.endsWith(".payhip.com")) {
+        payhipLink.href = attributedPayhipUrl(destination.toString(), "customer_account");
+        trackEvent("outbound_payhip", { intent: "customer_account" });
+      }
     }
     const routeButton = event.target.closest("[data-route]");
     if (routeButton) {
@@ -1312,13 +1348,15 @@
     const params = new URLSearchParams();
     if (keys.length === 1) params.set("link", keys[0]);
     else keys.forEach((key) => params.append("cart_links[]", key));
-    return attributedPayhipUrl(`https://payhip.com/buy?${params.toString()}`, "checkout");
+    const cartType = cart.length === 1 ? cart[0] : "multi";
+    return attributedPayhipUrl(`https://payhip.com/buy?${params.toString()}`, "checkout", cartType);
   };
 
   const openCheckoutReview = () => {
     if (!cart.length) return;
     closeCart();
     resetCheckoutConsent();
+    trackEvent("checkout_start", { cart_type: cart.length === 1 ? cart[0] : "multi" });
     checkoutDialog.showModal();
     termsConsent.focus();
   };
@@ -1332,7 +1370,7 @@
     if (!cart.length || !updateCheckoutConsent(true)) return;
     const checkoutUrl = payhipCheckoutUrl();
     if (!checkoutUrl) return;
-    trackEvent("checkout_click", { cart_type: cart.length === 1 ? cart[0] : "multi" });
+    trackEvent("outbound_payhip", { intent: "checkout", cart_type: cart.length === 1 ? cart[0] : "multi" });
     window.location.assign(checkoutUrl);
   });
   checkoutDialog.addEventListener("click", (event) => { if (event.target === checkoutDialog) checkoutDialog.close(); });
@@ -1396,18 +1434,27 @@
     const audio = new Audio(product.demo.src);
     audio.preload = "metadata";
     activeTrack = { id, audio };
-    if (!trackedDemoIds.has(id)) {
-      trackedDemoIds.add(id);
-      trackEvent("demo_play", { pack: id });
-    }
     $("[data-audio-dock]").hidden = false;
     $("[data-dock-title]").textContent = product.demo.title;
     $("[data-dock-product]").textContent = productName(product);
     audio.addEventListener("timeupdate", updateAudioProgress);
     audio.addEventListener("loadedmetadata", updateAudioProgress);
-    audio.addEventListener("play", updateAudioUi);
+    audio.addEventListener("play", () => {
+      if (!trackedDemoIds.has(id)) {
+        trackedDemoIds.add(id);
+        trackEvent("demo_start", { pack: id });
+      }
+      updateAudioUi();
+    });
     audio.addEventListener("pause", updateAudioUi);
-    audio.addEventListener("ended", () => { if (activeTrack?.audio === audio) stopTrack(); });
+    audio.addEventListener("ended", () => {
+      if (activeTrack?.audio !== audio) return;
+      if (!completedDemoIds.has(id)) {
+        completedDemoIds.add(id);
+        trackEvent("demo_complete", { pack: id });
+      }
+      stopTrack();
+    });
     audio.addEventListener("error", () => {
       if (activeTrack?.audio !== audio) return;
       showToast(t("audio.unavailable"));

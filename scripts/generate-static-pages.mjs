@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
@@ -7,18 +7,28 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const templatePath = path.join(root, "index.html");
 const siteUrl = "https://subsuelofs.com";
 const freeSamplerUrl = "https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler";
-const lastModified = "2026-07-16";
-const individualSaleStarts = "2026-07-21";
-const individualSaleEnds = "2026-07-24";
-const bundleSaleStarts = "2026-07-21";
-const bundleSaleEnds = "2026-07-24";
+const lastModified = "2026-07-23";
 const socialImage = `${siteUrl}/social-card.png?v=20260716-2`;
 const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
-const samplerDeclaration = "  const samplerProofs = ";
-const samplerStart = appSource.indexOf(samplerDeclaration);
-const samplerEnd = appSource.indexOf("\n\n  const productEditorial", samplerStart);
-if (samplerStart < 0 || samplerEnd < 0) throw new Error("No se pudieron leer las pruebas públicas desde app-v5.js");
-const samplerProofs = vm.runInNewContext(`(${appSource.slice(samplerStart + samplerDeclaration.length, samplerEnd).replace(/;\s*$/u, "")})`, Object.create(null));
+const analyticsConfig = JSON.parse(await readFile(path.join(root, "analytics-config.json"), "utf8"));
+const analyticsEnabled = analyticsConfig.provider === "umami"
+  && analyticsConfig.enabled === true
+  && typeof analyticsConfig.websiteId === "string"
+  && analyticsConfig.websiteId.trim().length > 0
+  && typeof analyticsConfig.scriptUrl === "string"
+  && /^https:\/\//u.test(analyticsConfig.scriptUrl);
+if (analyticsConfig.enabled === true && !analyticsEnabled) {
+  throw new Error("analytics-config.json está activado sin websiteId o scriptUrl HTTPS válidos");
+}
+const analyticsOrigins = analyticsEnabled
+  ? [...new Set([
+      new URL(analyticsConfig.scriptUrl).origin,
+      ...(typeof analyticsConfig.hostUrl === "string" && /^https:\/\//u.test(analyticsConfig.hostUrl) ? [new URL(analyticsConfig.hostUrl).origin] : [])
+    ])]
+  : [];
+const withAnalyticsCsp = (html) => html
+  .replace(/script-src 'self'(?: https:\/\/[^;\s]+)*;/u, `script-src 'self'${analyticsOrigins.map((origin) => ` ${origin}`).join("")};`)
+  .replace(/connect-src 'self'(?: https:\/\/[^;\s]+)*;/u, `connect-src 'self'${analyticsOrigins.map((origin) => ` ${origin}`).join("")};`);
 
 const products = [
   {
@@ -29,13 +39,12 @@ const products = [
     categoryEn: "Ritual trap",
     seoTitle: "Trap Ritual: 30 prompts de trap oscuro | SUBSUELO FS",
     seoTitleEn: "Trap Ritual: 30 dark trap prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de trap ritual oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
-    metaDescriptionEn: "30 dark ritual trap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
+    metaDescription: "30 direcciones de trap ritual oscuro, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €.",
+    metaDescriptionEn: "30 dark ritual trap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9.",
     description: "30 formas distintas de construir trap ritual oscuro. Cambian la batería, el movimiento del 808, la fuente principal y el espacio sin salir de la misma familia sonora.",
     descriptionEn: "30 distinct routes into dark ritual trap. The drum pocket, 808 movement, lead source and space change from prompt to prompt without leaving the genre.",
     tone: "#713d46",
     price: 9,
-    originalPrice: 15,
     demo: "Ash Circle"
   },
   {
@@ -46,13 +55,12 @@ const products = [
     categoryEn: "Dark UK garage",
     seoTitle: "Garaje Oscuro: 30 prompts de UK garage | SUBSUELO FS",
     seoTitleEn: "Garaje Oscuro: 30 dark UK garage prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de UK garage oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
-    metaDescriptionEn: "30 dark UK garage prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
+    metaDescription: "30 direcciones de UK garage oscuro, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €.",
+    metaDescriptionEn: "30 dark UK garage prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9.",
     description: "30 bases de UK garage oscuro con patrones 2-step, swing humano, subgrave y ambiente urbano. Cada una cambia la batería, el bajo, el motivo y el espacio.",
     descriptionEn: "30 dark UK garage beats built on 2-step patterns, human swing, sub-bass and urban space. Each prompt changes the drums, bass movement, main motif and use of space.",
     tone: "#425763",
     price: 9,
-    originalPrice: 15,
     demo: "Alley Pressure"
   },
   {
@@ -63,13 +71,12 @@ const products = [
     categoryEn: "Degraded jungle",
     seoTitle: "Fossil Jungle: 30 prompts de jungle oscuro | SUBSUELO FS",
     seoTitleEn: "Fossil Jungle: 30 dark jungle prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de jungle oscuro y degradado, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
-    metaDescriptionEn: "30 dark, degraded jungle prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
+    metaDescription: "30 direcciones de jungle oscuro y degradado, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €.",
+    metaDescriptionEn: "30 dark, degraded jungle prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9.",
     description: "30 piezas de jungle oscuro y degradado. Cambian la arquitectura de la batería, el comportamiento del bajo, la fuente de la muestra y el espacio.",
     descriptionEn: "30 pieces of dark, degraded jungle. Break architecture, bass behaviour, sample source and space change from one prompt to the next while the genre stays intact.",
     tone: "#66705a",
     price: 9,
-    originalPrice: 15,
     demo: "Limestone Roll"
   },
   {
@@ -80,13 +87,12 @@ const products = [
     categoryEn: "Abstract hip-hop",
     seoTitle: "Low Pressure: 30 prompts de hip-hop abstracto | SUBSUELO FS",
     seoTitleEn: "Low Pressure: 30 abstract hip-hop prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de hip-hop abstracto, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
-    metaDescriptionEn: "30 dark abstract hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
+    metaDescription: "30 direcciones de hip-hop abstracto, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €.",
+    metaDescriptionEn: "30 dark abstract hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9.",
     description: "30 bases pesadas, oscuras y texturales. Cada propuesta cambia la batería, el bajo, la fuente sonora o el espacio sin salir del hip-hop experimental abstracto.",
     descriptionEn: "30 heavy, dark and textural abstract hip-hop beats. Each prompt changes the drums, bass, sound source or space while staying rooted in abstract experimental hip-hop.",
     tone: "#b34b35",
     price: 9,
-    originalPrice: 15,
     demo: "Concrete Pulse"
   },
   {
@@ -97,13 +103,12 @@ const products = [
     categoryEn: "Dub hip-hop",
     seoTitle: "Abyss Dub: 30 prompts de hip-hop dub | SUBSUELO FS",
     seoTitleEn: "Abyss Dub: 30 dark dub hip-hop prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de hip-hop dub oscuro, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
-    metaDescriptionEn: "30 dark dub hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
+    metaDescription: "30 direcciones de hip-hop dub oscuro, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €.",
+    metaDescriptionEn: "30 dark dub hip-hop prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9.",
     description: "30 bases de hip-hop dub oscuro con batería de rap, subgrave enorme, acordes aislados y ecos profundos. Cambian el patrón, el bajo y la forma de mezclar el espacio.",
     descriptionEn: "30 dark dub-inflected hip-hop beats with rap drums, immense sub-bass, isolated chords and deep echoes. The pocket, bass movement and use of space change across the folder.",
     tone: "#596352",
     price: 9,
-    originalPrice: 15,
     demo: "Deep Chamber"
   },
   {
@@ -114,22 +119,46 @@ const products = [
     categoryEn: "Noir hip-hop",
     seoTitle: "Noir Tapes: 30 prompts de hip-hop noir | SUBSUELO FS",
     seoTitleEn: "Noir Tapes: 30 noir hip-hop prompts | SUBSUELO FS",
-    metaDescription: "30 direcciones de hip-hop noir y boom bap, 10 negative prompts, guías ES/EN y 4 audios. Oferta automática: 9 € hasta el 24/07/2026; antes 15 €.",
-    metaDescriptionEn: "30 noir hip-hop and abstract boom-bap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Automatic sale: €9 until 24 Jul 2026; was €15.",
+    metaDescription: "30 direcciones de hip-hop noir y boom bap, 10 negative prompts, guías ES/EN y 4 audios. Precio: 9 €.",
+    metaDescriptionEn: "30 noir hip-hop and abstract boom-bap prompts, 10 negative prompts, ES/EN guides and 4 MP3s. Price: €9.",
     description: "30 bases de hip-hop noir y boom bap abstracto construidas con muestras. Cambian el corte de batería, el bajo, la fuente y el tratamiento de cinta.",
     descriptionEn: "30 sample-based noir hip-hop and abstract boom-bap beats. Each prompt changes the drum cut, bass, source material or tape treatment without leaving the collection's core sound.",
     tone: "#705e6b",
     price: 9,
-    originalPrice: 15,
     demo: "Rain Evidence"
   }
 ];
 
-for (const product of products) {
-  const proof = samplerProofs[product.id];
-  if (!proof?.title || !proof?.prompt) throw new Error(`Falta la prueba pública de ${product.id}`);
-  product.proof = proof;
+const workspaceRoot = path.resolve(root, "..");
+const samplerManifestPath = path.join(workspaceRoot, "source/free_sampler/content.json");
+const samplerManifest = JSON.parse(await readFile(samplerManifestPath, "utf8"));
+const samplerSourceProductIds = Object.freeze({
+  "source/low_pressure_v2/content.json": "low",
+  "source/abyss_dub/content.json": "abyss",
+  "source/noir_tapes/content.json": "noir",
+  "source/trap_ritual/content.json": "trap",
+  "source/garaje_oscuro/content.json": "garage",
+  "source/fossil_jungle/content.json": "jungle"
+});
+const samplerProofs = {};
+
+for (const selection of samplerManifest.collections || []) {
+  const productId = samplerSourceProductIds[selection.source];
+  if (!productId) throw new Error(`Fuente del sampler sin producto público: ${selection.source}`);
+  if (selection.prompt_id !== "001") throw new Error(`La prueba pública debe usar prompt 001: ${selection.source}`);
+  const source = JSON.parse(await readFile(path.join(workspaceRoot, selection.source), "utf8"));
+  const matches = (source.prompts || []).filter((prompt) => prompt.id === selection.prompt_id);
+  if (matches.length !== 1) throw new Error(`Prompt ${selection.prompt_id} inválido en ${selection.source}`);
+  await access(path.join(workspaceRoot, selection.preview));
+  samplerProofs[productId] = Object.freeze({
+    title: matches[0].title,
+    prompt: matches[0].prompt,
+    preview: selection.preview
+  });
 }
+
+if (Object.keys(samplerProofs).length !== products.length) throw new Error("El sampler debe aportar una prueba a los seis productos");
+for (const product of products) product.proof = samplerProofs[product.id];
 
 const productEditorial = {
   trap: {
@@ -246,7 +275,11 @@ const homeSchema = (page) => ({
       description: page.locale === "en"
         ? "Genre-built prompt collections for dark instrumentals, with negative prompts, guides in English and Spanish, and audio references."
         : "Colecciones por género para crear instrumentales con prompts, negative prompts, guías ES/EN y referencias de audio.",
-      sameAs: ["https://x.com/subsuelofs"]
+      sameAs: [
+        "https://x.com/subsuelofs",
+        "https://www.tiktok.com/@subsuelofs",
+        "https://www.youtube.com/@subsuelofs"
+      ]
     },
     {
       "@type": "WebSite",
@@ -301,8 +334,6 @@ const productSchema = (page, product) => ({
         url: canonicalUrl(page.pathname),
         priceCurrency: "EUR",
         price: product.price.toFixed(2),
-        validFrom: product.id === "archive" ? bundleSaleStarts : individualSaleStarts,
-        priceValidUntil: product.id === "archive" ? bundleSaleEnds : individualSaleEnds,
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
         seller: { "@type": "Organization", name: "NOMBRE DIRECCION, S.L.U." }
@@ -354,8 +385,8 @@ const articleSchema = (page) => ({
 const folderCard = (product, locale) => {
   const category = productValue(product, "category", locale);
   const href = localizedPath(`/product/${product.id}/`, locale);
-  const priceLabel = locale === "en" ? `€${product.price}; was €${product.originalPrice}` : `${product.price} €; antes ${product.originalPrice} €`;
-  return `<a class="folder-item" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(`${product.name}. ${category} · 30 prompts. ${priceLabel}`)}"><span class="folder-icon" style="--tone:${product.tone}"></span><strong>${escapeHtml(product.name)}</strong><small>${escapeHtml(category)} · 30 prompts</small><span class="folder-list-price"><s>${product.originalPrice} €</s><b>${product.price} €</b></span></a>`;
+  const priceLabel = locale === "en" ? `€${product.price}` : `${product.price} €`;
+  return `<a class="folder-item" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(`${product.name}. ${category} · 30 prompts. ${priceLabel}`)}"><span class="folder-icon" style="--tone:${product.tone}"></span><strong>${escapeHtml(product.name)}</strong><small>${escapeHtml(category)} · 30 prompts</small><span class="folder-list-price"><b>${priceLabel}</b></span></a>`;
 };
 
 const homeView = (locale) => {
@@ -364,7 +395,7 @@ const homeView = (locale) => {
   const demosHref = localizedPath("/demos/", locale);
   const guidesHref = localizedPath("/guides/", locale);
   const bundleHref = localizedPath("/bundle/", locale);
-  const legalHref = localizedPath("/legal", locale);
+  const legalHref = localizedPath("/legal/", locale);
   return `
 <header class="view-heading">
   <div class="view-heading__copy">
@@ -374,21 +405,20 @@ const homeView = (locale) => {
   </div>
   <p class="view-heading__hint">${en ? "Click a folder to open it" : "Haz clic en una carpeta para abrirla"}</p>
 </header>
-<section class="home-offer" aria-label="${en ? "Individual pack sale" : "Oferta de packs individuales"}">
+<section class="home-offer" aria-label="${en ? "Individual packs" : "Packs individuales"}">
   <span class="folder-icon home-offer__icon" style="--tone:#a44730" aria-hidden="true"></span>
   <div class="home-offer__copy">
-    <p>${en ? "SALE / 6 INDIVIDUAL PACKS" : "OFERTA / 6 PACKS INDIVIDUALES"}</p>
+    <p>${en ? "CATALOGUE / 6 INDIVIDUAL PACKS" : "CATÁLOGO / 6 PACKS INDIVIDUALES"}</p>
     <h2>${en ? "Choose any pack for €9." : "Elige cualquier pack por 9 €."}</h2>
     <p>${en ? "30 prompts, 10 negative prompts, ES/EN guides and 4 MP3 references in every pack." : "Cada pack incluye 30 prompts, 10 negative prompts, guías ES/EN y 4 referencias MP3."}</p>
-    <small>${en ? "Choose Trap, Garage, Jungle, Abstract Hip-Hop, Dub or Noir. Payhip applies the discount automatically at checkout; no code needed." : "Elige Trap, Garage, Jungle, Hip-Hop abstracto, Dub o Noir. Payhip aplica el descuento automáticamente al pagar; no necesitas código."}</small>
+    <small>${en ? "Choose Trap, Garage, Jungle, Abstract Hip-Hop, Dub or Noir. Final price per pack: €9." : "Elige Trap, Garage, Jungle, Hip-Hop abstracto, Dub o Noir. Precio final por pack: 9 €."}</small>
   </div>
   <div class="home-offer__buy">
-    <div class="home-offer__price"><s>${en ? "Was €15" : "Antes 15 €"}</s><strong>${en ? "€9" : "9 €"}</strong><b>−40 %</b><span>${en ? "Until 24 Jul 2026 · automatic discount" : "Hasta 24.07.2026 · descuento automático"}</span></div>
+    <div class="home-offer__price"><strong>${en ? "€9" : "9 €"}</strong><span>${en ? "CURRENT PRICE PER PACK" : "PRECIO ACTUAL POR PACK"}</span></div>
     <a class="home-offer__primary" href="#packs-en-oferta">${en ? "CHOOSE A PACK · €9" : "ELEGIR PACK · 9 €"}</a>
     <a class="home-offer__secondary" href="${demosHref}" data-route="${demosHref}">${en ? "HEAR THE 6 DEMOS" : "ESCUCHAR LAS 6 DEMOS"}</a>
   </div>
 </section>
-<span class="opening-price-note opening-price-note--catalog">${en ? "Automatic €9 price until 24 Jul 2026 · was €15" : "Precio automático de 9 € hasta el 24.07.2026 · antes 15 €"}</span>
 <div class="folder-grid" id="packs-en-oferta" data-folder-grid>
   ${products.map((product) => folderCard(product, locale)).join("\n  ")}
 </div>
@@ -399,7 +429,7 @@ const homeView = (locale) => {
     <a class="system-file" href="${demosHref}" data-route="${demosHref}"><span class="file-icon file-icon--audio">AUDIO</span><strong>${en ? "HEAR_THE_EXAMPLES.audio" : "ESCUCHAR_EJEMPLOS.audio"}</strong></a>
     <a class="system-file" href="${guidesHref}" data-editorial-path="/guides/"><span class="row-folder-icon"></span><strong>${en ? "PRODUCTION_GUIDES.folder" : "GUIAS_DE_PRODUCCION.folder"}</strong></a>
     <a class="system-file" href="${bundleHref}" data-route="${bundleHref}"><span class="row-folder-icon"></span><strong>${en ? "COMPLETE_PACK.folder" : "PACK_COMPLETO.folder"}</strong></a>
-    <button class="system-file" type="button" data-route="${legalHref}"><span class="row-folder-icon"></span><strong>${en ? "LEGAL_AND_PRIVACY.folder" : "LEGAL_Y_PRIVACIDAD.folder"}</strong></button>
+    <a class="system-file" href="${legalHref}" data-route="${legalHref}"><span class="row-folder-icon"></span><strong>${en ? "LEGAL_AND_PRIVACY.folder" : "LEGAL_Y_PRIVACIDAD.folder"}</strong></a>
   </div>
 </section>`;
 };
@@ -425,7 +455,7 @@ const promptProofView = (product, locale) => {
       <p>${en ? "If this direction works for you, the pack opens 29 more variations and adds 10 negative prompts, ES/EN guides and 4 MP3 references." : "Si esta dirección te sirve, el pack abre otras 29 variaciones y añade 10 negative prompts, guías ES/EN y 4 referencias MP3."}</p>
       <small class="prompt-proof__assurance">${en ? "One-off payment · instant download · personal/commercial prompt licence · MP3 files are reference only" : "Pago único · descarga inmediata · licencia personal/comercial para los prompts · MP3 solo como referencia"}</small>
       <button class="primary-action prompt-proof__buy" type="button" data-buy="${product.id}">${en ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €"}</button>
-      <a href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">${en ? "I want to try all six folders free" : "Prefiero probar las seis carpetas gratis"} ↗</a>
+      <a href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">${en ? "I want to try all six folders free" : "Prefiero probar las seis carpetas gratis"} ↗</a>
     </aside>
   </div>
 </section>`;
@@ -453,9 +483,9 @@ const productView = (product, locale) => {
     <p>${escapeHtml(description)}</p>
   </div>
   <div class="product-banner__buy">
-    <div class="product-banner__price"><s>${en ? `Was €${product.originalPrice}` : `Antes ${product.originalPrice} €`}</s><strong>${product.price} €</strong><span class="opening-price-note">${en ? "Automatic sale until 24 Jul 2026 · no code" : "Oferta automática hasta el 24.07.2026 · sin código"}</span></div>
+    <div class="product-banner__price"><strong>${product.price} €</strong></div>
     <div class="product-banner__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-buy="${product.id}">${en ? "Buy now" : "Comprar ahora"} · ${product.price} €</button></div>
-    <a class="product-banner__sampler" href="${freeSamplerUrl}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a>
+    <a class="product-banner__sampler" href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a>
   </div>
 </section>
 ${promptProofView(product, locale)}
@@ -481,7 +511,7 @@ ${promptProofView(product, locale)}
   <div class="related-folders"><strong>${en ? "Related folders" : "Carpetas cercanas"}</strong><div>${related}</div></div>
 </section>
 <div class="purchase-strip">
-  <div><strong>${escapeHtml(product.name)} · <s>${product.originalPrice} €</s> ${product.price} €</strong><span>${en ? "Discount applied automatically at Payhip checkout" : "Descuento aplicado automáticamente en el checkout de Payhip"}</span></div>
+  <div><strong>${escapeHtml(product.name)} · ${product.price} €</strong><span>${en ? "One-off payment · instant download" : "Pago único · descarga inmediata"}</span></div>
   <div class="purchase-strip__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-add="${product.id}">${en ? "Add to cart" : "Añadir al carrito"}</button></div>
 </div>`;
 };
@@ -504,23 +534,21 @@ const bundleProduct = {
   name: "Pack completo SUBSUELO FS",
   category: "Colección de prompts para instrumentales",
   categoryEn: "Prompt collection for dark instrumentals",
-  description: "Las 6 colecciones en un solo ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Oferta automática: 49 € hasta el 24/07/2026; antes 59 €.",
-  descriptionEn: "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, ES/EN guides and 24 audio references. Automatic sale: €49 until 24 Jul 2026; was €59.",
-  price: 49,
-  originalPrice: 59
+  description: "Las 6 colecciones en un solo ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Precio: 49 €.",
+  descriptionEn: "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, ES/EN guides and 24 audio references. Price: €49.",
+  price: 49
 };
 
 const bundleView = (locale) => {
   const en = locale === "en";
   return `
 <header class="view-heading"><div class="view-heading__copy"><p>${en ? "COMPLETE PACK" : "PACK COMPLETO"}</p><h1>${en ? "All six folders. One download." : "Todas las carpetas"}</h1><p>${en ? "180 prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. This pack contains the six collections listed below; future releases are separate." : "Incluye en un solo ZIP todas las carpetas enumeradas debajo. La compra cubre únicamente esas carpetas; las publicaciones futuras se venden por separado."}</p></div></header>
-<span class="opening-price-note opening-price-note--heading">${en ? "Automatic sale until 24 Jul 2026 · was €59" : "Oferta automática hasta 24.07.2026 · antes 59 €"}</span>
 <header class="subfolder-heading"><span class="folder-icon folder-icon--bundle"></span><div><h2>${en ? "Included folders" : "Carpetas incluidas"}</h2><p>${en ? "6 items" : "6 elementos"}</p></div></header>
 <div class="file-list">
   <div class="file-list__header"><span>${en ? "Name" : "Nombre"}</span><span>${en ? "Type" : "Tipo"}</span><span>${en ? "Contents" : "Qué contiene"}</span><span>${en ? "Access" : "Acceso"}</span></div>
   ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<a class="file-row" href="${href}" data-route="${href}"><span class="file-row__name"><span class="row-folder-icon"></span><strong>${escapeHtml(product.name)}</strong></span><span>${en ? "Folder" : "Carpeta"}</span><span>${escapeHtml(productValue(product, "description", locale))}</span><span class="file-row__action">${en ? "Open" : "Abrir"}</span></a>`; }).join("\n  ")}
 </div>
-<div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · <s>59 €</s> 49 €</strong><span>${en ? "Current price of all six separately: €54 · Save €5" : "Precio actual de los seis por separado: 54 € · Ahorras 5 €"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-buy="archive">${en ? "Buy now · €49" : "Comprar ahora · 49 €"}</button></div></div>`;
+<div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · 49 €</strong><span>${en ? "All six separately: €54 · Complete pack: €49" : "Los seis por separado: 54 € · Pack completo: 49 €"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-buy="archive">${en ? "Buy now · €49" : "Comprar ahora · 49 €"}</button></div></div>`;
 };
 
 const helpView = (locale) => {
@@ -659,6 +687,47 @@ const methodView = (locale) => {
   return `<article class="editorial-document article-document"><header class="editorial-hero"><p>METODO_01 / SUBSUELO FS</p><h1>Cómo se construye una carpeta de 30 prompts</h1><p>El número no organiza la carpeta. La organiza el límite del género. Cada colección parte de un sonido que se puede describir con claridad y variar sin convertirlo en otro producto.</p></header><div class="article-copy article-copy--wide"><section><h2>1. Fijar el núcleo sonoro</h2><p>La familia rítmica, el comportamiento de los graves, el material de origen y el carácter del espacio definen el centro de una colección. Trap Ritual conserva batería de trap y 808 dominante; Garaje Oscuro mantiene swing humano 2-step; Fossil Jungle conserva breaks remuestreados y subgrave pesado. La misma regla se aplica a las otras tres carpetas.</p></section><section><h2>2. Elegir los ejes de variación</h2><p>Los 30 prompts no repiten una plantilla cambiando sinónimos. Mueven controles concretos: pocket de batería, movimiento del bajo, familia de muestras, motivo, silencio, anchura, suciedad o habitación. Los ejes útiles cambian según el género.</p></section><section><h2>3. Escribir direcciones completas</h2><p>Cada entrada funciona por sí sola. El comprador elige un prompt completo; no tiene que combinar fragmentos, códigos ni módulos numerados. El título identifica la entrada, pero el texto de trabajo es autosuficiente.</p></section><section><h2>4. Mantener las exclusiones aparte</h2><p>Los 10 negative prompts viven en su propio PDF porque son opcionales. Cada uno responde a un límite concreto, como voces no deseadas o un acabado que no encaja. No sustituyen la dirección principal.</p></section><section><h2>5. Explicar los archivos en dos idiomas</h2><p>Las carpetas ES y EN contienen la misma documentación en su idioma. Los prompts permanecen en inglés en las dos. La guía rápida explica dónde va cada texto, cómo trabajar con o sin voces y qué hacen los controles relevantes.</p></section><section><h2>6. Incluir cuatro referencias de audio</h2><p>Cada producto enumera cuatro MP3 de referencia dentro de la descarga y ofrece una muestra pública de 30 segundos. La ficha describe ahora el perfil de esa muestra, para que el sonido pueda evaluarse antes del pago sin revelar el prompt vendido.</p></section><section><h2>Quién opera la tienda</h2><p>SUBSUELO FS está operada por NOMBRE DIRECCION, S.L.U. El contenido de los productos, los precios, las condiciones de compra y los datos de contacto están disponibles antes del pago. Esta página describe la organización del catálogo; no promete un resultado musical concreto.</p></section><section class="article-next"><h2>Abre los archivos que importan</h2><nav><a href="${catalogueHref}">Catálogo</a><a href="${helpHref}">Archivos entregados</a><a href="${negativeHref}">Guía de negative prompts</a></nav></section></div></article>`;
 };
 
+const appExpression = (declaration, nextDeclaration, context = Object.create(null)) => {
+  const start = appSource.indexOf(declaration);
+  const end = appSource.indexOf(nextDeclaration, start);
+  if (start < 0 || end < 0) throw new Error(`No se pudo leer ${declaration.trim()} desde app-v5.js`);
+  const source = appSource.slice(start + declaration.length, end).replace(/;\s*$/u, "");
+  return vm.runInNewContext(`(${source})`, context);
+};
+
+const runtimeLegalProfile = appExpression("  const legalProfile = ", "\n\n  const legalVersions");
+const runtimeLegalVersions = appExpression("  const legalVersions = ", "\n\n  const copy");
+const uiCopy = appExpression("  const copy = ", "\n\n  const legalDocuments");
+const runtimeLegalDocuments = appExpression(
+  "  const legalDocuments = ",
+  "\n\n  // Añadir una carpeta",
+  { legalProfile: runtimeLegalProfile, legalVersions: runtimeLegalVersions }
+);
+const legalOrder = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
+
+const legalInline = (value) => escapeHtml(value)
+  .replace(/([\w.+-]+@[\w.-]+\.[A-Za-z]{2,})/gu, '<a href="mailto:$1">$1</a>')
+  .replace(/(https:\/\/[^\s<]*[A-Za-z0-9/#?=&_%~-])([.,;:!?)])?/gu, '<a href="$1" rel="noopener noreferrer">$1</a>$2');
+
+const legalFolderView = (locale) => {
+  const en = locale === "en";
+  const documents = runtimeLegalDocuments[locale];
+  const rows = legalOrder.map((key) => {
+    const document = documents[key];
+    const href = localizedPath(`/legal/${key}/`, locale);
+    return `<a class="file-row" href="${href}" data-route="${href}"><span class="file-row__name"><span class="file-icon file-icon--text">TXT</span><strong>${escapeHtml(document.file)}</strong></span><span>TXT</span><span>${escapeHtml(document.description)}</span><span class="file-row__action">${en ? "Open" : "Abrir"}</span></a>`;
+  }).join("\n");
+  return `<section class="legal-folder"><header class="view-heading"><div class="view-heading__copy"><p>${en ? "SYSTEM / LEGAL_AND_PRIVACY" : "SISTEMA / LEGAL_Y_PRIVACIDAD"}</p><h1>${en ? "Legal and privacy" : "Legal y privacidad"}</h1><p>${en ? "Read the purchase terms, privacy policy, digital licence and the store's other public documents." : "Consulta las condiciones de compra, la política de privacidad, la licencia y el resto de documentos públicos de la tienda."}</p></div></header><div class="file-list"><div class="file-list__header"><span>${en ? "Document" : "Documento"}</span><span>${en ? "Type" : "Tipo"}</span><span>${en ? "Contents" : "Qué contiene"}</span><span>${en ? "Action" : "Acción"}</span></div>${rows}</div></section>`;
+};
+
+const legalDocumentView = (locale, key) => {
+  const en = locale === "en";
+  const document = runtimeLegalDocuments[locale][key];
+  const toc = document.sections.map((section, index) => `<a href="#legal-section-${index}">${escapeHtml(section.title)}</a>`).join("");
+  const sections = document.sections.map((section, index) => `<section id="legal-section-${index}"><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${legalInline(paragraph)}</p>`).join("")}${section.list ? `<ul>${section.list.map((item) => `<li>${legalInline(item)}</li>`).join("")}</ul>` : ""}${section.checkbox ? `<p class="consent-example"><strong aria-hidden="true">☐</strong> ${legalInline(section.checkbox)}</p>` : ""}</section>`).join("");
+  return `<article class="legal-view"><header class="legal-view__header"><span class="file-icon file-icon--text">TXT</span><div><p>${en ? "SYSTEM DOCUMENT" : "DOCUMENTO DEL SISTEMA"}</p><h1 class="document-filename">${escapeHtml(document.file)}</h1><small>${en ? "Last updated" : "Última actualización"}: ${escapeHtml(document.updated)} · ${en ? "Version" : "Versión"}: ${escapeHtml(document.version)}</small></div></header><div class="legal-view__layout"><nav class="legal-toc" aria-label="${en ? "Sections in this document" : "Secciones de este documento"}"><strong>${en ? "IN THIS FILE" : "EN ESTE ARCHIVO"}</strong>${toc}</nav><div class="legal-copy">${sections}</div></div></article>`;
+};
+
 const pagesForLocale = (locale) => {
   const en = locale === "en";
   const page = (basePath, output, data) => ({
@@ -674,7 +743,7 @@ const pagesForLocale = (locale) => {
     page("/", "index.html", {
       heading: en ? "One genre. 30 ways in." : "Un género por carpeta",
       title: en ? "Music prompts for dark instrumentals | SUBSUELO FS" : "Prompts para instrumentales oscuras | SUBSUELO FS",
-      description: en ? "Six dark instrumental prompt packs. Each individual pack is €9 until 24 Jul 2026, reduced automatically from €15 at Payhip checkout." : "Seis packs de prompts para instrumentales oscuras. Cada pack individual cuesta 9 € hasta el 24/07/2026; Payhip lo rebaja automáticamente desde 15 €.",
+      description: en ? "Six dark instrumental prompt packs. Each individual pack costs €9 and the complete pack costs €49." : "Seis packs de prompts para instrumentales oscuras. Cada pack individual cuesta 9 € y el pack completo cuesta 49 €.",
       type: "website",
       home: true,
       view: homeView(locale)
@@ -689,7 +758,7 @@ const pagesForLocale = (locale) => {
     page("/bundle/", "bundle/index.html", {
       heading: en ? "All six folders. One download." : "Pack completo",
       title: en ? "180 dark music prompts: complete pack | SUBSUELO FS" : "Pack completo: 180 prompts para instrumentales | SUBSUELO FS",
-      description: en ? "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. Automatic sale: €49 until 24 Jul 2026; was €59." : "Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Oferta automática: 49 € hasta el 24/07/2026; antes 59 €.",
+      description: en ? "All 6 collections in one ZIP: 180 music prompts, 60 negative prompts, guides in English and Spanish, and 24 MP3 references. Price: €49." : "Las 6 colecciones en un ZIP: 180 prompts, 60 negative prompts, guías ES/EN y 24 referencias de audio. Precio: 49 €.",
       type: "product",
       price: 49,
       product: localizedBundle,
@@ -703,6 +772,27 @@ const pagesForLocale = (locale) => {
       description: en ? "See what each prompt folder contains, where to paste each block, how optional negative prompts work and what the audio references are for." : "Qué contienen los PDF de prompts y negative prompts, dónde se usa cada archivo y qué incluyen las guías y las referencias de audio.",
       type: "website",
       view: helpView(locale)
+    }),
+    page("/legal/", "legal/index.html", {
+      heading: en ? "Legal and privacy" : "Legal y privacidad",
+      title: en ? "Legal and privacy | SUBSUELO FS" : "Legal y privacidad | SUBSUELO FS",
+      description: en ? "Purchase terms, privacy, digital licence, refunds, storage and accessibility information for SUBSUELO FS." : "Condiciones de compra, privacidad, licencia digital, reembolsos, almacenamiento y accesibilidad de SUBSUELO FS.",
+      type: "website",
+      view: legalFolderView(locale)
+    }),
+    ...legalOrder.map((key) => {
+      const document = runtimeLegalDocuments[locale][key];
+      return page(`/legal/${key}/`, `legal/${key}/index.html`, {
+        heading: document.title,
+        title: `${document.title} | SUBSUELO FS`,
+        description: document.description,
+        type: "website",
+        breadcrumbs: [
+          { name: en ? "Legal and privacy" : "Legal y privacidad", path: "/legal/" },
+          { name: document.title, path: `/legal/${key}/` }
+        ],
+        view: legalDocumentView(locale, key)
+      });
     }),
     page("/guides/", "guides/index.html", {
       heading: en ? "Production guides" : "Guías de producción",
@@ -806,6 +896,8 @@ const seoBlock = (page) => {
 <meta name="twitter:image" content="${socialImage}" />
 <meta name="twitter:image:alt" content="${socialAlt}" />
 <link rel="me" href="https://x.com/subsuelofs" />
+<link rel="me" href="https://www.tiktok.com/@subsuelofs" />
+<link rel="me" href="https://www.youtube.com/@subsuelofs" />
 <script type="application/ld+json">
 ${indent(JSON.stringify(pageSchema(page), null, 2), 2)}
 </script>
@@ -835,7 +927,9 @@ const standaloneHtml = (page) => {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     ${seoBlock(page)}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles-v5.css?v=30" />
+    <link rel="stylesheet" href="/styles-v5.css?v=${stylesVersion}" />
+    <script src="/analytics-runtime.js?v=1" defer></script>
+    <script src="/analytics-loader.js?v=1" defer></script>
   </head>
   <body class="editorial-body">
     <a class="skip-link" href="#article">${en ? "Skip to article" : "Saltar al artículo"}</a>
@@ -864,11 +958,19 @@ const replaceMarker = (html, marker, value) => {
 };
 
 const template = await readFile(templatePath, "utf8");
-const copyDeclaration = "  const copy = ";
-const copyStart = appSource.indexOf(copyDeclaration);
-const copyEnd = appSource.indexOf("\n\n  const legalDocuments", copyStart);
-if (copyStart < 0 || copyEnd < 0) throw new Error("No se pudo leer la traducción de interfaz desde app-v5.js");
-const uiCopy = vm.runInNewContext(`(${appSource.slice(copyStart + copyDeclaration.length, copyEnd).replace(/;\s*$/u, "")})`, Object.create(null));
+const stylesVersion = template.match(/styles-v5\.css\?v=(\d+)/u)?.[1];
+if (!stylesVersion) throw new Error("No se pudo leer la versión de styles-v5.css desde index.html");
+const samplerDeclaration = "  const samplerProofs = ";
+const samplerStart = appSource.indexOf(samplerDeclaration);
+const samplerEnd = appSource.indexOf("\n\n  const productEditorial", samplerStart);
+if (samplerStart < 0 || samplerEnd < 0) throw new Error("No se pudieron leer las pruebas públicas desde app-v5.js");
+const runtimeSamplerProofs = vm.runInNewContext(`(${appSource.slice(samplerStart + samplerDeclaration.length, samplerEnd).replace(/;\s*$/u, "")})`, Object.create(null));
+for (const product of products) {
+  const runtimeProof = runtimeSamplerProofs[product.id];
+  if (!runtimeProof || runtimeProof.title !== product.proof.title || runtimeProof.prompt !== product.proof.prompt) {
+    throw new Error(`La prueba dinámica de ${product.id} no coincide con source/free_sampler/content.json`);
+  }
+}
 const copyValue = (locale, key) => key.split(".").reduce((value, part) => value?.[part], uiCopy[locale]);
 const translateShell = (html, locale) => {
   let translated = html.replace(/<([a-z][\w-]*)\b([^>]*\bdata-i18n="([^"]+)"[^>]*)>([^<]*)<\/\1>/gu, (match, tag, attributes, key) => {
@@ -890,11 +992,24 @@ const translateShell = (html, locale) => {
   return translated;
 };
 
+const publicAnalyticsConfig = {
+  provider: analyticsConfig.provider === "umami" ? "umami" : "",
+  enabled: analyticsEnabled,
+  scriptUrl: analyticsEnabled ? analyticsConfig.scriptUrl : "",
+  websiteId: analyticsEnabled ? analyticsConfig.websiteId : "",
+  hostUrl: analyticsEnabled && typeof analyticsConfig.hostUrl === "string" ? analyticsConfig.hostUrl : ""
+};
+await writeFile(
+  path.join(root, "analytics-runtime.js"),
+  `window.SUBSUELO_ANALYTICS = Object.freeze(${JSON.stringify(publicAnalyticsConfig, null, 2)});\n`,
+  "utf8"
+);
+
 for (const page of pages) {
   if (page.standalone) {
     const outputPath = path.join(root, page.output);
     await mkdir(path.dirname(outputPath), { recursive: true });
-    await writeFile(outputPath, `${standaloneHtml(page)}\n`, "utf8");
+    await writeFile(outputPath, `${withAnalyticsCsp(standaloneHtml(page))}\n`, "utf8");
     continue;
   }
   let html = replaceMarker(template, "STATIC-SEO", seoBlock(page));
@@ -908,15 +1023,51 @@ for (const page of pages) {
       html = html.replaceAll(`href="${shellPath}" data-route="${shellPath}"`, `href="${localized}" data-route="${localized}"`);
     }
     html = html.replaceAll('href="/guides/" data-editorial-path="/guides/"', 'href="/en/guides/" data-editorial-path="/guides/"');
-    for (const shellPath of ["/legal/privacy", "/legal/terms", "/legal/license", "/legal"]) {
+    for (const shellPath of ["/legal/privacy/", "/legal/terms/", "/legal/license/", "/legal/"]) {
       html = html.replaceAll(`data-route="${shellPath}"`, `data-route="${localizedPath(shellPath, "en")}"`);
+      html = html.replaceAll(`href="${shellPath}"`, `href="${localizedPath(shellPath, "en")}"`);
     }
   }
   html = translateShell(html, page.locale);
+  html = withAnalyticsCsp(html);
   const outputPath = path.join(root, page.output);
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(outputPath, html.endsWith("\n") ? html : `${html}\n`, "utf8");
 }
+
+const abyssAliasTarget = "/en/product/abyss/";
+const abyssAliasOutput = path.join(root, "en/product/dub/index.html");
+const abyssAliasHtml = `<!doctype html>
+<html lang="en" data-redirect-target="${abyssAliasTarget}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="${canonicalUrl(abyssAliasTarget)}" />
+    <link rel="alternate" hreflang="es" href="${canonicalUrl("/product/abyss/")}" />
+    <link rel="alternate" hreflang="en" href="${canonicalUrl(abyssAliasTarget)}" />
+    <link rel="alternate" hreflang="x-default" href="${canonicalUrl("/product/abyss/")}" />
+    <title>Abyss Dub has moved | SUBSUELO FS</title>
+    <noscript><meta http-equiv="refresh" content="0; url=${abyssAliasTarget}" /></noscript>
+    <base href="/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles-v5.css?v=${stylesVersion}" />
+    <script src="/route-fallback.js?v=3" defer></script>
+  </head>
+  <body class="fallback-body">
+    <main class="fallback-card">
+      <span class="app-mark" aria-hidden="true">S</span>
+      <p>SUBSUELO / MOVED</p>
+      <h1>ABYSS DUB HAS MOVED</h1>
+      <p>This address now points to the canonical Abyss Dub product page.</p>
+      <a href="${abyssAliasTarget}" data-redirect-link>CONTINUE TO ABYSS DUB</a>
+    </main>
+  </body>
+</html>`;
+await mkdir(path.dirname(abyssAliasOutput), { recursive: true });
+await writeFile(abyssAliasOutput, `${abyssAliasHtml}\n`, "utf8");
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -948,7 +1099,7 @@ for (const locale of ["es", "en"]) {
     <link>${canonicalUrl(localizedPath("/guides/", locale))}</link>
     <description>${en ? "Direct guides for music prompts, negative prompts and sound direction." : "Guías directas sobre prompts musicales, negative prompts y dirección sonora."}</description>
     <language>${en ? "en" : "es"}</language>
-    <lastBuildDate>Thu, 16 Jul 2026 08:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 08:00:00 +0200</lastBuildDate>
     <atom:link href="${canonicalUrl(feedPath)}" rel="self" type="application/rss+xml" />
 ${feedItems[locale].map((item) => { const url = canonicalUrl(localizedPath(item.path, locale)); return `    <item>\n      <title>${escapeHtml(item.title)}</title>\n      <link>${url}</link>\n      <guid isPermaLink="true">${url}</guid>\n      <description>${escapeHtml(item.description)}</description>\n      <pubDate>Thu, 16 Jul 2026 08:00:00 +0200</pubDate>\n    </item>`; }).join("\n")}
   </channel>
@@ -969,6 +1120,8 @@ English guides: https://subsuelofs.com/en/guides/
 Folder comparison: https://subsuelofs.com/compare/
 Audio previews: https://subsuelofs.com/demos/
 Method: https://subsuelofs.com/method/
+Spanish legal information: https://subsuelofs.com/legal/
+English legal information: https://subsuelofs.com/en/legal/
 
 ## Catalogue
 
