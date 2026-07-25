@@ -122,6 +122,9 @@ for (const page of pages) {
       if (!html.includes('class="prompt-proof__assurance"')) throw new Error(`${page.output}: faltan las condiciones breves junto al CTA`);
       if (!html.includes(`class="primary-action prompt-proof__buy" type="button" data-buy="${productId}"`)) throw new Error(`${page.output}: falta CTA de compra de la prueba`);
       if (!html.includes(page.locale === "en" ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €")) throw new Error(`${page.output}: CTA de la prueba incorrecto`);
+      if (!html.includes(page.locale === "en" ? "€0.30 per prompt" : "0,30 € por prompt")) throw new Error(`${page.output}: falta el precio por prompt`);
+      const bundleHref = page.locale === "en" ? "/en/bundle/" : "/bundle/";
+      if (!html.includes('class="bundle-upsell"') || !html.includes(`class="bundle-upsell__action" href="${bundleHref}"`) || !html.includes(page.locale === "en" ? "save €5" : "ahorras 5 €")) throw new Error(`${page.output}: falta la venta cruzada del pack completo`);
     }
   }
 
@@ -140,6 +143,7 @@ for (const homePath of ["index.html", "en/index.html"]) {
   const home = await readFile(path.join(root, homePath), "utf8");
   if (!home.includes('href="#packs-en-oferta"')) throw new Error(`${homePath}: falta CTA hacia los packs en oferta`);
   if (!home.includes('id="packs-en-oferta"')) throw new Error(`${homePath}: falta destino del CTA de oferta`);
+  if (home.indexOf("data-folder-grid") > home.indexOf('class="home-offer"')) throw new Error(`${homePath}: las carpetas deben aparecer antes que el bloque de oferta`);
   if (!home.includes("PRECIO ACTUAL POR PACK") && !home.includes("CURRENT PRICE PER PACK")) throw new Error(`${homePath}: falta el precio permanente`);
   if (/<s>|24\.07\.2026|24 Jul 2026|descuento automático|automatic discount/iu.test(home)) throw new Error(`${homePath}: conserva urgencia o comparación de la oferta caducada`);
   if (!home.includes('"email": "hola@subsuelofs.com"')) throw new Error(`${homePath}: el correo corporativo no está unificado`);
