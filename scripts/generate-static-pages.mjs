@@ -408,6 +408,9 @@ const homeView = (locale) => {
   </div>
   <p class="view-heading__hint">${en ? "Click a folder to open it" : "Haz clic en una carpeta para abrirla"}</p>
 </header>
+<div class="folder-grid" id="packs-en-oferta" data-folder-grid>
+  ${products.map((product) => folderCard(product, locale)).join("\n  ")}
+</div>
 <section class="home-offer" aria-label="${en ? "Individual packs" : "Packs individuales"}">
   <span class="folder-icon home-offer__icon" style="--tone:#a44730" aria-hidden="true"></span>
   <div class="home-offer__copy">
@@ -422,9 +425,6 @@ const homeView = (locale) => {
     <a class="home-offer__secondary" href="${demosHref}" data-route="${demosHref}">${en ? "HEAR THE 6 DEMOS" : "ESCUCHAR LAS 6 DEMOS"}</a>
   </div>
 </section>
-<div class="folder-grid" id="packs-en-oferta" data-folder-grid>
-  ${products.map((product) => folderCard(product, locale)).join("\n  ")}
-</div>
 <section class="system-files">
   <h2>${en ? "MORE INFORMATION" : "MÁS INFORMACIÓN"}</h2>
   <div class="system-file-row">
@@ -486,7 +486,7 @@ const productView = (product, locale) => {
     <p>${escapeHtml(description)}</p>
   </div>
   <div class="product-banner__buy">
-    <div class="product-banner__price"><strong>${product.price} €</strong></div>
+    <div class="product-banner__price"><strong>${product.price} €</strong><span class="price-per-prompt">${en ? "€0.30 per prompt" : "0,30 € por prompt"}</span></div>
     <div class="product-banner__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-buy="${product.id}">${en ? "Buy now" : "Comprar ahora"} · ${product.price} €</button></div>
     <a class="product-banner__sampler" href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a>
   </div>
@@ -513,6 +513,7 @@ ${promptProofView(product, locale)}
   <nav class="editorial-actions" aria-label="${en ? "Folder profile" : "Perfil de la carpeta"}"><a href="${compareHref}">${en ? "Compare every folder" : "Comparar todas las carpetas"}</a><a href="${negativeHref}">${en ? "Understand negative prompts" : "Entender los negative prompts"}</a></nav>
   <div class="related-folders"><strong>${en ? "Related folders" : "Carpetas cercanas"}</strong><div>${related}</div></div>
 </section>
+<aside class="bundle-upsell"><div><strong>${en ? "Want more than one genre?" : "¿Te interesan varios géneros?"}</strong><span>${en ? "Complete pack: all six folders for €49 · save €5" : "Pack completo: las 6 carpetas por 49 € · ahorras 5 €"}</span></div><a class="bundle-upsell__action" href="${localizedPath("/bundle/", locale)}" data-route="${localizedPath("/bundle/", locale)}">${en ? "View complete pack · €49" : "Ver pack completo · 49 €"}</a></aside>
 <div class="purchase-strip">
   <div><strong>${escapeHtml(product.name)} · ${product.price} €</strong><span>${en ? "One-off payment · instant download" : "Pago único · descarga inmediata"}</span></div>
   <div class="purchase-strip__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-add="${product.id}">${en ? "Add to cart" : "Añadir al carrito"}</button></div>
