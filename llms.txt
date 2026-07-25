@@ -11,6 +11,15 @@ Method: https://subsuelofs.com/method/
 Spanish legal information: https://subsuelofs.com/legal/
 English legal information: https://subsuelofs.com/en/legal/
 
+## Guides
+
+- What is a negative prompt in music: https://subsuelofs.com/guides/negative-prompts/
+- How to write music prompts: https://subsuelofs.com/guides/write-music-prompts/
+- Describing drums: https://subsuelofs.com/guides/describe-drums/
+- Low end: 808 and sub-bass: https://subsuelofs.com/guides/low-end-808/
+- Fix generic AI music: https://subsuelofs.com/guides/fix-generic-ai-music/
+- Space, texture and dirt: https://subsuelofs.com/guides/space-texture/
+
 ## Catalogue
 
 - Trap Ritual: https://subsuelofs.com/product/trap/

@@ -1,0 +1,690 @@
+[
+ {
+  "slug": "describe-drums",
+  "es": {
+   "title": "Cómo describir la batería en un prompt y no quedarte con el groove por defecto",
+   "navTitle": "Describir la batería",
+   "seoTitle": "Cómo describir la batería en un prompt",
+   "metaDescription": "Vocabulario concreto para describir la batería en un prompt de música: pocket, familias de sonido, swing, densidad y los errores más comunes.",
+   "heroKicker": "GUIA_03 / BATERIA",
+   "heroLead": "La herramienta siempre devuelve un patrón de batería; que sea el tuyo depende de cómo nombres pocket, fuente y espacio. «Hard drums» no decide nada de eso.",
+   "cardDescription": "Pocket, familia de sonido, swing y densidad: las cuatro decisiones de una batería.",
+   "sections": [
+    {
+     "id": "why-hard-says-nothing",
+     "heading": "Por qué «hard drums» no dice nada",
+     "paragraphs": [
+      "«Hard drums» describe cómo quieres sentir el resultado, no lo que hace la batería. Cada género arrastra un groove por defecto, y un adjetivo vago deja ese defecto intacto: densidad media, pocket cuantizado, kit genérico.",
+      "Sustituye el adjetivo por tres decisiones. El pocket es dónde caen los golpes respecto a la rejilla. La densidad es cuántos eventos llenan el compás. El carácter es de qué están hechos los golpes y cuánto aire los rodea. `sparse dry drums, kick and snare only, tight machine pocket` fija las tres cosas. «Hard drums» no fija ninguna.",
+      "El vocabulario de batería ocupa una casilla de una estructura mayor; la [guía de escritura de prompts](/guides/write-music-prompts/) cubre las demás. Esta guía se queda en esa casilla."
+     ]
+    },
+    {
+     "id": "drum-families",
+     "heading": "Máquina, break o kit: nombra la fuente",
+     "paragraphs": [
+      "Las palabras de batería pertenecen a tres familias, y la herramienta las lee como señales sobre la fuente. Mezclar familias sin querer es el camino más corto hacia una rítmica difusa.",
+      "Elige una familia por prompt. Si buscas un híbrido, di qué elemento viene de dónde: `programmed kick under a chopped break` es una decisión; tres nombres de familia seguidos son una moneda al aire."
+     ],
+     "list": [
+      "Carácter de caja de ritmos. `programmed drums, tight clicky hats, dry machine kick`. Sirven programmed, sequenced, mechanical, gated, clicky. Es el registro de [Trap Ritual](/product/trap/): batería seca, sin room, con el 808 cargando el peso.",
+      "Breaks sampleados. `chopped break, resampled, dusty vinyl drums`. Sirven chopped, looped, resampled, dusty, crackle. [Fossil Jungle](/product/jungle/) está construida entera sobre esta familia, con breaks degradados a propósito.",
+      "Kits tocados. `live drummer, room mic, brushed snare, loose fills`. Sirven played, live, room, ghost notes, brushes."
+     ]
+    },
+    {
+     "id": "swing-and-feel",
+     "heading": "Swing, cuantización y timing humano",
+     "paragraphs": [
+      "El feel es un eje propio, separado de la fuente. Un extremo se escribe `straight, quantized, rigid, machine-tight`. El otro, `swung, shuffled, laid-back, behind the beat, loose`. Estas palabras nombran un mecanismo. «Groovy» y «human feel» nombran una meta, y la herramienta no tiene procedimiento para una meta.",
+      "Ancla el feel a un elemento concreto. `loose hats, snare slightly behind the beat` le da a la herramienta algo que ejecutar. El 2-step es el caso más claro: el patrón vive en hats y cajas desplazados de la rejilla, y por eso [Garaje Oscuro](/product/garage/) gasta sus líneas de batería en swing y skip, no en adjetivos de impacto."
+     ]
+    },
+    {
+     "id": "density-and-space",
+     "heading": "Densidad: di qué no toca la batería",
+     "paragraphs": [
+      "Lo escaso y lo cargado son decisiones, no defectos. En el lado escaso: `minimal drums, half-time, kick and snare only, no fills, no hat rolls`. En el cargado: `rolling hats, dense percussion, constant motion, fast chopped breaks`. Las dos direcciones son legítimas; dejar la elección abierta es lo que devuelve el término medio.",
+      "La ausencia hay que nombrarla o la herramienta la rellenará. Si el patrón debe respirar, escribe el hueco en el prompt como instrucción positiva. Quitar un instrumento entero puede ir también al campo de exclusiones, pero la densidad pertenece al prompt principal: describe el patrón que quieres, no un elemento que rechazas."
+     ]
+    },
+    {
+     "id": "drums-and-genre",
+     "heading": "La palabra de género ya eligió la batería",
+     "paragraphs": [
+      "Las palabras de género traen batería de serie. «Trap» ya implica 808, hats en rolls y half-time. «Jungle» ya implica breaks rápidos y troceados. «Boom bap» ya implica un kit sampleado con polvo. Repetir el defecto gasta espacio: `trap, 808 drums, hi-hat rolls` no dice nada que la herramienta no hubiera asumido.",
+      "Invierte tus palabras de batería en desviaciones. `trap, no hat rolls, sparse percussion` cambia el resultado porque el defecto sí traía rolls. Y no pelees de frente con el género: `jungle, slow live drummer` pide dos discos a la vez, y la mezcla que vuelve no la eligió nadie."
+     ]
+    },
+    {
+     "id": "common-mistakes",
+     "heading": "Cuatro errores que aplanan un prompt de batería",
+     "paragraphs": [
+      "Los prompts de batería débiles suelen fallar de una de estas cuatro formas. Nuestras carpetas escriben la línea de batería de cada prompt contra estas cuatro comprobaciones, un género por carpeta."
+     ],
+     "list": [
+      "Apilar sinónimos. `punchy hard-hitting banging drums` es una decisión vaga escrita tres veces. Cambia dos adjetivos por una palabra de pocket y otra de densidad.",
+      "Nombrar familias incompatibles. `live drummer, drum machine, chopped breaks` en la misma línea obliga a la herramienta a promediarlas.",
+      "Describir el feel sin objetivo. «Human feel» a solas deriva; `loose hats` aterriza.",
+      "Dejar vacío el resto del prompt. El pocket solo se lee contra el bajo y el espacio. Una batería precisa dentro de un prompt vago sigue volviendo genérica."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Graves y 808",
+     "path": "/guides/low-end-808/"
+    },
+    {
+     "label": "Negative prompts",
+     "path": "/guides/negative-prompts/"
+    },
+    {
+     "label": "Comparar carpetas",
+     "path": "/compare/"
+    }
+   ]
+  },
+  "en": {
+   "title": "How to describe drums in a music prompt and avoid the default groove",
+   "navTitle": "Describing drums",
+   "seoTitle": "How to describe drums in a music prompt",
+   "metaDescription": "Concrete vocabulary for describing drums in a music prompt: pocket, source families, swing, density and the mistakes that flatten a groove.",
+   "heroKicker": "GUIDE_03 / DRUMS",
+   "heroLead": "The tool always returns a drum pattern; whether it is yours depends on how you name pocket, source and space. “Hard drums” decides none of that.",
+   "cardDescription": "Pocket, source family, swing and density: the four decisions behind a drum line.",
+   "sections": [
+    {
+     "id": "why-hard-says-nothing",
+     "heading": "Why “hard drums” says nothing",
+     "paragraphs": [
+      "“Hard drums” describes how you want to feel about the result. It does not tell the tool what the drums do. Every genre carries a default groove, and a vague adjective leaves that default in place: medium density, quantized pocket, generic kit.",
+      "Replace the adjective with three decisions. Pocket is where the hits sit against the grid. Density is how many events fill a bar. Character is what the hits are made of and how much air surrounds them. `sparse dry drums, kick and snare only, tight machine pocket` fixes all three. “Hard drums” fixes none.",
+      "Drum vocabulary fills one slot of a larger structure; [the prompt writing guide](/guides/write-music-prompts/) covers the rest. This guide stays on that one slot."
+     ]
+    },
+    {
+     "id": "drum-families",
+     "heading": "Machine, break or kit: name the source",
+     "paragraphs": [
+      "Drum words fall into three families, and the tool reads them as signals about the source. Mixing families by accident is the fastest route to a mushy rhythm section.",
+      "Pick one family per prompt. If you want a hybrid, say which element comes from where: `programmed kick under a chopped break` is a decision; three family names in a row are a coin toss."
+     ],
+     "list": [
+      "Drum machine character. `programmed drums, tight clicky hats, dry machine kick`. Useful words are programmed, sequenced, mechanical, gated, clicky. This is the register of [Trap Ritual](/product/trap/): dry drums, no room, the 808 carrying the weight.",
+      "Sampled breaks. `chopped break, resampled, dusty vinyl drums`. Useful words are chopped, looped, resampled, dusty, crackle. [Fossil Jungle](/product/jungle/) is built entirely on this family, with breaks degraded on purpose.",
+      "Played kits. `live drummer, room mic, brushed snare, loose fills`. Useful words are played, live, room, ghost notes, brushes."
+     ]
+    },
+    {
+     "id": "swing-and-feel",
+     "heading": "Swing, quantization and human timing",
+     "paragraphs": [
+      "Feel is its own axis, separate from the source. One end reads `straight, quantized, rigid, machine-tight`. The other reads `swung, shuffled, laid-back, behind the beat, loose`. These words name a mechanism. “Groovy” and “human feel” name a goal, and the tool has no procedure for a goal.",
+      "Attach the feel to a specific element. `loose hats, snare slightly behind the beat` gives the tool something to execute. 2-step is the clearest case: the pattern lives in hats and snares pulled off the grid, which is why [Garaje Oscuro](/product/garage/) spends its drum lines on swing and skip instead of impact adjectives."
+     ]
+    },
+    {
+     "id": "density-and-space",
+     "heading": "Density: say what the drums do not play",
+     "paragraphs": [
+      "Sparse and busy are decisions, not defaults. On the sparse side: `minimal drums, half-time, kick and snare only, no fills, no hat rolls`. On the busy side: `rolling hats, dense percussion, constant motion, fast chopped breaks`. Both directions are legitimate; leaving the choice open is what returns the middle.",
+      "Absence has to be named or the tool will fill it. If the pattern should breathe, write the gap into the prompt as a positive instruction. Removing an entire instrument can also go to the exclusion field, but density belongs in the main prompt: it describes the pattern you want, not an element you reject."
+     ]
+    },
+    {
+     "id": "drums-and-genre",
+     "heading": "The genre word already chose the drums",
+     "paragraphs": [
+      "Genre words carry drum defaults. “Trap” already implies 808, rolled hats and half-time. “Jungle” already implies fast chopped breaks. “Boom bap” already implies a dusty sampled kit. Restating the default wastes space: `trap, 808 drums, hi-hat rolls` tells the tool nothing it had not assumed.",
+      "Spend your drum words on deviations. `trap, no hat rolls, sparse percussion` changes the outcome because the default did include rolls. And do not fight the genre head-on: `jungle, slow live drummer` asks for two records at once, and the blend that comes back is one nobody chose."
+     ]
+    },
+    {
+     "id": "common-mistakes",
+     "heading": "Four mistakes that flatten a drum prompt",
+     "paragraphs": [
+      "Weak drum prompts tend to fail in one of four ways. Our folders write the drum line of every prompt against these four checks, one genre per folder."
+     ],
+     "list": [
+      "Stacking synonyms. `punchy hard-hitting banging drums` is one vague decision written three times. Swap two adjectives for a pocket word and a density word.",
+      "Naming incompatible families. `live drummer, drum machine, chopped breaks` in a single line forces the tool to average them.",
+      "Describing feel without a target. “Human feel” on its own drifts; `loose hats` lands.",
+      "Leaving the rest of the prompt empty. Pocket only reads against bass and space. A precise drum line inside a vague prompt still comes back generic."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Low end and 808",
+     "path": "/guides/low-end-808/"
+    },
+    {
+     "label": "Negative prompts",
+     "path": "/guides/negative-prompts/"
+    },
+    {
+     "label": "Compare folders",
+     "path": "/compare/"
+    }
+   ]
+  }
+ },
+ {
+  "slug": "low-end-808",
+  "en": {
+   "title": "808, sub-bass and movement: controlling the low end in a music prompt",
+   "navTitle": "Low end: 808 and sub-bass",
+   "seoTitle": "808 & Sub-Bass Prompts: Control the Low End",
+   "metaDescription": "Which words select a sub, an 808 or a bassline in a music prompt, how to describe movement, and how to clean a muddy low end with negative prompts.",
+   "heroKicker": "GUIDE_04 / LOW END",
+   "heroLead": "The low end is where generated tracks fall apart first. These are the words that decide whether you get a sub, an 808 or a bassline, and how to keep them out of each other's way.",
+   "cardDescription": "Words that select a sub, an 808 or a bassline, and how to keep the low end clean.",
+   "sections": [
+    {
+     "id": "sub-vs-bass-words",
+     "heading": "Sub, 808 or bassline: different words select different things",
+     "paragraphs": [
+      "The tool does not treat \"bass\" as one instrument; it is a family. `sub-bass` or `deep sub` tends to select a low, sustained, near-sine layer with almost no harmonics — felt more than heard, no attack. `808` selects a tuned drum: an instrument with a transient, a decay and, in most genres, a melodic role. `bassline`, `bass guitar` or `synth bass` select a note-playing instrument with most of its energy in the mids, where small speakers can hear it. `mid bass` pushes energy up into the growl range and away from the sub.",
+      "Written alone, `deep bass` is ambiguous, and the tool resolves the ambiguity with the genre default. If the style says trap, you get an 808. If it says dub, you get a bassline. Naming the exact layer is the cheapest fix in the whole prompt: `deep sustained sub-bass` and `long 808 glides` are different requests, and they come back different."
+     ]
+    },
+    {
+     "id": "movement-words",
+     "heading": "Movement: holding, sliding, walking",
+     "paragraphs": [
+      "The instrument word decides the timbre; the movement word decides what it does over eight bars. A static sub holds one note per chord and works as a floor: `static sustained sub-bass, minimal movement`. A sliding 808 changes pitch on the way between notes: `sliding 808 glides between notes`. A walking or dub-style bassline plays a phrase: `slow melodic dub bassline, space between notes`.",
+      "Skip the movement word and the tool picks one for you, and it usually picks busy. Bass that never stops moving eats the space the drums need. Deciding between holding, sliding and walking before you write the prompt is faster than regenerating until the low end calms down."
+     ]
+    },
+    {
+     "id": "kick-bass-relationship",
+     "heading": "Kick and bass: decide who owns the low end",
+     "paragraphs": [
+      "Only one element can own the fundamental. In trap that element is the 808, so the kick gets described as short and functional: `short punchy kick, 808 carries the low end`. Over a sustained sub, the opposite applies: the kick needs enough attack to read through the floor, something like `hard kick cutting through a deep sub`.",
+      "You can also describe the relationship itself. Words like `ducking`, `pumping` or `bass ducks under the kick` push the generation toward a sidechain feel: the sub breathes with the kick instead of fighting it. What you cannot do is describe both as the biggest thing in the mix. Two elements asked to dominate the same octave cancel into mud."
+     ]
+    },
+    {
+     "id": "cleaning-mud",
+     "heading": "A muddy low end: where it comes from and how to clean it",
+     "paragraphs": [
+      "\"Deep heavy massive bass\" next to \"lush warm pads\" is a recipe, and the dish is mud. Every adjective in that pair pushes energy into the same low-mid region, and the tool has no mix engineer to carve it back out. A muddy low end is rarely a bass problem; it is an everything-at-once problem stated at prompt level.",
+      "The fix has two halves. In the style prompt, assign lowness to one element and dryness to the rest: `heavy sub, dry drums, sparse arrangement` leaves room by construction. In the Exclude field, name the failure directly: `muddy low end, boomy bass, dense pads, washy reverb`. How exclusions work, and why they belong in their own field, is covered in the [negative prompts guide](/guides/negative-prompts/)."
+     ]
+    },
+    {
+     "id": "genre-defaults",
+     "heading": "Genre defaults: each genre wants a different low end",
+     "paragraphs": [
+      "\"808\" is not one sound across genres, so describe the behaviour, not just the name. A trap 808 is the lead: tuned, gliding, louder than everything else, with the drums kept dry around it. That is the behaviour [Trap Ritual](/product/trap/) is written around: 30 prompts where the 808 dominates and the kit stays out of its way.",
+      "A garage sub does the opposite job. It sits still underneath the 2-step swing, warm and static, while the drums carry all the syncopation — the pattern used across [Garaje Oscuro](/product/garage/). A dub bass is huge but slow: melodic, round, wrapped in echo, with the kick landing inside it rather than against it, which is the register [Abyss Dub](/product/abyss/) works in. Writing `dominant gliding 808`, `static warm sub under 2-step drums` or `slow melodic dub bass, deep echoes` asks for each behaviour on purpose instead of inheriting the genre default."
+     ]
+    },
+    {
+     "id": "common-mistakes",
+     "heading": "Common mistakes",
+     "paragraphs": [
+      "Most low-end failures in generated tracks come from the same short list. Pick the layer, pick the movement, pick the owner of the low end: three decisions, three or four words each."
+     ],
+     "list": [
+      "Writing `deep heavy massive bass` next to dense pads and expecting the tool to make room.",
+      "Asking for an 808 when you want a sustained sub, or the reverse.",
+      "Describing both kick and bass as the dominant element at once.",
+      "Leaving movement unspecified, so the genre default decides whether the bass holds, slides or walks.",
+      "Stacking size adjectives instead of naming one behaviour and one owner of the low end."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "How to describe drums",
+     "path": "/guides/describe-drums/"
+    },
+    {
+     "label": "Fix generic AI music",
+     "path": "/guides/fix-generic-ai-music/"
+    },
+    {
+     "label": "Complete pack — 6 folders",
+     "path": "/bundle/"
+    }
+   ]
+  },
+  "es": {
+   "title": "808, subgraves y movimiento: cómo controlar el grave en un prompt",
+   "navTitle": "Graves: 808 y subgraves",
+   "seoTitle": "Prompt 808 y subgraves: controlar el grave",
+   "metaDescription": "Qué palabras seleccionan un sub, un 808 o un bajo en un prompt, cómo describir el movimiento del bajo y cómo limpiar unos graves turbios con negative prompts.",
+   "heroKicker": "GUIA_04 / GRAVES",
+   "heroLead": "El grave es lo primero que se derrumba en una pista generada. Estas son las palabras que deciden si sale un sub, un 808 o una línea de bajo, y cómo evitar que se pisen.",
+   "cardDescription": "Qué palabras sacan un sub, un 808 o una línea de bajo, y cómo mantener el grave limpio.",
+   "sections": [
+    {
+     "id": "sub-vs-bass-words",
+     "heading": "Sub, 808 o línea de bajo: cada palabra selecciona otra cosa",
+     "paragraphs": [
+      "Para la herramienta, \"bajo\" no es un instrumento: es una familia. `sub-bass` o `deep sub` tiende a seleccionar una capa grave sostenida, casi sinusoidal, sin apenas armónicos; se siente más que se escucha. `808` selecciona un tambor afinado, con transitorio, caída y, en la mayoría de géneros, papel melódico. `bassline`, `bass guitar` o `synth bass` seleccionan un instrumento que toca notas y concentra su energía en los medios, donde lo oyen los altavoces pequeños. `mid bass` empuja la energía hacia el growl y la aleja del sub.",
+      "Escrito a secas, `deep bass` es ambiguo, y la herramienta resuelve la ambigüedad con el género. Si el estilo dice trap, saldrá un 808. Si dice dub, saldrá una línea de bajo. Nombrar la capa exacta es el arreglo más barato de todo el prompt: `deep sustained sub-bass` y `long 808 glides` son peticiones distintas y devuelven resultados distintos."
+     ]
+    },
+    {
+     "id": "movement-words",
+     "heading": "Movimiento: sostener, deslizar, caminar",
+     "paragraphs": [
+      "La palabra de instrumento decide el timbre; la de movimiento decide qué hace durante ocho compases. Un sub estático sostiene una nota por acorde y funciona como suelo: `static sustained sub-bass, minimal movement`. Un 808 con glides cambia de altura entre nota y nota: `sliding 808 glides between notes`. Una línea de bajo dub toca una frase: `slow melodic dub bassline, space between notes`.",
+      "Si no escribes movimiento, la herramienta lo elige por ti, y suele elegir movimiento de más. Un bajo que no para de moverse se come el espacio de la batería. Decidir entre sostener, deslizar y caminar antes de escribir el prompt es más rápido que regenerar hasta que el grave se calme."
+     ]
+    },
+    {
+     "id": "kick-bass-relationship",
+     "heading": "Kick y bajo: decide quién manda en el grave",
+     "paragraphs": [
+      "Solo un elemento puede quedarse con la fundamental. En trap ese elemento es el 808, así que el kick se describe corto y funcional: `short punchy kick, 808 carries the low end`. Sobre un sub sostenido pasa lo contrario: el kick necesita ataque suficiente para leerse a través del suelo, algo como `hard kick cutting through a deep sub`.",
+      "También puedes describir la relación en sí. Palabras como `ducking`, `pumping` o `bass ducks under the kick` empujan la generación hacia una sensación de sidechain: el sub respira con el kick en vez de pelearse con él. Lo que no puedes hacer es describir los dos como el elemento más grande de la mezcla. Dos elementos obligados a dominar la misma octava acaban en barro."
+     ]
+    },
+    {
+     "id": "cleaning-mud",
+     "heading": "Graves turbios: de dónde salen y cómo limpiarlos",
+     "paragraphs": [
+      "\"Deep heavy massive bass\" junto a \"lush warm pads\" es una receta, y el plato es barro. Cada adjetivo de esa pareja empuja energía a la misma zona de medios graves, y la herramienta no tiene un técnico de mezcla que la recorte después. Unos graves turbios rara vez son un problema del bajo: son un problema de todo a la vez, escrito en el propio prompt.",
+      "La solución tiene dos mitades. En el prompt de estilo, asigna lo grave a un solo elemento y lo seco al resto: `heavy sub, dry drums, sparse arrangement` deja hueco por construcción. En el campo Exclude, nombra el fallo directamente: `muddy low end, boomy bass, dense pads, washy reverb`. Cómo funcionan las exclusiones, y por qué van en su propio campo, está en la [guía de negative prompts](/guides/negative-prompts/)."
+     ]
+    },
+    {
+     "id": "genre-defaults",
+     "heading": "Cada género pide otro grave",
+     "paragraphs": [
+      "\"808\" no suena igual en todos los géneros, así que describe el comportamiento, no solo el nombre. El 808 de trap es el protagonista: afinado, con glides, por encima de todo lo demás y con la batería seca a su alrededor. Ese es el comportamiento sobre el que está escrito [Trap Ritual](/product/trap/): 30 prompts donde el 808 domina y el kit se aparta.",
+      "El sub de garage hace el trabajo contrario. Se queda quieto debajo del swing 2-step, cálido y estático, mientras la batería lleva toda la síncopa: el esquema de [Garaje Oscuro](/product/garage/). El bajo dub es enorme pero lento: melódico, redondo, envuelto en ecos, con el kick cayendo dentro de él y no contra él, que es el registro de [Abyss Dub](/product/abyss/). Escribir `dominant gliding 808`, `static warm sub under 2-step drums` o `slow melodic dub bass, deep echoes` pide cada comportamiento a propósito en vez de heredar el del género."
+     ]
+    },
+    {
+     "id": "common-mistakes",
+     "heading": "Errores frecuentes",
+     "paragraphs": [
+      "Casi todos los graves fallidos en pistas generadas salen de la misma lista corta. Elige la capa, elige el movimiento, elige al dueño del grave: tres decisiones de tres o cuatro palabras cada una."
+     ],
+     "list": [
+      "Escribir `deep heavy massive bass` junto a pads densos y esperar que la herramienta haga sitio.",
+      "Pedir un 808 cuando quieres un sub sostenido, o al revés.",
+      "Describir kick y bajo como el elemento dominante a la vez.",
+      "No especificar movimiento y dejar que el género decida si el bajo sostiene, desliza o camina.",
+      "Acumular adjetivos de tamaño en vez de nombrar un comportamiento y un solo dueño del grave."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Cómo describir baterías",
+     "path": "/guides/describe-drums/"
+    },
+    {
+     "label": "Arreglar música IA genérica",
+     "path": "/guides/fix-generic-ai-music/"
+    },
+    {
+     "label": "Pack completo — 6 carpetas",
+     "path": "/bundle/"
+    }
+   ]
+  }
+ },
+ {
+  "slug": "fix-generic-ai-music",
+  "es": {
+   "title": "Por qué la música hecha con IA suena genérica y qué hábitos de prompt lo corrigen",
+   "navTitle": "Arreglar música IA genérica",
+   "seoTitle": "La música IA suena genérica: cómo arreglarlo",
+   "metaDescription": "La música hecha con IA suena genérica cuando el prompt es vago. Palabras de fuente, espacio, exclusiones e iteración por ejes la sacan del promedio.",
+   "heroKicker": "GUIA_05 / CARACTER",
+   "heroLead": "Un resultado genérico rara vez es un misterio. Un prompt vago se promedia hacia el centro estadístico de su género; las palabras concretas sobre fuentes, espacio y acabado lo sacan de ahí.",
+   "cardDescription": "Por qué un prompt vago cae en el centro estadístico del género y qué palabras lo sacan.",
+   "sections": [
+    {
+     "id": "why-generic",
+     "heading": "Lo genérico es el promedio, no un accidente",
+     "paragraphs": [
+      "Cuando un prompt apenas dice nada, la herramienta rellena los huecos con la respuesta más común. `trap beat, hard 808` describe miles de pistas, así que el resultado cae en su centro estadístico: batería a medio tempo, un 808 de catálogo, hats previsibles y un máster brillante y ancho. Nada está roto. Todo es promedio.",
+      "Por eso regenerar con las mismas palabras rara vez ayuda. El prompt define una región y cada intento es una tirada dentro de esa región. Si la región es el centro del género, las tiradas seguirán sonando al centro del género. Para mover el resultado, mueve las palabras.",
+      "La herramienta no elige sonar aburrida. Responde a la pregunta que le hiciste, y `trap beat` es una pregunta aburrida."
+     ]
+    },
+    {
+     "id": "specificity-ladder",
+     "heading": "Sube la escalera de especificidad",
+     "paragraphs": [
+      "La especificidad es una escalera de cuatro peldaños. Cada peldaño estrecha la región de la que puede tirar la herramienta.",
+      "La mayoría de los resultados genéricos vienen de prompts atascados en el primer peldaño. La guía sobre [cómo escribir prompts musicales](/guides/write-music-prompts/) desarrolla la estructura completa; la escalera es la versión corta que puedes aplicar en diez segundos."
+     ],
+     "list": [
+      "`trap beat` nombra un género y nada más.",
+      "`dark ritual trap, slow, sparse` añade escena y época, es decir, qué rincón del género y a qué pulso.",
+      "Las fuentes con nombre concretan el material, como `dry drums, dominant 808, detuned bell loop`.",
+      "El espacio y el acabado cierran la dirección, como `small dead room, dark master, no reverb tail`."
+     ]
+    },
+    {
+     "id": "source-material",
+     "heading": "Di de qué están hechos los sonidos",
+     "paragraphs": [
+      "La palanca antigenérica más fuerte es el material. Las palabras de género describen un destino; las palabras de fuente describen de qué está hecho el sonido, y la herramienta las trata de forma literal. `drums resampled from vinyl`, `worn cassette loop`, `field recording air`, `gritty sampler character` alejan el resultado del acabado limpio por defecto.",
+      "[Noir Tapes](/product/noir/) está construida sobre esta palanca: cada prompt de la carpeta nombra fuentes sampleadas y un tratamiento de cinta antes que cualquier otra cosa."
+     ],
+     "list": [
+      "La cinta aporta saturación, wow and flutter, dropouts y agudos suavizados.",
+      "El vinilo aporta crackle, polvo y el corte de un loop truncado.",
+      "Las grabaciones de campo aportan aire de sala, ruido de calle y tráfico lejano bajo el beat.",
+      "El carácter de máquina aporta grano de sampler lo-fi y el tono de una caja de ritmos antigua."
+     ]
+    },
+    {
+     "id": "space-and-finish",
+     "heading": "Especifica la sala y la suciedad",
+     "paragraphs": [
+      "Sin indicación, el acabado tiende a limpio, brillante y ancho, porque así suena la mayoría de la música publicada. Si cada generación vuelve con el mismo máster pulido, es que el prompt nunca dijo lo contrario.",
+      "Palabras de espacio: `small dead room`, `short room reverb only`, `mono drums, narrow mix`. Palabras de imperfección: `tape hiss`, `soft clipping`, `degraded`, `dusty`. En el prompt son dirección, no daño: la herramienta las convierte en carácter.",
+      "Elige un espacio y un tipo de suciedad por prompt. Apilar todas las texturas produce barro, no identidad."
+     ]
+    },
+    {
+     "id": "exclusions",
+     "heading": "Corta los tics recurrentes con exclusiones",
+     "paragraphs": [
+      "Algunos tics genéricos sobreviven a un prompt específico: acordes pop brillantes, cuerdas cinematográficas, un hook vocal que nadie pidió, un drop ancho y reluciente. Para esos casos, el campo de exclusión funciona como bisturí. Una lista esquemática sería `bright pop chords, cinematic strings, wide clean master`: tres elementos que se dejan fuera, no un segundo prompt.",
+      "Escribe una lista corta por problema y pégala en el campo Exclude, separada del texto de estilo. La guía de [negative prompts](/guides/negative-prompts/) explica dónde se coloca y cuándo conviene dejar el campo vacío."
+     ]
+    },
+    {
+     "id": "one-axis-per-attempt",
+     "heading": "Cambia un solo eje por intento",
+     "paragraphs": [
+      "Iterar solo enseña algo cuando puedes saber qué causó el cambio. Cambia un eje por intento —fuentes, espacio, acabado o exclusiones, nunca dos a la vez—, guarda cada versión junto al prompt que la produjo y compáralas en frío. Esa es la disciplina detrás de [nuestro método](/method/): los 30 prompts de cada carpeta salen exactamente de ese bucle.",
+      "El límite conviene decirlo claro. Un prompt marca una dirección; no garantiza un resultado. Dos generaciones del mismo texto serán distintas y algunos intentos fallarán. Lo que cambian estos hábitos es el suelo: los fallos quedan más cerca del sonido que pediste y las buenas tiradas dejan de sonar como las de todo el mundo."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Escuchar las demos de 30 segundos",
+     "path": "/demos/"
+    },
+    {
+     "label": "Comparar las seis carpetas",
+     "path": "/compare/"
+    },
+    {
+     "label": "Abrir el catálogo",
+     "path": "/"
+    }
+   ]
+  },
+  "en": {
+   "title": "Why AI music sounds generic and the prompt habits that fix it",
+   "navTitle": "Fix generic AI music",
+   "seoTitle": "AI music sounds generic: how to fix it",
+   "metaDescription": "Generic AI music comes from vague prompts averaged into the genre's middle. Source words, space, exclusions and one-axis iteration fix it.",
+   "heroKicker": "GUIDE_05 / CHARACTER",
+   "heroLead": "Generic output is rarely a mystery. A vague prompt gets averaged into the statistical middle of its genre; concrete words about sources, space and finish pull it out.",
+   "cardDescription": "Why vague prompts land in the genre's statistical middle and which words pull them out.",
+   "sections": [
+    {
+     "id": "why-generic",
+     "heading": "Generic is the average, not an accident",
+     "paragraphs": [
+      "When a prompt says almost nothing, the tool fills the gaps with the most common answer. `trap beat, hard 808` describes thousands of tracks, so the result lands on their statistical middle: mid-tempo drums, a stock 808, predictable hats, a bright wide master. Nothing is broken. Everything is average.",
+      "That is why regenerating with the same words rarely helps. The prompt defines a region, and every attempt is a draw from that region. If the region is the centre of the genre, the draws will keep sounding like the centre of the genre. To move the output, move the words.",
+      "The tool is not choosing to be boring. It is answering the question you asked, and `trap beat` is a boring question."
+     ]
+    },
+    {
+     "id": "specificity-ladder",
+     "heading": "Climb the specificity ladder",
+     "paragraphs": [
+      "Specificity is a ladder with four rungs. Each rung narrows the region the tool can draw from.",
+      "Most generic results come from prompts stuck on the first rung. The guide on [how to write music prompts](/guides/write-music-prompts/) covers the full structure; the ladder is the short version you can apply in ten seconds."
+     ],
+     "list": [
+      "`trap beat` names a genre and nothing else.",
+      "`dark ritual trap, slow, sparse` adds scene and era, meaning which corner of the genre and at what pace.",
+      "Named sound sources fix the material, as in `dry drums, dominant 808, detuned bell loop`.",
+      "Space and finish close the direction, as in `small dead room, dark master, no reverb tail`."
+     ]
+    },
+    {
+     "id": "source-material",
+     "heading": "Say what the sounds are made from",
+     "paragraphs": [
+      "The strongest anti-generic lever is the material. Genre words describe a destination; source words describe what the sound is made from, and the tool treats them literally. `drums resampled from vinyl`, `worn cassette loop`, `field recording air`, `gritty sampler character` each drag the output away from the clean default.",
+      "[Noir Tapes](/product/noir/) is built on this lever: every prompt in the folder names sampled sources and a tape treatment before it names anything else."
+     ],
+     "list": [
+      "Tape brings saturation, wow and flutter, dropouts and a softened top end.",
+      "Vinyl brings crackle, dust and the cut of a truncated loop.",
+      "Field recordings bring room air, street noise and distant traffic under the beat.",
+      "Machine character brings lo-fi sampler grit and the tone of an early drum machine."
+     ]
+    },
+    {
+     "id": "space-and-finish",
+     "heading": "Specify the room and the dirt",
+     "paragraphs": [
+      "Left unspecified, the finish defaults to clean, bright and wide, because that is what most published music sounds like. If every generation comes back with the same polished master, the prompt never said otherwise.",
+      "Space words: `small dead room`, `short room reverb only`, `mono drums, narrow mix`. Imperfection words: `tape hiss`, `soft clipping`, `degraded`, `dusty`. Written in the prompt they are direction, not damage: the tool renders them as character.",
+      "Pick one space and one kind of dirt per prompt. Stacking every texture word produces mud, not identity."
+     ]
+    },
+    {
+     "id": "exclusions",
+     "heading": "Cut the recurring tells with exclusions",
+     "paragraphs": [
+      "Some generic tells survive a specific prompt: bright pop chords, cinematic strings, a vocal hook nobody asked for, a sudden wide glossy drop. For those, the exclusion field works as a scalpel. A schematic list looks like `bright pop chords, cinematic strings, wide clean master`: three elements left out, not a second prompt.",
+      "Write one short list per problem and paste it into the Exclude field, separate from the style text. The [negative prompts guide](/guides/negative-prompts/) covers where it goes and when to leave the field empty."
+     ]
+    },
+    {
+     "id": "one-axis-per-attempt",
+     "heading": "Change one axis per attempt",
+     "paragraphs": [
+      "Iteration only teaches you something when you can tell what caused the change. Change one axis per attempt — sources, space, finish or exclusions, never two at once — keep every version next to the prompt that produced it, and compare them cold. That is the discipline behind [our method](/method/): the 30 prompts in each folder come out of exactly that loop.",
+      "The limit is worth stating plainly. A prompt sets a direction; it does not guarantee a result. Two generations of the same text will differ, and some attempts will miss. What these habits change is the floor: the misses land closer to the sound you asked for, and the good draws stop sounding like everyone else's."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Listen to the 30-second demos",
+     "path": "/demos/"
+    },
+    {
+     "label": "Compare the six folders",
+     "path": "/compare/"
+    },
+    {
+     "label": "Open the catalogue",
+     "path": "/"
+    }
+   ]
+  }
+ },
+ {
+  "slug": "space-texture",
+  "es": {
+   "title": "Espacio, textura y suciedad: escribir la sala dentro del prompt",
+   "navTitle": "Espacio, textura y suciedad",
+   "seoTitle": "Prompts de textura lo-fi: cinta y espacio",
+   "metaDescription": "Vocabulario de espacio, eco, cinta y degradación para prompts musicales: seco o lavado, dub delay, crackle de vinilo, anchura y cuánta suciedad es demasiada.",
+   "heroKicker": "GUIA_06 / TEXTURA",
+   "heroLead": "El espacio y la suciedad son señales de género, no un acabado. Este es el vocabulario de sala, eco y degradación que saca un prompt de lo genérico.",
+   "cardDescription": "Vocabulario de sala, eco, cinta y degradación, y cuánta suciedad aguanta un prompt.",
+   "sections": [
+    {
+     "id": "space-is-a-decision",
+     "heading": "El espacio se decide, no se hereda",
+     "paragraphs": [
+      "La mayoría de los prompts describen instrumentos y dejan el espacio al azar. La herramienta rellena el hueco con su valor por defecto: una sala mediana y educada aplicada a todo. De ahí sale buena parte de lo genérico. El espacio es una señal de género tan fuerte como el tempo; escríbelo en el campo Styles con el mismo peso que la batería.",
+      "La escalera tiene cuatro peldaños. Seco y cercano pone la fuente delante, sin sala audible: `dry drums, close-mic, in your face`. Sala añade reflexiones cortas: `tight room`, `small dusty room`. Hall añade cola larga: `hall reverb, long decay`. Caverna deja que el espacio se trague la fuente: `cavernous, washed in reverb`. Cada peldaño aleja el resultado del club y lo acerca a lo cinematográfico.",
+      "Elige un peldaño y mantenlo. Un prompt que pide `dry punchy drums` y `huge hall reverb` en la misma línea le da a la herramienta dos salas y ninguna instrucción sobre qué instrumento va en cuál."
+     ]
+    },
+    {
+     "id": "echo-families",
+     "heading": "Familias de eco: slapback, dub delay, lavado",
+     "paragraphs": [
+      "El eco no es una sola palabra. El slapback es una repetición corta y única, sin feedback: `slapback echo on vocals` suena a máquinas de cinta viejas y a cadenas vocales lo-fi. El dub delay es rítmico y filtrado, repeticiones que se realimentan y pasan a formar parte del groove: `dub delay on snare, deep echoes`. Lavado significa que las repeticiones se funden en un muro: `washed-out delay, endless tails`.",
+      "En el dub el eco no decora: es el género. Qué golpe entra al delay, cuánto dura la repetición y qué se queda seco debajo son decisiones de arreglo. Los prompts de [Abyss Dub](/product/abyss/) lo tratan así: nombran los elementos que llevan eco y mantienen el sub seco, porque una mezcla donde todo se repite se convierte en barro."
+     ]
+    },
+    {
+     "id": "texture-vocabulary",
+     "heading": "Textura y degradación: cinta, vinilo, hiss",
+     "paragraphs": [
+      "El vocabulario de degradación es específico. Cada palabra señala un artefacto distinto y la herramienta responde a la diferencia.",
+      "Decide dónde vive la suciedad. La cinta sobre el master es una estética; la degradación impresa en la fuente es otra. La carpeta [Noir Tapes](/product/noir/) aplica tratamiento de cinta a toda la mezcla, mientras que [Fossil Jungle](/product/jungle/) pide breaks resampleados y degradados: la suciedad está en el material, no encima."
+     ],
+     "list": [
+      "`tape saturation` redondea los agudos y añade compresión suave",
+      "`tape warble` añade inestabilidad de tono y suena a casete gastado",
+      "`vinyl crackle` pone ruido de superficie encima y suena a sampleado",
+      "`hiss` es ruido de banda ancha, la forma más barata de decir lo-fi",
+      "`bit-crushed` es digital y áspero, territorio de samplers antiguos",
+      "`worn, degraded` son palabras sueltas que la herramienta interpreta a su aire; acompáñalas de un medio concreto"
+     ]
+    },
+    {
+     "id": "width-and-mono",
+     "heading": "Anchura y mono",
+     "paragraphs": [
+      "La anchura forma parte del mismo vocabulario. `wide stereo pads` suena moderno y caro. `mono, narrow` suena antiguo, sampleado, concentrado. Ninguno es mejor: son épocas distintas. Una mezcla completamente mono asume la estética del sample, y la herramienta suele seguirla.",
+      "La jugada útil es repartir el campo estéreo: `mono drums, wide pads` mantiene un centro vintage con bordes modernos. Elijas lo que elijas, deja el grave estrecho. Un sub ancho es energía que el tema pierde en cualquier sistema real."
+     ]
+    },
+    {
+     "id": "match-space-to-genre",
+     "heading": "Cada género tiene su sala",
+     "paragraphs": [
+      "Cada género arrastra una sala por defecto y la herramienta la ha aprendido. Pelear contra ese valor es posible pero cuesta precisión; alinearse con él hace que los prompts cortos rindan más."
+     ],
+     "list": [
+      "El trap quiere la batería seca y delante, con el 808 haciendo de sala; la reverb en el kick mata el pocket",
+      "El boom bap noir quiere una sala pequeña y polvorienta con cinta sobre el master",
+      "El dub quiere eco rítmico profundo sobre un sub enorme y seco",
+      "El garage oscuro quiere un club apretado, reverb corta en los skips y grave seco",
+      "El jungle quiere la sala ya impresa en el break, no añadida después"
+     ]
+    },
+    {
+     "id": "clean-and-common-mistakes",
+     "heading": "Cuándo pedir limpio y el error de apilar",
+     "paragraphs": [
+      "El error de textura más común es apilar: `lo-fi, tape, vinyl, hiss, dusty, degraded, warm analog` en una sola línea. La herramienta promedia el montón y devuelve una neblina sin carácter: pediste siete suciedades y no obtuviste ninguna en concreto. Elige un medio y un artefacto: `tape saturation, faint hiss` dice más que siete adjetivos.",
+      "La petición contraria también es legítima. Si la herramienta insiste en imprimir crackle sobre un género que quieres limpio, dilo — `clean, modern, no lo-fi treatment` — y pasa los reincidentes al campo Exclude. Cómo redactar esas listas está en la [guía de negative prompts](/guides/negative-prompts/). Nuestras carpetas separan los 30 prompts de las 10 listas de exclusión precisamente para que las dos direcciones no se mezclen."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Cómo describir la batería",
+     "path": "/guides/describe-drums/"
+    },
+    {
+     "label": "Arregla la música genérica",
+     "path": "/guides/fix-generic-ai-music/"
+    },
+    {
+     "label": "Escucha las demos",
+     "path": "/demos/"
+    }
+   ]
+  },
+  "en": {
+   "title": "Space, texture and dirt: writing the room into your prompt",
+   "navTitle": "Space, texture and dirt",
+   "seoTitle": "Lo-fi texture and reverb in music prompts",
+   "metaDescription": "Reverb space, echo, tape and degradation vocabulary for music prompts: dry vs washed, dub delay, vinyl crackle, and how much dirt is too much.",
+   "heroKicker": "GUIDE_06 / TEXTURE",
+   "heroLead": "Space and dirt are genre signals, not polish. This is the room, echo and degradation vocabulary that moves a prompt out of generic.",
+   "cardDescription": "Room, echo, tape and degradation vocabulary, and how much dirt one prompt can carry.",
+   "sections": [
+    {
+     "id": "space-is-a-decision",
+     "heading": "Space is a decision, not an afterthought",
+     "paragraphs": [
+      "Most prompts describe instruments and leave the space to chance. The tool fills the gap with its default: a polite medium room on everything. That default is where much of the generic comes from. Space is a genre signal as strong as tempo, so write it in the Styles field with the same weight as the drums.",
+      "The ladder has four rungs. Dry and close puts the source at the front with no audible room: `dry drums, close-mic, in your face`. Room adds short reflections: `tight room`, `small dusty room`. Hall adds a long tail: `hall reverb, long decay`. Cavern lets the space swallow the source: `cavernous, washed in reverb`. Each step up the ladder moves the result away from the club and toward the cinematic.",
+      "Pick one rung and commit. A prompt that asks for `dry punchy drums` and `huge hall reverb` in the same line gives the tool two rooms and no instruction about which instrument sits in which."
+     ]
+    },
+    {
+     "id": "echo-families",
+     "heading": "Echo families: slapback, dub delay, washed",
+     "paragraphs": [
+      "Echo is not one word. Slapback is a single short repeat with no feedback: `slapback echo on vocals` reads as old tape machines and lo-fi vocal chains. Dub delay is rhythmic and filtered, repeats that feed back and become part of the groove: `dub delay on snare, deep echoes`. Washed means the repeats blur into a wall: `washed-out delay, endless tails`.",
+      "In dub, echo is not decoration. It is the genre. Delay throws are arrangement decisions — which hit repeats, for how long, and what stays dry underneath. Our [Abyss Dub](/product/abyss/) prompts treat echo that way: they name the elements that echo and keep the sub dry, because a mix where everything repeats turns to mud."
+     ]
+    },
+    {
+     "id": "texture-vocabulary",
+     "heading": "Texture and degradation: tape, vinyl, hiss",
+     "paragraphs": [
+      "Degradation vocabulary is specific. Each word points at a different artifact, and the tool responds to the difference.",
+      "Decide where the dirt lives. Tape over the master is one aesthetic; degradation printed into the source is another. Our [Noir Tapes](/product/noir/) folder puts tape treatment on the whole mix, while [Fossil Jungle](/product/jungle/) asks for resampled, degraded breaks — the dirt is in the material, not on top of it."
+     ],
+     "list": [
+      "`tape saturation` rounds the top end and adds soft compression",
+      "`tape warble` adds pitch instability and reads as worn cassette",
+      "`vinyl crackle` puts surface noise on top and reads as sampled",
+      "`hiss` is broadband noise, the cheapest way to say lo-fi",
+      "`bit-crushed` is digital and harsh, early sampler territory",
+      "`worn, degraded` are loose words the tool interprets freely, so pair them with a concrete medium"
+     ]
+    },
+    {
+     "id": "width-and-mono",
+     "heading": "Width and mono",
+     "paragraphs": [
+      "Width belongs to the same vocabulary. `wide stereo pads` reads modern and expensive. `mono, narrow` reads older, sampled, focused. Neither is better; they are different eras. A fully mono mix commits to the sampled aesthetic, and the tool generally follows.",
+      "The useful move is to split the stereo field: `mono drums, wide pads` keeps a vintage center with modern edges. Whatever you choose, keep the low end narrow. A wide sub is energy the track loses on any real system."
+     ]
+    },
+    {
+     "id": "match-space-to-genre",
+     "heading": "Match the space to the genre",
+     "paragraphs": [
+      "Every genre carries a default room and the tool has learned it. Fighting that default is possible but costs precision; aligning with it makes short prompts work harder."
+     ],
+     "list": [
+      "Trap wants dry drums at the front, with the 808 acting as the room; reverb on the kick kills the pocket",
+      "Noir boom bap wants a small dusty room and tape over the master",
+      "Dub wants deep rhythmic echo over a huge dry sub",
+      "Dark garage wants a tight club space, short reverb on the skips and a dry low end",
+      "Jungle wants the room already printed on the break, not added afterwards"
+     ]
+    },
+    {
+     "id": "clean-and-common-mistakes",
+     "heading": "When to ask for clean, and the stacking mistake",
+     "paragraphs": [
+      "The most common texture error is stacking: `lo-fi, tape, vinyl, hiss, dusty, degraded, warm analog` in one line. The tool averages the pile into an unspecific haze — you asked for seven kinds of dirt and got none in particular. Pick one medium and one artifact: `tape saturation, faint hiss` says more than seven adjectives.",
+      "The opposite request is also legitimate. If the tool keeps printing crackle on a genre you want clean, say so — `clean, modern, no lo-fi treatment` — and move the persistent offenders to the Exclude field. How to phrase those lists is covered in the [negative prompts guide](/guides/negative-prompts/). Our folders keep the 30 prompts and the 10 exclusion lists in separate documents so the two directions never blur."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "How to describe drums",
+     "path": "/guides/describe-drums/"
+    },
+    {
+     "label": "Fix generic AI music",
+     "path": "/guides/fix-generic-ai-music/"
+    },
+    {
+     "label": "Hear the demos",
+     "path": "/demos/"
+    }
+   ]
+  }
+ }
+]
