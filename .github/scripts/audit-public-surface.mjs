@@ -37,6 +37,14 @@ robots.txt
 route-fallback.js
 scripts/generate-static-pages.mjs
 scripts/guide-articles.json
+media/guides/describe-drums-es.png
+media/guides/describe-drums-en.png
+media/guides/low-end-808-es.png
+media/guides/low-end-808-en.png
+media/guides/fix-generic-ai-music-es.png
+media/guides/fix-generic-ai-music-en.png
+media/guides/space-texture-es.png
+media/guides/space-texture-en.png
 scripts/validate-static-pages.mjs
 sitemap.xml
 social-card.png
@@ -292,6 +300,7 @@ if (process.argv.includes("--self-test")) {
     pathViolations("analytics-loader.js").length === 0,
     pathViolations("scripts/guide-articles.json").length === 0,
     pathViolations("media/noir/social-card.png").length === 0,
+    pathViolations("media/guides/space-texture-en.png").length === 0,
     pathViolations("guides/future-guide/index.html").length === 0,
     contentViolations("SUBSUELO FS · archivo público").length === 0,
     contentViolations(approvedBrandDisclaimers.join("\n")).length === 0,

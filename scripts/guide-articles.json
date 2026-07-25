@@ -168,7 +168,8 @@
      "path": "/compare/"
     }
    ]
-  }
+  },
+  "related": "garage"
  },
  {
   "slug": "low-end-808",
@@ -329,7 +330,8 @@
      "path": "/bundle/"
     }
    ]
-  }
+  },
+  "related": "trap"
  },
  {
   "slug": "fix-generic-ai-music",
@@ -506,7 +508,8 @@
      "path": "/"
     }
    ]
-  }
+  },
+  "related": "low"
  },
  {
   "slug": "space-texture",
@@ -685,6 +688,7 @@
      "path": "/demos/"
     }
    ]
-  }
+  },
+  "related": "noir"
  }
 ]

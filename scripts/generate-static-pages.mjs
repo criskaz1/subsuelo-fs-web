@@ -529,7 +529,8 @@ const demosView = (locale) => {
 <div class="file-list demo-list">
   <div class="file-list__header"><span>${en ? "Track" : "Pista"}</span><span>${en ? "Folder" : "Carpeta"}</span><span>${en ? "Length" : "Duración"}</span><span>${en ? "Action" : "Acción"}</span></div>
   ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<div class="file-row" data-track="${product.id}"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>${escapeHtml(product.demo)}</strong><small class="demo-profile">${escapeHtml(productValue(productEditorial[product.id], "demoProfile", locale))}</small></span></span><span><a href="${href}" data-route="${href}">${escapeHtml(product.name)}</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="${product.id}">${en ? "Listen" : "Escuchar"}</button><button class="file-row__action file-row__action--primary" type="button" data-add="${product.id}">${en ? "Add" : "Añadir"} · ${product.price} €</button></span></div>`; }).join("\n  ")}
-</div>`;
+</div>
+<aside class="demos-sampler"><div><strong>${en ? "Like what you hear?" : "¿Te gusta lo que oyes?"}</strong><span>${en ? "The free sampler includes 6 prompts, 7 negative prompts and these six demos." : "La muestra gratuita incluye 6 prompts, 7 negative prompts y estas seis demos."}</span></div><a class="demos-sampler__action" href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="demos">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a></aside>`;
 };
 
 const bundleProduct = {
@@ -552,7 +553,7 @@ const bundleView = (locale) => {
   <div class="file-list__header"><span>${en ? "Name" : "Nombre"}</span><span>${en ? "Type" : "Tipo"}</span><span>${en ? "Contents" : "Qué contiene"}</span><span>${en ? "Access" : "Acceso"}</span></div>
   ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<a class="file-row" href="${href}" data-route="${href}"><span class="file-row__name"><span class="row-folder-icon"></span><strong>${escapeHtml(product.name)}</strong></span><span>${en ? "Folder" : "Carpeta"}</span><span>${escapeHtml(productValue(product, "description", locale))}</span><span class="file-row__action">${en ? "Open" : "Abrir"}</span></a>`; }).join("\n  ")}
 </div>
-<div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · 49 €</strong><span>${en ? "All six separately: €54 · Complete pack: €49" : "Los seis por separado: 54 € · Pack completo: 49 €"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-buy="archive">${en ? "Buy now · €49" : "Comprar ahora · 49 €"}</button></div></div>`;
+<div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · 49 €</strong><span>${en ? "All six separately: €54 · Complete pack: €49 · €0.27 per prompt" : "Los seis por separado: 54 € · Pack completo: 49 € · 0,27 € por prompt"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-buy="archive">${en ? "Buy now · €49" : "Comprar ahora · 49 €"}</button></div></div>`;
 };
 
 const helpView = (locale) => {
@@ -603,10 +604,15 @@ const guideArticleView = (guide, locale) => {
     if (!guideLinkPaths.has(link.path)) throw new Error(`Enlace de cierre no permitido en una guía: ${link.path}`);
     return `<a href="${localizedPath(link.path, locale)}">${escapeHtml(link.label)}</a>`;
   }).join("");
+  const relatedProduct = products.find((product) => product.id === guide.related);
+  if (!relatedProduct) throw new Error(`Guía ${guide.slug} sin pack relacionado válido`);
+  const relatedHref = localizedPath(`/product/${relatedProduct.id}/`, locale);
+  const pack = `<aside class="guide-pack"><span class="folder-icon" style="--tone:${relatedProduct.tone}" aria-hidden="true"></span><div><p>${en ? "RELATED FOLDER" : "CARPETA RELACIONADA"}</p><strong>${escapeHtml(relatedProduct.name)}</strong><span>${escapeHtml(productValue(relatedProduct, "category", locale))} · 30 prompts · 10 negative prompts</span></div><a class="guide-pack__action" href="${relatedHref}">${en ? "Open folder · €9" : "Abrir carpeta · 9 €"}</a></aside>`;
   return `<article class="editorial-document article-document">
     <header class="editorial-hero"><p>${escapeHtml(copy.heroKicker)}</p><h1>${escapeHtml(copy.title)}</h1><p>${escapeHtml(copy.heroLead)}</p></header>
     <div class="article-layout"><nav class="article-index" aria-label="${en ? "On this page" : "En esta página"}"><strong>${en ? "IN THIS FILE" : "EN ESTE ARCHIVO"}</strong>${index}</nav><div class="article-copy">
       ${sections}
+      ${pack}
       <section class="article-next"><h2>${en ? "Continue with these files" : "Sigue con estos archivos"}</h2><nav>${next}</nav></section>
     </div></div>
   </article>`;
@@ -880,6 +886,8 @@ const pagesForLocale = (locale) => {
         article: true,
         standalone: true,
         breadcrumbs: [{ name: en ? "Production guides" : "Guías de producción", path: "/guides/" }, { name: copy.navTitle, path: `/guides/${guide.slug}/` }],
+        socialImage: `${siteUrl}/media/guides/${guide.slug}-${locale}.png?v=20260725`,
+        socialAlt: copy.title,
         view: guideArticleView(guide, locale)
       });
     }),
