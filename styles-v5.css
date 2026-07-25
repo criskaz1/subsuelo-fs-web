@@ -5746,3 +5746,107 @@ body.fallback-body {
     animation: none;
   }
 }
+
+/* Tarjeta de pack relacionado al final de cada guía */
+.guide-pack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 30px 0 6px;
+  border: 2px solid var(--ink);
+  border-left-width: 8px;
+  background: var(--paper);
+  box-shadow: 5px 6px 0 rgba(18, 19, 15, 0.22);
+  padding: 16px 18px;
+}
+
+.guide-pack .folder-icon {
+  flex: 0 0 auto;
+  width: 74px;
+  height: 50px;
+}
+
+.guide-pack > div {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.guide-pack p {
+  margin: 0 0 3px;
+  color: var(--rust);
+  font: 800 10px/1.2 var(--mono);
+  letter-spacing: 0.07em;
+}
+
+.guide-pack strong {
+  display: block;
+  font: 900 18px/1.1 var(--display);
+  text-transform: uppercase;
+}
+
+.guide-pack span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.guide-pack__action {
+  border: 2px solid var(--ink);
+  background: var(--rust);
+  color: #fff;
+  box-shadow: inset 1px 1px 0 #d08c79, inset -1px -1px 0 #642b1f;
+  padding: 11px 16px;
+  font: 800 11px/1 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Recordatorio de la muestra gratuita al final de las demos */
+.demos-sampler {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 22px 0 0;
+  border: 2px dashed var(--ink);
+  background: var(--paper);
+  padding: 14px 18px;
+}
+
+.demos-sampler strong {
+  display: block;
+  font: 900 15px/1.2 var(--display);
+  text-transform: uppercase;
+}
+
+.demos-sampler span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.demos-sampler__action {
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 16px;
+  font: 800 11px/1 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.demos-sampler__action:hover,
+.demos-sampler__action:focus-visible,
+.guide-pack__action:hover,
+.guide-pack__action:focus-visible {
+  background: var(--rust);
+  border-color: var(--rust);
+}

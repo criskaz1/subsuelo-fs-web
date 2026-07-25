@@ -128,6 +128,16 @@ for (const page of pages) {
     }
   }
 
+  const guideSlug = page.basePath.match(/^\/guides\/([a-z0-9-]+)\/$/u)?.[1];
+  if (guideSlug && !["negative-prompts", "write-music-prompts"].includes(guideSlug)) {
+    const guideCard = `${siteUrl}/media/guides/${guideSlug}-${page.locale}.png?v=20260725`;
+    if (metaContent(html, "property", "og:image") !== guideCard) throw new Error(`${page.output}: og:image sin tarjeta propia de la guía`);
+    await access(path.join(root, `media/guides/${guideSlug}-${page.locale}.png`));
+    if (!html.includes('class="guide-pack"') || !html.includes('class="guide-pack__action"')) throw new Error(`${page.output}: falta la tarjeta de pack relacionado`);
+  }
+  if (page.basePath === "/bundle/" && !html.includes(page.locale === "en" ? "€0.27 per prompt" : "0,27 € por prompt")) throw new Error(`${page.output}: falta el precio por prompt del bundle`);
+  if (page.basePath === "/demos/" && (!html.includes('class="demos-sampler"') || !html.includes('data-sampler-download="demos"'))) throw new Error(`${page.output}: falta el recordatorio de la muestra en demos`);
+
   if (page.locale === "en") {
     const routeHrefs = [...html.matchAll(/<a\b[^>]*\bhref="(\/(?!\/)[^"?#]*)"/gu)].map((match) => match[1]);
     const unlocalizedRoute = routeHrefs.find((href) => /^(?:\/$|\/(?:demos|help|bundle|guides|compare|method|legal|category|product)(?:\/|$))/u.test(href));
