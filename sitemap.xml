@@ -85,6 +85,41 @@
     <lastmod>2026-07-25</lastmod>
   </url>
   <url>
+    <loc>https://subsuelofs.com/lab/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/lab/prompt-builder/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/prompt-builder/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/prompt-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/prompt-builder/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/lab/negative-prompts/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/negative-prompts/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/negative-prompts/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/negative-prompts/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/lab/dictionary/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/dictionary/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/dictionary/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/dictionary/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/lab/monthly-prompt/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/monthly-prompt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/monthly-prompt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/monthly-prompt/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
     <loc>https://subsuelofs.com/guides/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/" />
@@ -159,6 +194,20 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/make-noir-hip-hop/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/make-noir-hip-hop/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/guides/make-noir-hip-hop/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/guides/make-abstract-hip-hop/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/make-abstract-hip-hop/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/make-abstract-hip-hop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/guides/make-abstract-hip-hop/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/guides/make-dub-hip-hop/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/make-dub-hip-hop/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/make-dub-hip-hop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/guides/make-dub-hip-hop/" />
     <lastmod>2026-07-25</lastmod>
   </url>
   <url>
@@ -302,6 +351,41 @@
     <lastmod>2026-07-25</lastmod>
   </url>
   <url>
+    <loc>https://subsuelofs.com/en/lab/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/lab/prompt-builder/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/prompt-builder/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/prompt-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/prompt-builder/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/lab/negative-prompts/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/negative-prompts/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/negative-prompts/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/negative-prompts/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/lab/dictionary/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/dictionary/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/dictionary/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/dictionary/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/lab/monthly-prompt/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/lab/monthly-prompt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/lab/monthly-prompt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/lab/monthly-prompt/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
     <loc>https://subsuelofs.com/en/guides/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/" />
@@ -376,6 +460,20 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/make-noir-hip-hop/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/make-noir-hip-hop/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/guides/make-noir-hip-hop/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/guides/make-abstract-hip-hop/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/make-abstract-hip-hop/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/make-abstract-hip-hop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/guides/make-abstract-hip-hop/" />
+    <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://subsuelofs.com/en/guides/make-dub-hip-hop/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/make-dub-hip-hop/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/make-dub-hip-hop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://subsuelofs.com/guides/make-dub-hip-hop/" />
     <lastmod>2026-07-25</lastmod>
   </url>
   <url>

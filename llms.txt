@@ -23,6 +23,15 @@ English legal information: https://subsuelofs.com/en/legal/
 - Making dark UK garage: https://subsuelofs.com/guides/make-dark-uk-garage/
 - Make dark jungle: https://subsuelofs.com/guides/make-dark-jungle/
 - Make noir hip-hop: https://subsuelofs.com/guides/make-noir-hip-hop/
+- Make abstract hip-hop: https://subsuelofs.com/guides/make-abstract-hip-hop/
+- Make dub hip-hop: https://subsuelofs.com/guides/make-dub-hip-hop/
+
+## Free tools
+
+- Prompt builder: https://subsuelofs.com/lab/prompt-builder/
+- Negative prompt generator: https://subsuelofs.com/lab/negative-prompts/
+- Prompt vocabulary: https://subsuelofs.com/lab/dictionary/
+- Prompt of the month: https://subsuelofs.com/lab/monthly-prompt/
 
 ## Catalogue
 

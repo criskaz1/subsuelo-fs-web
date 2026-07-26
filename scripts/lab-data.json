@@ -1,0 +1,963 @@
+{
+ "monthly": {
+  "code": "2026-07",
+  "prompt": "dark drill instrumental, cold sliding 808 with hard glides, dry punchy kick and snare, skipping ghost hats, detuned piano motif repeating without development, narrow concrete room, tense and minimal",
+  "exclude": "EDM, drop, bright pop chords, orchestral strings, uplifting",
+  "es": {
+   "month": "JULIO 2026",
+   "name": "DRILL SUBTERRANEO",
+   "lead": "Una dirección completa de drill oscuro: un género que todavía no tiene carpeta en el catálogo. Cópiala, pruébala y mira cómo está construida.",
+   "howTo": [
+    "Abre Create, activa Custom e Instrumental.",
+    "Pega el bloque completo en Styles y genera dos versiones.",
+    "Cambia un solo eje — el motivo o el espacio — y genera otras dos para comparar."
+   ],
+   "note": "Fíjate en la estructura: género, batería, grave, fuente, espacio y feel, cada decisión en su sitio. Es el mismo método de las carpetas del catálogo y del constructor del LAB."
+  },
+  "en": {
+   "month": "JULY 2026",
+   "name": "UNDERGROUND DRILL",
+   "lead": "One complete dark drill direction: a genre with no folder in the catalogue yet. Copy it, test it and look at how it is built.",
+   "howTo": [
+    "Open Create and turn on Custom and Instrumental.",
+    "Paste the complete block into Styles and generate two versions.",
+    "Change one axis — the motif or the space — and generate two more to compare."
+   ],
+   "note": "Look at the structure: genre, drums, low end, source, space and feel, one decision per slot. It is the same method behind the catalogue folders and the LAB builder."
+  }
+ },
+ "builder": {
+  "axes": [
+   {
+    "id": "genre",
+    "label": {
+     "es": "Género",
+     "en": "Genre"
+    },
+    "hint": {
+     "es": "Decide la familia rítmica y el tempo que la herramienta asume de base.",
+     "en": "Sets the rhythmic family and the tempo the tool assumes by default."
+    },
+    "options": [
+     {
+      "id": "trap",
+      "label": {
+       "es": "Trap ritual",
+       "en": "Ritual trap"
+      },
+      "fragment": "dark ritual trap instrumental",
+      "pack": "trap"
+     },
+     {
+      "id": "garage",
+      "label": {
+       "es": "UK garage oscuro",
+       "en": "Dark UK garage"
+      },
+      "fragment": "dark 2-step uk garage instrumental",
+      "pack": "garage"
+     },
+     {
+      "id": "jungle",
+      "label": {
+       "es": "Jungle degradado",
+       "en": "Degraded jungle"
+      },
+      "fragment": "degraded 90s jungle instrumental",
+      "pack": "jungle"
+     },
+     {
+      "id": "low",
+      "label": {
+       "es": "Hip-hop abstracto",
+       "en": "Abstract hip-hop"
+      },
+      "fragment": "abstract underground hip-hop instrumental",
+      "pack": "low"
+     },
+     {
+      "id": "abyss",
+      "label": {
+       "es": "Hip-hop dub",
+       "en": "Dub hip-hop"
+      },
+      "fragment": "deep dub hip-hop instrumental",
+      "pack": "abyss"
+     },
+     {
+      "id": "noir",
+      "label": {
+       "es": "Hip-hop noir",
+       "en": "Noir hip-hop"
+      },
+      "fragment": "noir hip-hop instrumental",
+      "pack": "noir"
+     }
+    ]
+   },
+   {
+    "id": "drums",
+    "label": {
+     "es": "Batería",
+     "en": "Drums"
+    },
+    "hint": {
+     "es": "Decide de dónde salen los golpes y cuánto llenan el compás.",
+     "en": "Decides where the hits come from and how much of the bar they fill."
+    },
+    "options": [
+     {
+      "id": "machine",
+      "label": {
+       "es": "Máquina seca",
+       "en": "Dry machine"
+      },
+      "fragment": "dry punchy drum machine hits"
+     },
+     {
+      "id": "break",
+      "label": {
+       "es": "Break sampleado",
+       "en": "Sampled break"
+      },
+      "fragment": "chopped sampled drum break"
+     },
+     {
+      "id": "kit",
+      "label": {
+       "es": "Batería tocada",
+       "en": "Played kit"
+      },
+      "fragment": "loose live drum kit performance"
+     },
+     {
+      "id": "sparse",
+      "label": {
+       "es": "Golpes espaciados",
+       "en": "Sparse hits"
+      },
+      "fragment": "sparse drum hits with long gaps"
+     },
+     {
+      "id": "rolling",
+      "label": {
+       "es": "Densa y rodante",
+       "en": "Dense rolling"
+      },
+      "fragment": "relentless rolling drum patterns"
+     },
+     {
+      "id": "halftime",
+      "label": {
+       "es": "Half-time pesado",
+       "en": "Heavy half-time"
+      },
+      "fragment": "heavy half-time drum pocket"
+     }
+    ]
+   },
+   {
+    "id": "lowend",
+    "label": {
+     "es": "Grave",
+     "en": "Low end"
+    },
+    "hint": {
+     "es": "Decide si el grave lleva melodía o solo aguanta el peso.",
+     "en": "Decides whether the low end carries melody or just holds the weight."
+    },
+    "options": [
+     {
+      "id": "lead-808",
+      "label": {
+       "es": "808 melódico",
+       "en": "Melodic 808"
+      },
+      "fragment": "melodic 808 bass leading the harmony"
+     },
+     {
+      "id": "static-sub",
+      "label": {
+       "es": "Sub sostenido",
+       "en": "Sustained sub"
+      },
+      "fragment": "long sustained static sub bass"
+     },
+     {
+      "id": "glides",
+      "label": {
+       "es": "Glides de 808",
+       "en": "808 glides"
+      },
+      "fragment": "808 bass with long sliding glides"
+     },
+     {
+      "id": "dub-bass",
+      "label": {
+       "es": "Bajo dub",
+       "en": "Dub bassline"
+      },
+      "fragment": "heavy rolling dub bassline"
+     },
+     {
+      "id": "stabs",
+      "label": {
+       "es": "Sub en golpes cortos",
+       "en": "Short sub stabs"
+      },
+      "fragment": "short sub bass stabs locked to the kick"
+     },
+     {
+      "id": "muted",
+      "label": {
+       "es": "Grave contenido",
+       "en": "Muted low end"
+      },
+      "fragment": "quiet minimal low end leaving space"
+     }
+    ]
+   },
+   {
+    "id": "source",
+    "label": {
+     "es": "Fuente principal",
+     "en": "Lead source"
+    },
+    "hint": {
+     "es": "Decide de qué está hecho el motivo principal sobre el ritmo.",
+     "en": "Decides what the main motif on top of the beat is made of."
+    },
+    "options": [
+     {
+      "id": "bell",
+      "label": {
+       "es": "Campana",
+       "en": "Bell motif"
+      },
+      "fragment": "single struck bell motif"
+     },
+     {
+      "id": "pluck",
+      "label": {
+       "es": "Cuerda desafinada",
+       "en": "Detuned pluck"
+      },
+      "fragment": "detuned plucked string motif"
+     },
+     {
+      "id": "jazz",
+      "label": {
+       "es": "Sample de jazz",
+       "en": "Dusty jazz sample"
+      },
+      "fragment": "dusty looped jazz sample"
+     },
+     {
+      "id": "stab",
+      "label": {
+       "es": "Stabs de acorde",
+       "en": "Chord stabs"
+      },
+      "fragment": "dark minor chord stabs"
+     },
+     {
+      "id": "chant",
+      "label": {
+       "es": "Canto grave",
+       "en": "Low chant"
+      },
+      "fragment": "low wordless chant texture"
+     },
+     {
+      "id": "field",
+      "label": {
+       "es": "Grabación de campo",
+       "en": "Field recording"
+      },
+      "fragment": "faint field recording layer"
+     },
+     {
+      "id": "none",
+      "label": {
+       "es": "Solo ritmo",
+       "en": "Percussion only"
+      },
+      "fragment": "no melodic lead just drums and bass"
+     }
+    ]
+   },
+   {
+    "id": "space",
+    "label": {
+     "es": "Espacio",
+     "en": "Space"
+    },
+    "hint": {
+     "es": "Decide el tamaño del sitio donde suena el beat.",
+     "en": "Decides the size of the place the beat sits in."
+    },
+    "options": [
+     {
+      "id": "dry",
+      "label": {
+       "es": "Seco y cercano",
+       "en": "Dry and close"
+      },
+      "fragment": "dry close mix with almost no reverb"
+     },
+     {
+      "id": "room",
+      "label": {
+       "es": "Sala pequeña",
+       "en": "Small dusty room"
+      },
+      "fragment": "small dusty room with short reflections"
+     },
+     {
+      "id": "dub-echo",
+      "label": {
+       "es": "Eco dub",
+       "en": "Deep dub echo"
+      },
+      "fragment": "dub echo with long feedback tails"
+     },
+     {
+      "id": "cavern",
+      "label": {
+       "es": "Cavernoso",
+       "en": "Cavernous"
+      },
+      "fragment": "cavernous reverb with slow decay"
+     },
+     {
+      "id": "urban",
+      "label": {
+       "es": "Noche urbana",
+       "en": "Urban night"
+      },
+      "fragment": "narrow urban night ambience with distant street noise"
+     }
+    ]
+   },
+   {
+    "id": "texture",
+    "label": {
+     "es": "Textura",
+     "en": "Texture"
+    },
+    "hint": {
+     "es": "Decide cuánta suciedad de superficie lleva la mezcla.",
+     "en": "Decides how much surface dirt the mix carries."
+    },
+    "options": [
+     {
+      "id": "clean",
+      "label": {
+       "es": "Digital limpio",
+       "en": "Clean digital"
+      },
+      "fragment": "clean digital finish with no surface noise"
+     },
+     {
+      "id": "tape",
+      "label": {
+       "es": "Siseo de cinta",
+       "en": "Tape hiss"
+      },
+      "fragment": "steady tape hiss over the whole mix"
+     },
+     {
+      "id": "vinyl",
+      "label": {
+       "es": "Crujido de vinilo",
+       "en": "Vinyl crackle"
+      },
+      "fragment": "constant vinyl crackle under the beat"
+     },
+     {
+      "id": "worn",
+      "label": {
+       "es": "Degradado",
+       "en": "Degraded"
+      },
+      "fragment": "worn degraded sound like an old dubbed tape"
+     },
+     {
+      "id": "saturated",
+      "label": {
+       "es": "Saturado",
+       "en": "Saturated"
+      },
+      "fragment": "thick analog saturation across the mix"
+     }
+    ]
+   },
+   {
+    "id": "feel",
+    "label": {
+     "es": "Pulso",
+     "en": "Feel"
+    },
+    "hint": {
+     "es": "Decide cómo respira el ritmo: exacto, con swing o arrastrado.",
+     "en": "Decides how the rhythm breathes: exact, swung or dragging."
+    },
+    "options": [
+     {
+      "id": "tight",
+      "label": {
+       "es": "Cuadrado de máquina",
+       "en": "Machine tight"
+      },
+      "fragment": "machine tight timing with no swing"
+     },
+     {
+      "id": "swing",
+      "label": {
+       "es": "Swing humano",
+       "en": "Loose swing"
+      },
+      "fragment": "loose human swing in the pocket"
+     },
+     {
+      "id": "drag",
+      "label": {
+       "es": "Arrastrado",
+       "en": "Dragging"
+      },
+      "fragment": "dragging feel behind the beat"
+     },
+     {
+      "id": "tense",
+      "label": {
+       "es": "Tenso y rígido",
+       "en": "Tense and rigid"
+      },
+      "fragment": "tense rigid pulse with no release"
+     },
+     {
+      "id": "hypnotic",
+      "label": {
+       "es": "Hipnótico",
+       "en": "Hypnotic"
+      },
+      "fragment": "hypnotic steady pulse with minimal change"
+     }
+    ]
+   }
+  ],
+  "negatives": [
+   {
+    "id": "vocals",
+    "problem": {
+     "es": "Aparecen voces aunque pediste instrumental.",
+     "en": "Vocals appear even though you asked for instrumental."
+    },
+    "terms": [
+     "vocals",
+     "singing",
+     "rap",
+     "choir",
+     "spoken word"
+    ]
+   },
+   {
+    "id": "edm-drop",
+    "problem": {
+     "es": "El beat escala hacia un drop de festival.",
+     "en": "The beat escalates toward a festival drop."
+    },
+    "terms": [
+     "edm",
+     "festival drop",
+     "big room",
+     "build-up",
+     "supersaw"
+    ]
+   },
+   {
+    "id": "pop-chords",
+    "problem": {
+     "es": "Entran acordes luminosos de pop que rompen el tono.",
+     "en": "Bright pop chords come in and break the tone."
+    },
+    "terms": [
+     "pop",
+     "major key",
+     "uplifting",
+     "catchy hook"
+    ]
+   },
+   {
+    "id": "orchestral",
+    "problem": {
+     "es": "Cuerdas y metales de tráiler engordan el arreglo.",
+     "en": "Trailer strings and brass bloat the arrangement."
+    },
+    "terms": [
+     "orchestral",
+     "epic score",
+     "brass swells",
+     "cinematic trailer"
+    ]
+   },
+   {
+    "id": "too-bright",
+    "problem": {
+     "es": "La mezcla sale demasiado brillante y pulida.",
+     "en": "The mix comes out too bright and polished."
+    },
+    "terms": [
+     "bright",
+     "shiny",
+     "polished",
+     "glossy"
+    ]
+   },
+   {
+    "id": "muddy-low",
+    "problem": {
+     "es": "El grave se embarra y el sub pierde definición.",
+     "en": "The low end turns muddy and the sub loses definition."
+    },
+    "terms": [
+     "muddy bass",
+     "boomy",
+     "bloated low end"
+    ]
+   },
+   {
+    "id": "too-busy",
+    "problem": {
+     "es": "Demasiadas capas peleando por el mismo hueco.",
+     "en": "Too many layers fighting for the same slot."
+    },
+    "terms": [
+     "busy",
+     "cluttered",
+     "constant fills",
+     "dense layers"
+    ]
+   },
+   {
+    "id": "lofi-bland",
+    "problem": {
+     "es": "Cae en la plantilla blanda de playlist lo-fi.",
+     "en": "It falls into the soft lo-fi playlist template."
+    },
+    "terms": [
+     "chillhop",
+     "study beats",
+     "cozy",
+     "soft piano"
+    ]
+   },
+   {
+    "id": "reggae-cliche",
+    "problem": {
+     "es": "El lado dub deriva a clichés de reggae.",
+     "en": "The dub side drifts into reggae clichés."
+    },
+    "terms": [
+     "reggae",
+     "ska",
+     "skank guitar",
+     "dancehall"
+    ]
+   },
+   {
+    "id": "generic-trap",
+    "problem": {
+     "es": "Suena a preset de trap comercial.",
+     "en": "It sounds like a commercial trap preset."
+    },
+    "terms": [
+     "radio rap",
+     "generic type beat",
+     "club banger"
+    ]
+   },
+   {
+    "id": "synthwave",
+    "problem": {
+     "es": "Deriva a synthwave retro de neón.",
+     "en": "It drifts into neon retro synthwave."
+    },
+    "terms": [
+     "synthwave",
+     "retrowave",
+     "80s synths",
+     "neon"
+    ]
+   },
+   {
+    "id": "acoustic",
+    "problem": {
+     "es": "Aparece guitarra acústica de fogata.",
+     "en": "Campfire acoustic guitar shows up."
+    },
+    "terms": [
+     "acoustic guitar",
+     "folk",
+     "campfire"
+    ]
+   }
+  ]
+ },
+ "dictionary": [
+  {
+   "term": "dry drums",
+   "category": "drums",
+   "en": "Tells the tool to render the kit with no reverb tail: hits stop dead and the drums sit at the front of the mix.",
+   "es": "Le pide a la herramienta una batería sin cola de reverb: los golpes terminan en seco y el kit queda al frente de la mezcla."
+  },
+  {
+   "term": "no room",
+   "category": "drums",
+   "en": "Strips room reflections from around the kit. Works in Styles as a constraint or in Exclude as room reverb; the result is a close, matte drum sound.",
+   "es": "Elimina las reflexiones de sala alrededor del kit. Funciona en Styles como restricción o en Exclude escrito como room reverb; el resultado es una batería cercana y mate."
+  },
+  {
+   "term": "chopped break",
+   "category": "drums",
+   "en": "Signals a sampled breakbeat cut into slices and reordered, instead of a straight programmed pattern. Pushes the tool toward jungle and breaks phrasing.",
+   "es": "Señala un break sampleado cortado en trozos y reordenado, en lugar de un patrón programado lineal. Empuja el fraseo hacia jungle y breaks."
+  },
+  {
+   "term": "ghost notes",
+   "category": "drums",
+   "en": "Asks for quiet secondary snare hits between the main backbeats. Adds human-sounding detail without changing the core pattern.",
+   "es": "Pide golpes suaves de caja entre los acentos principales. Añade detalle humano sin tocar el patrón base."
+  },
+  {
+   "term": "rolling hats",
+   "category": "drums",
+   "en": "Requests continuous fast hi-hat subdivisions with rolls: constant motion at the top of the kit. Core trap signal.",
+   "es": "Pide hi-hats rápidos y continuos con redobles: movimiento constante en la parte alta del kit. La señal de trap por excelencia."
+  },
+  {
+   "term": "half-time",
+   "category": "drums",
+   "en": "Places the snare on beat 3 instead of 2 and 4, so the groove feels half as fast as the tempo. Opens space for the 808.",
+   "es": "Coloca la caja en el tiempo 3 en vez de en el 2 y el 4: el groove se siente a la mitad de velocidad. Deja hueco para el 808."
+  },
+  {
+   "term": "boom bap kit",
+   "category": "drums",
+   "en": "Points the tool at a sampled 90s hip-hop kit: dusty kick, cracking snare, swung hats. Implies vinyl texture and a looped pattern.",
+   "es": "Apunta a un kit de hip-hop noventero sampleado: bombo polvoriento, caja que pega, hats con swing. Implica textura de vinilo y patrón en loop."
+  },
+  {
+   "term": "programmed drums",
+   "category": "drums",
+   "en": "Declares drum-machine sequencing rather than a live drummer: exact repetition, tight grid, no fills unless you ask for them.",
+   "es": "Declara secuencia de caja de ritmos, no baterista: repetición exacta, todo clavado a la rejilla y sin fills salvo que los pidas."
+  },
+  {
+   "term": "brushed snare",
+   "category": "drums",
+   "en": "Asks for a snare played with brushes: soft attack, airy sweep. Pulls the whole kit toward a live-drummer reading.",
+   "es": "Pide una caja tocada con escobillas: ataque suave, barrido con aire. Arrastra todo el kit hacia una lectura de baterista real."
+  },
+  {
+   "term": "sparse percussion",
+   "category": "drums",
+   "en": "Caps the number of percussion elements and leaves air between hits. Counteracts the tool's tendency to fill every gap.",
+   "es": "Limita el número de elementos de percusión y deja aire entre golpes. Corrige la tendencia de la herramienta a rellenar cada hueco."
+  },
+  {
+   "term": "kick and snare only",
+   "category": "drums",
+   "en": "Hard limit on the kit: no hats, no shakers, no toms. The most direct way to force a minimal drum arrangement.",
+   "es": "Límite duro del kit: sin hats, sin shakers, sin toms. La forma más directa de forzar una batería mínima."
+  },
+  {
+   "term": "808",
+   "category": "lowend",
+   "en": "Names the pitched drum-machine bass that acts as kick and bassline at once. The tool also reads it as genre information: trap and its branches.",
+   "es": "Nombra el bajo afinado de caja de ritmos que hace de bombo y de bajo a la vez. La herramienta también lo lee como dato de género: trap y sus ramas."
+  },
+  {
+   "term": "sub-bass",
+   "category": "lowend",
+   "en": "Asks for energy in the lowest band, below roughly 60 Hz: felt more than heard. On its own it implies a synth sub, not a bass guitar.",
+   "es": "Pide energía en la banda más grave, por debajo de unos 60 Hz: se siente más de lo que se oye. Por sí solo implica sub de sinte, no bajo eléctrico."
+  },
+  {
+   "term": "sliding 808",
+   "category": "lowend",
+   "en": "Makes the 808 glide from note to note instead of retriggering each hit. Produces the bending tails typical of dark trap.",
+   "es": "Hace que el 808 se deslice de una nota a la siguiente en vez de volver a dispararse en cada golpe. Produce las colas que cambian de altura por el camino, típicas del trap oscuro."
+  },
+  {
+   "term": "glide",
+   "category": "lowend",
+   "en": "Reinforces pitch movement in the bass: notes bend into each other instead of stepping. Pair it with 808 or sub to aim it at the low end.",
+   "es": "Refuerza el movimiento de afinación en el bajo: las notas resbalan de una a otra en vez de saltar. Combínalo con 808 o sub para dirigirlo al grave."
+  },
+  {
+   "term": "sustained sub",
+   "category": "lowend",
+   "en": "Asks for long held sub notes with minimal movement: a floor under the track rather than a bassline. Useful when the drums already carry the motion.",
+   "es": "Pide notas largas de sub con mínimo movimiento: un suelo bajo el tema más que una línea de bajo. Útil cuando la batería ya lleva el movimiento."
+  },
+  {
+   "term": "walking bassline",
+   "category": "lowend",
+   "en": "Signals melodic motion in the bass: it walks from note to note instead of holding the root. Expect a written phrase, not a static sub.",
+   "es": "Señala movimiento melódico en el bajo: camina de nota en nota en lugar de quedarse en la fundamental. El resultado es una frase con intención, no un sub estático."
+  },
+  {
+   "term": "low end pressure",
+   "category": "lowend",
+   "en": "Asks for weight and density in the low band as a mix trait, without dictating the instrument. The tool answers with more sub level and longer bass tails.",
+   "es": "Pide peso y densidad en la banda grave como rasgo de mezcla, sin dictar el instrumento. La herramienta responde con más nivel de sub y colas de bajo más largas."
+  },
+  {
+   "term": "808 carries the low end",
+   "category": "lowend",
+   "en": "Splits the job: short punchy kick on top, 808 holding all the sub. Prevents kick and bass fighting in the same band.",
+   "es": "Reparte el trabajo: bombo corto y seco arriba, 808 sosteniendo todo el sub. Evita que bombo y bajo peleen en la misma banda."
+  },
+  {
+   "term": "dub bassline",
+   "category": "lowend",
+   "en": "Points at slow melodic bass with space between notes, dub lineage. Implies room for echoes to answer in the gaps.",
+   "es": "Apunta a un bajo lento y melódico con espacio entre notas, linaje dub. Implica hueco para que los ecos contesten en los silencios."
+  },
+  {
+   "term": "swing",
+   "category": "feel",
+   "en": "Shifts the off-beats late off the grid by a consistent amount. The universal knob for making a pattern feel played rather than typed.",
+   "es": "Retrasa los contratiempos respecto a la rejilla en una cantidad constante. El ajuste universal para que un patrón suene tocado y no tecleado."
+  },
+  {
+   "term": "shuffled",
+   "category": "feel",
+   "en": "Leans the subdivisions toward triplets: an uneven, skipping gait. Stronger and more specific than swing; central to UK garage.",
+   "es": "Inclina las subdivisiones hacia tresillos: un andar irregular, a saltos. Más fuerte y más específico que swing; central en UK garage."
+  },
+  {
+   "term": "laid-back",
+   "category": "feel",
+   "en": "Asks for a relaxed feel: hits placed slightly late, nothing rushing. The tool lowers urgency across the whole groove, not just the drums.",
+   "es": "Pide un feel relajado: golpes ligeramente atrasados, sin prisa en ningún elemento. La herramienta baja la urgencia de todo el groove, no solo de la batería."
+  },
+  {
+   "term": "behind the beat",
+   "category": "feel",
+   "en": "Places the snare or hits late relative to the grid: the drag that reads as human. More precise than laid-back because it names the mechanism.",
+   "es": "Coloca la caja o los golpes tarde respecto a la rejilla: ese arrastre que suena humano. Más preciso que laid-back porque nombra el mecanismo."
+  },
+  {
+   "term": "quantized",
+   "category": "feel",
+   "en": "Locks every hit exactly to the grid. Use it when you want machine placement on purpose; it kills human timing variation.",
+   "es": "Fija cada golpe exactamente a la rejilla. Úsalo cuando quieras colocación de máquina a propósito; elimina la variación humana de timing."
+  },
+  {
+   "term": "rigid",
+   "category": "feel",
+   "en": "Asks for mechanical repetition with no timing or velocity variation. Combined with quantized it produces a deliberately cold, sequenced feel.",
+   "es": "Pide repetición mecánica sin variación de timing ni de intensidad. Junto a quantized produce un feel frío y secuenciado a propósito."
+  },
+  {
+   "term": "dragging",
+   "category": "feel",
+   "en": "Signals a groove that pulls back, almost late everywhere: heavier and slower-feeling than the tempo says. Too much of it reads as sloppy.",
+   "es": "Señala un groove que tira hacia atrás, casi tarde en todo: se siente más pesado y más lento de lo que marca el tempo. En exceso suena descuidado."
+  },
+  {
+   "term": "tense",
+   "category": "feel",
+   "en": "Pushes the groove on top of or ahead of the beat: urgency without raising the tempo. The tool tightens spacing and shortens decays.",
+   "es": "Empuja el groove encima o por delante del tiempo: urgencia sin subir el tempo. La herramienta cierra los espacios y acorta las colas."
+  },
+  {
+   "term": "loose",
+   "category": "feel",
+   "en": "Allows small timing differences between elements, like players listening to each other. The opposite pole of machine-tight.",
+   "es": "Permite pequeños desajustes de timing entre elementos, como músicos escuchándose. El polo opuesto de machine-tight."
+  },
+  {
+   "term": "pocket",
+   "category": "feel",
+   "en": "Names the locked relationship between kick and snare that everything else hangs on. Asking to keep the same pocket throughout stops the tool from drifting between sections.",
+   "es": "Nombra la relación fija entre bombo y caja de la que cuelga todo lo demás. Pedir que mantenga el mismo pocket de principio a fin evita que la herramienta derive entre secciones."
+  },
+  {
+   "term": "detuned pluck",
+   "category": "source",
+   "en": "Asks for a plucked synth or string sitting slightly off pitch. The detune reads as unease; without it the tool defaults to a clean, perfectly tuned pluck.",
+   "es": "Pide un pluck de sinte o cuerda ligeramente desafinado. Ese desajuste se lee como inquietud; sin él la herramienta entrega un pluck limpio y afinado."
+  },
+  {
+   "term": "bell motif",
+   "category": "source",
+   "en": "Signals a short bell figure repeating as the lead element. The word motif keeps it a fragment; without it the tool tends to write a full melody on the bell.",
+   "es": "Señala una figura corta de campana que se repite como elemento principal. La palabra motif la mantiene en fragmento; sin ella la herramienta tiende a escribir una melodía completa encima."
+  },
+  {
+   "term": "chord stab",
+   "category": "source",
+   "en": "One short percussive chord hit, not a sustained pad. Classic garage and jungle source; the tool places it on the grid instead of letting it ring.",
+   "es": "Un acorde corto y percutido, no un pad sostenido. Fuente clásica de garage y jungle; la herramienta lo coloca sobre la rejilla en vez de dejarlo sonar."
+  },
+  {
+   "term": "dusty sample",
+   "category": "source",
+   "en": "Tells the tool the melodic source should sound lifted from old media: filtered, lo-fi, slightly unstable. It dirties the source, not the whole mix.",
+   "es": "Indica que la fuente melódica debe sonar sacada de un soporte viejo: filtrada, lo-fi, algo inestable. Ensucia la fuente, no toda la mezcla."
+  },
+  {
+   "term": "field recording",
+   "category": "source",
+   "en": "Asks for real-world ambient sound as a layer: street, rain, machines. The tool uses it as a background bed, not as an instrument.",
+   "es": "Pide sonido ambiental del mundo real como capa: calle, lluvia, máquinas. La herramienta lo usa como fondo, no como instrumento."
+  },
+  {
+   "term": "chant as texture",
+   "category": "source",
+   "en": "Allows voice but demotes it to an atmospheric layer. The load-bearing part is as texture: it keeps the tool from writing lyrics or a lead vocal.",
+   "es": "Permite voz pero la rebaja a capa atmosférica. Lo que carga el peso es as texture: evita que la herramienta escriba letra o ponga una voz principal delante."
+  },
+  {
+   "term": "found sound",
+   "category": "source",
+   "en": "Requests non-musical objects as percussion or texture: hits, clicks, scrap metal. Pushes the tool away from stock drum samples.",
+   "es": "Pide objetos no musicales como percusión o textura: golpes, clics, chatarra. Aleja a la herramienta de los samples de batería de catálogo."
+  },
+  {
+   "term": "muffled piano",
+   "category": "source",
+   "en": "A piano heard through a wall or a closed lid: dark, felted, no bright attack. Without muffled the tool serves a bright concert grand.",
+   "es": "Un piano oído a través de una pared o con la tapa cerrada: oscuro, apagado, sin ataque brillante. Sin muffled la herramienta devuelve un piano de cola brillante."
+  },
+  {
+   "term": "dry",
+   "category": "space",
+   "en": "No audible reverb; the source sits right at the front. The strongest anti-cinematic signal there is; pair with close-mic to lock it in.",
+   "es": "Sin reverb audible; la fuente queda delante del todo. Es la señal anticinematográfica más fuerte que existe; fíjala combinándola con close-mic."
+  },
+  {
+   "term": "close-mic",
+   "category": "space",
+   "en": "Puts the microphone on the source: detail, breath, zero room. Reinforces dry and tells the tool proximity matters more than space.",
+   "es": "Pega el micro a la fuente: detalle, respiración, nada de sala. Refuerza dry y le dice a la herramienta que importa la cercanía, no el espacio."
+  },
+  {
+   "term": "room",
+   "category": "space",
+   "en": "Short early reflections, a small identifiable space. The middle rung: more real than dry, far from a hall. Qualify it: tight room, small dusty room.",
+   "es": "Primeras reflexiones cortas, un espacio pequeño e identificable. El peldaño intermedio: más real que dry, lejos del hall. Califícalo: tight room, small dusty room."
+  },
+  {
+   "term": "cavernous",
+   "category": "space",
+   "en": "The space swallows the source: long decay, distant image. Signals scale and menace; drums lose punch in it, so aim it at pads and textures, not the kit.",
+   "es": "El espacio se traga la fuente: cola larga, imagen lejana. Señala escala y amenaza; la batería pierde pegada ahí dentro, así que apúntalo a pads y texturas, no al kit."
+  },
+  {
+   "term": "dub delay",
+   "category": "space",
+   "en": "Echoes that repeat, filter down and sink into the mix. The tool reads it as an effect and as a genre signal at the same time.",
+   "es": "Ecos que se repiten, se van filtrando y se hunden en la mezcla. La herramienta lo lee como efecto y como señal de género a la vez."
+  },
+  {
+   "term": "slapback",
+   "category": "space",
+   "en": "A single fast echo with no tail. Adds dimension without wash; reads as vintage rather than atmospheric.",
+   "es": "Un solo eco rápido, sin cola. Da dimensión sin lavar nada; suena a vintage, no a atmósfera."
+  },
+  {
+   "term": "washed reverb",
+   "category": "space",
+   "en": "Reverb as a permanent layer the sources float in, edges blurred. Trades definition for atmosphere; expect softer transients everywhere.",
+   "es": "Reverb como capa permanente en la que flotan las fuentes, con los bordes difuminados. Cambia definición por atmósfera; espera transitorios más blandos en todo."
+  },
+  {
+   "term": "narrow",
+   "category": "space",
+   "en": "Squeezes the stereo image toward mono. Reads as old, pressurized, claustrophobic; it also keeps the low end tight.",
+   "es": "Estrecha la imagen estéreo hacia el mono. Suena a viejo, a presión, a claustrofobia; además mantiene el grave recogido."
+  },
+  {
+   "term": "wide",
+   "category": "space",
+   "en": "Stretches pads and textures to the edges of the stereo field. Use it on atmosphere; asking for a wide low end costs punch.",
+   "es": "Estira pads y texturas hasta los bordes del campo estéreo. Úsalo en la atmósfera; pedir un grave ancho se paga en pegada."
+  },
+  {
+   "term": "tape hiss",
+   "category": "texture",
+   "en": "A constant bed of analog noise over everything. Marks the recording as old tape; the tool adds it as a layer that fills the silence between hits.",
+   "es": "Una cama constante de ruido analógico que lo cubre todo. Marca la grabación como cinta vieja; la herramienta la añade como capa que llena el silencio entre golpes."
+  },
+  {
+   "term": "vinyl crackle",
+   "category": "texture",
+   "en": "Clicks and surface noise from a worn record. Signals sampled-from-vinyl provenance; more rhythmic and irregular than tape hiss.",
+   "es": "Clics y ruido de superficie de un disco gastado. Señala procedencia de vinilo sampleado; más rítmico e irregular que el hiss de cinta."
+  },
+  {
+   "term": "saturated",
+   "category": "texture",
+   "en": "Mild analog overdrive across the source: denser harmonics, rounder peaks. Warmth and aggression without reading as distorted.",
+   "es": "Saturación analógica suave sobre la fuente: más armónicos, picos más redondos. Calidez y agresión sin llegar a leerse como distorsión."
+  },
+  {
+   "term": "bit-crushed",
+   "category": "texture",
+   "en": "Digital degradation: reduced bit depth and sample rate, harsh aliased edges. Reads as broken machine, not warm tape; the opposite corner from saturated.",
+   "es": "Degradación digital: menos bits, menos frecuencia de muestreo, bordes ásperos. Suena a máquina rota, no a cinta cálida; la esquina opuesta a saturated."
+  },
+  {
+   "term": "worn",
+   "category": "texture",
+   "en": "General wear on the source: dulled highs, unstable pitch, softened attacks. Vaguer than tape or vinyl; useful when you want age without naming the medium.",
+   "es": "Desgaste general de la fuente: agudos apagados, afinación inestable, ataques blandos. Menos concreto que cinta o vinilo; útil cuando quieres vejez sin nombrar el soporte."
+  },
+  {
+   "term": "degraded",
+   "category": "texture",
+   "en": "Stronger than worn: the medium is audibly failing. Expect dropouts, warble and grit treated as part of the sound, not as a flaw.",
+   "es": "Más fuerte que worn: el soporte falla de forma audible. Espera cortes, fluctuaciones de tono y suciedad tratados como parte del sonido, no como defecto."
+  },
+  {
+   "term": "clean digital",
+   "category": "texture",
+   "en": "Explicitly requests zero dirt: full bandwidth, stable pitch, silent background. Useful as contrast when everything else in the prompt leans degraded.",
+   "es": "Pide explícitamente cero suciedad: ancho de banda completo, afinación estable, fondo en silencio. Útil como contraste cuando el resto del prompt tira a degradado."
+  },
+  {
+   "term": "repetitive motif",
+   "category": "structure",
+   "en": "Tells the tool to keep one short figure cycling instead of composing new material. Repetition is the point; tension has to come from texture and mix.",
+   "es": "Le dice a la herramienta que mantenga una figura corta en bucle en vez de componer material nuevo. La repetición es el objetivo; la tensión tiene que venir de la textura y la mezcla."
+  },
+  {
+   "term": "no melodic development",
+   "category": "structure",
+   "en": "Blocks the tool's default arc of melody that builds and resolves. Written as a negative in the prompt or in Exclude; pairs with repetitive motif.",
+   "es": "Bloquea el arco por defecto de melodía que crece y se resuelve. Se escribe en negativo dentro del prompt o en Exclude; combina con repetitive motif."
+  },
+  {
+   "term": "sparse arrangement",
+   "category": "structure",
+   "en": "Few elements at once, with air between them. Signals restraint to a tool that otherwise fills every register.",
+   "es": "Pocos elementos a la vez, con aire entre ellos. Señala contención a una herramienta que por defecto rellena todos los registros."
+  },
+  {
+   "term": "dropout",
+   "category": "structure",
+   "en": "Asks for moments where elements vanish and return: the mix cut down to sub and hats, a bar of near silence. The tool uses it as structure instead of a chorus.",
+   "es": "Pide momentos en que los elementos desaparecen y vuelven: la mezcla reducida a sub y hats, un compás casi en silencio. La herramienta lo usa como estructura en lugar de un estribillo."
+  },
+  {
+   "term": "loop-based",
+   "category": "structure",
+   "en": "Frames the whole track as a loop that evolves by adding and removing layers, not by sections. The most direct instruction against song form.",
+   "es": "Plantea el tema entero como un loop que evoluciona sumando y quitando capas, no por secciones. La instrucción más directa contra la forma canción."
+  }
+ ]
+}
