@@ -1,7 +1,7 @@
 window.SUBSUELO_ANALYTICS = Object.freeze({
   "provider": "umami",
-  "enabled": false,
-  "scriptUrl": "",
-  "websiteId": "",
+  "enabled": true,
+  "scriptUrl": "https://cloud.umami.is/script.js",
+  "websiteId": "59d4f2d0-53c2-4cc6-a3b9-efd0adbe053b",
   "hostUrl": ""
 });

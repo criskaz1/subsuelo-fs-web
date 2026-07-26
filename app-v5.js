@@ -15,10 +15,10 @@
 
   const legalVersions = Object.freeze({
     notice: "2026-07-16.2",
-    privacy: "2026-07-23.1",
+    privacy: "2026-07-26.1",
     terms: "2026-07-16.2",
     license: "2026-07-16.1",
-    storage: "2026-07-23.1",
+    storage: "2026-07-26.1",
     refund: "2026-07-16.1",
     accessibility: "2026-07-16.2",
     immediateSupply: "2026-07-16.1"
@@ -109,7 +109,7 @@
         file: "PRIVACIDAD.txt",
         title: "Privacidad",
         description: "Datos tratados, finalidades, proveedores, conservación y derechos.",
-        updated: "23 de julio de 2026",
+        updated: "26 de julio de 2026",
         version: legalVersions.privacy,
         sections: [
           { title: "Responsable", paragraphs: [`El responsable del tratamiento es ${legalProfile.legalName}, NIF ${legalProfile.taxId}, con domicilio en ${legalProfile.address}. Contacto de privacidad: ${legalProfile.privacyEmail}.`] },
@@ -163,9 +163,9 @@
         updated: "23 de julio de 2026",
         version: legalVersions.storage,
         sections: [
-          { title: "Qué guarda esta versión", paragraphs: ["Este sitio no instala analítica ni publicidad. Usa almacenamiento local del navegador con cuatro claves funcionales: subsuelo-language para el idioma, subsuelo-view para la vista de iconos o lista, subsuelo-cart-v5 para el contenido del carrito y subsuelo-attribution-v2 para conservar los parámetros UTM de la campaña de entrada.", "La atribución caduca y se elimina al superar 30 días. El idioma, la vista y el carrito permanecen hasta que el usuario borra los datos del sitio. Ninguna de estas claves permite completar un pago por sí sola."] },
+          { title: "Qué guarda esta versión", paragraphs: ["La analítica de este sitio (Umami, sin cookies) no escribe nada en tu navegador. El almacenamiento local se limita a cuatro claves funcionales: subsuelo-language para el idioma, subsuelo-view para la vista de iconos o lista, subsuelo-cart-v5 para el contenido del carrito y subsuelo-attribution-v2 para conservar los parámetros UTM de la campaña de entrada.", "La atribución caduca y se elimina al superar 30 días. El idioma, la vista y el carrito permanecen hasta que el usuario borra los datos del sitio. Ninguna de estas claves permite completar un pago por sí sola."] },
           { title: "Tecnologías necesarias", paragraphs: ["Al continuar al checkout alojado de Payhip, esa plataforma y el proveedor de pago pueden utilizar cookies o tecnologías estrictamente necesarias para mantener la sesión, proteger el pago y entregar la compra. No se solicita consentimiento cuando sean indispensables para prestar el servicio pedido por el usuario."] },
-          { title: "Analítica, personalización y publicidad", paragraphs: ["Actualmente no se cargan tecnologías de analítica, personalización o publicidad en este dominio. El cargador preparado para Umami permanece desactivado: sin un identificador de sitio no solicita scripts externos ni envía eventos. Si se activa una herramienta no necesaria, se explicará su finalidad y se solicitará consentimiento previo cuando la ley lo exija, sin opciones premarcadas."] },
+          { title: "Analítica, personalización y publicidad", paragraphs: ["Este dominio usa Umami Cloud, una herramienta de analítica alojada en la Unión Europea, con finalidad exclusivamente estadística: páginas vistas y eventos agregados como reproducciones de demos, uso de las herramientas del LAB o clics de salida hacia Payhip. No usa cookies, no crea perfiles, no identifica personas y no rastrea entre sitios; la dirección IP se procesa de forma efímera para el recuento y no se almacena. Los datos agregados se conservan mientras la cuenta de analítica esté activa.", "No se cargan tecnologías de personalización ni publicidad. Si en el futuro se activara una herramienta que lo requiera, se explicará su finalidad y se solicitará consentimiento previo cuando la ley lo exija, sin opciones premarcadas."] },
           { title: "Servicios externos", paragraphs: ["Payhip y Stripe pueden utilizar tecnologías necesarias propias en sus páginas para mantener la sesión, proteger el pago y entregar la compra. El webmail y el correo profesional son prestados por OVHcloud/Zimbra."] },
           { title: "Cómo borrar los datos", paragraphs: [`Puedes borrar cookies y almacenamiento local desde la configuración del navegador. Al hacerlo pueden desaparecer el carrito, el idioma elegido y la atribución de campaña. Contacto: ${legalProfile.privacyEmail}.`] }
         ]
@@ -219,7 +219,7 @@
         file: "PRIVACY.txt",
         title: "Privacy",
         description: "Data, purposes, providers, retention and individual rights.",
-        updated: "23 July 2026",
+        updated: "26 July 2026",
         version: legalVersions.privacy,
         sections: [
           { title: "Controller", paragraphs: [`The controller is ${legalProfile.legalName}, tax ID ${legalProfile.taxId}, registered office at ${legalProfile.address}. Privacy contact: ${legalProfile.privacyEmail}.`] },
@@ -273,9 +273,9 @@
         updated: "23 July 2026",
         version: legalVersions.storage,
         sections: [
-          { title: "What this version stores", paragraphs: ["This website installs no analytics or advertising. It uses four functional browser-local-storage keys: subsuelo-language for the language, subsuelo-view for icon or list view, subsuelo-cart-v5 for cart contents, and subsuelo-attribution-v2 to retain incoming campaign UTM parameters.", "Attribution expires and is removed after 30 days. Language, view and cart data remain until the user clears site data. None of these keys can complete a payment by itself."] },
+          { title: "What this version stores", paragraphs: ["This site's analytics (Umami, cookie-free) writes nothing to your browser. Local storage is limited to four functional keys: subsuelo-language for the language, subsuelo-view for icon or list view, subsuelo-cart-v5 for cart contents, and subsuelo-attribution-v2 to retain incoming campaign UTM parameters.", "Attribution expires and is removed after 30 days. Language, view and cart data remain until the user clears site data. None of these keys can complete a payment by itself."] },
           { title: "Necessary technologies", paragraphs: ["When continuing to Payhip's hosted checkout, that platform and the payment provider may use strictly necessary cookies or similar technologies to maintain the session, secure payment and deliver the purchase. Consent is not requested where they are essential to provide the service requested by the user."] },
-          { title: "Analytics, personalisation and advertising", paragraphs: ["No analytics, personalisation or advertising technologies currently load on this domain. The prepared Umami loader remains disabled: without a website ID it requests no external script and sends no events. If a non-essential tool is enabled, its purpose will be explained and prior consent requested where the law requires it, with no option pre-selected."] },
+          { title: "Analytics, personalisation and advertising", paragraphs: ["This domain uses Umami Cloud, an analytics tool hosted in the European Union, for strictly statistical purposes: page views and aggregated events such as demo plays, LAB tool usage or outbound clicks to Payhip. It sets no cookies, builds no profiles, identifies no individuals and does no cross-site tracking; the IP address is processed ephemerally for counting and is not stored. Aggregated data is kept while the analytics account remains active.", "No personalisation or advertising technologies load. If a tool requiring consent were ever enabled, its purpose would be explained and prior consent requested where the law requires it, with no option pre-selected."] },
           { title: "External services", paragraphs: ["Payhip and Stripe may use necessary technologies on their own pages to maintain the session, secure payment and deliver the purchase. Professional webmail and email are provided by OVHcloud/Zimbra."] },
           { title: "Removing stored data", paragraphs: [`Cookies and local storage can be removed through browser settings. Doing so may clear the cart, selected language and campaign attribution. Contact: ${legalProfile.privacyEmail}.`] }
         ]
