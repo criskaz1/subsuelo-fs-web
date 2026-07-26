@@ -690,5 +690,745 @@
    ]
   },
   "related": "noir"
+ },
+ {
+  "slug": "make-dark-trap",
+  "es": {
+   "title": "Cómo hacer trap oscuro: un prompt de batería seca, 808 protagonista y textura ritual",
+   "navTitle": "Cómo hacer trap oscuro",
+   "seoTitle": "Cómo hacer trap oscuro: guía de prompts",
+   "metaDescription": "Cómo hacer trap oscuro con prompts: batería seca sin room, un 808 que lleva la melodía, textura ritual y las exclusiones que dejan el EDM fuera.",
+   "heroKicker": "GUIA_07 / TRAP OSCURO",
+   "heroLead": "El trap oscuro no es una palabra de ambiente en Styles. Son cuatro decisiones: batería sin room, un 808 que manda, motivos rituales usados como textura y espacio haciendo el trabajo que haría la densidad.",
+   "cardDescription": "Batería seca, 808 protagonista, textura ritual y las exclusiones que frenan el EDM.",
+   "sections": [
+    {
+     "id": "what-makes-trap-dark",
+     "heading": "Qué hace oscuro al trap: cuatro decisiones",
+     "paragraphs": [
+      "`dark trap` a secas devuelve la lectura por defecto de las dos palabras: una batería de densidad media con algo de room, un 808 educado que sigue al kick y una melodía en menor con voicings de pop. «Dark» es un adjetivo de ánimo, y la herramienta resuelve los adjetivos de ánimo con lo que más ha visto. La variante de esta guía es un conjunto de decisiones de producción, y el prompt tiene que nombrarlas.",
+      "Cuatro decisiones sostienen el estilo. La batería es programada y seca: sin room en el kit, pocket de máquina, los hats haciendo todo el movimiento. El 808 es el instrumento principal, no el cimiento: lleva la melodía tanto como el grave. Las fuentes melódicas son rituales y escasas —una campana, un canto usado como textura, un pluck desafinado—, motivos que se repiten en vez de desarrollarse. Y la tensión sale del espacio y la repetición, no de apilar capas.",
+      "Cada bloque de abajo es una de esas decisiones escrita como lenguaje de prompt. Si un borrador suena mal, comprueba cuál de las cuatro falla antes de reescribir nada."
+     ]
+    },
+    {
+     "id": "build-the-prompt",
+     "heading": "El prompt bloque a bloque",
+     "paragraphs": [
+      "El campo Styles funciona mejor como decisiones apiladas, una por bloque: marco de género, batería, grave, fuente, espacio. La estructura general está en la [guía de escritura de prompts](/guides/write-music-prompts/); aquí va aplicada a este género.",
+      "Marco: `dark ritual trap, slow, heavy`. Batería: `dry programmed drums, no room, short kick, sparse hats`. Grave: `dominant melodic 808, long notes, 808 carries the melody`. Fuente: `distant bell motif, detuned pluck, low chant as texture`. Espacio: `minimal, repetitive, tension from silence`.",
+      "Montado: `dark ritual trap, dry programmed drums with no room, short kick, sparse hats, dominant melodic 808 on long notes, distant bell motif, low chant as texture, minimal and repetitive`. El bloque del 808 es el que más cuidado pide, porque en este género hace dos trabajos a la vez; los glides, el sostenido y la relación con el kick están en la [guía de graves](/guides/low-end-808/).",
+      "Activa Instrumental. Un canto escrito como textura sobrevive a ese ajuste; un topline no, y un topline no era lo que buscabas."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "Treinta beats con el mismo núcleo: los ejes",
+     "paragraphs": [
+      "Las cuatro decisiones del núcleo no se tocan entre intentos. La variación sale de mover un eje cada vez: un solo eje por intento mantiene el resultado en género y lo convierte en otro beat. Estos son los ejes que merece la pena mover."
+     ],
+     "list": [
+      "La fuente del motivo. Campana, pluck desafinado, metal golpeado, coro grave como textura, caja de música. Una fuente por prompt; dos se pelean por el mismo hueco.",
+      "El comportamiento del 808. Notas largas estáticas en un intento, `sliding 808 glides` en el siguiente, stabs cortos en el tercero. Aquí el 808 lleva la melodía, así que su comportamiento es el beat.",
+      "La escritura de hats. Corcheas escasas, carreras a doble tiempo con huecos, o casi sin hats. Son el único elemento rápido, así que su densidad fija la energía percibida.",
+      "La distancia del motivo. Mantén el kit seco y mueve solo el motivo: `close dry bell` contra `distant bell, far behind the drums` son dos rooms distintas dentro del mismo beat.",
+      "La capa de textura. Limpio y digital en un intento, `faint tape hiss` en otro. Un artefacto como máximo; el vocabulario de suciedad es asunto de otra guía.",
+      "La sensación de tempo. `half-time feel, dragging` contra una lectura más recta del mismo tempo."
+     ]
+    },
+    {
+     "id": "what-to-exclude",
+     "heading": "Lo que se cuela y cómo excluirlo",
+     "paragraphs": [
+      "`dark` más `trap` cae cerca de la música de tráiler en el mapa de la herramienta, y esa atracción se traduce en tres fugas recurrentes. Aparecen justo cuando el prompt se vuelve vago, y el campo Exclude las frena mejor que otro adjetivo más.",
+      "Mantén la lista de exclusión corta y estable mientras el prompt cambia; cómo redactar y mantener esas listas está en la [guía de negative prompts](/guides/negative-prompts/). Las diez listas de nuestra carpeta Trap Ritual están escritas contra exactamente estas fugas."
+     ],
+     "list": [
+      "Estructura de EDM brillante. Risers, subidas y un drop donde tocaba la segunda vuelta. Excluye `EDM, drop, riser, supersaw, festival`.",
+      "Armonía de pop. El motivo se convierte en una progresión de acordes con voicings brillantes y un piano emotivo. Excluye `pop chords, emotive piano, uplifting`.",
+      "Crescendos de cine. Cuerdas subiendo y percusión épica bajo el 808: la lectura de tráiler de la palabra dark. Excluye `orchestral, epic strings, cinematic swell`."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Cómo falla este género en concreto",
+     "paragraphs": [
+      "Cuando un borrador está en género pero suena mal, el fallo suele ser uno de estos cinco."
+     ],
+     "list": [
+      "La room vuelve a colarse. Pedir oscuridad invita a la herramienta a poner reverb cavernosa en el kit, y un kit lavado mata el pocket. Aquí oscuro significa seco: si la batería vuelve mojada, escribe `no reverb on drums` antes de tirar de Exclude.",
+      "El motivo se desarrolla. La línea de campana crece hasta convertirse en un topline que resuelve como un estribillo. `repetitive motif, no melodic development` la sujeta; describirla como textura en vez de melodía, también.",
+      "La densidad sube sola. La herramienta rellena el silencio con pads y contramelodías. Nombra pocos elementos y cierra la lista: `only drums, 808 and one bell motif` se lee como una instrucción sobre lo que no hay que añadir.",
+      "El canto se vuelve vocalista. Escrito a la ligera, `chant` devuelve una voz principal. Deja Instrumental activado, escribe `chant as texture, buried` y excluye `lead vocals` si insiste.",
+      "Dos graves. Un kick con boom debajo de un 808 melódico convierte la octava más grave en barro. El kick aquí es corto y funcional; la fundamental es del 808."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Dónde escucharlo",
+     "paragraphs": [
+      "La carpeta [Trap Ritual](/product/trap/) es esta guía aplicada treinta veces: 30 prompts montados sobre la estructura de bloques de arriba, 10 listas de exclusión escritas contra las fugas de este género, guías en español e inglés y 4 referencias MP3 generadas con los prompts de la propia carpeta. 9 EUR.",
+      "Las demos de treinta segundos de todas las carpetas, esta incluida, son gratis en la página de demos. Lo que suena es lo que devuelven los prompts, no una versión producida."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Trap Ritual — la carpeta",
+     "path": "/product/trap/"
+    },
+    {
+     "label": "Escuchar las demos",
+     "path": "/demos/"
+    },
+    {
+     "label": "Espacio, textura y suciedad",
+     "path": "/guides/space-texture/"
+    }
+   ]
+  },
+  "en": {
+   "title": "How to make dark trap: a prompt built on dry drums, a lead 808 and ritual texture",
+   "navTitle": "Make dark trap",
+   "seoTitle": "How to make dark trap: prompt guide",
+   "metaDescription": "How to make dark trap with prompts: dry programmed drums, a dominant 808 that carries the melody, ritual texture, and the exclusions that keep EDM out.",
+   "heroKicker": "GUIDE_07 / DARK TRAP",
+   "heroLead": "Dark trap is not a mood word in the Styles field. It is four decisions: drums with no room, an 808 that leads, ritual motifs used as texture, and space doing the work density would.",
+   "cardDescription": "Dry drums, a lead 808, ritual texture and the exclusions that keep EDM out.",
+   "sections": [
+    {
+     "id": "what-makes-trap-dark",
+     "heading": "What makes trap dark: four decisions",
+     "paragraphs": [
+      "`dark trap` on its own returns the default reading of both words: mid-density drums with a light room, a polite 808 that follows the kick, and a minor-key melody voiced like a pop topline. Dark is a mood adjective, and the tool resolves mood adjectives with whatever it has seen most. The variant this guide targets is a set of production decisions, and the prompt has to name them.",
+      "Four decisions carry the style. The drums are programmed and dry — no room on the kit, a tight machine pocket, hats doing all the movement. The 808 is the lead instrument, not the foundation: it carries the melody as much as the low end. The melodic sources are ritual and sparse — a bell, a chant used as texture, a detuned pluck — motifs that repeat instead of developing. And tension comes from space and repetition, not from stacking layers.",
+      "Every block below is one of those decisions written as prompt language. When a draft sounds wrong, check which of the four it fails before rewriting anything else."
+     ]
+    },
+    {
+     "id": "build-the-prompt",
+     "heading": "Building the prompt block by block",
+     "paragraphs": [
+      "The Styles field reads best as stacked decisions, one per block: genre frame, drums, low end, source, space. The general structure is covered in the [prompt writing guide](/guides/write-music-prompts/); here it is applied to this genre.",
+      "Frame: `dark ritual trap, slow, heavy`. Drums: `dry programmed drums, no room, short kick, sparse hats`. Low end: `dominant melodic 808, long notes, 808 carries the melody`. Source: `distant bell motif, detuned pluck, low chant as texture`. Space: `minimal, repetitive, tension from silence`.",
+      "Assembled: `dark ritual trap, dry programmed drums with no room, short kick, sparse hats, dominant melodic 808 on long notes, distant bell motif, low chant as texture, minimal and repetitive`. The 808 block deserves the most care, because in this genre it does two jobs at once; the [low end guide](/guides/low-end-808/) covers glides, sustain and the kick relationship in depth.",
+      "Set the track to Instrumental. A chant written as texture survives that setting; a topline does not, and a topline was not what you asked for."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "Thirty beats from one core: the axes to vary",
+     "paragraphs": [
+      "The four core decisions stay fixed across attempts. Variation comes from moving one axis at a time — one axis per attempt keeps every result in genre while making it a different beat. These are the axes worth moving."
+     ],
+     "list": [
+      "The motif source. Bell, detuned pluck, struck metal, low choir as texture, music box. One source per prompt; two fight for the same slot.",
+      "The 808 behavior. Static long notes on one attempt, `sliding 808 glides` on the next, short staccato stabs on a third. The 808 carries the melody here, so its behavior is the beat.",
+      "The hat writing. Sparse eighths, double-time runs with gaps, or almost no hats. Hats are the only fast element, so their density sets the perceived energy.",
+      "The motif distance. Keep the kit dry and move only the motif: `close dry bell` against `distant bell, far behind the drums` are two different rooms inside the same beat.",
+      "The texture layer. Fully clean and digital on one attempt, `faint tape hiss` on another. One artifact at most; the dirt vocabulary is another guide's job.",
+      "The tempo feel. `half-time feel, dragging` against a straighter reading of the same tempo."
+     ]
+    },
+    {
+     "id": "what-to-exclude",
+     "heading": "What leaks in and how to exclude it",
+     "paragraphs": [
+      "`dark` plus `trap` sits close to trailer music in the tool's map, and that pull shows up as three recurring leaks. They arrive exactly when the prompt goes vague, and the Exclude field stops them better than one more adjective does.",
+      "Keep the exclusion list short and stable while the prompt itself changes; how to phrase and maintain those lists is covered in the [negative prompts guide](/guides/negative-prompts/). The ten lists in our Trap Ritual folder are written against exactly these leaks."
+     ],
+     "list": [
+      "Bright EDM structure. Risers, buildups and a drop where the second verse should be. Exclude `EDM, drop, riser, supersaw, festival`.",
+      "Pop harmony. The motif turns into a chord progression with bright voicings and an emotive piano. Exclude `pop chords, emotive piano, uplifting`.",
+      "Cinematic swells. String crescendos and epic percussion under the 808 — the trailer reading of the word dark. Exclude `orchestral, epic strings, cinematic swell`."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Failure modes specific to this genre",
+     "paragraphs": [
+      "When a draft is in genre but sounds wrong, the failure is usually one of these five."
+     ],
+     "list": [
+      "The room creeps back. Asking for darkness invites cavernous reverb on the kit, and a washed kit kills the pocket. Dark here means dry: if the drums come back wet, write `no reverb on drums` before reaching for Exclude.",
+      "The motif develops. The bell line grows into a topline that resolves like a chorus. `repetitive motif, no melodic development` holds it in place; so does describing it as texture instead of melody.",
+      "Density creeps up. The tool fills silence with pads and counter-melodies. Name few elements and close the list: `only drums, 808 and one bell motif` reads as an instruction about what not to add.",
+      "The chant becomes a vocalist. Written loosely, `chant` returns a lead vocal. Keep Instrumental on, write `chant as texture, buried`, and exclude `lead vocals` if it persists.",
+      "Two low ends. A boomy kick under a melodic 808 turns the bottom octave to mud. The kick here is short and functional; the fundamental belongs to the 808."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Where to hear it",
+     "paragraphs": [
+      "The [Trap Ritual](/product/trap/) folder is this guide applied thirty times: 30 prompts built on the block structure above, 10 exclusion lists written against this genre's leaks, guides in Spanish and English, and 4 MP3 references generated from the folder's own prompts. 9 EUR.",
+      "Thirty-second demos of every folder, this one included, are free on the demos page. What you hear is what the prompts return, not a produced version of it."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Trap Ritual — the folder",
+     "path": "/product/trap/"
+    },
+    {
+     "label": "Hear the demos",
+     "path": "/demos/"
+    },
+    {
+     "label": "Space, texture and dirt",
+     "path": "/guides/space-texture/"
+    }
+   ]
+  },
+  "related": "trap"
+ },
+ {
+  "slug": "make-dark-uk-garage",
+  "es": {
+   "title": "Cómo hacer UK garage oscuro: pocket 2-step, subs cortos y espacio estrecho",
+   "navTitle": "Hacer UK garage oscuro",
+   "seoTitle": "Cómo hacer UK garage oscuro con prompts",
+   "metaDescription": "Cómo hacer UK garage oscuro con prompts: batería 2-step con swing, cajas desplazadas, subs cortos, stabs mínimos y las exclusiones que frenan el house.",
+   "heroKicker": "GUIA_08 / GARAGE OSCURO",
+   "heroLead": "El garage oscuro funciona por contención: un pocket 2-step con swing humano, subs que golpean y se van, y un espacio del ancho de un callejón. Esta guía monta ese prompt bloque a bloque.",
+   "cardDescription": "Pocket 2-step, subs cortos, stabs mínimos: prompts de garage sin que se cuele el house.",
+   "sections": [
+    {
+     "id": "sonic-core",
+     "heading": "Qué hace oscuro al garage",
+     "paragraphs": [
+      "El UK garage oscuro se define por lo que no suena. La batería es 2-step: el kick cae en el uno y se salta los sitios donde el house insistiría, la caja vive desplazada de la rejilla y los hats con shuffle llevan el movimiento alrededor de los huecos. El patrón esquiva en vez de pisar. Si todos los tiempos caen, ya estás en otro género.",
+      "Debajo, el sub trabaja a golpes, no en líneas. Notas cortas que golpean y se retiran, atadas al kick, con el silencio entre ellas haciendo la mitad del trabajo. La armonía son uno o dos stabs de acorde menor: filtrados, cortados en seco, más ritmo que progresión. El espacio es estrecho y urbano: un callejón de noche, hormigón pegado a ambos lados, reflexiones cortas, nada de hall.",
+      "La contención es el motor, no una limitación. El segundo kick que no añades, el pad que no sostienes, la melodía que no abres: cada ausencia es una decisión de género. Un prompt de garage oscuro gasta la mayoría de sus palabras en fijar lo que queda fuera."
+     ]
+    },
+    {
+     "id": "prompt-blocks",
+     "heading": "El prompt bloque a bloque",
+     "paragraphs": [
+      "Monta el prompt con cinco bloques —género, batería, grave, armonía, espacio— y toma una decisión por bloque. El bloque de batería merece más palabras que ningún otro, porque el pocket 2-step es lo primero que la herramienta intenta normalizar; [describir la batería](/guides/describe-drums/) cubre el vocabulario de swing a fondo.",
+      "Montados, los bloques quedan así: `dark 2-step garage, shuffled skipping hats, snare displaced off the grid, human swing, short sub bass hits, minimal minor chord stabs, narrow concrete space, night, instrumental`. Adapta cada bloque por separado en vez de reescribir la línea entera."
+     ],
+     "list": [
+      "Género: `dark 2-step garage, instrumental` nombra la variante y deja la voz principal fuera en la misma línea.",
+      "Batería: `shuffled 2-step drums, skipping hi-hats, snare displaced off the grid, human swing` fija pocket y feel.",
+      "Grave: `short sub bass hits, tight low end` mantiene el sub percusivo en vez de melódico.",
+      "Armonía: `minimal minor chord stabs, filtered keys` le da a la herramienta una fuente y una duración.",
+      "Espacio: `narrow night-time space, concrete, close and dry` fija la sala sin dejar sitio a colas largas de reverb."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "Los ejes que merece la pena variar",
+     "paragraphs": [
+      "Treinta beats que se quedan en el género salen de mover un eje por intento mientras el esqueleto no cambia. Si mueves dos bloques a la vez, ya no sabes qué cambio hizo qué."
+     ],
+     "list": [
+      "Cantidad de swing: de un shuffle sutil a un pocket muy retrasado, casi ebrio. Por sí solo, este eje separa los intentos más que cualquier elección de sonido.",
+      "Identidad de la caja: rimshot, clap recortado o caja seca con el transitorio limado. Misma posición, distinto peso.",
+      "Comportamiento del sub: un golpe único bajo el kick o un movimiento de dos notas que le responde. Notas cortas en los dos casos.",
+      "Fuente de los stabs: piano filtrado, órgano frío, teclas desafinadas. Una fuente por intento.",
+      "Presencia vocal: instrumental del todo, o un solo `pitched-down vocal fragment` enterrado en el espacio. Nada más brillante que eso.",
+      "Profundidad del espacio: callejón seco frente a paso subterráneo húmedo; la misma huella estrecha con más o menos cola."
+     ]
+    },
+    {
+     "id": "typical-exclusions",
+     "heading": "Qué se cuela y qué excluir",
+     "paragraphs": [
+      "Los prompts de garage derivan hacia el house. Los huecos del 2-step invitan a un kick a negras, los stabs invitan a voicings de piano house brillante, y cualquier señal de energía invita a producción de festival: risers, supersaws anchos, un drop eufórico. Los vocal chops brillantes son el otro intruso constante: para la herramienta, garage y vocal chops van juntos casi por defecto.",
+      "Una línea de exclusión típica para este género: `four on the floor, house kick, bright vocal chops, festival, euphoric, uplifting, big room, risers`. Las exclusiones operan sobre identidad, no sobre grado: [negative prompts](/guides/negative-prompts/) explica por qué prohibir un elemento funciona y prohibir una cualidad no."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Cómo falla un prompt de garage",
+     "paragraphs": [
+      "Cuando un prompt de garage oscuro falla, falla en una de estas cuatro direcciones reconocibles."
+     ],
+     "list": [
+      "El pocket se cuantiza. El resultado se endereza hacia un house rígido. Gasta más palabras en swing y desplazamiento, menos en atmósfera, y mantén `human swing` pegado a un elemento concreto.",
+      "El tema se llena. Aparecen pads, arpegios y una melodía cargada porque la herramienta lee lo escaso como inacabado. Convierte las ausencias en instrucción positiva: `no pads, kick, snare and hats only`.",
+      "El sub se convierte en línea de bajo. Las notas largas que se deslizan empujan el tema hacia bassline y speed garage. Mantén `short sub hits` en el prompt y repítelo si el grave empieza a cantar.",
+      "El brillo se cuela. Los stabs se afilan y un vocal chop asoma pasada la primera sección. Mantén `dark, filtered, minor` en el prompt y las exclusiones vocales en su sitio."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Dónde escucharlo",
+     "paragraphs": [
+      "La carpeta [Garaje Oscuro](/product/garage/) aplica esta estructura en 30 prompts y 10 negative prompts, con los ejes de arriba ya repartidos por el set. Incluye cuatro referencias MP3 y la guía en ES/EN.",
+      "Hay cortes de 30 segundos de todas las carpetas en [la página de demos](/demos/)."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Garaje Oscuro: 30 prompts de garage",
+     "path": "/product/garage/"
+    },
+    {
+     "label": "Graves y 808: escribir el sub",
+     "path": "/guides/low-end-808/"
+    },
+    {
+     "label": "Hacer jungle oscuro",
+     "path": "/guides/make-dark-jungle/"
+    }
+   ]
+  },
+  "en": {
+   "title": "How to make dark UK garage: 2-step pocket, short subs, narrow space",
+   "navTitle": "Making dark UK garage",
+   "seoTitle": "How to make dark UK garage with prompts",
+   "metaDescription": "How to make dark UK garage with prompts: shuffled 2-step drums, displaced snares, short sub hits, minimal stabs and the exclusions that keep house out.",
+   "heroKicker": "GUIDE_08 / DARK GARAGE",
+   "heroLead": "Dark garage runs on restraint: a 2-step pocket with human swing, subs that hit and leave, and a space the width of an alley. This guide assembles that prompt block by block.",
+   "cardDescription": "2-step pocket, short subs, minimal stabs: prompting dark garage without house leaking in.",
+   "sections": [
+    {
+     "id": "sonic-core",
+     "heading": "What makes garage dark",
+     "paragraphs": [
+      "Dark UK garage is defined by what it leaves out. The drums are 2-step: the kick lands on one and skips the places where house would insist, the snare sits displaced off the grid, and shuffled hats carry the motion around the gaps. The pattern skips instead of stomping. If every beat lands, you are already in the wrong genre.",
+      "Below that, the sub works in hits, not lines. Short notes that punch and withdraw, tied to the kick, with the silence between them doing half the work. Harmony is one or two minor chord stabs — filtered, cut short, more rhythm than progression. The space is narrow and urban: an alley at night, concrete close on both sides, short reflections, no hall.",
+      "Restraint is the engine, not a limitation. The second kick you do not add, the pad you do not sustain, the topline you do not brighten — each absence does genre work. A dark garage prompt spends most of its words fixing what stays out."
+     ]
+    },
+    {
+     "id": "prompt-blocks",
+     "heading": "Building the prompt block by block",
+     "paragraphs": [
+      "Assemble the prompt from five blocks — genre, drums, low end, harmony, space — and make one decision per block. The drum block deserves the most words, because the 2-step pocket is the first thing the tool tries to normalize; [describing drums](/guides/describe-drums/) covers the swing vocabulary in depth.",
+      "Assembled, the blocks read: `dark 2-step garage, shuffled skipping hats, snare displaced off the grid, human swing, short sub bass hits, minimal minor chord stabs, narrow concrete space, night, instrumental`. Adapt each block separately instead of rewriting the line from scratch."
+     ],
+     "list": [
+      "Genre: `dark 2-step garage, instrumental` names the variant and blocks a vocal topline in the same move.",
+      "Drums: `shuffled 2-step drums, skipping hi-hats, snare displaced off the grid, human swing` fixes pocket and feel.",
+      "Low end: `short sub bass hits, tight low end` keeps the sub percussive instead of melodic.",
+      "Harmony: `minimal minor chord stabs, filtered keys` gives the tool a source and a duration.",
+      "Space: `narrow night-time space, concrete, close and dry` sets the room without inviting reverb washes."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "The axes worth varying",
+     "paragraphs": [
+      "Thirty beats that stay in genre come from moving one axis per attempt while the skeleton holds. Move two blocks at once and you can no longer tell which change did what."
+     ],
+     "list": [
+      "Swing amount: from a subtle shuffle to a heavily laid-back, almost drunk pocket. This axis alone separates attempts more than any sound choice.",
+      "Snare identity: rimshot, clipped clap, or a dry snare with the transient shaved. Same position, different weight.",
+      "Sub behavior: a single hit under the kick, or a two-note movement answering it. Short notes either way.",
+      "Stab source: filtered piano, cold organ, detuned keys. One source per attempt.",
+      "Vocal presence: fully instrumental, or a single `pitched-down vocal fragment` buried in the space. Nothing brighter.",
+      "Space depth: dry alley versus wet underpass — the same narrow footprint with more or less tail."
+     ]
+    },
+    {
+     "id": "typical-exclusions",
+     "heading": "What leaks in and what to exclude",
+     "paragraphs": [
+      "Garage prompts leak toward house. The 2-step gaps invite a four-on-the-floor kick, the stabs invite bright piano-house voicings, and any hint of energy invites festival production: risers, wide supersaws, a euphoric drop. Bright chopped vocals are the other constant intruder — the tool associates garage with them strongly.",
+      "A typical exclusion line for this genre: `four on the floor, house kick, bright vocal chops, festival, euphoric, uplifting, big room, risers`. Exclusions handle identity, not degree — [negative prompts](/guides/negative-prompts/) covers why banning an element works and banning a quality does not."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "How a garage prompt fails",
+     "paragraphs": [
+      "When a dark garage prompt fails, it fails in one of four recognizable directions."
+     ],
+     "list": [
+      "The pocket quantizes. The output straightens into stiff house. Spend more words on swing and displacement, fewer on mood, and keep `human swing` attached to a named element.",
+      "The track fills up. Pads, arps and a busy topline appear because the tool reads sparseness as unfinished. Name the absences as positive instructions: `no pads, kick, snare and hats only`.",
+      "The sub turns into a bassline. Long sliding notes push the track toward bassline and speed garage. Keep `short sub hits` in the prompt, and restate it if the low end starts to sing.",
+      "Brightness creeps in. Stabs sharpen and a vocal chop surfaces after the first section. Keep `dark, filtered, minor` in the prompt and the vocal exclusions in place."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Where to hear it",
+     "paragraphs": [
+      "The [Garaje Oscuro](/product/garage/) folder applies this structure across 30 prompts and 10 negative prompts, with the axes above already spread through the set. It includes four MP3 references and an ES/EN guide.",
+      "Thirty-second cuts from every folder are on [the demos page](/demos/)."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Garaje Oscuro: 30 dark garage prompts",
+     "path": "/product/garage/"
+    },
+    {
+     "label": "Low end and 808: writing the sub",
+     "path": "/guides/low-end-808/"
+    },
+    {
+     "label": "Making dark jungle",
+     "path": "/guides/make-dark-jungle/"
+    }
+   ]
+  },
+  "related": "garage"
+ },
+ {
+  "slug": "make-dark-jungle",
+  "es": {
+   "title": "Cómo hacer jungle oscuro: breaks troceados sobre un sub lento y pesado",
+   "navTitle": "Hacer jungle oscuro",
+   "seoTitle": "Cómo hacer jungle oscuro: prompt de breaks",
+   "metaDescription": "Cómo hacer jungle oscuro con un prompt: breaks troceados como instrumento principal, sub lento y pesado, textura de cinta, eco dub y qué excluir.",
+   "heroKicker": "GUIA_09 / JUNGLE OSCURO",
+   "heroLead": "Batería rápida sobre un suelo lento: el género entero vive en esa tensión. Esta guía monta el prompt bloque a bloque y nombra lo que suele colarse.",
+   "cardDescription": "Breaks troceados como lead, sub lento, degradación de cinta y eco dub, bloque a bloque.",
+   "sections": [
+    {
+     "id": "what-defines-dark-jungle",
+     "heading": "Qué define el jungle oscuro y degradado",
+     "paragraphs": [
+      "El jungle invierte la jerarquía habitual. En casi todos los géneros la batería acompaña; aquí el break troceado es el instrumento principal y todo lo demás le hace sitio. Un prompt de jungle oscuro gasta sus mejores palabras en el break: de dónde sale, cuánto se trocea, cuánto desgaste lleva encima.",
+      "El segundo rasgo es el tempo partido. La superficie corre rápida —breaks troceados a velocidad de drum and bass— mientras el sub sostiene notas largas y lentas por debajo. Esa tensión entre batería rápida y suelo lento es el motor del género. Sin ella quedan dos cosas peores: un loop de breakbeat sin peso o un tema de bajo con batería nerviosa.",
+      "La variante oscura añade dos decisiones más. Las fuentes suenan viejas: cinta, vinilo, generaciones de resampleo, bordes gastados. Y el espacio viene del dub: ecos que se tragan un hat o una caja y se apagan en la oscuridad, no una sala limpia ni un plate brillante."
+     ]
+    },
+    {
+     "id": "prompt-block-by-block",
+     "heading": "El prompt bloque a bloque",
+     "paragraphs": [
+      "Monta el prompt con cuatro bloques: género, break, sub, superficie. Una línea de trabajo: `dark jungle, chopped resampled break, heavy sustained sub, dusty tape texture, dub echo throws, instrumental`. Cada bloque es una decisión, y el orden pone la palabra de género primero para que el tempo por defecto se fije antes que nada.",
+      "El bloque del break merece más palabras que ningún otro. `chopped break, resampled, rearranged, dusty` nombra la familia de fuente y el tratamiento; la [guía de batería](/guides/describe-drums/) explica por qué las palabras de fuente rinden más que los adjetivos de impacto. El bloque del sub declara la oposición sin rodeos: `deep sustained sub, slow bass movement under fast drums`. Cómo mantener ese sub audible sin inflarlo es asunto de la [guía de graves](/guides/low-end-808/).",
+      "El bloque de superficie carga con la variante oscura. Palabras de degradación —`tape hiss, vinyl crackle, worn sample`— más una frase de espacio dub: `dub delay on the snare, dark cavernous space`. Una frase de cada familia basta."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "Qué variar entre intentos",
+     "paragraphs": [
+      "Treinta beats de un mismo esquema son cuestión de ejes, no de treinta ideas nuevas. Mantén fijas la palabra de género y la jerarquía: break delante, sub debajo. Cambia un eje por intento."
+     ],
+     "list": [
+      "Profundidad del troceo. De `looped break, light chops` a `heavily chopped, rearranged break`. El extremo lejano convierte el break en material nuevo; el cercano deja legible el groove original.",
+      "Densidad de la batería. Movimiento constante en un lado; `half-time section, sparse stepper pattern` en el otro. El mismo break se lee distinto en cada densidad.",
+      "Comportamiento del sub. Notas sostenidas —`long static sub notes`— frente a movimiento: `sliding sub, slow dub bassline`.",
+      "Grado de degradación. De `light vinyl dust` a `crushed tape, heavily degraded`. Cada paso cede claridad a cambio de edad.",
+      "Cantidad de eco. `dry chops, occasional echo throw` en un extremo; `drowned in dub delay` en el otro."
+     ]
+    },
+    {
+     "id": "typical-exclusions",
+     "heading": "Exclusiones típicas del género",
+     "paragraphs": [
+      "La herramienta asocia breaks rápidos con drum and bass moderno, y el drum and bass moderno es limpio. Esa asociación se cuela como batería pulida, mezclas anchas y brillantes y bajos de sintetizador afilados. El campo Exclude es donde se corta; la [guía de negative prompts](/guides/negative-prompts/) explica cómo lee ese campo.",
+      "Tres fugas explican la mayoría de los intentos estropeados. Nómbralas en el campo Exclude."
+     ],
+     "list": [
+      "Pulido de DnB moderno. `modern dnb, clean mastering, bright mix` mantiene la producción en la época de las fuentes.",
+      "Brillo neurofunk. `neurofunk, aggressive mid bass, metallic bass` bloquea el medio chirriante que sustituye el sub por un lead.",
+      "Decorado EDM. `risers, build-ups, big drop, supersaw` quita los clichés de arreglo que los tempos rápidos atraen."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Fallos frecuentes",
+     "paragraphs": [
+      "El jungle oscuro falla de formas reconocibles. Cada una delata un bloque poco concreto."
+     ],
+     "list": [
+      "El break sale programado. Si aparece batería de máquina rápida en lugar de un break sampleado, las palabras de fuente perdieron contra lo que el género trae por defecto. Coloca `chopped break` al principio, añade palabras de tratamiento y quita cualquier vocabulario de caja de ritmos.",
+      "El bajo corre a la velocidad de la batería. Una línea de bajo nerviosa bajo breaks rápidos borra la tensión del género. Escribe la oposición en el prompt: `slow heavy sub under fast breaks`.",
+      "Todo se degrada a la vez. Las palabras de suciedad globales emborronan la mezcla entera. Dirige la suciedad a las fuentes y deja limpio el suelo: `dusty breaks, clean deep sub`.",
+      "El tempo deriva. Un resultado a medias —break lento, pocket de hip-hop— suele significar que la palabra de género quedó enterrada. Mantenla al principio y deja los géneros vecinos en Exclude."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Dónde escucharlo",
+     "paragraphs": [
+      "Fossil Jungle es nuestra carpeta para este género: 30 prompts y 10 negative prompts construidos sobre este esquema, guía en español e inglés y cuatro referencias MP3, por 9 EUR.",
+      "Los cortes de 30 segundos de las seis carpetas están en [la página de demos](/demos/). El pack completo con las seis cuesta 49 EUR."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Carpeta Fossil Jungle",
+     "path": "/product/jungle/"
+    },
+    {
+     "label": "Espacio y textura",
+     "path": "/guides/space-texture/"
+    },
+    {
+     "label": "Hacer UK garage oscuro",
+     "path": "/guides/make-dark-uk-garage/"
+    }
+   ]
+  },
+  "en": {
+   "title": "How to make dark jungle: chopped breaks over a slow, heavy sub",
+   "navTitle": "Make dark jungle",
+   "seoTitle": "How to make dark jungle: breaks prompt",
+   "metaDescription": "How to make dark jungle with a prompt: chopped breaks as the lead, slow heavy sub, tape and vinyl degradation, dub echo and what to exclude.",
+   "heroKicker": "GUIDE_09 / DARK JUNGLE",
+   "heroLead": "Fast drums over a slow floor: the whole genre lives in that tension. This guide assembles the prompt block by block and names what tends to leak in.",
+   "cardDescription": "Chopped breaks as lead, slow sub, tape degradation and dub echo, block by block.",
+   "sections": [
+    {
+     "id": "what-defines-dark-jungle",
+     "heading": "What defines dark, degraded jungle",
+     "paragraphs": [
+      "Jungle inverts the usual hierarchy. In most genres the drums accompany something; here the chopped break is the lead instrument and everything else clears space for it. A dark jungle prompt spends its best words on the break: what it is cut from, how hard it is chopped, how worn it sounds.",
+      "The second trait is the split tempo. The surface runs fast — chopped breaks at drum and bass speed — while the sub underneath holds long, slow notes. That tension between fast drums and a slow floor is the engine of the genre. Lose it and you get one of two worse things: a breakbeat loop with no weight, or a bass track with busy drums.",
+      "The dark variant adds two more decisions. The sources sound old: tape, vinyl, resampled generations, edges worn off. And the space comes from dub — echoes that swallow a hat or a snare and decay into the dark — not from a clean hall or a bright plate."
+     ]
+    },
+    {
+     "id": "prompt-block-by-block",
+     "heading": "Building the prompt block by block",
+     "paragraphs": [
+      "Assemble the prompt from four blocks: genre, break, sub, surface. One working line: `dark jungle, chopped resampled break, heavy sustained sub, dusty tape texture, dub echo throws, instrumental`. Every block is a decision, and the order puts the genre word first so the tempo default lands before anything else.",
+      "The break block deserves more words than any other. `chopped break, resampled, rearranged, dusty` names the source family and the treatment; [the drums guide](/guides/describe-drums/) covers why source words do more than impact adjectives. The sub block states the opposition outright: `deep sustained sub, slow bass movement under fast drums`. Keeping that sub audible without inflating it is the subject of [the low-end guide](/guides/low-end-808/).",
+      "The surface block carries the dark variant. Degradation words — `tape hiss, vinyl crackle, worn sample` — plus one dub-space phrase: `dub delay on the snare, dark cavernous space`. One phrase of each family is enough."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "The axes worth varying between attempts",
+     "paragraphs": [
+      "Thirty beats from one scheme is a matter of axes, not thirty new ideas. Keep the genre word and the hierarchy fixed: break in front, sub underneath. Change one axis per attempt."
+     ],
+     "list": [
+      "Chop depth. From `looped break, light chops` to `heavily chopped, rearranged break`. The far end turns the break into new material; the near end keeps the original groove readable.",
+      "Drum density. Constant motion on one side; `half-time section, sparse stepper pattern` on the other. The same break reads differently at each density.",
+      "Sub behavior. Held notes — `long static sub notes` — against movement: `sliding sub, slow dub bassline`.",
+      "Degradation depth. From `light vinyl dust` to `crushed tape, heavily degraded`. Each step trades clarity for age.",
+      "Echo amount. `dry chops, occasional echo throw` at one end; `drowned in dub delay` at the other."
+     ]
+    },
+    {
+     "id": "typical-exclusions",
+     "heading": "Typical exclusions for this genre",
+     "paragraphs": [
+      "The tool associates fast breaks with modern drum and bass, and modern drum and bass is clean. That association leaks in as polished drums, bright wide mixes and synth bass with teeth. The Exclude field is where you cut it off; [the negative prompts guide](/guides/negative-prompts/) covers how that field reads.",
+      "Three leaks account for most spoiled attempts. Name them in the Exclude field."
+     ],
+     "list": [
+      "Modern DnB polish. `modern dnb, clean mastering, bright mix` keeps the production in the era of the sources.",
+      "Neurofunk brightness. `neurofunk, aggressive mid bass, metallic bass` blocks the screeching midrange that replaces a sub with a lead.",
+      "EDM furniture. `risers, build-ups, big drop, supersaw` removes the arrangement clichés that fast tempos attract."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Common failure modes",
+     "paragraphs": [
+      "Dark jungle fails in recognizable ways. Each one traces back to a block that was left vague."
+     ],
+     "list": [
+      "The break comes back programmed. Fast machine drums instead of a sampled break means the source words lost to the genre default. Put `chopped break` early, add treatment words and drop any drum-machine vocabulary.",
+      "The bass runs at drum speed. A busy bassline under fast drums erases the genre's tension. Write the opposition into the prompt: `slow heavy sub under fast breaks`.",
+      "Everything degrades at once. Global dirt words blur the whole mix. Aim the dirt at the sources and keep the floor clean: `dusty breaks, clean deep sub`.",
+      "The tempo drifts. A halfway result — slow break, hip-hop pocket — usually means the genre word got buried. Keep it first, and keep the neighboring genres in Exclude."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Where to hear it",
+     "paragraphs": [
+      "Fossil Jungle is our folder for this genre: 30 prompts and 10 negative prompts built on this scheme, a guide in Spanish and English and four MP3 references, for 9 EUR.",
+      "The 30-second cuts for all six folders are on the [demos page](/demos/). The complete pack of six is 49 EUR."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Fossil Jungle folder",
+     "path": "/product/jungle/"
+    },
+    {
+     "label": "Space and texture",
+     "path": "/guides/space-texture/"
+    },
+    {
+     "label": "Make dark UK garage",
+     "path": "/guides/make-dark-uk-garage/"
+    }
+   ]
+  },
+  "related": "jungle"
+ },
+ {
+  "slug": "make-noir-hip-hop",
+  "es": {
+   "title": "Cómo hacer hip hop noir: boom bap oscuro, prompt a prompt",
+   "navTitle": "Hacer hip hop noir",
+   "seoTitle": "Cómo hacer hip hop noir: boom bap oscuro",
+   "metaDescription": "Cómo hacer hip hop noir con prompts: jazz polvoriento, boom bap con swing, contrabajo, salas con humo, tape y las exclusiones que lo mantienen oscuro.",
+   "heroKicker": "GUIA_10 / HIP HOP NOIR",
+   "heroLead": "El hip hop noir suena sampleado, con swing y pequeño. Este es el vocabulario que lleva a la herramienta hacia el jazz polvoriento, las ghost notes y el tape sobre el máster.",
+   "cardDescription": "Jazz polvoriento, batería con swing y ghost notes, contrabajo y tape: la receta noir.",
+   "sections": [
+    {
+     "id": "what-makes-it-noir",
+     "heading": "Sampleado, con swing y pequeño: el núcleo noir",
+     "paragraphs": [
+      "El hip hop noir es boom bap hecho con material encontrado, o que suena como si lo fuera. Las fuentes son jazz polvoriento y library music: trompeta con sordina, Rhodes con humo, cuerdas de película de detectives, un piano grabado hace demasiado tiempo para sonar limpio. Nada en el plano debería sonar sintetizado. La herramienta puede imprimir esa estética, pero solo si el prompt la nombra; por defecto tira de kits modernos y teclados modernos.",
+      "La batería está troceada, no programada. Pocket con swing, ghost notes alrededor de la caja, golpes retrasados y suaves entre los principales. El low end es un contrabajo, no un sub de sintetizador: redondo, con madera, tocando notas en lugar de sostener una. El espacio es una sala pequeña con humo, y el acabado es tape sobre toda la mezcla.",
+      "El último ingrediente es la contención. El noir funciona por lo que falta: compases donde la batería desaparece, un lead que deja aire entre frases, arreglos de tres elementos en lugar de ocho. Aquí el espacio negativo es estructura, no una decisión de mezcla."
+     ]
+    },
+    {
+     "id": "build-the-prompt",
+     "heading": "El prompt bloque a bloque",
+     "paragraphs": [
+      "Monta la línea de Styles con cinco bloques: género, batería, low end, fuente y espacio. Primero el marco: `noir hip-hop, dark boom bap, instrumental, 84 bpm`. La etiqueta de género por sí sola acerca a la herramienta al territorio del jazz; el resto de la línea decide si aterriza en un sótano con humo o en una playlist de study beats.",
+      "Después la batería: `dusty chopped break, swung MPC pocket, ghost notes on the snare, sparse`. Cada palabra cumple una función: chopped apunta a material sampleado, swung y ghost notes matan la rejilla, sparse mantiene la densidad baja. El vocabulario detrás de estas decisiones está en la [guía de batería](/guides/describe-drums/).",
+      "Low end y fuente: `upright bass, round and woody` más `muted trumpet, smoky Rhodes, sampled from old records`. Nombra un lead, no cuatro. Al final, la sala y el acabado: `small smoky room, tape saturation over the master, faint hiss`. El espacio y el tape llevan tanta señal de género como los instrumentos; la [guía de espacio y textura](/guides/space-texture/) entra a fondo en los dos.",
+      "Montado: `noir hip-hop, dark boom bap, instrumental, 84 bpm, dusty chopped break, swung MPC pocket, ghost notes, sparse, upright bass, round and woody, muted trumpet, small smoky room, tape saturation, faint hiss`. Es largo, pero cada término es una decisión. Activa Instrumental y deja la letra fuera."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "Treinta beats: los ejes que merece la pena mover",
+     "paragraphs": [
+      "Treinta prompts de un género no son treinta sinónimos. Son una receta con pocos ejes, movidos de uno en uno. Cambia un solo eje por intento y los resultados se quedan en el género sin repetirse."
+     ],
+     "list": [
+      "La voz principal: trompeta con sordina, Rhodes, vibráfono, piano vertical, clarinete o cuerdas de library — una por prompt.",
+      "El tempo: toda la franja de 78 a 92 bpm suena a noir; por abajo arrastra, por arriba camina.",
+      "La densidad de la batería: solo kick y caja, o un break con hats discretos; nunca cargada.",
+      "El contrabajo: walking bass, un pedal de dos notas o ausente, con la mano izquierda del piano cargando el peso.",
+      "La era imaginaria de la fuente: club de jazz de los 50, banda sonora policiaca de los 60, discos de library de los 70; cada una arrastra otros acordes y otra suciedad.",
+      "El espacio negativo: cada cuánto desaparece la batería y durante cuántos compases."
+     ]
+    },
+    {
+     "id": "what-to-exclude",
+     "heading": "Lo que se cuela: la lista de exclusión",
+     "paragraphs": [
+      "Tres vecinos se cuelan en los prompts noir. El primero es el trap: hats programados y limpios, rolls que aparecen sin que nadie los pida en cuanto la herramienta oye hip hop oscuro. El segundo es el pop moderno: samples brillantes, máster alto y pulido. El tercero es el más cercano y el más persistente: la playlist de lo-fi chill. Mismo tempo, mismo polvo, cero tensión.",
+      "Los tres se tratan en el campo Exclude: `trap hi-hats, hi-hat rolls, bright modern pop, EDM synths, chillhop, study beats, clean polished master, vocals, autotune`. La deriva chill también necesita presión desde el lado positivo: mantén `dark, tense, minor key` en Styles, porque la exclusión sola quita el sabor equivocado sin defender el correcto. Cómo redactar e iterar estas listas es el tema de la [guía de negative prompts](/guides/negative-prompts/)."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Fallos típicos del noir",
+     "paragraphs": [
+      "El primero es la deriva chill: el resultado es agradable donde debería ser tenso. La herramienta leyó la contención como blandura. Oscurece la armonía — `minor key, unresolved, tense` — y comprueba que la lista de Exclude está haciendo su trabajo.",
+      "El segundo es el arreglo sobrecargado. Trompeta, cuerdas, Rhodes y vibráfono en la misma línea: todo suena a la vez y nada es noir. Recorta la lista a un lead por prompt. El tercero es la rejilla que vuelve: la batería regresa cuantizada y limpia. Reafirma `swung`, `ghost notes` y `chopped break`; pedir un break en lugar de un kit es el movimiento más eficaz.",
+      "El cuarto es el acabado limpio: la herramienta imprime un máster moderno y la ilusión se viene abajo. En este género el tape no es opcional; es el barniz que hace que las fuentes suenen a material encontrado. Si `tape saturation` sigue sin aparecer, excluye `clean modern master` de forma explícita."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Dónde escucharlo",
+     "paragraphs": [
+      "La carpeta [Noir Tapes](/product/noir/) aplica esta receta: 30 prompts, 10 negative prompts, guías en español e inglés y 4 referencias MP3, por 9 EUR. Los prompts mueven lead, era y densidad de uno en uno, con las listas de exclusión en un documento aparte.",
+      "Los cortes de 30 segundos de esta carpeta y de las otras cinco están en la página de demos. Escuchar la referencia antes de generar acota lo que le estás pidiendo a la herramienta."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Noir Tapes: la carpeta",
+     "path": "/product/noir/"
+    },
+    {
+     "label": "Arreglar música IA genérica",
+     "path": "/guides/fix-generic-ai-music/"
+    },
+    {
+     "label": "Escucha las demos",
+     "path": "/demos/"
+    }
+   ]
+  },
+  "en": {
+   "title": "How to make noir hip-hop: dark boom bap, prompt by prompt",
+   "navTitle": "Make noir hip-hop",
+   "seoTitle": "How to make noir hip-hop: dark boom bap",
+   "metaDescription": "How to make noir hip-hop with prompts: dusty jazz sources, swung boom bap drums, upright bass, smoky rooms, tape finish, and the exclusions that keep it dark.",
+   "heroKicker": "GUIDE_10 / NOIR HIP-HOP",
+   "heroLead": "Noir hip-hop is sampled, swung and small. This is the vocabulary that points the tool at dusty jazz sources, ghost-note drums and tape over the master.",
+   "cardDescription": "Dusty jazz sources, swung ghost-note drums, upright bass and tape: the noir recipe.",
+   "sections": [
+    {
+     "id": "what-makes-it-noir",
+     "heading": "Sampled, swung and small: the noir core",
+     "paragraphs": [
+      "Noir hip-hop is boom bap built from material that sounds found. The sources are dusty jazz and library music: muted trumpet, smoky Rhodes, detective-film strings, a piano recorded too long ago to be clean. Nothing in the frame should sound synthesized. The tool can print that aesthetic, but only if the prompt names it; left alone it reaches for modern kits and modern keys.",
+      "The drums are chopped, not programmed. A swung pocket, ghost notes around the snare, hits that land late and soft between the main ones. The low end is an upright bass, not a synth sub — round, woody, playing notes rather than holding one. The space is a small smoky room, and the finish is tape over the whole mix.",
+      "The last ingredient is restraint. Noir works because of what is missing: bars where the drums drop out, a lead that leaves air between phrases, arrangements with three elements instead of eight. Negative space is structural here, not a mixing choice."
+     ]
+    },
+    {
+     "id": "build-the-prompt",
+     "heading": "Building the prompt block by block",
+     "paragraphs": [
+      "Assemble the Styles line from five blocks: genre, drums, low end, source, space. Start with the frame: `noir hip-hop, dark boom bap, instrumental, 84 bpm`. The genre tag alone pulls the tool toward jazz territory; the rest of the line decides whether it lands in a smoky basement or a study-beats playlist.",
+      "Drums next: `dusty chopped break, swung MPC pocket, ghost notes on the snare, sparse`. Every word does a job — chopped points at sampled material, swung and ghost notes kill the grid, sparse holds the density down. The vocabulary behind these choices is in the [drums guide](/guides/describe-drums/).",
+      "Low end and source: `upright bass, round and woody` plus `muted trumpet, smoky Rhodes, sampled from old records`. Name one lead, not four. Then the room and the finish: `small smoky room, tape saturation over the master, faint hiss`. Space and tape carry as much genre signal as the instruments; the [space and texture guide](/guides/space-texture/) goes deeper on both.",
+      "Assembled: `noir hip-hop, dark boom bap, instrumental, 84 bpm, dusty chopped break, swung MPC pocket, ghost notes, sparse, upright bass, round and woody, muted trumpet, small smoky room, tape saturation, faint hiss`. Long, but every term is a decision. Set the Instrumental toggle and keep lyrics out of it."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "Thirty beats: the axes worth varying",
+     "paragraphs": [
+      "Thirty prompts in one genre are not thirty synonyms. They are one recipe with a small number of axes, moved one at a time. Change a single axis per attempt and the results stay in genre without repeating themselves."
+     ],
+     "list": [
+      "The lead voice: muted trumpet, Rhodes, vibraphone, upright piano, clarinet or library strings — one per prompt.",
+      "The tempo: the whole 78 to 92 bpm band reads as noir; the bottom of it drags, the top walks.",
+      "Drum density: kick and snare only, or a break with quiet hats; never busy.",
+      "The bass: walking lines, a two-note pedal, or absent, with the piano's left hand carrying the weight.",
+      "The imaginary era of the source: 50s club jazz, 60s crime-film score, 70s library records; each drags in different chords and different dirt.",
+      "Negative space: how often the drums drop out, and for how many bars."
+     ]
+    },
+    {
+     "id": "what-to-exclude",
+     "heading": "What leaks in: the exclusion list",
+     "paragraphs": [
+      "Three neighbours leak into noir prompts. Trap is the first: clean programmed hats and rolls arrive uninvited the moment the tool hears dark hip-hop. Modern pop is the second: bright samples, a loud polished master. The third is the closest and the most persistent — the lo-fi chill playlist. Same tempo, same dust, none of the tension.",
+      "Handle all three in the Exclude field: `trap hi-hats, hi-hat rolls, bright modern pop, EDM synths, chillhop, study beats, clean polished master, vocals, autotune`. The chill drift also needs pressure from the positive side: keep `dark, tense, minor key` in Styles, because exclusion alone removes the wrong flavour without arguing for the right one. How to phrase and iterate these lists is the subject of the [negative prompts guide](/guides/negative-prompts/)."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Failure modes specific to noir",
+     "paragraphs": [
+      "The first is the chill drift: the output is pleasant where it should be tense. Restraint got read as softness. Push the harmony darker — `minor key, unresolved, tense` — and check that the Exclude list is doing its work.",
+      "The second is the crowded frame. Trumpet, strings, Rhodes and vibraphone in one line means everything plays at once and nothing is noir. Cut the list to one lead per prompt. The third is the returning grid: the drums come back quantized and clean. Restate `swung`, `ghost notes` and `chopped break`; asking for a break instead of a kit is the strongest single move.",
+      "The fourth is the clean finish: the tool prints a modern master and the illusion collapses. Tape is not optional in this genre; it is the varnish that makes the sources read as found. If `tape saturation` keeps being ignored, exclude `clean modern master` explicitly."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Where to hear it",
+     "paragraphs": [
+      "The [Noir Tapes](/product/noir/) folder applies this recipe: 30 prompts, 10 negative prompts, ES/EN guides and 4 MP3 references, for 9 EUR. The prompts move lead, era and density one axis at a time, with the exclusion lists kept in a separate document.",
+      "Thirty-second cuts of this folder and the other five are on the demos page. Hearing the reference before you generate narrows what you are asking the tool for."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Noir Tapes: the folder",
+     "path": "/product/noir/"
+    },
+    {
+     "label": "Fix generic AI music",
+     "path": "/guides/fix-generic-ai-music/"
+    },
+    {
+     "label": "Hear the demos",
+     "path": "/demos/"
+    }
+   ]
+  },
+  "related": "noir"
  }
 ]

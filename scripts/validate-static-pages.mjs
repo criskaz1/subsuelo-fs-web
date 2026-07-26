@@ -29,6 +29,10 @@ const basePages = [
   { basePath: "/guides/low-end-808/", output: "guides/low-end-808/index.html", schemaType: "Article" },
   { basePath: "/guides/fix-generic-ai-music/", output: "guides/fix-generic-ai-music/index.html", schemaType: "Article" },
   { basePath: "/guides/space-texture/", output: "guides/space-texture/index.html", schemaType: "Article" },
+  { basePath: "/guides/make-dark-trap/", output: "guides/make-dark-trap/index.html", schemaType: "Article" },
+  { basePath: "/guides/make-dark-uk-garage/", output: "guides/make-dark-uk-garage/index.html", schemaType: "Article" },
+  { basePath: "/guides/make-dark-jungle/", output: "guides/make-dark-jungle/index.html", schemaType: "Article" },
+  { basePath: "/guides/make-noir-hip-hop/", output: "guides/make-noir-hip-hop/index.html", schemaType: "Article" },
   { basePath: "/compare/", output: "compare/index.html", schemaType: "WebPage" },
   { basePath: "/method/", output: "method/index.html", schemaType: "WebPage" },
   ...productIds.map((id) => ({ basePath: `/product/${id}/`, output: `product/${id}/index.html`, schemaType: "Product" }))
@@ -129,7 +133,7 @@ for (const page of pages) {
   }
 
   const guideSlug = page.basePath.match(/^\/guides\/([a-z0-9-]+)\/$/u)?.[1];
-  if (guideSlug && !["negative-prompts", "write-music-prompts"].includes(guideSlug)) {
+  if (guideSlug) {
     const guideCard = `${siteUrl}/media/guides/${guideSlug}-${page.locale}.png?v=20260725`;
     if (metaContent(html, "property", "og:image") !== guideCard) throw new Error(`${page.output}: og:image sin tarjeta propia de la guía`);
     await access(path.join(root, `media/guides/${guideSlug}-${page.locale}.png`));
