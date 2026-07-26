@@ -1184,7 +1184,7 @@ const standaloneHtml = (page) => {
     ${seoBlock(page)}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles-v5.css?v=${stylesVersion}" />
-    <script src="/analytics-runtime.js?v=1" defer></script>
+    <script src="/analytics-runtime.js?v=2" defer></script>
     <script src="/analytics-loader.js?v=1" defer></script>${page.lab ? `\n    <script src="/lab.js?v=1" defer></script>` : ""}
   </head>
   <body class="editorial-body">
