@@ -22,6 +22,11 @@ const basePages = [
   { basePath: "/help/", output: "help/index.html", schemaType: "WebPage" },
   { basePath: "/legal/", output: "legal/index.html", schemaType: "WebPage" },
   ...legalIds.map((id) => ({ basePath: `/legal/${id}/`, output: `legal/${id}/index.html`, schemaType: "WebPage" })),
+  { basePath: "/lab/", output: "lab/index.html", schemaType: "WebPage" },
+  { basePath: "/lab/prompt-builder/", output: "lab/prompt-builder/index.html", schemaType: "WebPage" },
+  { basePath: "/lab/negative-prompts/", output: "lab/negative-prompts/index.html", schemaType: "WebPage" },
+  { basePath: "/lab/dictionary/", output: "lab/dictionary/index.html", schemaType: "WebPage" },
+  { basePath: "/lab/monthly-prompt/", output: "lab/monthly-prompt/index.html", schemaType: "WebPage" },
   { basePath: "/guides/", output: "guides/index.html", schemaType: "WebPage" },
   { basePath: "/guides/negative-prompts/", output: "guides/negative-prompts/index.html", schemaType: "Article" },
   { basePath: "/guides/write-music-prompts/", output: "guides/write-music-prompts/index.html", schemaType: "Article" },
@@ -33,6 +38,8 @@ const basePages = [
   { basePath: "/guides/make-dark-uk-garage/", output: "guides/make-dark-uk-garage/index.html", schemaType: "Article" },
   { basePath: "/guides/make-dark-jungle/", output: "guides/make-dark-jungle/index.html", schemaType: "Article" },
   { basePath: "/guides/make-noir-hip-hop/", output: "guides/make-noir-hip-hop/index.html", schemaType: "Article" },
+  { basePath: "/guides/make-abstract-hip-hop/", output: "guides/make-abstract-hip-hop/index.html", schemaType: "Article" },
+  { basePath: "/guides/make-dub-hip-hop/", output: "guides/make-dub-hip-hop/index.html", schemaType: "Article" },
   { basePath: "/compare/", output: "compare/index.html", schemaType: "WebPage" },
   { basePath: "/method/", output: "method/index.html", schemaType: "WebPage" },
   ...productIds.map((id) => ({ basePath: `/product/${id}/`, output: `product/${id}/index.html`, schemaType: "Product" }))
@@ -140,6 +147,16 @@ for (const page of pages) {
     if (!html.includes('class="guide-pack"') || !html.includes('class="guide-pack__action"')) throw new Error(`${page.output}: falta la tarjeta de pack relacionado`);
   }
   if (page.basePath === "/bundle/" && !html.includes(page.locale === "en" ? "€0.27 per prompt" : "0,27 € por prompt")) throw new Error(`${page.output}: falta el precio por prompt del bundle`);
+  if (page.basePath.startsWith("/lab/")) {
+    if (!html.includes("/lab.js?v=")) throw new Error(`${page.output}: falta lab.js`);
+    const labCard = page.basePath === "/lab/monthly-prompt/" ? "media/lab/monthly-" : "media/lab/lab-";
+    if (!metaContent(html, "property", "og:image")?.includes(`${labCard}${page.locale}.png`)) throw new Error(`${page.output}: og:image sin tarjeta del LAB`);
+    await access(path.join(root, `${labCard}${page.locale}.png`));
+  }
+  if (page.basePath === "/lab/prompt-builder/" && ((html.match(/data-axis-option/gu) || []).length < 30 || !html.includes("data-copy-builder"))) throw new Error(`${page.output}: constructor incompleto`);
+  if (page.basePath === "/lab/negative-prompts/" && ((html.match(/data-negative /gu) || []).length < 8 || !html.includes("data-copy-negatives"))) throw new Error(`${page.output}: generador de negatives incompleto`);
+  if (page.basePath === "/lab/dictionary/" && ((html.match(/data-term=/gu) || []).length < 40 || !html.includes("data-dictionary-search"))) throw new Error(`${page.output}: diccionario incompleto`);
+  if (page.basePath === "/lab/monthly-prompt/" && (!html.includes("data-monthly-prompt") || !html.includes('data-sampler-download="monthly"'))) throw new Error(`${page.output}: prompt del mes incompleto`);
   if (page.basePath === "/demos/" && (!html.includes('class="demos-sampler"') || !html.includes('data-sampler-download="demos"'))) throw new Error(`${page.output}: falta el recordatorio de la muestra en demos`);
 
   if (page.locale === "en") {

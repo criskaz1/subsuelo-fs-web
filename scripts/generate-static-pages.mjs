@@ -131,6 +131,7 @@ const products = [
 ];
 
 const guideArticles = JSON.parse(await readFile(path.join(root, "scripts/guide-articles.json"), "utf8"));
+const labData = JSON.parse(await readFile(path.join(root, "scripts/lab-data.json"), "utf8"));
 
 const workspaceRoot = path.resolve(root, "..");
 const samplerManifestPath = path.join(workspaceRoot, "source/free_sampler/content.json");
@@ -430,7 +431,7 @@ const homeView = (locale) => {
   <div class="system-file-row">
     <a class="system-file" href="${helpHref}" data-route="${helpHref}"><span class="file-icon file-icon--text">TXT</span><strong>${en ? "WHAT_EACH_FOLDER_INCLUDES.txt" : "QUE_INCLUYE_CADA_CARPETA.txt"}</strong></a>
     <a class="system-file" href="${demosHref}" data-route="${demosHref}"><span class="file-icon file-icon--audio">AUDIO</span><strong>${en ? "HEAR_THE_EXAMPLES.audio" : "ESCUCHAR_EJEMPLOS.audio"}</strong></a>
-    <a class="system-file" href="${guidesHref}" data-editorial-path="/guides/"><span class="row-folder-icon"></span><strong>${en ? "PRODUCTION_GUIDES.folder" : "GUIAS_DE_PRODUCCION.folder"}</strong></a>
+    <a class="system-file" href="${guidesHref}" data-editorial-path="/guides/"><span class="row-folder-icon"></span><strong>${en ? "PRODUCTION_GUIDES.folder" : "GUIAS_DE_PRODUCCION.folder"}</strong></a><a class="system-file" href="${localizedPath("/lab/", locale)}" data-editorial-path="/lab/"><span class="row-folder-icon"></span><strong>${en ? "PROMPT_LAB.folder" : "LAB_DE_PROMPTS.folder"}</strong></a>
     <a class="system-file" href="${bundleHref}" data-route="${bundleHref}"><span class="row-folder-icon"></span><strong>${en ? "COMPLETE_PACK.folder" : "PACK_COMPLETO.folder"}</strong></a>
     <a class="system-file" href="${legalHref}" data-route="${legalHref}"><span class="row-folder-icon"></span><strong>${en ? "LEGAL_AND_PRIVACY.folder" : "LEGAL_Y_PRIVACIDAD.folder"}</strong></a>
   </div>
@@ -582,6 +583,7 @@ const guideLinkPaths = new Set([
   "/guides/write-music-prompts/", "/guides/negative-prompts/",
   "/guides/describe-drums/", "/guides/low-end-808/", "/guides/fix-generic-ai-music/", "/guides/space-texture/",
   "/guides/make-dark-trap/", "/guides/make-dark-uk-garage/", "/guides/make-dark-jungle/", "/guides/make-noir-hip-hop/",
+  "/guides/make-abstract-hip-hop/", "/guides/make-dub-hip-hop/",
   "/product/trap/", "/product/garage/", "/product/jungle/", "/product/low/", "/product/abyss/", "/product/noir/"
 ]);
 
@@ -621,6 +623,90 @@ const guideArticleView = (guide, locale) => {
       ${pack}
       <section class="article-next"><h2>${en ? "Continue with these files" : "Sigue con estos archivos"}</h2><nav>${next}</nav></section>
     </div></div>
+  </article>`;
+};
+
+const labCategoryLabels = {
+  drums: { es: "Batería", en: "Drums" },
+  lowend: { es: "Graves", en: "Low end" },
+  source: { es: "Fuentes", en: "Sources" },
+  space: { es: "Espacio", en: "Space" },
+  texture: { es: "Textura", en: "Texture" },
+  feel: { es: "Feel", en: "Feel" },
+  structure: { es: "Estructura", en: "Structure" }
+};
+
+const labIndexView = (locale) => {
+  const en = locale === "en";
+  const cards = [
+    { path: "/lab/prompt-builder/", code: "LAB_01", title: en ? "Prompt builder" : "Constructor de prompts", description: en ? "Assemble a complete Styles block decision by decision and copy it." : "Monta un bloque completo para Styles decisión a decisión y cópialo." },
+    { path: "/lab/negative-prompts/", code: "LAB_02", title: en ? "Negative prompt generator" : "Generador de negative prompts", description: en ? "Tick the problems you hear and get the exclusion list that answers them." : "Marca los problemas que oyes y recibe la lista de exclusión que los responde." },
+    { path: "/lab/dictionary/", code: "LAB_03", title: en ? "Prompt vocabulary" : "Diccionario de prompts", description: en ? "What each prompt word signals to the tool, searchable and mechanical." : "Qué señala cada palabra de prompt a la herramienta, buscable y sin poesía." },
+    { path: "/lab/monthly-prompt/", code: "LAB_04", title: en ? "Prompt of the month" : "El prompt del mes", description: en ? "One complete, tested direction, free, replaced every month." : "Una dirección completa y probada, gratis, renovada cada mes." }
+  ];
+  return `<article class="editorial-document">
+    <header class="editorial-hero"><p>SUBSUELO / LAB</p><h1>${en ? "Free tools for dark instrumentals" : "Herramientas gratuitas"}</h1><p>${en ? "Build, clean and understand music prompts without leaving the browser. Everything runs on this page; nothing is uploaded anywhere." : "Construye, limpia y entiende prompts musicales sin salir del navegador. Todo funciona en esta página; nada se envía a ningún sitio."}</p></header>
+    <div class="guide-grid">${cards.map((card) => guideCard({ ...card, locale })).join("")}</div>
+    <section class="editorial-callout"><div><span>${en ? "READY-MADE" : "YA CONSTRUIDO"}</span><h2>${en ? "The folders are these tools applied 30 times." : "Las carpetas son estas herramientas aplicadas 30 veces."}</h2><p>${en ? "Each pack holds 30 tested directions inside one genre, plus 10 exclusion lists and 4 MP3 references." : "Cada pack contiene 30 direcciones probadas dentro de un género, con 10 listas de exclusión y 4 referencias MP3."}</p></div><nav><a href="${localizedPath("/", locale)}">${en ? "Open catalogue" : "Abrir catálogo"}</a><a href="${localizedPath("/demos/", locale)}">${en ? "Hear demos" : "Escuchar demos"}</a></nav></section>
+  </article>`;
+};
+
+const labBuilderView = (locale) => {
+  const en = locale === "en";
+  const axes = labData.builder.axes.map((axis) => `<section class="lab-axis" data-axis="${axis.id}"><h2>${escapeHtml(axis.label[locale])}</h2><p>${escapeHtml(axis.hint[locale])}</p><div class="lab-options">${axis.options.map((option) => `<button type="button" class="lab-chip" data-axis-option data-fragment="${escapeHtml(option.fragment)}"${option.pack ? ` data-pack="${option.pack}"` : ""} aria-pressed="false">${escapeHtml(option.label[locale])}</button>`).join("")}</div></section>`).join("\n");
+  const packLinks = products.map((product) => `<a data-pack-option="${product.id}" hidden href="${localizedPath(`/product/${product.id}/`, locale)}">${en ? `Want 30 tested directions for this genre? ${product.name} · €9 →` : `¿Quieres 30 direcciones probadas de este género? ${product.name} · 9 € →`}</a>`).join("");
+  return `<article class="editorial-document article-document">
+    <header class="editorial-hero"><p>LAB_01 / ${en ? "BUILDER" : "CONSTRUCTOR"}</p><h1>${en ? "Build your music prompt decision by decision" : "Construye tu prompt musical decisión a decisión"}</h1><p>${en ? "Pick one option per axis. The block below assembles itself in the right order, ready to paste into the Styles field with Custom and Instrumental on." : "Elige una opción por eje. El bloque de abajo se monta solo en el orden correcto, listo para pegar en el campo Styles con Custom e Instrumental activados."}</p></header>
+    <div class="lab-tool" data-builder>
+      ${axes}
+      <section class="lab-output"><div class="lab-output__label"><span>${en ? "YOUR PROMPT · STYLES FIELD" : "TU PROMPT · CAMPO STYLES"}</span><button type="button" data-copy-builder data-done="${en ? "COPIED" : "COPIADO"}">${en ? "COPY PROMPT" : "COPIAR PROMPT"}</button></div><pre tabindex="0"><code data-builder-output data-empty="${en ? "Pick options above to assemble the block." : "Elige opciones arriba para montar el bloque."}"></code></pre><p class="lab-pack-note" hidden data-builder-pack>${packLinks}</p></section>
+      <p class="lab-footnote">${en ? `One option per axis is the method: change one axis per attempt and compare. The reasoning behind each axis lives in the <a href="${localizedPath("/guides/write-music-prompts/", locale)}">prompt writing guide</a>.` : `Una opción por eje es el método: cambia un solo eje por intento y compara. El porqué de cada eje está en la <a href="${localizedPath("/guides/write-music-prompts/", locale)}">guía de escritura de prompts</a>.`}</p>
+    </div>
+  </article>`;
+};
+
+const labNegativeView = (locale) => {
+  const en = locale === "en";
+  const rows = labData.builder.negatives.map((item) => `<label class="lab-check"><input type="checkbox" data-negative data-terms='${JSON.stringify(item.terms)}' /><span>${escapeHtml(item.problem[locale])}</span></label>`).join("");
+  return `<article class="editorial-document article-document">
+    <header class="editorial-hero"><p>LAB_02 / NEGATIVE PROMPTS</p><h1>${en ? "Generate your negative prompt from the problem" : "Genera tu negative prompt a partir del problema"}</h1><p>${en ? "Tick what keeps leaking into your result. The exclusion list below combines the terms that answer each problem, ready for the Exclude field." : "Marca lo que se cuela en tu resultado. La lista de abajo combina los términos que responden a cada problema, lista para el campo Exclude."}</p></header>
+    <div class="lab-tool" data-negatives>
+      <div class="lab-checklist">${rows}</div>
+      <section class="lab-output"><div class="lab-output__label"><span>${en ? "YOUR EXCLUSION LIST · EXCLUDE FIELD" : "TU LISTA · CAMPO EXCLUDE"}</span><button type="button" data-copy-negatives data-done="${en ? "COPIED" : "COPIADO"}">${en ? "COPY LIST" : "COPIAR LISTA"}</button></div><pre tabindex="0"><code data-negatives-output data-empty="${en ? "Tick problems above to build the list." : "Marca problemas arriba para montar la lista."}"></code></pre></section>
+      <p class="lab-footnote">${en ? `Keep the list short: exclusions answer problems, they do not describe the track. When and why is covered in the <a href="${localizedPath("/guides/negative-prompts/", locale)}">negative prompt guide</a>.` : `Mantén la lista corta: las exclusiones responden a problemas, no describen el tema. El cuándo y el porqué están en la <a href="${localizedPath("/guides/negative-prompts/", locale)}">guía de negative prompts</a>.`}</p>
+    </div>
+  </article>`;
+};
+
+const labDictionaryView = (locale) => {
+  const en = locale === "en";
+  const order = ["drums", "lowend", "source", "space", "texture", "feel", "structure"];
+  const groups = order.map((category) => {
+    const terms = labData.dictionary.filter((entry) => entry.category === category);
+    if (!terms.length) return "";
+    return `<section class="lab-term-group" data-term-group><h2>${escapeHtml(labCategoryLabels[category][locale])}</h2><dl>${terms.map((entry) => `<div class="lab-term" data-term="${escapeHtml(entry.term.toLowerCase())}"><dt><code>${escapeHtml(entry.term)}</code></dt><dd>${escapeHtml(entry[locale])}</dd></div>`).join("")}</dl></section>`;
+  }).join("\n");
+  return `<article class="editorial-document article-document">
+    <header class="editorial-hero"><p>LAB_03 / ${en ? "VOCABULARY" : "DICCIONARIO"}</p><h1>${en ? "Prompt vocabulary: what each word signals" : "Diccionario de prompts: qué señala cada palabra"}</h1><p>${en ? "Mechanical definitions: what the tool tends to do when a word appears in the Styles field. No poetry." : "Definiciones mecánicas: qué tiende a hacer la herramienta cuando una palabra aparece en Styles. Sin poesía."}</p></header>
+    <div class="lab-tool" data-dictionary>
+      <div class="lab-search"><input type="search" data-dictionary-search placeholder="${en ? "Search a term…" : "Busca un término…"}" aria-label="${en ? "Search the vocabulary" : "Buscar en el diccionario"}" /><span><b data-dictionary-count>0</b> ${en ? "terms" : "términos"}</span></div>
+      ${groups}
+      <p class="lab-footnote">${en ? `Vocabulary works in context: assemble full blocks with the <a href="${localizedPath("/lab/prompt-builder/", locale)}">prompt builder</a>.` : `El vocabulario funciona en contexto: monta bloques completos con el <a href="${localizedPath("/lab/prompt-builder/", locale)}">constructor de prompts</a>.`}</p>
+    </div>
+  </article>`;
+};
+
+const labMonthlyView = (locale) => {
+  const en = locale === "en";
+  const monthly = labData.monthly;
+  const copy = monthly[locale];
+  return `<article class="editorial-document article-document">
+    <header class="editorial-hero"><p>LAB_04 / ${escapeHtml(copy.month)}</p><h1>${en ? "The prompt of the month" : "El prompt del mes"}</h1><p>${escapeHtml(copy.lead)}</p></header>
+    <div class="lab-tool" data-monthly>
+      <section class="lab-output"><div class="lab-output__label"><span>${escapeHtml(copy.name)} · ${escapeHtml(monthly.code)}</span><button type="button" data-copy-monthly data-done="${en ? "COPIED" : "COPIADO"}">${en ? "COPY PROMPT" : "COPIAR PROMPT"}</button></div><pre tabindex="0"><code data-monthly-prompt>${escapeHtml(monthly.prompt)}</code></pre></section>
+      <section class="lab-monthly-notes"><h2>${en ? "How to use it" : "Cómo usarlo"}</h2><ol>${copy.howTo.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol><p>${escapeHtml(copy.note)}</p><p class="lab-monthly-exclude">${en ? "If it drifts, exclude:" : "Si se desvía, excluye:"} <code>${escapeHtml(monthly.exclude)}</code></p></section>
+      <aside class="demos-sampler"><div><strong>${en ? "A new one lands every month." : "Cada mes cae uno nuevo."}</strong><span>${en ? "Get the free sampler by email and you will hear about the next drop." : "Descarga la muestra gratuita por email y te enterarás del siguiente."}</span></div><a class="demos-sampler__action" href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="monthly">${en ? "Get the sampler · €0" : "Recibir muestra · 0 €"} ↗</a></aside>
+    </div>
   </article>`;
 };
 
@@ -858,6 +944,65 @@ const pagesForLocale = (locale) => {
         view: legalDocumentView(locale, key)
       });
     }),
+    page("/lab/", "lab/index.html", {
+      heading: en ? "Free tools" : "Herramientas gratuitas",
+      title: en ? "Free music prompt tools | SUBSUELO FS" : "Herramientas gratis para prompts | SUBSUELO FS",
+      description: en ? "Free browser tools for music prompts: a prompt builder, a negative prompt generator, a vocabulary reference and one free tested prompt every month." : "Herramientas gratis para prompts musicales: constructor, generador de negative prompts, diccionario de vocabulario y un prompt probado gratis cada mes.",
+      type: "website",
+      standalone: true,
+      lab: true,
+      socialImage: `${siteUrl}/media/lab/lab-${locale}.png?v=20260726`,
+      socialAlt: en ? "SUBSUELO LAB: free music prompt tools" : "SUBSUELO LAB: herramientas gratis para prompts musicales",
+      view: labIndexView(locale)
+    }),
+    page("/lab/prompt-builder/", "lab/prompt-builder/index.html", {
+      heading: en ? "Prompt builder" : "Constructor de prompts",
+      title: en ? "Music prompt builder: assemble your Styles block | SUBSUELO FS" : "Constructor de prompts musicales gratis | SUBSUELO FS",
+      description: en ? "Free music prompt builder: pick genre, drums, low end, source, space, texture and feel, and copy a complete tested-format Styles block." : "Constructor gratuito de prompts musicales: elige género, batería, graves, fuente, espacio, textura y feel, y copia un bloque completo para Styles.",
+      type: "website",
+      standalone: true,
+      lab: true,
+      breadcrumbs: [{ name: "LAB", path: "/lab/" }, { name: en ? "Prompt builder" : "Constructor", path: "/lab/prompt-builder/" }],
+      socialImage: `${siteUrl}/media/lab/lab-${locale}.png?v=20260726`,
+      socialAlt: en ? "SUBSUELO LAB: free music prompt builder" : "SUBSUELO LAB: constructor de prompts gratis",
+      view: labBuilderView(locale)
+    }),
+    page("/lab/negative-prompts/", "lab/negative-prompts/index.html", {
+      heading: en ? "Negative prompt generator" : "Generador de negative prompts",
+      title: en ? "Negative prompt generator for music | SUBSUELO FS" : "Generador de negative prompts musicales | SUBSUELO FS",
+      description: en ? "Tick the problems you hear — vocals, EDM energy, mud, brightness — and copy the exclusion list that answers them, ready for the Exclude field." : "Marca los problemas que oyes — voces, energía EDM, barro, brillo — y copia la lista de exclusión que los responde, lista para el campo Exclude.",
+      type: "website",
+      standalone: true,
+      lab: true,
+      breadcrumbs: [{ name: "LAB", path: "/lab/" }, { name: "Negative prompts", path: "/lab/negative-prompts/" }],
+      socialImage: `${siteUrl}/media/lab/lab-${locale}.png?v=20260726`,
+      socialAlt: en ? "SUBSUELO LAB: negative prompt generator" : "SUBSUELO LAB: generador de negative prompts",
+      view: labNegativeView(locale)
+    }),
+    page("/lab/dictionary/", "lab/dictionary/index.html", {
+      heading: en ? "Prompt vocabulary" : "Diccionario de prompts",
+      title: en ? "Music prompt vocabulary: what each word does | SUBSUELO FS" : "Diccionario de prompts musicales | SUBSUELO FS",
+      description: en ? "Searchable music prompt vocabulary: what drums, low end, source, space, texture and feel words signal to the tool, explained mechanically." : "Diccionario buscable de prompts musicales: qué señalan a la herramienta las palabras de batería, graves, fuentes, espacio, textura y feel.",
+      type: "website",
+      standalone: true,
+      lab: true,
+      breadcrumbs: [{ name: "LAB", path: "/lab/" }, { name: en ? "Vocabulary" : "Diccionario", path: "/lab/dictionary/" }],
+      socialImage: `${siteUrl}/media/lab/lab-${locale}.png?v=20260726`,
+      socialAlt: en ? "SUBSUELO LAB: music prompt vocabulary" : "SUBSUELO LAB: diccionario de prompts",
+      view: labDictionaryView(locale)
+    }),
+    page("/lab/monthly-prompt/", "lab/monthly-prompt/index.html", {
+      heading: en ? "Prompt of the month" : "El prompt del mes",
+      title: en ? "Free music prompt of the month | SUBSUELO FS" : "El prompt del mes, gratis | SUBSUELO FS",
+      description: en ? "One complete, tested music prompt, free, replaced every month. Copy it, hear how to use it and learn what it teaches about direction." : "Un prompt musical completo y probado, gratis, renovado cada mes. Cópialo, aprende a usarlo y qué enseña sobre dirección sonora.",
+      type: "website",
+      standalone: true,
+      lab: true,
+      breadcrumbs: [{ name: "LAB", path: "/lab/" }, { name: en ? "Prompt of the month" : "Prompt del mes", path: "/lab/monthly-prompt/" }],
+      socialImage: `${siteUrl}/media/lab/monthly-${locale}.png?v=20260726`,
+      socialAlt: en ? "SUBSUELO LAB: free prompt of the month" : "SUBSUELO LAB: el prompt del mes gratis",
+      view: labMonthlyView(locale)
+    }),
     page("/guides/", "guides/index.html", {
       heading: en ? "Production guides" : "Guías de producción",
       title: en ? "Music prompt guides for producers | SUBSUELO FS" : "Guías para prompts musicales | SUBSUELO FS",
@@ -1001,8 +1146,9 @@ const standaloneHtml = (page) => {
   const methodHref = localizedPath("/method/", page.locale);
   const helpHref = localizedPath("/help/", page.locale);
   const bundleHref = localizedPath("/bundle/", page.locale);
+  const labHref = localizedPath("/lab/", page.locale);
   const languageHref = canonicalUrl(localizedPath(page.basePath, en ? "es" : "en"));
-  const parentHref = page.basePath.startsWith("/guides/") && page.basePath !== "/guides/" ? guidesHref : homeHref;
+  const parentHref = page.basePath.startsWith("/guides/") && page.basePath !== "/guides/" ? guidesHref : page.basePath.startsWith("/lab/") && page.basePath !== "/lab/" ? labHref : homeHref;
   const trail = page.breadcrumbs || (page.basePath === "/guides/" ? [{ name: en ? "Guides" : "Guías", path: "/guides/" }] : [{ name: page.heading, path: page.basePath }]);
   const address = [{ name: "SUBSUELO", path: "/" }, ...trail].map((item, index, items) => `<a class="breadcrumb-button" href="${localizedPath(item.path, page.locale)}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.name)}</a>`).join("");
   const sideLink = (href, label, icon = "doc") => `<a class="tree-item${href === page.pathname ? " is-current" : ""}" href="${href}"${href === page.pathname ? ' aria-current="page"' : ""}><span class="tree-icon tree-icon--${icon}"></span><span>${escapeHtml(label)}</span></a>`;
@@ -1015,17 +1161,17 @@ const standaloneHtml = (page) => {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles-v5.css?v=${stylesVersion}" />
     <script src="/analytics-runtime.js?v=1" defer></script>
-    <script src="/analytics-loader.js?v=1" defer></script>
+    <script src="/analytics-loader.js?v=1" defer></script>${page.lab ? `\n    <script src="/lab.js?v=1" defer></script>` : ""}
   </head>
   <body class="editorial-body">
     <a class="skip-link" href="#article">${en ? "Skip to article" : "Saltar al artículo"}</a>
     <div class="desktop-shell">
       <main class="fs-window editorial-window" aria-label="SUBSUELO File System">
         <header class="titlebar"><div class="titlebar__brand"><span class="app-mark" aria-hidden="true">S</span><strong>SUBSUELO FS</strong><span>${en ? "PRODUCTION FILES" : "ARCHIVOS DE PRODUCCIÓN"}</span></div><div class="titlebar__meta"><span>${en ? "EDITORIAL" : "EDITORIAL"}</span><span class="titlebar__status">${en ? "FILE OPEN" : "ARCHIVO ABIERTO"}</span><i aria-hidden="true"></i></div></header>
-        <nav class="menubar" aria-label="${en ? "Main menu" : "Menú principal"}"><a href="${homeHref}">${en ? "File" : "Archivo"}</a><a href="${demosHref}">${en ? "Play" : "Reproducir"}</a><a href="${guidesHref}"${page.basePath.startsWith("/guides/") || page.basePath === "/guides/" ? ' aria-current="page"' : ""}>${en ? "Guides" : "Guías"}</a><a href="${methodHref}"${page.basePath === "/method/" ? ' aria-current="page"' : ""}>${en ? "Method" : "Método"}</a><a href="${helpHref}">${en ? "Help" : "Ayuda"}</a></nav>
+        <nav class="menubar" aria-label="${en ? "Main menu" : "Menú principal"}"><a href="${homeHref}">${en ? "File" : "Archivo"}</a><a href="${demosHref}">${en ? "Play" : "Reproducir"}</a><a href="${guidesHref}"${page.basePath.startsWith("/guides/") || page.basePath === "/guides/" ? ' aria-current="page"' : ""}>${en ? "Guides" : "Guías"}</a><a href="${methodHref}"${page.basePath === "/method/" ? ' aria-current="page"' : ""}>${en ? "Method" : "Método"}</a><a href="${labHref}"${page.basePath.startsWith("/lab/") ? ' aria-current="page"' : ""}>LAB</a><a href="${helpHref}">${en ? "Help" : "Ayuda"}</a></nav>
         <div class="toolbar editorial-toolbar"><div class="toolbar__nav"><a class="os-control icon-control icon-back" href="${parentHref}" aria-label="${en ? "Back" : "Atrás"}"><span class="nav-glyph" aria-hidden="true"></span></a></div><nav class="address-bar" aria-label="${en ? "Current path" : "Ruta actual"}">${address}</nav><div class="toolbar__tools"><a class="editorial-language" href="${languageHref}" hreflang="${en ? "es" : "en"}"><span>${en ? "EN" : "ES"}</span><b>/</b><span>${en ? "ES" : "EN"}</span></a></div></div>
         <div class="workspace editorial-workspace">
-          <aside class="sidebar editorial-sidebar" aria-label="${en ? "Guide index" : "Índice de guías"}"><section><h2>${en ? "GUIDES" : "GUÍAS"}</h2><nav>${sideLink(guidesHref, en ? "All guides" : "Todas las guías", "folder")}${sideLink(negativeHref, en ? "Negative prompts" : "Negative prompts")}${sideLink(writingHref, en ? "Writing prompts" : "Escribir prompts")}${guideArticles.map((guide) => sideLink(localizedPath(`/guides/${guide.slug}/`, page.locale), guide[page.locale].navTitle)).join("")}</nav></section><section><h2>${en ? "CATALOGUE" : "CATÁLOGO"}</h2><nav>${sideLink(compareHref, en ? "Compare folders" : "Comparar carpetas")}${sideLink(methodHref, en ? "Method" : "Método")}${sideLink(demosHref, en ? "Audio previews" : "Muestras de audio", "play")}${sideLink(homeHref, en ? "All folders" : "Todas las carpetas", "folder")}</nav></section></aside>
+          <aside class="sidebar editorial-sidebar" aria-label="${en ? "Guide index" : "Índice de guías"}"><section><h2>${en ? "GUIDES" : "GUÍAS"}</h2><nav>${sideLink(guidesHref, en ? "All guides" : "Todas las guías", "folder")}${sideLink(negativeHref, en ? "Negative prompts" : "Negative prompts")}${sideLink(writingHref, en ? "Writing prompts" : "Escribir prompts")}${guideArticles.map((guide) => sideLink(localizedPath(`/guides/${guide.slug}/`, page.locale), guide[page.locale].navTitle)).join("")}</nav></section><section><h2>LAB</h2><nav>${sideLink(labHref, en ? "All tools" : "Todas las herramientas", "folder")}${sideLink(localizedPath("/lab/prompt-builder/", page.locale), en ? "Prompt builder" : "Constructor de prompts")}${sideLink(localizedPath("/lab/negative-prompts/", page.locale), en ? "Negative prompts" : "Negative prompts")}${sideLink(localizedPath("/lab/dictionary/", page.locale), en ? "Vocabulary" : "Diccionario")}${sideLink(localizedPath("/lab/monthly-prompt/", page.locale), en ? "Prompt of the month" : "Prompt del mes")}</nav></section><section><h2>${en ? "CATALOGUE" : "CATÁLOGO"}</h2><nav>${sideLink(compareHref, en ? "Compare folders" : "Comparar carpetas")}${sideLink(methodHref, en ? "Method" : "Método")}${sideLink(demosHref, en ? "Audio previews" : "Muestras de audio", "play")}${sideLink(homeHref, en ? "All folders" : "Todas las carpetas", "folder")}</nav></section></aside>
           <section class="file-pane editorial-pane" id="article" tabindex="-1"><div class="view-content editorial-view">${page.view}</div></section>
         </div>
         <footer class="statusbar"><span>${en ? "PUBLIC FILE" : "ARCHIVO PÚBLICO"}</span><span>SUBSUELO FS</span><span>NOMBRE DIRECCION, S.L.U.</span></footer>
@@ -1109,6 +1255,7 @@ for (const page of pages) {
       html = html.replaceAll(`href="${shellPath}" data-route="${shellPath}"`, `href="${localized}" data-route="${localized}"`);
     }
     html = html.replaceAll('href="/guides/" data-editorial-path="/guides/"', 'href="/en/guides/" data-editorial-path="/guides/"');
+    html = html.replaceAll('href="/lab/" data-editorial-path="/lab/"', 'href="/en/lab/" data-editorial-path="/lab/"');
     for (const shellPath of ["/legal/privacy/", "/legal/terms/", "/legal/license/", "/legal/"]) {
       html = html.replaceAll(`data-route="${shellPath}"`, `data-route="${localizedPath(shellPath, "en")}"`);
       html = html.replaceAll(`href="${shellPath}"`, `href="${localizedPath(shellPath, "en")}"`);
@@ -1222,6 +1369,13 @@ English legal information: https://subsuelofs.com/en/legal/
 - What is a negative prompt in music: https://subsuelofs.com/guides/negative-prompts/
 - How to write music prompts: https://subsuelofs.com/guides/write-music-prompts/
 ${guideArticles.map((guide) => `- ${guide.en.navTitle}: https://subsuelofs.com/guides/${guide.slug}/`).join("\n")}
+
+## Free tools
+
+- Prompt builder: https://subsuelofs.com/lab/prompt-builder/
+- Negative prompt generator: https://subsuelofs.com/lab/negative-prompts/
+- Prompt vocabulary: https://subsuelofs.com/lab/dictionary/
+- Prompt of the month: https://subsuelofs.com/lab/monthly-prompt/
 
 ## Catalogue
 

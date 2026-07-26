@@ -37,6 +37,16 @@ robots.txt
 route-fallback.js
 scripts/generate-static-pages.mjs
 scripts/guide-articles.json
+lab.js
+scripts/lab-data.json
+media/lab/lab-es.png
+media/lab/lab-en.png
+media/lab/monthly-es.png
+media/lab/monthly-en.png
+media/guides/make-abstract-hip-hop-es.png
+media/guides/make-abstract-hip-hop-en.png
+media/guides/make-dub-hip-hop-es.png
+media/guides/make-dub-hip-hop-en.png
 media/guides/negative-prompts-es.png
 media/guides/negative-prompts-en.png
 media/guides/write-music-prompts-es.png
@@ -112,7 +122,7 @@ for (const product of products) {
   }
 }
 
-const editorialRoute = /^(?:en\/)?(?:bundle|compare|demos|guides|help|method)(?:\/[a-z0-9-]+)*\/index\.html$/u;
+const editorialRoute = /^(?:en\/)?(?:bundle|compare|demos|guides|help|lab|method)(?:\/[a-z0-9-]+)*\/index\.html$/u;
 const isAllowedFile = (file) => staticAllowedFiles.has(file)
   || productRoutes.has(file)
   || legalRoutes.has(file)
@@ -312,6 +322,9 @@ if (process.argv.includes("--self-test")) {
     pathViolations("analytics-loader.js").length === 0,
     pathViolations("scripts/guide-articles.json").length === 0,
     pathViolations("media/noir/social-card.png").length === 0,
+    pathViolations("lab/prompt-builder/index.html").length === 0,
+    pathViolations("lab.js").length === 0,
+    pathViolations("media/lab/lab-es.png").length === 0,
     pathViolations("media/guides/space-texture-en.png").length === 0,
     pathViolations("guides/future-guide/index.html").length === 0,
     contentViolations("SUBSUELO FS · archivo público").length === 0,

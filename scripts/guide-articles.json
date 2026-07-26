@@ -1430,5 +1430,365 @@
    ]
   },
   "related": "noir"
+ },
+ {
+  "slug": "make-abstract-hip-hop",
+  "es": {
+   "title": "Cómo hacer hip hop abstracto: beats experimentales oscuros, prompt a prompt",
+   "navTitle": "Hacer hip hop abstracto",
+   "seoTitle": "Cómo hacer hip hop abstracto con prompts",
+   "metaDescription": "Cómo hacer hip hop abstracto y experimental con prompts: fuentes degradadas, pockets ebrios, sub estático, espacio como instrumento y qué excluir.",
+   "heroKicker": "GUIA_11 / HIP HOP ABSTRACTO",
+   "heroLead": "El hip hop abstracto oscuro pone la fuente antes que la melodía. Este es el vocabulario que lleva a la herramienta hacia fuentes degradadas, pockets ebrios y un sub que presiona sin moverse.",
+   "cardDescription": "Fuentes degradadas, pockets ebrios, sub estático y espacio: la receta abstracta.",
+   "sections": [
+    {
+     "id": "what-makes-it-abstract",
+     "heading": "La fuente antes que la melodía: el núcleo del hip hop experimental",
+     "paragraphs": [
+      "En el hip hop abstracto oscuro la fuente de sonido importa más que la melodía. Los temas se construyen con la materia de las cosas: un field recording de un conducto de ventilación, una caja de ritmos averiada, un loop de cinta gastado. Las notas son casi accesorias. Por defecto la herramienta tira de instrumentos tocando melodías; el prompt tiene que nombrar fuentes: objetos, máquinas, salas. La textura hace el trabajo armónico.",
+      "La batería vive fuera de la rejilla, más allá del swing: ebria. Los golpes llegan pronto, tarde o no llegan, y el pocket se sostiene porque el kick pesa lo suficiente para anclarlo. Debajo, el bajo es presión estática: un sub profundo que sostiene una nota durante compases, más sentido que oído. Su trabajo es el peso, no las líneas.",
+      "El espacio es un instrumento, no una decisión de mezcla: silencio entre golpes, una cola que sobrevive al sonido que la produjo, una textura al fondo de la sala. La contención gobierna el resto: tres elementos bajo presión valen más que ocho relajados. El género vive de la tensión entre peso y abstracción — el sub insiste en que el tema es físico, las fuentes insisten en que se está deshaciendo. Resuelve esa tensión y el tema se apaga."
+     ]
+    },
+    {
+     "id": "build-the-prompt",
+     "heading": "El prompt bloque a bloque",
+     "paragraphs": [
+      "Monta la línea de Styles con cinco bloques: marco, batería, low end, fuente y espacio. El marco: `abstract hip-hop, experimental instrumental, dark, heavy, 80 bpm`. La etiqueta de género sola es peligrosa: la herramienta oye abstracto y tira hacia lo agradable. `dark` y `heavy` no son adorno; son el contrapeso.",
+      "Después la batería: `broken drum machine, drunk off-grid pocket, dry hits, sparse`. Broken apunta a una fuente con un fallo dentro, drunk y off-grid matan la cuantización, dry mantiene los golpes físicos, sparse baja el recuento. El resto del vocabulario está en la [guía de batería](/guides/describe-drums/).",
+      "Low end: `deep static sub, one held note, constant pressure`. Una sola nota es la idea: el movimiento es el enemigo de este bajo. El peso del sub se trata en la [guía de graves](/guides/low-end-808/). Después, fuente y espacio: `tape loop, field recording texture, metallic resonance, degraded` más `silence between hits, distant room, long decaying tails`. Nombra una fuente degradada por prompt y dale un sitio donde estar.",
+      "Montado: `abstract hip-hop, experimental instrumental, dark, heavy, 80 bpm, broken drum machine, drunk off-grid pocket, dry hits, sparse, deep static sub, one held note, tape loop, field recording texture, degraded, silence between hits, distant room`. Activa Instrumental. Nada en la línea nombra una melodía; es deliberado."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "Treinta beats experimentales: los ejes que merece la pena mover",
+     "paragraphs": [
+      "Treinta prompts en este género son una receta con pocos ejes. Cambia uno por intento y los resultados se quedan en el género sin repetirse."
+     ],
+     "list": [
+      "La fuente degradada: loop de cinta, field recording, caja de ritmos averiada, micro de contacto sobre metal, estática de onda corta, un lock groove de vinilo gastado — una por prompt.",
+      "Lo ebrio del pocket: de hats ligeramente atrasados a un ritmo que apenas se sostiene.",
+      "El comportamiento del sub: una nota sostenida, una alternancia lenta de dos notas, o ausente durante compases mientras la textura carga el peso.",
+      "El tamaño del espacio: a qué distancia está la textura, cuánto duran las colas, cuánto silencio separa los golpes.",
+      "El tempo: de 74 a 88 bpm; por abajo pesa más, por arriba el pocket se tensa.",
+      "El tercer elemento: unos vientos lejanos, una voz reducida a textura, más ruido de máquina — o nada."
+     ]
+    },
+    {
+     "id": "what-to-exclude",
+     "heading": "Lo que se cuela: la lista de exclusión",
+     "paragraphs": [
+      "Tres vecinos se cuelan en los prompts abstractos. El primero, el más cercano y el peor, es la playlist de lo-fi chill: mismo tempo, mismo polvo, todo agradable y nada en juego. El segundo es el trap limpio: hats programados y rolls en cuanto la herramienta oye hip hop instrumental oscuro. El tercero es la belleza jazzística: séptimas cálidas que resuelven justo la tensión que sostiene el género.",
+      "Trátalos en el campo Exclude: `chillhop, study beats, lo-fi chill, jazzy chords, pretty melodies, smooth, clean trap drums, hi-hat rolls, bright pads, vocals, EDM`. El Exclude quita el sabor equivocado; el correcto hay que defenderlo desde Styles: mantén `dark, heavy, tense, unresolved` como presión positiva. Cómo redactar estas listas es el tema de la [guía de negative prompts](/guides/negative-prompts/)."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Fallos típicos del hip hop abstracto",
+     "paragraphs": [
+      "El primer fallo es la deriva chill: un loop cálido, polvoriento y agradable — la playlist de lo-fi con la ropa de este género. Endurece la fuente: `metallic`, `broken`, `harsh texture`, `unresolved` empujan de vuelta; `jazzy chords` y `smooth` van al Exclude.",
+      "El segundo es la rejilla que vuelve: la batería regresa cuantizada y el tema se convierte en trap oscuro genérico. Reafirma `broken drum machine` y `drunk off-grid pocket`, y excluye `trap hi-hats, hi-hat rolls` de forma explícita. El tercero es la ingravidez: texturas flotando sin nada debajo. La abstracción sin sub es un boceto ambient, no un beat. Reafirma el sub y comprueba que sobrevivió al render.",
+      "El cuarto es la densidad que se acumula: la herramienta llena el plano porque casi toda la música que conoce está llena. Field recording, vientos, pad y arpegio a la vez — y el espacio deja de trabajar. Recorta el prompt a fuente, batería y sub. Si un resultado parece vacío, escúchalo otra vez antes de añadir nada; vacío suele ser la versión que funciona."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Dónde escucharlo",
+     "paragraphs": [
+      "La carpeta [Low Pressure](/product/low/) aplica esta receta: 30 prompts, 10 negative prompts, guías en español e inglés y 4 referencias MP3, por 9 EUR. Los prompts mueven fuente, pocket y espacio de uno en uno, con las listas de exclusión en un documento aparte.",
+      "Los cortes de 30 segundos de esta carpeta y de las otras cinco están en la página de demos. En un género definido por la textura, escuchar la referencia antes de generar vale más que cualquier adjetivo."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Low Pressure: la carpeta",
+     "path": "/product/low/"
+    },
+    {
+     "label": "Espacio y textura en el prompt",
+     "path": "/guides/space-texture/"
+    },
+    {
+     "label": "Escucha las demos",
+     "path": "/demos/"
+    }
+   ]
+  },
+  "en": {
+   "title": "How to make abstract hip-hop: dark experimental beats, prompt by prompt",
+   "navTitle": "Make abstract hip-hop",
+   "seoTitle": "How to make abstract hip-hop: dark beats",
+   "metaDescription": "How to make abstract hip-hop with prompts: degraded sources, drunk drum pockets, static sub pressure, space as an instrument, and what to exclude.",
+   "heroKicker": "GUIDE_11 / ABSTRACT HIP-HOP",
+   "heroLead": "Dark abstract hip-hop puts the source before the melody. This is the vocabulary that points the tool at degraded textures, drunk pockets and a sub that presses without moving.",
+   "cardDescription": "Degraded sources, drunk pockets, static sub and space: the dark abstract recipe.",
+   "sections": [
+    {
+     "id": "what-makes-it-abstract",
+     "heading": "Source over melody: the experimental hip-hop core",
+     "paragraphs": [
+      "In dark abstract hip-hop the sound source matters more than the melody. Tracks are built from what things are made of: a field recording of a ventilation shaft, a drum machine with a fault, a tape loop worn thin. Notes are almost incidental. The tool defaults to instruments playing tunes, so the prompt has to name sources instead: objects, machines, rooms. Texture does the harmonic work.",
+      "The drums sit off the grid, and further off than swing implies: drunk. Hits land early, late, or sometimes not at all, and the pocket holds because the kick is heavy enough to anchor it. Under that, the bass is static pressure: a deep sub holding one note for bars, felt more than heard. Its job is weight, not lines.",
+      "Space is an instrument, not a mixing decision: silence between hits, a tail that outlasts the sound that made it, a texture placed far back in the room. Restraint governs the rest; three elements under pressure beat eight at ease. The genre runs on the tension between weight and abstraction — the sub insists the track is physical, the sources insist it is falling apart. Resolve that tension and the track goes flat."
+     ]
+    },
+    {
+     "id": "build-the-prompt",
+     "heading": "Building the prompt block by block",
+     "paragraphs": [
+      "Assemble the Styles line from five blocks: frame, drums, low end, source, space. The frame: `abstract hip-hop, experimental instrumental, dark, heavy, 80 bpm`. The genre tag is dangerous alone: the tool hears abstract and reaches for pleasant. `dark` and `heavy` are not decoration; they are the counterweight.",
+      "Drums next: `broken drum machine, drunk off-grid pocket, dry hits, sparse`. Broken points the tool at a source with a fault in it, drunk and off-grid kill the quantize, dry keeps the hits physical, sparse holds the count down. The wider drum vocabulary is in the [drums guide](/guides/describe-drums/).",
+      "Low end: `deep static sub, one held note, constant pressure`. One note is the point; movement is the enemy of this bass. Sub weight is covered in the [low end guide](/guides/low-end-808/). Then source and space: `tape loop, field recording texture, metallic resonance, degraded` plus `silence between hits, distant room, long decaying tails`. Name one degraded source per prompt and give it somewhere to sit.",
+      "Assembled: `abstract hip-hop, experimental instrumental, dark, heavy, 80 bpm, broken drum machine, drunk off-grid pocket, dry hits, sparse, deep static sub, one held note, tape loop, field recording texture, degraded, silence between hits, distant room`. Set the Instrumental toggle. Nothing in this line names a melody, and that is deliberate."
+     ]
+    },
+    {
+     "id": "axes-to-vary",
+     "heading": "Thirty experimental beats: the axes worth varying",
+     "paragraphs": [
+      "Thirty prompts in this genre are one recipe with a few axes. Move one axis per attempt and the results stay in genre without repeating."
+     ],
+     "list": [
+      "The degraded source: tape loop, field recording, broken drum machine, contact mic on metal, shortwave static, a locked groove of worn vinyl — one per prompt.",
+      "How drunk the pocket is: from hats slightly behind the beat to a rhythm that barely holds together.",
+      "The sub's behaviour: one held note, a slow two-note alternation, or gone for bars while the texture carries the weight.",
+      "The size of the space: how far away the texture sits, how long the tails run, how much silence separates hits.",
+      "The tempo: 74 to 88 bpm; the bottom of the band is heavier, the top tightens the pocket.",
+      "The third element: a distant horn, a voice reduced to texture, more machine noise — or nothing."
+     ]
+    },
+    {
+     "id": "what-to-exclude",
+     "heading": "What leaks in: the exclusion list",
+     "paragraphs": [
+      "Three neighbours leak into abstract prompts. The lo-fi chill playlist is the closest and the worst: same tempo, same dust, everything pleasant and nothing at stake. Clean trap drums are the second; programmed hats and rolls arrive as soon as the tool hears dark instrumental hip-hop. The third is jazzy prettiness: warm seventh chords that resolve the exact tension the genre depends on.",
+      "Handle them in the Exclude field: `chillhop, study beats, lo-fi chill, jazzy chords, pretty melodies, smooth, clean trap drums, hi-hat rolls, bright pads, vocals, EDM`. The Exclude field removes the wrong flavour; the right one still needs arguing for, so keep `dark, heavy, tense, unresolved` in Styles. Phrasing these lists is the subject of the [negative prompts guide](/guides/negative-prompts/)."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Failure modes specific to abstract hip-hop",
+     "paragraphs": [
+      "The first failure is the chill drift: the output is a warm, dusty, pleasant loop — the lo-fi playlist wearing this genre's clothes. Harden the source: `metallic`, `broken`, `harsh texture`, `unresolved` push back; `jazzy chords` and `smooth` belong in Exclude.",
+      "The second is the returning grid: the drums come back quantized and tidy, and the track turns into generic dark trap. Restate `broken drum machine` and `drunk off-grid pocket`, and exclude `trap hi-hats, hi-hat rolls` explicitly. The third is weightlessness: textures floating with nothing underneath. Abstraction without the sub is an ambient sketch, not a beat. Restate the sub and check it survived the render.",
+      "The fourth is density creep: the tool fills the frame because most music it knows is full. Field recording, horn, pad and arpeggio at once — and the space stops working. Cut the prompt back to source, drums, sub. If a result feels empty, listen again before adding anything; empty is often the version that works."
+     ]
+    },
+    {
+     "id": "where-to-hear-it",
+     "heading": "Where to hear it",
+     "paragraphs": [
+      "The [Low Pressure](/product/low/) folder applies this recipe: 30 prompts, 10 negative prompts, ES/EN guides and 4 MP3 references, for 9 EUR. The prompts move source, pocket and space one axis at a time, with the exclusion lists in a separate document.",
+      "Thirty-second cuts of this folder and the other five are on the demos page. In a genre defined by texture, hearing the reference before generating is worth more than any adjective."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Low Pressure: the folder",
+     "path": "/product/low/"
+    },
+    {
+     "label": "Space and texture in the prompt",
+     "path": "/guides/space-texture/"
+    },
+    {
+     "label": "Hear the demos",
+     "path": "/demos/"
+    }
+   ]
+  },
+  "related": "low"
+ },
+ {
+  "slug": "make-dub-hip-hop",
+  "es": {
+   "title": "Cómo hacer hip hop dub oscuro: batería seca y el delay como instrumento",
+   "navTitle": "Hacer hip hop dub",
+   "seoTitle": "Cómo hacer hip hop dub: guía de prompts",
+   "metaDescription": "Cómo hacer hip hop dub oscuro con prompts: batería con peso de rap, sub sostenido, dub delay como instrumento principal y qué excluir para evitar el ska.",
+   "heroKicker": "GUIA_12 / HIP HOP DUB",
+   "heroLead": "Batería de rap, tratamiento dub. El prompt tiene que nombrar el sub sostenido, la batería seca, los stabs que viven como sus ecos y los dropouts. Si no, la herramienta devuelve un beat con reverb encima.",
+   "cardDescription": "Batería seca en espacio dub: sub sostenido, stabs como ecos, dropouts. Prompt por bloques.",
+   "sections": [
+    {
+     "id": "sonic-core",
+     "heading": "Qué define el hip hop dub oscuro",
+     "paragraphs": [
+      "El hip hop dub no es reggae a tempo de rap. Es hip hop donde la mesa de mezclas pasa a ser el instrumento principal. La batería conserva el peso del rap: kick pesado, caja seca, tempo de cabeceo. El tratamiento es dub: cualquier elemento puede acabar en un delay, y el eco suele llevar más información que el golpe que lo provocó.",
+      "La variante oscura se apoya en cuatro puntos fijos. Un sub inmenso y sostenido que se adueña del grave y apenas se mueve. Una batería que se queda seca en el centro de la imagen estéreo mientras todo lo demás se inunda. Stabs de acorde aislados que suenan una vez y después existen como sus colas. Y dropouts: compases donde la batería o el sub desaparecen y solo queda el eco.",
+      "Un prompt que no nombra ninguno de los cuatro recibe el defecto: un beat lo-fi con reverb etiquetado como dub. La palabra `dub` sola tira del catálogo equivocado."
+     ]
+    },
+    {
+     "id": "prompt-blocks",
+     "heading": "El prompt de hip hop dub, bloque a bloque",
+     "paragraphs": [
+      "Trabaja el campo Styles por bloques: batería, sub, armonía, espacio, estructura. Cada bloque dice qué hace el elemento, no cómo debería sentirse.",
+      "Primero batería y sub. `dry rap drums, heavy kick, hard snare, sparse hats` mantiene intacto el centro de la imagen. Lo seco es deliberado: un envío al delay necesita una señal seca con la que contrastar. Para el grave, `immense sustained sub bass, slow root movement` pide un pedal, no un patrón. Sostiene el suelo mientras todo lo de arriba resuena.",
+      "Después armonía y espacio. `isolated minor chord stabs, long delay tails` deja un stab por compás o menos; el stab es una excusa para su eco. El bloque de espacio aquí no es condimento: es el contenido melódico. `deep dub delay, tape echo throws, cavernous space`. El vocabulario de ese bloque está en [espacio y textura](/guides/space-texture/).",
+      "Montado: `dark dub hip-hop instrumental, dry rap drums, heavy kick, immense sustained sub, isolated minor chord stabs, deep dub delay throws, tape echo, cavernous space, dropout sections, slow tempo`. Activa Instrumental y genera varias tomas: el comportamiento del delay es lo que más cambia de una a otra."
+     ]
+    },
+    {
+     "id": "variation-axes",
+     "heading": "Los ejes que merece la pena variar",
+     "paragraphs": [
+      "No reescribas el prompt entero entre intentos. Mueve un eje cada vez y deja el resto fijo."
+     ],
+     "list": [
+      "Carácter del delay: `tape echo` frente a `clean digital delay` — uno degrada la cola, el otro la repite intacta.",
+      "Feedback: `short slap echo` frente a `endless feedback tails` decide cuánto sobrevive cada envío.",
+      "Qué desaparece: nómbralo — `drums drop out into echo` o `sub drops, delay remains`.",
+      "Densidad de stabs: de uno por compás a uno cada cuatro. Menos stabs, más sitio para las colas.",
+      "Movimiento del sub: `static sub pedal` frente a `slow walking sub` — el segundo añade armonía desde abajo.",
+      "Tempo: entre 70 y 90 BPM se lee como cabeceo; por debajo de 70 los ecos tienen espacio para terminar."
+     ]
+    },
+    {
+     "id": "exclusions",
+     "heading": "Qué excluir",
+     "paragraphs": [
+      "La palabra dub arrastra un catálogo entero de señas de identidad del reggae. No estás excluyendo el linaje: estás excluyendo la postal. El campo Exclude pesa aquí tanto como el prompt; la mecánica está en [negative prompts](/guides/negative-prompts/)."
+     ],
+     "list": [
+      "`reggae, ska` — bloquea los defectos de género que la palabra dub trae de serie.",
+      "`offbeat guitar skank` — la fuga más común; un solo skank convierte la pista en anuncio de playa.",
+      "`bright horns, brass section` — los vientos dub existen, pero la herramienta los renderiza como ska.",
+      "`sidechain pumping, EDM` — grave profundo más espacio se lee como festival.",
+      "`busy melody, lead synth` — las líneas melódicas ocupan los huecos donde deberían vivir los ecos.",
+      "`vocals` — con Instrumental activado, aun así conviene declararlo."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Fallos típicos del género",
+     "paragraphs": [
+      "La toma vuelve como beat lo-fi con reverb. Causa: el espacio descrito como adjetivo (`atmospheric`, `spacey`) y no como equipo. Nombra el delay, su carácter y qué se envía a él.",
+      "Todo está mojado y nada golpea. Causa: la batería no se declaró seca y la herramienta baña la mezcla entera. Sin un centro seco no hay dub; hay sopa.",
+      "En la tercera toma aparece una guitarra a contratiempo. El skank es la fuga más persistente del género. Mantén `offbeat guitar skank` en Exclude en todos los intentos, no solo en el primero.",
+      "El grave bombea. La herramienta leyó `deep bass` más espacio como EDM con sidechain. Excluye el bombeo y describe el sub como sostenido, no como disparado."
+     ]
+    },
+    {
+     "id": "where-to-hear",
+     "heading": "Dónde escucharlo",
+     "paragraphs": [
+      "[Abyss Dub](/product/abyss/) es nuestra carpeta para este género: 30 prompts y 10 negative prompts construidos sobre los bloques de arriba, guías en español e inglés y 4 referencias MP3 generadas con los prompts de la propia carpeta, por 9 EUR.",
+      "Hay demos de 30 segundos en [la página de demos](/demos/). Escucha los dropouts y cómo decaen los stabs antes de decidir nada."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Abyss Dub — 30 prompts de hip hop dub",
+     "path": "/product/abyss/"
+    },
+    {
+     "label": "Graves y 808: escribir el sub",
+     "path": "/guides/low-end-808/"
+    },
+    {
+     "label": "Hacer hip hop abstracto",
+     "path": "/guides/make-abstract-hip-hop/"
+    }
+   ]
+  },
+  "en": {
+   "title": "How to make dark dub hip-hop: dry drums and the delay as the lead instrument",
+   "navTitle": "Make dub hip-hop",
+   "seoTitle": "How to make dub hip-hop: prompt guide",
+   "metaDescription": "How to make dub hip-hop with prompts: dark rap-weight drums, a sustained sub, dub delay as the lead instrument, and the exclusions that keep ska out.",
+   "heroKicker": "GUIDE_12 / DUB HIP-HOP",
+   "heroLead": "Rap drums, dub treatment. The prompt has to name the sustained sub, the dry drums, the stabs that live as their echoes, and the dropouts. Otherwise the tool returns a beat with reverb on it.",
+   "cardDescription": "Rap drums in dub space: sustained sub, stabs as echoes, dropouts. Prompt built in blocks.",
+   "sections": [
+    {
+     "id": "sonic-core",
+     "heading": "What defines dark dub hip-hop",
+     "paragraphs": [
+      "Dub hip-hop is not reggae at a rap tempo. It is hip-hop where the mixing desk becomes the lead instrument. The drums keep rap weight: heavy kick, dry snare, head-nod pace. The treatment is dub: any element can end up in a delay, and the echo often carries more information than the hit that caused it.",
+      "The dark variant rests on four fixed points. An immense sustained sub that owns the low end and barely moves. Drums that stay dry at the center of the stereo image while everything around them floods. Isolated chord stabs that sound once and then exist as their tails. And dropouts: bars where the drums or the sub vanish and only the echo remains.",
+      "A prompt that names none of the four gets the default: a lo-fi beat with reverb, labeled dub. The word `dub` alone pulls the wrong catalog."
+     ]
+    },
+    {
+     "id": "prompt-blocks",
+     "heading": "Build the dub hip-hop prompt block by block",
+     "paragraphs": [
+      "Work the Styles field in blocks: drums, sub, harmony, space, structure. Each block states what the element does, not how it should feel.",
+      "Drums and sub first. `dry rap drums, heavy kick, hard snare, sparse hats` keeps the center of the image intact. Dry is deliberate: a delay throw needs a dry source to contrast with. For the low end, `immense sustained sub bass, slow root movement` asks for a pedal, not a pattern. It holds the floor while everything above it echoes.",
+      "Then harmony and space. `isolated minor chord stabs, long delay tails` leaves one stab per bar or less; the stab is an excuse for its echo. The space block is not seasoning here — it is the melodic content. `deep dub delay, tape echo throws, cavernous space`. The vocabulary for that block is in [space and texture](/guides/space-texture/).",
+      "Assembled: `dark dub hip-hop instrumental, dry rap drums, heavy kick, immense sustained sub, isolated minor chord stabs, deep dub delay throws, tape echo, cavernous space, dropout sections, slow tempo`. Set Instrumental and generate several takes: the delay behavior is what changes most from one to the next."
+     ]
+    },
+    {
+     "id": "variation-axes",
+     "heading": "The axes worth varying",
+     "paragraphs": [
+      "Do not rewrite the whole prompt between attempts. Move one axis at a time and keep the rest fixed."
+     ],
+     "list": [
+      "Delay character: `tape echo` against `clean digital delay` — one degrades the tail, the other repeats it intact.",
+      "Feedback: `short slap echo` against `endless feedback tails` decides how long each throw survives.",
+      "What drops out: name it — `drums drop out into echo` or `sub drops, delay remains`.",
+      "Stab density: from one per bar down to one every four. Fewer stabs, more room for the tails.",
+      "Sub movement: `static sub pedal` against `slow walking sub` — the second adds harmony from below.",
+      "Tempo: 70 to 90 BPM reads as head-nod; below 70 the echoes get room to finish."
+     ]
+    },
+    {
+     "id": "exclusions",
+     "heading": "What to exclude",
+     "paragraphs": [
+      "The word dub drags a whole catalog of reggae signifiers with it. You are not excluding the lineage: you are excluding the postcard. The Exclude field carries as much weight here as the prompt; the mechanics are in [negative prompts](/guides/negative-prompts/)."
+     ],
+     "list": [
+      "`reggae, ska` — blocks the genre defaults the word dub ships with.",
+      "`offbeat guitar skank` — the most common leak; one skank turns the track into a beach ad.",
+      "`bright horns, brass section` — dub horns exist, but the tool renders them as ska.",
+      "`sidechain pumping, EDM` — deep bass plus space reads as festival.",
+      "`busy melody, lead synth` — melodic lines fill the gaps where the echoes should live.",
+      "`vocals` — with Instrumental set, still worth stating."
+     ]
+    },
+    {
+     "id": "failure-modes",
+     "heading": "Failure modes specific to this genre",
+     "paragraphs": [
+      "The take comes back as a lo-fi beat with reverb. Cause: space described as an adjective (`atmospheric`, `spacey`) instead of as equipment. Name the delay, its character, and what gets thrown into it.",
+      "Everything is wet and nothing hits. Cause: the drums were never declared dry, so the tool bathes the whole mix. Without a dry center there is no dub; there is wash.",
+      "An offbeat guitar appears in take three. The skank is the most persistent leak in this genre. Keep `offbeat guitar skank` in Exclude on every attempt, not just the first.",
+      "The low end pumps. The tool read `deep bass` plus space as sidechained EDM. Exclude the pumping and describe the sub as sustained, not triggered."
+     ]
+    },
+    {
+     "id": "where-to-hear",
+     "heading": "Where to hear it",
+     "paragraphs": [
+      "[Abyss Dub](/product/abyss/) is our folder for this genre: 30 prompts and 10 negative prompts built on the blocks above, guides in Spanish and English, and 4 MP3 references generated with the folder's own prompts, for 9 EUR.",
+      "Thirty-second demos are on [the demos page](/demos/). Listen for the dropouts and how the stabs decay before deciding anything."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Abyss Dub — 30 dub hip-hop prompts",
+     "path": "/product/abyss/"
+    },
+    {
+     "label": "Low end and 808: writing the sub",
+     "path": "/guides/low-end-808/"
+    },
+    {
+     "label": "Make abstract hip-hop",
+     "path": "/guides/make-abstract-hip-hop/"
+    }
+   ]
+  },
+  "related": "abyss"
  }
 ]
