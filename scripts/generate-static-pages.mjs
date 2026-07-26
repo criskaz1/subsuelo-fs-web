@@ -581,6 +581,7 @@ const guideLinkPaths = new Set([
   "/", "/demos/", "/compare/", "/method/", "/bundle/",
   "/guides/write-music-prompts/", "/guides/negative-prompts/",
   "/guides/describe-drums/", "/guides/low-end-808/", "/guides/fix-generic-ai-music/", "/guides/space-texture/",
+  "/guides/make-dark-trap/", "/guides/make-dark-uk-garage/", "/guides/make-dark-jungle/", "/guides/make-noir-hip-hop/",
   "/product/trap/", "/product/garage/", "/product/jungle/", "/product/low/", "/product/abyss/", "/product/noir/"
 ]);
 
@@ -590,6 +591,14 @@ const guideInline = (value, locale) => escapeHtml(value)
     return `<a href="${localizedPath(target, locale)}">${label}</a>`;
   })
   .replace(/`([^`]+)`/gu, "<code>$1</code>");
+
+const relatedPackCard = (productId, locale) => {
+  const en = locale === "en";
+  const relatedProduct = products.find((product) => product.id === productId);
+  if (!relatedProduct) throw new Error(`Pack relacionado desconocido: ${productId}`);
+  const relatedHref = localizedPath(`/product/${relatedProduct.id}/`, locale);
+  return `<aside class="guide-pack"><span class="folder-icon" style="--tone:${relatedProduct.tone}" aria-hidden="true"></span><div><p>${en ? "RELATED FOLDER" : "CARPETA RELACIONADA"}</p><strong>${escapeHtml(relatedProduct.name)}</strong><span>${escapeHtml(productValue(relatedProduct, "category", locale))} · 30 prompts · 10 negative prompts</span></div><a class="guide-pack__action" href="${relatedHref}">${en ? "Open folder · €9" : "Abrir carpeta · 9 €"}</a></aside>`;
+};
 
 const guideArticleView = (guide, locale) => {
   const en = locale === "en";
@@ -604,10 +613,7 @@ const guideArticleView = (guide, locale) => {
     if (!guideLinkPaths.has(link.path)) throw new Error(`Enlace de cierre no permitido en una guía: ${link.path}`);
     return `<a href="${localizedPath(link.path, locale)}">${escapeHtml(link.label)}</a>`;
   }).join("");
-  const relatedProduct = products.find((product) => product.id === guide.related);
-  if (!relatedProduct) throw new Error(`Guía ${guide.slug} sin pack relacionado válido`);
-  const relatedHref = localizedPath(`/product/${relatedProduct.id}/`, locale);
-  const pack = `<aside class="guide-pack"><span class="folder-icon" style="--tone:${relatedProduct.tone}" aria-hidden="true"></span><div><p>${en ? "RELATED FOLDER" : "CARPETA RELACIONADA"}</p><strong>${escapeHtml(relatedProduct.name)}</strong><span>${escapeHtml(productValue(relatedProduct, "category", locale))} · 30 prompts · 10 negative prompts</span></div><a class="guide-pack__action" href="${relatedHref}">${en ? "Open folder · €9" : "Abrir carpeta · 9 €"}</a></aside>`;
+  const pack = relatedPackCard(guide.related, locale);
   return `<article class="editorial-document article-document">
     <header class="editorial-hero"><p>${escapeHtml(copy.heroKicker)}</p><h1>${escapeHtml(copy.title)}</h1><p>${escapeHtml(copy.heroLead)}</p></header>
     <div class="article-layout"><nav class="article-index" aria-label="${en ? "On this page" : "En esta página"}"><strong>${en ? "IN THIS FILE" : "EN ESTE ARCHIVO"}</strong>${index}</nav><div class="article-copy">
@@ -666,6 +672,7 @@ const negativeGuideView = (locale) => {
       <section id="vocals"><h2>With vocals or without vocals</h2><p>For an instrumental, use the instrumental setting when one is available. If voices still appear, choose a negative list that explicitly excludes singing, spoken word and vocal phrases. If you want a sung track, do not use that list.</p><p>A vocal texture is not always the same as a lead vocal. Wordless grains, chopped breaths or a distant choir can be part of the sound design. Read the purpose of the exclusion before applying it.</p></section>
       <section id="use"><h2>When it is useful</h2><ul><li>When vocals appear in an instrumental.</li><li>When one instrument keeps pulling the result away from the chosen genre.</li><li>When the finish becomes too bright, clean or cinematic for the folder.</li><li>When you want to protect a deliberate limit, such as sparse instrumentation.</li></ul><p>A generic schematic example would be <code>vocals, bright pop chords, orchestral strings</code>. It is not a second prompt; it is simply three things to leave out.</p></section>
       <section id="mistakes"><h2>Three mistakes to avoid</h2><ol><li><strong>Stacking every list.</strong> More exclusions do not mean more control. Pick the one that matches the problem.</li><li><strong>Contradicting the main prompt.</strong> Do not request a vocal texture and exclude every kind of voice at the same time.</li><li><strong>Using it by default.</strong> If the first result already stays inside the intended sound, leave the exclusion field empty.</li></ol></section>
+      ${relatedPackCard("abyss", "en")}
       <section class="article-next"><h2>Choose by sound, not by terminology</h2><p>Compare the six folders or open the catalogue. Every product page explains its core sound, what changes across the 30 prompts and the profile of its public preview.</p><nav><a href="${compareHref}">Compare folders</a><a href="${catalogueHref}">Open catalogue</a><a href="${helpHref}">See every delivered file</a></nav></section>
     </div></div>
   </article>`;
@@ -677,6 +684,7 @@ const negativeGuideView = (locale) => {
       <section id="vocals"><h2>Con voces o sin voces</h2><p>Para una instrumental, activa el modo instrumental cuando exista. Si aun así aparecen voces, elige una lista que excluya de forma explícita canto, palabra hablada y frases vocales. Si quieres una canción cantada, no uses esa lista.</p><p>Una textura vocal no siempre es una voz principal. Granos sin palabras, respiraciones cortadas o un coro lejano pueden formar parte del diseño sonoro. Lee para qué sirve la exclusión antes de aplicarla.</p></section>
       <section id="use"><h2>Cuándo resulta útil</h2><ul><li>Cuando aparecen voces en una instrumental.</li><li>Cuando un instrumento desvía el resultado del género elegido.</li><li>Cuando el acabado se vuelve demasiado brillante, limpio o cinematográfico para la carpeta.</li><li>Cuando quieres proteger un límite deliberado, como usar pocos elementos.</li></ul><p>Un ejemplo esquemático sería <code>vocals, bright pop chords, orchestral strings</code>. No es un segundo prompt: son únicamente tres elementos que se dejan fuera.</p></section>
       <section id="mistakes"><h2>Tres errores que conviene evitar</h2><ol><li><strong>Apilar todas las listas.</strong> Más exclusiones no significan más control. Elige la que corresponde al problema.</li><li><strong>Contradecir el prompt principal.</strong> No pidas una textura vocal y excluyas a la vez cualquier tipo de voz.</li><li><strong>Usarlo por sistema.</strong> Si el primer resultado ya se mantiene dentro del sonido buscado, deja vacío el campo de exclusión.</li></ol></section>
+      ${relatedPackCard("abyss", "es")}
       <section class="article-next"><h2>Elige por sonido, no por terminología</h2><p>Compara las seis carpetas o abre el catálogo. Cada ficha explica el núcleo sonoro, qué cambia entre los 30 prompts y el perfil de su muestra pública.</p><nav><a href="${compareHref}">Comparar carpetas</a><a href="${catalogueHref}">Abrir catálogo</a><a href="${helpHref}">Ver todos los archivos entregados</a></nav></section>
     </div></div>
   </article>`;
@@ -695,6 +703,7 @@ const writingGuideView = (locale) => {
       <section><h2>Keep one core; vary the approach</h2><p>To create several beats within one genre, keep its identity fixed and move selected axes. One version can change the drum pocket, another the bass behaviour and another the source material. If every axis changes at once, the collection stops feeling coherent.</p><p>That is how the SUBSUELO folders are organised: 30 complete, independent directions inside one defined sound, rather than 30 fragments that need to be combined.</p></section>
       <section><h2>What weakens a prompt</h2><ul><li>Listing several unrelated genres and expecting all of them to remain equally present.</li><li>Using only mood adjectives without describing rhythm or low end.</li><li>Asking for contradictory finishes, such as completely dry and extremely reverberant at once.</li><li>Specifying every second of the arrangement when the real goal is a reusable sound direction.</li><li>Adding exclusions to the main prompt when a separate exclusion field exists.</li></ul></section>
       <section><h2>Language and delivered documents</h2><p>In our folders, the text prepared for copying is in English in both editions. The explanation PDF is supplied separately in Spanish and English, so each buyer can understand what to paste and where without mixing languages inside the working prompt.</p></section>
+      ${relatedPackCard("low", "en")}
       <section class="article-next"><h2>See the system applied to a genre</h2><nav><a href="${compareHref}">Compare folders</a><a href="${methodHref}">Read the method</a><a href="${catalogueHref}">Open catalogue</a></nav></section>
     </div>
   </article>`;
@@ -706,6 +715,7 @@ const writingGuideView = (locale) => {
       <section><h2>Mantén un núcleo y cambia el enfoque</h2><p>Para crear varias bases dentro del mismo género, conserva su identidad y mueve ejes concretos. Una versión puede cambiar el pocket de batería, otra el comportamiento del bajo y otra la fuente sonora. Si todos los ejes cambian a la vez, la colección deja de sentirse coherente.</p><p>Así se organizan las carpetas de SUBSUELO: 30 direcciones completas e independientes dentro de un sonido definido, no 30 fragmentos que haya que combinar.</p></section>
       <section><h2>Qué debilita un prompt</h2><ul><li>Enumerar varios géneros sin relación y esperar que todos mantengan el mismo peso.</li><li>Usar solo adjetivos de ambiente sin describir ritmo ni graves.</li><li>Pedir acabados incompatibles, como totalmente seco y extremadamente reverberante a la vez.</li><li>Programar cada segundo del arreglo cuando lo que buscas es una dirección sonora reutilizable.</li><li>Añadir exclusiones al texto principal cuando existe un campo separado para ellas.</li></ul></section>
       <section><h2>Idioma y documentos entregados</h2><p>En nuestras carpetas, el texto preparado para copiar está en inglés en las dos ediciones. El PDF explicativo se entrega por separado en español y en inglés, para que cada comprador entienda qué debe pegar y dónde sin mezclar idiomas dentro del prompt de trabajo.</p></section>
+      ${relatedPackCard("low", "es")}
       <section class="article-next"><h2>Ve el sistema aplicado a un género</h2><nav><a href="${compareHref}">Comparar carpetas</a><a href="${methodHref}">Leer el método</a><a href="${catalogueHref}">Abrir catálogo</a></nav></section>
     </div>
   </article>`;
@@ -864,6 +874,8 @@ const pagesForLocale = (locale) => {
       article: true,
       standalone: true,
       breadcrumbs: [{ name: en ? "Production guides" : "Guías de producción", path: "/guides/" }, { name: en ? "Negative prompts" : "Negative prompts", path: "/guides/negative-prompts/" }],
+      socialImage: `${siteUrl}/media/guides/negative-prompts-${locale}.png?v=20260725`,
+      socialAlt: en ? "What is a negative prompt in music?" : "Qué es un negative prompt en música",
       view: negativeGuideView(locale)
     }),
     page("/guides/write-music-prompts/", "guides/write-music-prompts/index.html", {
@@ -874,6 +886,8 @@ const pagesForLocale = (locale) => {
       article: true,
       standalone: true,
       breadcrumbs: [{ name: en ? "Production guides" : "Guías de producción", path: "/guides/" }, { name: en ? "Writing music prompts" : "Escribir prompts musicales", path: "/guides/write-music-prompts/" }],
+      socialImage: `${siteUrl}/media/guides/write-music-prompts-${locale}.png?v=20260725`,
+      socialAlt: en ? "How to write music prompts" : "Cómo escribir prompts para crear música",
       view: writingGuideView(locale)
     }),
     ...guideArticles.map((guide) => {
