@@ -6053,3 +6053,12 @@ body.fallback-body {
 .lab-monthly-exclude code {
   font: 700 12.5px/1.4 var(--mono);
 }
+
+/* Subgrupos de la barra lateral editorial */
+.tree-subhead {
+  display: block;
+  margin: 10px 0 4px;
+  color: var(--muted);
+  font: 800 9px/1.2 var(--mono);
+  letter-spacing: 0.09em;
+}

@@ -1150,8 +1150,32 @@ const standaloneHtml = (page) => {
   const languageHref = canonicalUrl(localizedPath(page.basePath, en ? "es" : "en"));
   const parentHref = page.basePath.startsWith("/guides/") && page.basePath !== "/guides/" ? guidesHref : page.basePath.startsWith("/lab/") && page.basePath !== "/lab/" ? labHref : homeHref;
   const trail = page.breadcrumbs || (page.basePath === "/guides/" ? [{ name: en ? "Guides" : "Guías", path: "/guides/" }] : [{ name: page.heading, path: page.basePath }]);
-  const address = [{ name: "SUBSUELO", path: "/" }, ...trail].map((item, index, items) => `<a class="breadcrumb-button" href="${localizedPath(item.path, page.locale)}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.name)}</a>`).join("");
   const sideLink = (href, label, icon = "doc") => `<a class="tree-item${href === page.pathname ? " is-current" : ""}" href="${href}"${href === page.pathname ? ' aria-current="page"' : ""}><span class="tree-icon tree-icon--${icon}"></span><span>${escapeHtml(label)}</span></a>`;
+  const isLab = page.basePath.startsWith("/lab/");
+  const isGuide = page.basePath.startsWith("/guides/");
+  const craftGuides = [
+    { href: negativeHref, label: "Negative prompts" },
+    { href: writingHref, label: en ? "Writing prompts" : "Escribir prompts" },
+    ...guideArticles.filter((guide) => !guide.slug.startsWith("make-")).map((guide) => ({ href: localizedPath(`/guides/${guide.slug}/`, page.locale), label: guide[page.locale].navTitle }))
+  ];
+  const genreGuides = guideArticles.filter((guide) => guide.slug.startsWith("make-")).map((guide) => ({ href: localizedPath(`/guides/${guide.slug}/`, page.locale), label: guide[page.locale].navTitle }));
+  const labLinks = [
+    { href: localizedPath("/lab/prompt-builder/", page.locale), label: en ? "Prompt builder" : "Constructor de prompts" },
+    { href: localizedPath("/lab/negative-prompts/", page.locale), label: "Negative prompts" },
+    { href: localizedPath("/lab/dictionary/", page.locale), label: en ? "Vocabulary" : "Diccionario" },
+    { href: localizedPath("/lab/monthly-prompt/", page.locale), label: en ? "Prompt of the month" : "Prompt del mes" }
+  ];
+  const treeGroup = (title, links) => `<strong class="tree-subhead">${title}</strong>${links.map((link) => sideLink(link.href, link.label)).join("")}`;
+  const guideCount = guideArticles.length + 2;
+  const guidesSection = isGuide
+    ? `<section><h2>${en ? "GUIDES" : "GUÍAS"}</h2><nav>${sideLink(guidesHref, en ? "All guides" : "Todas las guías", "folder")}${treeGroup(en ? "TECHNIQUE" : "TÉCNICA", craftGuides)}${treeGroup(en ? "GENRES" : "GÉNEROS", genreGuides)}</nav></section>`
+    : `<section><h2>${en ? "GUIDES" : "GUÍAS"}</h2><nav>${sideLink(guidesHref, en ? `${guideCount} guides: technique and genres` : `${guideCount} guías: técnica y géneros`, "folder")}</nav></section>`;
+  const labSection = isLab
+    ? `<section><h2>LAB</h2><nav>${sideLink(labHref, en ? "All tools" : "Todas las herramientas", "folder")}${labLinks.map((link) => sideLink(link.href, link.label)).join("")}</nav></section>`
+    : `<section><h2>LAB</h2><nav>${sideLink(labHref, en ? "Free tools" : "Herramientas gratis", "folder")}</nav></section>`;
+  const catalogueSection = `<section><h2>${en ? "CATALOGUE" : "CATÁLOGO"}</h2><nav>${sideLink(homeHref, en ? "All folders" : "Todas las carpetas", "folder")}${sideLink(compareHref, en ? "Compare folders" : "Comparar carpetas")}${sideLink(methodHref, en ? "Method" : "Método")}${sideLink(demosHref, en ? "Audio previews" : "Muestras de audio", "play")}${sideLink(bundleHref, en ? "Complete pack" : "Pack completo", "folder")}</nav></section>`;
+  const editorialSidebar = `<aside class="sidebar editorial-sidebar" aria-label="${en ? "Site navigation" : "Navegación del sitio"}">${isLab ? labSection + guidesSection : guidesSection + labSection}${catalogueSection}</aside>`;
+  const address = [{ name: "SUBSUELO", path: "/" }, ...trail].map((item, index, items) => `<a class="breadcrumb-button" href="${localizedPath(item.path, page.locale)}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.name)}</a>`).join("");
   return `<!doctype html>
 <html lang="${page.locale}">
   <head>
@@ -1171,7 +1195,7 @@ const standaloneHtml = (page) => {
         <nav class="menubar" aria-label="${en ? "Main menu" : "Menú principal"}"><a href="${homeHref}">${en ? "File" : "Archivo"}</a><a href="${demosHref}">${en ? "Play" : "Reproducir"}</a><a href="${guidesHref}"${page.basePath.startsWith("/guides/") || page.basePath === "/guides/" ? ' aria-current="page"' : ""}>${en ? "Guides" : "Guías"}</a><a href="${methodHref}"${page.basePath === "/method/" ? ' aria-current="page"' : ""}>${en ? "Method" : "Método"}</a><a href="${labHref}"${page.basePath.startsWith("/lab/") ? ' aria-current="page"' : ""}>LAB</a><a href="${helpHref}">${en ? "Help" : "Ayuda"}</a></nav>
         <div class="toolbar editorial-toolbar"><div class="toolbar__nav"><a class="os-control icon-control icon-back" href="${parentHref}" aria-label="${en ? "Back" : "Atrás"}"><span class="nav-glyph" aria-hidden="true"></span></a></div><nav class="address-bar" aria-label="${en ? "Current path" : "Ruta actual"}">${address}</nav><div class="toolbar__tools"><a class="editorial-language" href="${languageHref}" hreflang="${en ? "es" : "en"}"><span>${en ? "EN" : "ES"}</span><b>/</b><span>${en ? "ES" : "EN"}</span></a></div></div>
         <div class="workspace editorial-workspace">
-          <aside class="sidebar editorial-sidebar" aria-label="${en ? "Guide index" : "Índice de guías"}"><section><h2>${en ? "GUIDES" : "GUÍAS"}</h2><nav>${sideLink(guidesHref, en ? "All guides" : "Todas las guías", "folder")}${sideLink(negativeHref, en ? "Negative prompts" : "Negative prompts")}${sideLink(writingHref, en ? "Writing prompts" : "Escribir prompts")}${guideArticles.map((guide) => sideLink(localizedPath(`/guides/${guide.slug}/`, page.locale), guide[page.locale].navTitle)).join("")}</nav></section><section><h2>LAB</h2><nav>${sideLink(labHref, en ? "All tools" : "Todas las herramientas", "folder")}${sideLink(localizedPath("/lab/prompt-builder/", page.locale), en ? "Prompt builder" : "Constructor de prompts")}${sideLink(localizedPath("/lab/negative-prompts/", page.locale), en ? "Negative prompts" : "Negative prompts")}${sideLink(localizedPath("/lab/dictionary/", page.locale), en ? "Vocabulary" : "Diccionario")}${sideLink(localizedPath("/lab/monthly-prompt/", page.locale), en ? "Prompt of the month" : "Prompt del mes")}</nav></section><section><h2>${en ? "CATALOGUE" : "CATÁLOGO"}</h2><nav>${sideLink(compareHref, en ? "Compare folders" : "Comparar carpetas")}${sideLink(methodHref, en ? "Method" : "Método")}${sideLink(demosHref, en ? "Audio previews" : "Muestras de audio", "play")}${sideLink(homeHref, en ? "All folders" : "Todas las carpetas", "folder")}</nav></section></aside>
+          ${editorialSidebar}
           <section class="file-pane editorial-pane" id="article" tabindex="-1"><div class="view-content editorial-view">${page.view}</div></section>
         </div>
         <footer class="statusbar"><span>${en ? "PUBLIC FILE" : "ARCHIVO PÚBLICO"}</span><span>SUBSUELO FS</span><span>NOMBRE DIRECCION, S.L.U.</span></footer>
