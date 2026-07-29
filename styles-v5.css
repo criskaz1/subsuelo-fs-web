@@ -639,6 +639,101 @@ button {
   flex-direction: column;
 }
 
+.tree-family {
+  border-top: 1px solid rgba(96, 97, 89, 0.24);
+}
+
+.tree-family:last-child {
+  border-bottom: 1px solid rgba(96, 97, 89, 0.24);
+}
+
+.tree-family > summary {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  cursor: pointer;
+  color: var(--ink);
+  font: 800 12px/1.2 var(--mono);
+  letter-spacing: 0.035em;
+  list-style: none;
+  user-select: none;
+}
+
+.tree-family > summary::-webkit-details-marker {
+  display: none;
+}
+
+.tree-family > summary:hover,
+.tree-family[open] > summary {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.tree-family__marker {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 2px 2px 0 rgba(18, 19, 15, 0.14);
+}
+
+.tree-family__marker::before,
+.tree-family__marker::after {
+  content: "";
+  position: absolute;
+  background: var(--ink);
+}
+
+.tree-family__marker::before {
+  top: 6px;
+  right: 3px;
+  left: 3px;
+  height: 1px;
+}
+
+.tree-family__marker::after {
+  top: 3px;
+  bottom: 3px;
+  left: 6px;
+  width: 1px;
+}
+
+.tree-family[open] .tree-family__marker::after {
+  display: none;
+}
+
+.tree-family > summary small {
+  margin-left: auto;
+  font: 700 11px/1 var(--mono);
+}
+
+.tree-family > nav {
+  margin: 0 0 5px 15px;
+  border-left: 1px dashed var(--line);
+  padding-left: 3px;
+}
+
+.tree-family .tree-item {
+  min-height: 34px;
+  align-items: flex-start;
+  font-size: 12px;
+}
+
+.tree-family .tree-item > span:nth-child(2) {
+  overflow: visible;
+  line-height: 1.25;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.tree-family .tree-item small,
+.tree-family .tree-item .tree-icon {
+  margin-top: 2px;
+}
+
 .tree-item {
   position: relative;
   min-height: 36px;
