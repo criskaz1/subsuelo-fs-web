@@ -89,10 +89,47 @@
               "price": "49.00",
               "availability": "https://schema.org/InStock",
               "itemCondition": "https://schema.org/NewCondition",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                  "@type": "MonetaryAmount",
+                  "value": "0",
+                  "currency": "EUR"
+                },
+                "shippingDestination": {
+                  "@type": "DefinedRegion",
+                  "addressCountry": "ES"
+                },
+                "deliveryTime": {
+                  "@type": "ShippingDeliveryTime",
+                  "handlingTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 0,
+                    "maxValue": 0,
+                    "unitCode": "DAY"
+                  },
+                  "transitTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 0,
+                    "maxValue": 0,
+                    "unitCode": "DAY"
+                  }
+                }
+              },
               "seller": {
-                "@type": "Organization",
-                "name": "NOMBRE DIRECCION, S.L.U."
+                "@id": "https://subsuelofs.com/#store"
               }
+            }
+          },
+          {
+            "@type": "OnlineStore",
+            "@id": "https://subsuelofs.com/#store",
+            "name": "SUBSUELO FS",
+            "legalName": "NOMBRE DIRECCION, S.L.U.",
+            "url": "https://subsuelofs.com/",
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "merchantReturnLink": "https://subsuelofs.com/legal/refund/"
             }
           },
           {

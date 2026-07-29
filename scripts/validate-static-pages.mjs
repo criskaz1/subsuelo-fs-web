@@ -122,6 +122,12 @@ for (const page of pages) {
     const expectedPrice = bundle ? "49.00" : "9.00";
     if (offers.price !== expectedPrice) throw new Error(`${page.output}: precio incorrecto en Offer`);
     if (Object.hasOwn(offers, "validFrom") || Object.hasOwn(offers, "priceValidUntil")) throw new Error(`${page.output}: el precio permanente conserva vigencia temporal`);
+    const merchant = graphEntries(jsonLd).find((entry) => entry["@type"] === "OnlineStore" && entry["@id"] === `${siteUrl}/#store`);
+    if (merchant?.hasMerchantReturnPolicy?.merchantReturnLink !== `${siteUrl}/legal/refund/`) throw new Error(`${page.output}: falta la política de devoluciones del comercio`);
+    if (offers.seller?.["@id"] !== `${siteUrl}/#store`) throw new Error(`${page.output}: la oferta no enlaza con el comercio`);
+    if (offers.shippingDetails?.shippingRate?.value !== "0" || offers.shippingDetails?.shippingRate?.currency !== "EUR") throw new Error(`${page.output}: falta entrega digital sin gastos de envío`);
+    if (offers.shippingDetails?.shippingDestination?.addressCountry !== "ES") throw new Error(`${page.output}: destino de entrega comercial incorrecto`);
+    if (offers.shippingDetails?.deliveryTime?.handlingTime?.maxValue !== 0 || offers.shippingDetails?.deliveryTime?.transitTime?.maxValue !== 0) throw new Error(`${page.output}: la entrega digital no figura como inmediata`);
     if (metaContent(html, "property", "product:price:amount") !== expectedPrice) throw new Error(`${page.output}: precio Open Graph incorrecto`);
     if (html.includes("<s>") || !html.includes(bundle ? "49 €" : "9 €")) throw new Error(`${page.output}: precio permanente visible incorrecto`);
     if (bundle) {
@@ -201,6 +207,7 @@ for (const homePath of ["index.html", "en/index.html"]) {
   if (!home.includes("PRECIO ACTUAL POR PACK") && !home.includes("CURRENT PRICE PER PACK")) throw new Error(`${homePath}: falta el precio permanente`);
   if (/<s>|24\.07\.2026|24 Jul 2026|descuento automático|automatic discount/iu.test(home)) throw new Error(`${homePath}: conserva urgencia o comparación de la oferta caducada`);
   if (!home.includes('"email": "hola@subsuelofs.com"')) throw new Error(`${homePath}: el correo corporativo no está unificado`);
+  if (!home.includes(`"merchantReturnLink": "${siteUrl}/legal/refund/"`)) throw new Error(`${homePath}: falta la política de devoluciones del comercio`);
   for (const socialUrl of ["https://x.com/subsuelofs", "https://www.tiktok.com/@subsuelofs", "https://www.youtube.com/@subsuelofs"]) {
     if (!home.includes(JSON.stringify(socialUrl)) || !home.includes(`rel="me" href="${socialUrl}"`)) throw new Error(`${homePath}: falta perfil social ${socialUrl}`);
   }
