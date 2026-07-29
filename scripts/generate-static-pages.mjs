@@ -246,6 +246,37 @@ const canonicalUrl = (pathname) => `${siteUrl}${pathname}`;
 const localizedPath = (pathname, locale) => locale === "en" ? (pathname === "/" ? "/en/" : `/en${pathname}`) : pathname;
 const localizedOutput = (output, locale) => locale === "en" ? path.posix.join("en", output) : output;
 const productValue = (product, key, locale) => locale === "en" ? product[`${key}En`] : product[key];
+const merchantReturnPolicy = () => ({
+  "@type": "MerchantReturnPolicy",
+  merchantReturnLink: `${siteUrl}/legal/refund/`
+});
+const digitalDeliveryDetails = () => ({
+  "@type": "OfferShippingDetails",
+  shippingRate: {
+    "@type": "MonetaryAmount",
+    value: "0",
+    currency: "EUR"
+  },
+  shippingDestination: {
+    "@type": "DefinedRegion",
+    addressCountry: "ES"
+  },
+  deliveryTime: {
+    "@type": "ShippingDeliveryTime",
+    handlingTime: {
+      "@type": "QuantitativeValue",
+      minValue: 0,
+      maxValue: 0,
+      unitCode: "DAY"
+    },
+    transitTime: {
+      "@type": "QuantitativeValue",
+      minValue: 0,
+      maxValue: 0,
+      unitCode: "DAY"
+    }
+  }
+});
 
 const breadcrumbSchema = (page) => {
   const trail = page.breadcrumbs || (page.basePath === "/" ? [] : [{ name: page.heading, path: page.basePath }]);
@@ -276,6 +307,7 @@ const homeSchema = (page) => ({
       email: "hola@subsuelofs.com",
       logo: `${siteUrl}/favicon.svg`,
       image: `${siteUrl}/social-card.png`,
+      hasMerchantReturnPolicy: merchantReturnPolicy(),
       description: page.locale === "en"
         ? "Genre-built Suno prompt collections for dark instrumentals, with negative prompts, guides in English and Spanish, and tested audio references."
         : "Colecciones de prompts para Suno por género, con negative prompts, guías ES/EN y referencias de audio probadas.",
@@ -341,8 +373,17 @@ const productSchema = (page, product) => ({
         price: product.price.toFixed(2),
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
-        seller: { "@type": "Organization", name: "NOMBRE DIRECCION, S.L.U." }
+        shippingDetails: digitalDeliveryDetails(),
+        seller: { "@id": `${siteUrl}/#store` }
       }
+    },
+    {
+      "@type": "OnlineStore",
+      "@id": `${siteUrl}/#store`,
+      name: "SUBSUELO FS",
+      legalName: "NOMBRE DIRECCION, S.L.U.",
+      url: `${siteUrl}/`,
+      hasMerchantReturnPolicy: merchantReturnPolicy()
     },
     breadcrumbSchema(page)
   ]
