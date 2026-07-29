@@ -4,7 +4,7 @@
 
 SUBSUELO FS publica carpetas de prompts para crear instrumentales en Suno. Cada colección se mantiene dentro de un género concreto y reúne 30 prompts completos, 10 negative prompts opcionales, documentación separada en español e inglés y cuatro referencias de audio probadas.
 
-El catálogo actual cubre trap ritual, UK garage oscuro, jungle degradado, hip-hop abstracto, hip-hop dub y hip-hop noir. La web permite comparar las seis carpetas por ritmo, graves, fuentes y espacio antes de elegir.
+El catálogo actual cubre trap ritual, UK garage oscuro, jungle degradado, hip-hop abstracto, hip-hop dub, hip-hop noir, country moderno y metal sinfónico. La web permite comparar las ocho carpetas por ritmo, graves, fuentes y espacio antes de elegir.
 
 ## Archivos públicos
 
@@ -18,7 +18,7 @@ El catálogo actual cubre trap ritual, UK garage oscuro, jungle degradado, hip-h
 
 ## English
 
-SUBSUELO FS publishes genre-specific sound-direction folders for instrumental music. Each collection contains 30 complete prompts, 10 optional negative prompts, separate Spanish and English documentation, and four audio references.
+SUBSUELO FS publishes genre-specific Suno prompt folders for instrumental music. Each collection contains 30 complete prompts, 10 optional negative prompts, separate Spanish and English documentation, and four tested audio references. The catalogue covers ritual trap, dark UK garage, degraded jungle, abstract hip-hop, dub hip-hop, noir hip-hop, modern country and symphonic metal.
 
 [Browse the catalogue](https://subsuelofs.com/en/) · [Compare folders](https://subsuelofs.com/en/compare/) · [Read the guides](https://subsuelofs.com/en/guides/)
 

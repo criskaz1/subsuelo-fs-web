@@ -413,7 +413,7 @@
      "path": "/demos/"
     },
     {
-     "label": "Comparar las seis carpetas",
+     "label": "Comparar las ocho carpetas",
      "path": "/compare/"
     },
     {
@@ -500,7 +500,7 @@
      "path": "/demos/"
     },
     {
-     "label": "Compare the six folders",
+     "label": "Compare the eight folders",
      "path": "/compare/"
     },
     {
@@ -1147,7 +1147,7 @@
      "heading": "Dónde escucharlo",
      "paragraphs": [
       "Fossil Jungle es nuestra carpeta para este género: 30 prompts y 10 negative prompts construidos sobre este esquema, guía en español e inglés y cuatro referencias MP3, por 9 EUR.",
-      "Los cortes de 30 segundos de las seis carpetas están en [la página de demos](/demos/). El pack completo con las seis cuesta 49 EUR."
+      "Los cortes de 30 segundos de las ocho carpetas están en [la página de demos](/demos/). El pack completo reúne las seis colecciones originales por 49 EUR; Dust Country e Iron Choir se venden por separado."
      ]
     }
    ],
@@ -1238,7 +1238,7 @@
      "heading": "Where to hear it",
      "paragraphs": [
       "Fossil Jungle is our folder for this genre: 30 prompts and 10 negative prompts built on this scheme, a guide in Spanish and English and four MP3 references, for 9 EUR.",
-      "The 30-second cuts for all six folders are on the [demos page](/demos/). The complete pack of six is 49 EUR."
+      "The 30-second cuts for all eight folders are on the [demos page](/demos/). The complete pack contains the original six collections for EUR 49; Dust Country and Iron Choir are sold separately."
      ]
     }
    ],
@@ -1790,5 +1790,275 @@
    ]
   },
   "related": "abyss"
+ },
+ {
+  "slug": "suno-country-prompts",
+  "es": {
+   "title": "Prompts para Suno de country moderno, outlaw y americana: estructura y ejemplos",
+   "navTitle": "Prompts de country para Suno",
+   "seoTitle": "Prompts para Suno de country moderno y outlaw",
+   "metaDescription": "Cómo escribir prompts para Suno de country moderno, outlaw country y americana: groove, guitarras, pedal steel, arreglos, voz y negative prompts.",
+   "heroKicker": "GUIA_13 / SUNO COUNTRY",
+   "heroLead": "La palabra country no decide si la canción será moderna, outlaw, americana oscura o pop-country. Hay que fijar el pocket, la instrumentación, el tamaño del estribillo y el acabado.",
+   "cardDescription": "Country moderno, outlaw y americana: groove, guitarras, arreglos y exclusiones.",
+   "sections": [
+    {
+     "id": "country-core",
+     "heading": "Qué tiene que decidir un prompt de country",
+     "paragraphs": [
+      "Un prompt útil empieza por una rama concreta: modern country, outlaw country, dark Americana o country rock. Después fija tempo y feel. `92 BPM, steady road-worn 4/4 pocket` coloca la canción en un sitio mucho más preciso que `emotional country`.",
+      "La segunda decisión es física: qué toca la banda. Nombra una acústica, una batería, un bajo y un elemento de respuesta. Pedal steel, Telecaster, fiddle y resonator no son adornos intercambiables; cada uno empuja la canción hacia una tradición distinta."
+     ]
+    },
+    {
+     "id": "country-blocks",
+     "heading": "Construir el bloque para Styles",
+     "paragraphs": [
+      "Ordena el texto por bloques: subgénero y BPM; batería; bajo; instrumento central; arreglo; mezcla. Esa secuencia evita una lista de adjetivos sin jerarquía.",
+      "Ejemplo compacto: `modern country, 92 BPM, steady 4/4 pocket, compact kick, dry cross-stick snare, warm electric bass, close-miked steel-string acoustic guitar, short clean electric-guitar bends, restrained pedal steel, sparse verse, wider chorus, dry warm mix, clear vocal space`.",
+      "En Suno, pega el bloque completo en Styles y genera dos versiones antes de cambiarlo. Si el resultado se aleja, mueve una decisión cada vez: batería, instrumento de respuesta o tamaño del estribillo."
+     ]
+    },
+    {
+     "id": "outlaw-vs-pop",
+     "heading": "Evitar que outlaw country se convierta en pop-country",
+     "paragraphs": [
+      "El desvío más común es pedir oscuridad con palabras emocionales y recibir producción brillante. La corrección empieza en positivo: batería seca, ampli pequeño, pocos coros, textura de púa y una habitación corta.",
+      "Después usa Exclude para el fallo concreto: `glossy pop-country sheen, synthetic claps, arena-rock guitars, oversized cinematic swells`. No hace falta excluir medio catálogo; una lista corta y ligada a lo que has oído funciona mejor."
+     ]
+    },
+    {
+     "id": "voice-space",
+     "heading": "Dejar espacio para la voz sin escribir una letra",
+     "paragraphs": [
+      "Aunque generes instrumental, puedes diseñar un hueco vocal. `vocal-sized opening in the centre`, `short instrumental answers between phrases` y `verses leave room for storytelling` indican que guitarras y pedal steel no deben tocar continuamente.",
+      "Si vas a usar letra, conserva el mismo bloque de Styles y trabaja la estructura lírica aparte. Mezclar instrucciones de producción y texto narrativo dentro del mismo párrafo hace que ninguna de las dos capas quede clara."
+     ]
+    },
+    {
+     "id": "dust-country",
+     "heading": "Una carpeta completa para esta búsqueda",
+     "paragraphs": [
+      "[Dust Country](/product/dust/) reúne 30 prompts para modern country, outlaw, americana oscura y country rock, 10 negative prompts, guías ES/EN y 4 MP3 de referencia por 9 EUR.",
+      "La ficha publica el prompt 001 y una muestra de 30 segundos para comprobar el método y el sonido antes de comprar."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Dust Country — 30 prompts",
+     "path": "/product/dust/"
+    },
+    {
+     "label": "Cómo describir la batería",
+     "path": "/guides/describe-drums/"
+    },
+    {
+     "label": "Escuchar todas las demos",
+     "path": "/demos/"
+    }
+   ]
+  },
+  "en": {
+   "title": "Suno country prompts for modern country, outlaw and dark Americana",
+   "navTitle": "Suno country prompts",
+   "seoTitle": "Suno Country Prompts: Modern, Outlaw & Americana",
+   "metaDescription": "How to write Suno country prompts for modern country, outlaw and dark Americana: groove, guitars, pedal steel, arrangement, vocal space and exclusions.",
+   "heroKicker": "GUIDE_13 / SUNO COUNTRY",
+   "heroLead": "The word country does not decide whether the song becomes modern country, outlaw, dark Americana or polished pop-country. The prompt has to fix the pocket, instrumentation, chorus size and finish.",
+   "cardDescription": "Modern country, outlaw and Americana: groove, guitars, arrangement and exclusions.",
+   "sections": [
+    {
+     "id": "country-core",
+     "heading": "What a country prompt has to decide",
+     "paragraphs": [
+      "A useful prompt begins with one branch: modern country, outlaw country, dark Americana or country rock. Then it fixes tempo and feel. `92 BPM, steady road-worn 4/4 pocket` places the song more precisely than `emotional country`.",
+      "The second decision is physical: what the band plays. Name one acoustic guitar, drum approach, bass and answering instrument. Pedal steel, Telecaster, fiddle and resonator are not interchangeable ornaments; each points the song toward a different tradition."
+     ]
+    },
+    {
+     "id": "country-blocks",
+     "heading": "Building the Styles block",
+     "paragraphs": [
+      "Order the text in blocks: subgenre and BPM; drums; bass; core instrument; arrangement; mix. That sequence avoids a flat adjective list with no hierarchy.",
+      "Compact example: `modern country, 92 BPM, steady 4/4 pocket, compact kick, dry cross-stick snare, warm electric bass, close-miked steel-string acoustic guitar, short clean electric-guitar bends, restrained pedal steel, sparse verse, wider chorus, dry warm mix, clear vocal space`.",
+      "In Suno, paste the complete block into Styles and generate two versions before editing it. If the result drifts, move one decision at a time: drums, answering instrument or chorus size."
+     ]
+    },
+    {
+     "id": "outlaw-vs-pop",
+     "heading": "Keeping outlaw country out of polished pop-country",
+     "paragraphs": [
+      "The common failure is asking for darkness through emotional adjectives and receiving glossy production. Start with positive construction: dry drums, small amp, few backing vocals, audible pick texture and a short room.",
+      "Then use Exclude for the failure you actually heard: `glossy pop-country sheen, synthetic claps, arena-rock guitars, oversized cinematic swells`. A short list tied to the output works better than excluding an entire catalogue."
+     ]
+    },
+    {
+     "id": "voice-space",
+     "heading": "Leaving vocal space without writing lyrics",
+     "paragraphs": [
+      "Even an instrumental can reserve a vocal lane. `vocal-sized opening in the centre`, `short instrumental answers between phrases` and `verses leave room for storytelling` tell guitars and pedal steel not to play continuously.",
+      "If you are using lyrics, keep the same Styles block and design the lyrical structure separately. Mixing production instructions and narrative text inside one paragraph makes both layers less clear."
+     ]
+    },
+    {
+     "id": "dust-country",
+     "heading": "A complete folder for this search",
+     "paragraphs": [
+      "[Dust Country](/product/dust/) contains 30 prompts for modern country, outlaw, dark Americana and country rock, 10 negative prompts, ES/EN guides and 4 MP3 references for EUR 9.",
+      "The product page publishes prompt 001 and a 30-second reference so you can check the method and sound before buying."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Dust Country — 30 prompts",
+     "path": "/product/dust/"
+    },
+    {
+     "label": "How to describe drums",
+     "path": "/guides/describe-drums/"
+    },
+    {
+     "label": "Hear every demo",
+     "path": "/demos/"
+    }
+   ]
+  },
+  "related": "dust"
+ },
+ {
+  "slug": "suno-metal-prompts",
+  "es": {
+   "title": "Prompts para Suno de metal sinfónico, doom y gótico sin sonido de tráiler",
+   "navTitle": "Prompts de metal para Suno",
+   "seoTitle": "Prompts para Suno de metal sinfónico y doom",
+   "metaDescription": "Cómo escribir prompts para Suno de metal sinfónico, symphonic doom y metal gótico: riffs, batería, orquesta, coro, mezcla y negative prompts.",
+   "heroKicker": "GUIA_14 / SUNO METAL",
+   "heroLead": "Metal sinfónico no significa añadir una orquesta enorme encima de cualquier riff. La banda tiene que conservar el centro y la orquesta debe cumplir una función concreta.",
+   "cardDescription": "Riffs, batería, coro y orquesta sin perder peso ni acabar en música de tráiler.",
+   "sections": [
+    {
+     "id": "metal-core",
+     "heading": "Fijar primero la banda",
+     "paragraphs": [
+      "Empieza por el movimiento rítmico: marcha 4/4, medio tiempo doom o doble bombo controlado. Después describe riff, bajo y batería. Si las cuerdas aparecen antes que la banda, la generación suele priorizar una banda sonora y no metal.",
+      "Una base clara puede escribirse como `weighty 4/4 march, controlled double-kick support, deep snare, distorted bass doubling a descending guitar riff`. Ya hay tempo percibido, groove y relación entre graves."
+     ]
+    },
+    {
+     "id": "orchestra-role",
+     "heading": "Dar una función a cuerdas y coro",
+     "paragraphs": [
+      "Nombra registro y función: cellos y violas pueden reforzar un riff grave; un coro mixto puede sostener armonía en el estribillo; los metales pueden colorear un ataque concreto. `Epic orchestra` no decide nada de eso.",
+      "La frase que protege el género es `orchestral layers placed behind the band`. Mantiene guitarras y transitorios delante. Para un resultado doom, reduce la densidad; para uno gótico, da más espacio al coro y menos a los metales."
+     ]
+    },
+    {
+     "id": "metal-block",
+     "heading": "Un bloque compacto para Styles",
+     "paragraphs": [
+      "Ejemplo: `dark symphonic metal, 132 BPM, weighty 4/4 march, controlled double kick, deep snare, distorted bass, descending low-guitar riff, cellos and violas reinforce the riff, restrained brass colour, mixed choir sustains harmony, riff-led verse, wider chorus, articulate guitars, real drum transients, orchestra behind the band`.",
+      "Pégalo completo en Styles y genera dos versiones. Para explorar symphonic doom, cambia solo BPM, densidad de batería y duración del riff. Para metal gótico, cambia la relación entre coro, guitarras limpias y espacio."
+     ]
+    },
+    {
+     "id": "avoid-trailer",
+     "heading": "Evitar tráiler, power metal y orquesta genérica",
+     "paragraphs": [
+      "Las fugas más frecuentes son fanfarrias heroicas, booms cinematográficos, narración hablada, velocidad power-metal y un coro que sustituye al riff. La solución combina estructura positiva y Exclude.",
+      "Una lista directa sería `heroic brass fanfares, cinematic booms, spoken narration, constant blast beats, power-metal speed, glossy pop production`. Úsala solo cuando esos elementos aparezcan; el prompt principal sigue describiendo lo que sí debe tocar."
+     ]
+    },
+    {
+     "id": "iron-choir",
+     "heading": "Treinta variaciones dentro del mismo núcleo",
+     "paragraphs": [
+      "[Iron Choir](/product/iron/) contiene 30 prompts de metal sinfónico oscuro, symphonic doom y metal gótico, 10 negative prompts, guías ES/EN y 4 MP3 de referencia por 9 EUR.",
+      "La ficha permite copiar el prompt 001 y escuchar su resultado de 30 segundos antes de pasar por checkout."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Iron Choir — 30 prompts",
+     "path": "/product/iron/"
+    },
+    {
+     "label": "Espacio y textura",
+     "path": "/guides/space-texture/"
+    },
+    {
+     "label": "Entender los negative prompts",
+     "path": "/guides/negative-prompts/"
+    }
+   ]
+  },
+  "en": {
+   "title": "Suno metal prompts for symphonic metal, doom and gothic metal without trailer scoring",
+   "navTitle": "Suno metal prompts",
+   "seoTitle": "Suno Metal Prompts: Symphonic, Doom & Gothic",
+   "metaDescription": "How to write Suno metal prompts for symphonic metal, symphonic doom and gothic metal: riffs, drums, orchestra, choir, mix and exclusions.",
+   "heroKicker": "GUIDE_14 / SUNO METAL",
+   "heroLead": "Symphonic metal does not mean placing a huge orchestra on top of any riff. The band has to retain the centre, and every orchestral layer needs a job.",
+   "cardDescription": "Riffs, drums, choir and orchestra without losing weight or drifting into trailer music.",
+   "sections": [
+    {
+     "id": "metal-core",
+     "heading": "Fix the band first",
+     "paragraphs": [
+      "Begin with rhythmic movement: a 4/4 march, doom half-time or controlled double kick. Then describe riff, bass and drums. When strings arrive before the band, the generation tends to prioritise a score rather than metal.",
+      "A clear foundation can read `weighty 4/4 march, controlled double-kick support, deep snare, distorted bass doubling a descending guitar riff`. Tempo feel, groove and low-end relationship are already fixed."
+     ]
+    },
+    {
+     "id": "orchestra-role",
+     "heading": "Give strings and choir a function",
+     "paragraphs": [
+      "Name register and role: cellos and violas can reinforce a low riff; a mixed choir can sustain chorus harmony; brass can colour one selected attack. `Epic orchestra` decides none of those things.",
+      "The protective phrase is `orchestral layers placed behind the band`. It keeps guitars and transients forward. For doom, reduce density; for gothic metal, give the choir more space and brass less."
+     ]
+    },
+    {
+     "id": "metal-block",
+     "heading": "A compact Styles block",
+     "paragraphs": [
+      "Example: `dark symphonic metal, 132 BPM, weighty 4/4 march, controlled double kick, deep snare, distorted bass, descending low-guitar riff, cellos and violas reinforce the riff, restrained brass colour, mixed choir sustains harmony, riff-led verse, wider chorus, articulate guitars, real drum transients, orchestra behind the band`.",
+      "Paste it in full into Styles and generate two versions. To explore symphonic doom, change only BPM, drum density and riff length. For gothic metal, change the relationship between choir, clean guitars and space."
+     ]
+    },
+    {
+     "id": "avoid-trailer",
+     "heading": "Avoiding trailer music, power metal and generic orchestra",
+     "paragraphs": [
+      "The common leaks are heroic fanfares, cinematic booms, spoken narration, power-metal speed and a choir that replaces the riff. The fix combines positive construction with Exclude.",
+      "A direct list is `heroic brass fanfares, cinematic booms, spoken narration, constant blast beats, power-metal speed, glossy pop production`. Use it when those elements appear; the main prompt still describes what should play."
+     ]
+    },
+    {
+     "id": "iron-choir",
+     "heading": "Thirty variations inside the same core",
+     "paragraphs": [
+      "[Iron Choir](/product/iron/) contains 30 prompts for dark symphonic metal, symphonic doom and gothic metal, 10 negative prompts, ES/EN guides and 4 MP3 references for EUR 9.",
+      "The product page lets you copy prompt 001 and hear its 30-second result before checkout."
+     ]
+    }
+   ],
+   "nextLinks": [
+    {
+     "label": "Iron Choir — 30 prompts",
+     "path": "/product/iron/"
+    },
+    {
+     "label": "Space and texture",
+     "path": "/guides/space-texture/"
+    },
+    {
+     "label": "Understanding negative prompts",
+     "path": "/guides/negative-prompts/"
+    }
+   ]
+  },
+  "related": "iron"
  }
 ]

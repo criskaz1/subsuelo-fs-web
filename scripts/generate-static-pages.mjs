@@ -9,7 +9,7 @@ const siteUrl = "https://subsuelofs.com";
 const freeSamplerUrl = "https://payhip.com/b/LJp1T?utm_source=subsuelofs&utm_medium=website&utm_campaign=free_sampler";
 const contentModified = "2026-07-29";
 const socialImage = `${siteUrl}/social-card.png?v=20260716-2`;
-const productSocialImage = (productId) => `${siteUrl}/media/${productId}/social-card.png?v=20260725`;
+const productSocialImage = (productId) => `${siteUrl}/media/${productId}/social-card.png?v=20260729`;
 const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
 const analyticsConfig = JSON.parse(await readFile(path.join(root, "analytics-config.json"), "utf8"));
 const analyticsEnabled = analyticsConfig.provider === "umami"
@@ -127,6 +127,38 @@ const products = [
     tone: "#705e6b",
     price: 9,
     demo: "Rain Evidence"
+  },
+  {
+    id: "dust",
+    sku: "DUST-COUNTRY",
+    name: "Dust Country",
+    category: "Country moderno y outlaw",
+    categoryEn: "Modern and outlaw country",
+    seoTitle: "Prompts para Suno de country moderno y outlaw | SUBSUELO FS",
+    seoTitleEn: "Suno Country Music Prompts: Modern & Outlaw | SUBSUELO FS",
+    metaDescription: "30 prompts para Suno de country moderno, outlaw, americana oscura y country rock, con 10 negative prompts, guías ES/EN y 4 MP3. Precio: 9 €.",
+    metaDescriptionEn: "30 Suno country music prompts for modern country, outlaw, dark Americana and country rock, plus 10 negative prompts, ES/EN guides and 4 MP3s. €9.",
+    description: "30 direcciones de country moderno, outlaw country, americana oscura y country rock con instrumentación concreta, arreglos controlados y espacio real para voz.",
+    descriptionEn: "30 focused routes into modern country, outlaw country, dark Americana and country rock, with specific instrumentation, controlled arrangements and real vocal space.",
+    tone: "#8B4E2D",
+    price: 9,
+    demo: "Night Mileage"
+  },
+  {
+    id: "iron",
+    sku: "IRON-CHOIR",
+    name: "Iron Choir",
+    category: "Metal sinfónico, doom y gótico",
+    categoryEn: "Symphonic, doom and gothic metal",
+    seoTitle: "Prompts para Suno de metal sinfónico y doom | SUBSUELO FS",
+    seoTitleEn: "Suno Metal Prompts: Symphonic, Doom & Gothic | SUBSUELO FS",
+    metaDescription: "30 prompts para Suno de metal sinfónico, doom y gótico, con 10 negative prompts, guías ES/EN y 4 MP3 reales. Precio: 9 €.",
+    metaDescriptionEn: "30 Suno metal prompts for symphonic metal, doom and gothic metal, plus 10 negative prompts, ES/EN guides and 4 real MP3 references. €9.",
+    description: "30 direcciones de metal sinfónico oscuro, doom y metal gótico que mantienen guitarras, batería y orquesta separadas, pesadas y reconocibles.",
+    descriptionEn: "30 focused routes into dark symphonic metal, symphonic doom and gothic metal, keeping guitars, drums and orchestra separate, heavy and recognisable.",
+    tone: "#4D5668",
+    price: 9,
+    demo: "Ashen Procession"
   }
 ];
 
@@ -161,7 +193,30 @@ for (const selection of samplerManifest.collections || []) {
   });
 }
 
-if (Object.keys(samplerProofs).length !== products.length) throw new Error("El sampler debe aportar una prueba a los seis productos");
+const directProofSources = Object.freeze({
+  dust: {
+    source: "source/dust_country/content.json",
+    preview: "storefront/audio/dust-country-night-mileage-preview.mp3"
+  },
+  iron: {
+    source: "source/iron_choir/content.json",
+    preview: "storefront/audio/iron-choir-ashen-procession-preview.mp3"
+  }
+});
+
+for (const [productId, selection] of Object.entries(directProofSources)) {
+  const source = JSON.parse(await readFile(path.join(workspaceRoot, selection.source), "utf8"));
+  const matches = (source.prompts || []).filter((prompt) => prompt.id === "001");
+  if (matches.length !== 1) throw new Error(`Prompt 001 inválido en ${selection.source}`);
+  await access(path.join(workspaceRoot, selection.preview));
+  samplerProofs[productId] = Object.freeze({
+    title: matches[0].title,
+    prompt: matches[0].prompt,
+    preview: selection.preview
+  });
+}
+
+if (Object.keys(samplerProofs).length !== products.length) throw new Error("Cada producto debe aportar una prueba pública");
 for (const product of products) product.proof = samplerProofs[product.id];
 
 const productEditorial = {
@@ -230,6 +285,28 @@ const productEditorial = {
     demoProfile: "Batería recortada y polvorienta, piano de dos notas y lluvia contra una ventana cercana.",
     demoProfileEn: "Dusty break, two-note piano and rain against a nearby window.",
     related: ["low", "trap"]
+  },
+  dust: {
+    core: "Country moderno nocturno y seco con acústicas cercanas, batería humana, bajo eléctrico y detalles de pedal steel o Telecaster.",
+    coreEn: "Dry nocturnal modern country with close acoustic guitars, human drums, electric bass and pedal-steel or Telecaster detail.",
+    changes: ["pocket recto o arrastrado", "acústica rasgueada o fingerpicked", "bajo eléctrico o upright", "pedal steel, fiddle o barítona", "tamaño del estribillo", "habitación seca o carretera abierta"],
+    changesEn: ["straight or laid-back pocket", "strummed or fingerpicked acoustic", "electric or upright bass", "pedal steel, fiddle or baritone guitar", "chorus size", "dry room or open-road space"],
+    fit: "Canciones country con madera, carretera y tensión contenida, desde modern country hasta outlaw y americana oscura sin brillo pop genérico.",
+    fitEn: "Country songs with wood, road wear and restrained tension, from modern country to outlaw and dark Americana without generic pop gloss.",
+    demoProfile: "Country moderno a 92 BPM con acústica seca, cross-stick, bajo cálido y una guitarra eléctrica que responde sin llenar el centro.",
+    demoProfileEn: "Modern country at 92 BPM with dry acoustic guitar, cross-stick, warm bass and electric-guitar answers that leave the centre open.",
+    related: ["noir", "garage"]
+  },
+  iron: {
+    core: "Metal sinfónico oscuro con riffs legibles, batería pesada y capas orquestales colocadas detrás de la banda en vez de sustituirla.",
+    coreEn: "Dark symphonic metal with readable riffs, heavy drums and orchestral layers placed behind the band rather than replacing it.",
+    changes: ["marcha, medio tiempo o doble bombo", "riff grave o pedal", "cuerdas, metales o coro", "doom, gótico o sinfónico", "densidad del estribillo", "sala de banda u orquesta amplia"],
+    changesEn: ["march, half-time or double kick", "low riff or pedal note", "strings, brass or choir", "doom, gothic or symphonic balance", "chorus density", "band room or wide orchestra"],
+    fit: "Metal oscuro donde las guitarras conservan peso y definición mientras cuerdas y coro amplían la armonía sin convertirlo en música de tráiler.",
+    fitEn: "Dark metal where guitars retain weight and definition while strings and choir widen the harmony without turning into trailer music.",
+    demoProfile: "Marcha de metal sinfónico a 132 BPM con riff descendente, cuerdas graves y coro sostenido detrás de una batería contenida.",
+    demoProfileEn: "A 132 BPM symphonic-metal march with a descending riff, low strings and sustained choir behind controlled drums.",
+    related: ["trap", "dust"]
   }
 };
 
@@ -241,7 +318,10 @@ const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => (
   "'": "&#39;"
 })[character]);
 
-const indent = (value, spaces) => value.split("\n").map((line) => `${" ".repeat(spaces)}${line}`).join("\n");
+const indent = (value, spaces) => {
+  const prefix = " ".repeat(spaces);
+  return value.split("\n").map((line) => line ? `${prefix}${line}` : "").join("\n");
+};
 const canonicalUrl = (pathname) => `${siteUrl}${pathname}`;
 const localizedPath = (pathname, locale) => locale === "en" ? (pathname === "/" ? "/en/" : `/en${pathname}`) : pathname;
 const localizedOutput = (output, locale) => locale === "en" ? path.posix.join("en", output) : output;
@@ -463,15 +543,15 @@ const homeView = (locale) => {
 <section class="home-offer" aria-label="${en ? "Individual packs" : "Packs individuales"}">
   <span class="folder-icon home-offer__icon" style="--tone:#a44730" aria-hidden="true"></span>
   <div class="home-offer__copy">
-    <p>${en ? "CATALOGUE / 6 INDIVIDUAL PACKS" : "CATÁLOGO / 6 PACKS INDIVIDUALES"}</p>
+    <p>${en ? "CATALOGUE / 8 INDIVIDUAL PACKS" : "CATÁLOGO / 8 PACKS INDIVIDUALES"}</p>
     <h2>${en ? "Choose any pack for €9." : "Elige cualquier pack por 9 €."}</h2>
     <p>${en ? "30 Suno prompts, 10 negative prompts, ES/EN guides and 4 tested MP3 references in every pack." : "Cada pack incluye 30 prompts para Suno, 10 negative prompts, guías ES/EN y 4 referencias MP3 probadas."}</p>
-    <small>${en ? "Choose Trap, Garage, Jungle, Abstract Hip-Hop, Dub or Noir. One-off price per pack: €9." : "Elige Trap, Garage, Jungle, Hip-Hop abstracto, Dub o Noir. Precio único por pack: 9 €."}</small>
+    <small>${en ? "Choose Trap, Garage, Jungle, Abstract Hip-Hop, Dub, Noir, Country or Symphonic Metal. One-off price per pack: €9." : "Elige Trap, Garage, Jungle, Hip-Hop abstracto, Dub, Noir, Country o Metal sinfónico. Precio único por pack: 9 €."}</small>
   </div>
   <div class="home-offer__buy">
     <div class="home-offer__price"><strong>${en ? "€9" : "9 €"}</strong><span>${en ? "CURRENT PRICE PER PACK" : "PRECIO ACTUAL POR PACK"}</span></div>
     <a class="home-offer__primary" href="#packs-en-oferta">${en ? "CHOOSE A PACK · €9" : "ELEGIR PACK · 9 €"}</a>
-    <a class="home-offer__secondary" href="${demosHref}" data-route="${demosHref}">${en ? "HEAR THE 6 DEMOS" : "ESCUCHAR LAS 6 DEMOS"}</a>
+    <a class="home-offer__secondary" href="${demosHref}" data-route="${demosHref}">${en ? "HEAR THE 8 DEMOS" : "ESCUCHAR LAS 8 DEMOS"}</a>
   </div>
 </section>
 <section class="system-files">
@@ -533,7 +613,7 @@ const productView = (product, locale) => {
     <p class="kicker">${en ? "PROMPT FOLDER" : "CARPETA DE PROMPTS"} / ${escapeHtml(category)}</p>
     <h1>${escapeHtml(product.name)}</h1>
     <p>${escapeHtml(description)}</p>
-    <p class="product-banner__compatibility">${en ? "Compatible with Suno · reference generated and checked on 15 Jul 2026" : "Compatible con Suno · referencia generada y comprobada el 15/07/2026"}</p>
+    <p class="product-banner__compatibility">${en ? "Compatible with Suno · reference generated and checked" : "Compatible con Suno · referencia generada y comprobada"}</p>
   </div>
   <div class="product-banner__buy">
     <div class="product-banner__price"><strong>${product.price} €</strong><span class="price-per-prompt">${en ? "€0.30 per prompt" : "0,30 € por prompt"}</span></div>
@@ -563,7 +643,7 @@ ${promptProofView(product, locale)}
   <nav class="editorial-actions" aria-label="${en ? "Folder profile" : "Perfil de la carpeta"}"><a href="${compareHref}">${en ? "Compare every folder" : "Comparar todas las carpetas"}</a><a href="${negativeHref}">${en ? "Understand negative prompts" : "Entender los negative prompts"}</a></nav>
   <div class="related-folders"><strong>${en ? "Related folders" : "Carpetas cercanas"}</strong><div>${related}</div></div>
 </section>
-<aside class="bundle-upsell"><div><strong>${en ? "Want more than one genre?" : "¿Te interesan varios géneros?"}</strong><span>${en ? "Complete pack: all six folders for €49 · save €5" : "Pack completo: las 6 carpetas por 49 € · ahorras 5 €"}</span></div><a class="bundle-upsell__action" href="${localizedPath("/bundle/", locale)}" data-route="${localizedPath("/bundle/", locale)}">${en ? "View complete pack · €49" : "Ver pack completo · 49 €"}</a></aside>
+${["trap", "garage", "jungle", "low", "abyss", "noir"].includes(product.id) ? `<aside class="bundle-upsell"><div><strong>${en ? "Want more than one genre?" : "¿Te interesan varios géneros?"}</strong><span>${en ? "Complete pack: all six original folders for €49 · save €5" : "Pack completo: las 6 carpetas originales por 49 € · ahorras 5 €"}</span></div><a class="bundle-upsell__action" href="${localizedPath("/bundle/", locale)}" data-route="${localizedPath("/bundle/", locale)}">${en ? "View complete pack · €49" : "Ver pack completo · 49 €"}</a></aside>` : ""}
 <div class="purchase-strip">
   <div><strong>${escapeHtml(product.name)} · ${product.price} €</strong><span>${en ? "One-off payment · instant download" : "Pago único · descarga inmediata"}</span></div>
   <div class="purchase-strip__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-add="${product.id}">${en ? "Add to cart" : "Añadir al carrito"}</button></div>
@@ -580,7 +660,7 @@ const demosView = (locale) => {
   <div class="file-list__header"><span>${en ? "Track" : "Pista"}</span><span>${en ? "Folder" : "Carpeta"}</span><span>${en ? "Length" : "Duración"}</span><span>${en ? "Action" : "Acción"}</span></div>
   ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<div class="file-row" data-track="${product.id}"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>${escapeHtml(product.demo)}</strong><small class="demo-profile">${escapeHtml(productValue(productEditorial[product.id], "demoProfile", locale))}</small></span></span><span><a href="${href}" data-route="${href}">${escapeHtml(product.name)}</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="${product.id}">${en ? "Listen" : "Escuchar"}</button><button class="file-row__action file-row__action--primary" type="button" data-add="${product.id}">${en ? "Add" : "Añadir"} · ${product.price} €</button></span></div>`; }).join("\n  ")}
 </div>
-<aside class="demos-sampler"><div><strong>${en ? "Like what you hear?" : "¿Te gusta lo que oyes?"}</strong><span>${en ? "The free sampler includes 6 prompts, 7 negative prompts and these six demos." : "La muestra gratuita incluye 6 prompts, 7 negative prompts y estas seis demos."}</span></div><a class="demos-sampler__action" href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="demos">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a></aside>`;
+<aside class="demos-sampler"><div><strong>${en ? "Like what you hear?" : "¿Te gusta lo que oyes?"}</strong><span>${en ? "The free sampler includes 6 prompts, 7 negative prompts and six of these eight demos." : "La muestra gratuita incluye 6 prompts, 7 negative prompts y seis de estas ocho demos."}</span></div><a class="demos-sampler__action" href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="demos">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a></aside>`;
 };
 
 const bundleProduct = {
@@ -593,15 +673,17 @@ const bundleProduct = {
   descriptionEn: "All 6 Suno-tested collections in one ZIP: 180 prompts, 60 negative prompts, ES/EN guides and 24 audio references. Price: €49.",
   price: 49
 };
+const bundleProductIds = Object.freeze(["trap", "garage", "jungle", "low", "abyss", "noir"]);
+const bundleMembers = products.filter((product) => bundleProductIds.includes(product.id));
 
 const bundleView = (locale) => {
   const en = locale === "en";
   return `
-<header class="view-heading"><div class="view-heading__copy"><p>${en ? "COMPLETE PACK" : "PACK COMPLETO"}</p><h1>${en ? "All six Suno prompt folders. One download." : "Las seis carpetas de prompts para Suno."}</h1><p>${en ? "180 prompts, 60 negative prompts, ES/EN guides and 24 tested MP3 references. The pack contains the six current collections; future releases are separate." : "180 prompts, 60 negative prompts, guías ES/EN y 24 referencias MP3 probadas. El pack contiene las seis colecciones actuales; las publicaciones futuras se venden por separado."}</p></div></header>
+<header class="view-heading"><div class="view-heading__copy"><p>${en ? "COMPLETE PACK" : "PACK COMPLETO"}</p><h1>${en ? "All six Suno prompt folders. One download." : "Las seis carpetas de prompts para Suno."}</h1><p>${en ? "180 prompts, 60 negative prompts, ES/EN guides and 24 tested MP3 references. The pack contains the six original collections; Dust Country, Iron Choir and future releases are separate." : "180 prompts, 60 negative prompts, guías ES/EN y 24 referencias MP3 probadas. El pack contiene las seis colecciones originales; Dust Country, Iron Choir y las publicaciones futuras se venden por separado."}</p></div></header>
 <header class="subfolder-heading"><span class="folder-icon folder-icon--bundle"></span><div><h2>${en ? "Included folders" : "Carpetas incluidas"}</h2><p>${en ? "6 items" : "6 elementos"}</p></div></header>
 <div class="file-list">
   <div class="file-list__header"><span>${en ? "Name" : "Nombre"}</span><span>${en ? "Type" : "Tipo"}</span><span>${en ? "Contents" : "Qué contiene"}</span><span>${en ? "Access" : "Acceso"}</span></div>
-  ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<a class="file-row" href="${href}" data-route="${href}"><span class="file-row__name"><span class="row-folder-icon"></span><strong>${escapeHtml(product.name)}</strong></span><span>${en ? "Folder" : "Carpeta"}</span><span>${escapeHtml(productValue(product, "description", locale))}</span><span class="file-row__action">${en ? "Open" : "Abrir"}</span></a>`; }).join("\n  ")}
+  ${bundleMembers.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<a class="file-row" href="${href}" data-route="${href}"><span class="file-row__name"><span class="row-folder-icon"></span><strong>${escapeHtml(product.name)}</strong></span><span>${en ? "Folder" : "Carpeta"}</span><span>${escapeHtml(productValue(product, "description", locale))}</span><span class="file-row__action">${en ? "Open" : "Abrir"}</span></a>`; }).join("\n  ")}
 </div>
 <div class="purchase-strip"><div><strong>${en ? "Complete pack" : "Pack completo"} · 49 €</strong><span>${en ? "All six separately: €54 · Complete pack: €49 · €0.27 per prompt" : "Los seis por separado: 54 € · Pack completo: 49 € · 0,27 € por prompt"}</span></div><div class="purchase-strip__actions"><button class="primary-action" type="button" data-buy="archive">${en ? "Buy now · €49" : "Comprar ahora · 49 €"}</button></div></div>`;
 };
@@ -632,8 +714,8 @@ const guideLinkPaths = new Set([
   "/guides/write-music-prompts/", "/guides/negative-prompts/",
   "/guides/describe-drums/", "/guides/low-end-808/", "/guides/fix-generic-ai-music/", "/guides/space-texture/",
   "/guides/make-dark-trap/", "/guides/make-dark-uk-garage/", "/guides/make-dark-jungle/", "/guides/make-noir-hip-hop/",
-  "/guides/make-abstract-hip-hop/", "/guides/make-dub-hip-hop/",
-  "/product/trap/", "/product/garage/", "/product/jungle/", "/product/low/", "/product/abyss/", "/product/noir/"
+  "/guides/make-abstract-hip-hop/", "/guides/make-dub-hip-hop/", "/guides/suno-country-prompts/", "/guides/suno-metal-prompts/",
+  "/product/trap/", "/product/garage/", "/product/jungle/", "/product/low/", "/product/abyss/", "/product/noir/", "/product/dust/", "/product/iron/"
 ]);
 
 const guideInline = (value, locale) => escapeHtml(value)
@@ -779,19 +861,19 @@ const guidesView = (locale) => {
     { path: "/guides/negative-prompts/", code: "GUIDE_01", title: "What is a negative prompt in music?", description: "What it removes, where it goes and when it is worth using." },
     { path: "/guides/write-music-prompts/", code: "GUIDE_02", title: "How to write music prompts", description: "A practical structure for rhythm, low end, source material, space and mix." },
     ...articleCards,
-    { path: "/compare/", code: "INDEX_01", title: "Compare the six folders", description: "Drums, bass, source material and intended use, side by side." },
+    { path: "/compare/", code: "INDEX_01", title: "Compare the eight folders", description: "Drums, bass, source material and intended use, side by side." },
     { path: "/method/", code: "METHOD_01", title: "How a 30-prompt folder is built", description: "The fixed genre core, the variation axes and the files delivered." }
   ] : [
     { path: "/guides/negative-prompts/", code: "GUIA_01", title: "Qué es un negative prompt en música", description: "Qué quita, dónde se coloca y cuándo merece la pena usarlo." },
     { path: "/guides/write-music-prompts/", code: "GUIA_02", title: "Cómo escribir prompts para crear música", description: "Una estructura práctica para ritmo, graves, fuente sonora, espacio y mezcla." },
     ...articleCards,
-    { path: "/compare/", code: "INDICE_01", title: "Comparar las seis carpetas", description: "Batería, bajo, material sonoro y uso previsto, uno al lado del otro." },
+    { path: "/compare/", code: "INDICE_01", title: "Comparar las ocho carpetas", description: "Batería, bajo, material sonoro y uso previsto, uno al lado del otro." },
     { path: "/method/", code: "METODO_01", title: "Cómo se construye una carpeta de 30", description: "El núcleo fijo del género, los ejes de variación y los archivos entregados." }
   ];
   return `<article class="editorial-document">
     <header class="editorial-hero"><p>${en ? "SUBSUELO / PRODUCTION NOTES" : "SUBSUELO / NOTAS DE PRODUCCIÓN"}</p><h1>${en ? "Guides without filler" : "Guías sin relleno"}</h1><p>${en ? "Direct explanations for choosing, reading and using a prompt folder. No hidden examples and no vague promises." : "Explicaciones directas para elegir, leer y usar una carpeta de prompts. Sin ejemplos ocultos ni promesas vagas."}</p></header>
     <div class="guide-grid">${cards.map((card) => guideCard({ ...card, locale })).join("")}</div>
-    <section class="editorial-callout"><div><span>${en ? "LISTEN FIRST" : "ESCUCHA PRIMERO"}</span><h2>${en ? "The audio tells you more than an adjective list." : "El audio cuenta más que una lista de adjetivos."}</h2><p>${en ? "Each public preview is tied to one folder. Hear the six before choosing." : "Cada muestra pública pertenece a una carpeta. Escucha las seis antes de elegir."}</p></div><nav><a href="${demosHref}">${en ? "Hear demos" : "Escuchar demos"}</a><a href="${catalogueHref}">${en ? "Open catalogue" : "Abrir catálogo"}</a></nav></section>
+    <section class="editorial-callout"><div><span>${en ? "LISTEN FIRST" : "ESCUCHA PRIMERO"}</span><h2>${en ? "The audio tells you more than an adjective list." : "El audio cuenta más que una lista de adjetivos."}</h2><p>${en ? "Each public preview is tied to one folder. Hear all eight before choosing." : "Cada muestra pública pertenece a una carpeta. Escucha las ocho antes de elegir."}</p></div><nav><a href="${demosHref}">${en ? "Hear demos" : "Escuchar demos"}</a><a href="${catalogueHref}">${en ? "Open catalogue" : "Abrir catálogo"}</a></nav></section>
   </article>`;
 };
 
@@ -810,7 +892,7 @@ const negativeGuideView = (locale) => {
       <section id="use"><h2>When it is useful</h2><ul><li>When vocals appear in an instrumental.</li><li>When one instrument keeps pulling the result away from the chosen genre.</li><li>When the finish becomes too bright, clean or cinematic for the folder.</li><li>When you want to protect a deliberate limit, such as sparse instrumentation.</li></ul><p>A generic schematic example would be <code>vocals, bright pop chords, orchestral strings</code>. It is not a second prompt; it is simply three things to leave out.</p></section>
       <section id="mistakes"><h2>Three mistakes to avoid</h2><ol><li><strong>Stacking every list.</strong> More exclusions do not mean more control. Pick the one that matches the problem.</li><li><strong>Contradicting the main prompt.</strong> Do not request a vocal texture and exclude every kind of voice at the same time.</li><li><strong>Using it by default.</strong> If the first result already stays inside the intended sound, leave the exclusion field empty.</li></ol></section>
       ${relatedPackCard("abyss", "en")}
-      <section class="article-next"><h2>Choose by sound, not by terminology</h2><p>Compare the six folders or open the catalogue. Every product page explains its core sound, what changes across the 30 prompts and the profile of its public preview.</p><nav><a href="${compareHref}">Compare folders</a><a href="${catalogueHref}">Open catalogue</a><a href="${helpHref}">See every delivered file</a></nav></section>
+      <section class="article-next"><h2>Choose by sound, not by terminology</h2><p>Compare the eight folders or open the catalogue. Every product page explains its core sound, what changes across the 30 prompts and the profile of its public preview.</p><nav><a href="${compareHref}">Compare folders</a><a href="${catalogueHref}">Open catalogue</a><a href="${helpHref}">See every delivered file</a></nav></section>
     </div></div>
   </article>`;
   return `<article class="editorial-document article-document">
@@ -823,7 +905,7 @@ const negativeGuideView = (locale) => {
       <section id="use"><h2>Cuándo resulta útil</h2><ul><li>Cuando aparecen voces en una instrumental.</li><li>Cuando un instrumento desvía el resultado del género elegido.</li><li>Cuando el acabado se vuelve demasiado brillante, limpio o cinematográfico para la carpeta.</li><li>Cuando quieres proteger un límite deliberado, como usar pocos elementos.</li></ul><p>Un ejemplo esquemático sería <code>vocals, bright pop chords, orchestral strings</code>. No es un segundo prompt: son únicamente tres elementos que se dejan fuera.</p></section>
       <section id="mistakes"><h2>Tres errores que conviene evitar</h2><ol><li><strong>Apilar todas las listas.</strong> Más exclusiones no significan más control. Elige la que corresponde al problema.</li><li><strong>Contradecir el prompt principal.</strong> No pidas una textura vocal y excluyas a la vez cualquier tipo de voz.</li><li><strong>Usarlo por sistema.</strong> Si el primer resultado ya se mantiene dentro del sonido buscado, deja vacío el campo de exclusión.</li></ol></section>
       ${relatedPackCard("abyss", "es")}
-      <section class="article-next"><h2>Elige por sonido, no por terminología</h2><p>Compara las seis carpetas o abre el catálogo. Cada ficha explica el núcleo sonoro, qué cambia entre los 30 prompts y el perfil de su muestra pública.</p><nav><a href="${compareHref}">Comparar carpetas</a><a href="${catalogueHref}">Abrir catálogo</a><a href="${helpHref}">Ver todos los archivos entregados</a></nav></section>
+      <section class="article-next"><h2>Elige por sonido, no por terminología</h2><p>Compara las ocho carpetas o abre el catálogo. Cada ficha explica el núcleo sonoro, qué cambia entre los 30 prompts y el perfil de su muestra pública.</p><nav><a href="${compareHref}">Comparar carpetas</a><a href="${catalogueHref}">Abrir catálogo</a><a href="${helpHref}">Ver todos los archivos entregados</a></nav></section>
     </div></div>
   </article>`;
 };
@@ -867,7 +949,9 @@ const comparisonProfiles = {
   jungle: { rhythm: "Resampled breaks with different cuts and reinforcement", rhythmEs: "Breaks remuestreados con distintos cortes y refuerzos", bass: "Heavy pulses or sustained low notes", bassEs: "Pulsos pesados o notas graves sostenidas", material: "Archival samples, tape wear and stone-like high end", materialEs: "Muestras de archivo, cinta gastada y agudos minerales" },
   low: { rhythm: "Recognisable rap drums: dry, broken, swung or sparse", rhythmEs: "Batería de rap reconocible: seca, rota, swung o escasa", bass: "Forward sub: hit-by-hit, sustained or distorted", bassEs: "Subgrave frontal: por golpes, sostenido o distorsionado", material: "Samples, drones, instruments, silence and physical texture", materialEs: "Muestras, drones, instrumentos, silencio y textura física" },
   abyss: { rhythm: "Spacious hip-hop pocket with few decisive hits", rhythmEs: "Pocket de hip-hop espacioso con pocos golpes decisivos", bass: "Long sound-system sub notes", bassEs: "Notas largas de subgrave de sound-system", material: "Chord stabs, filtered delay, reverb and negative space", materialEs: "Acordes aislados, delay filtrado, reverb y espacio negativo" },
-  noir: { rhythm: "Dusty boom-bap cuts, dry or soft", rhythmEs: "Cortes boom-bap polvorientos, secos o suaves", bass: "Restrained electric, upright or discreet sub", bassEs: "Bajo eléctrico, contrabajo o subgrave discreto", material: "Piano, guitar, strings, rain, rooms and analogue wear", materialEs: "Piano, guitarra, cuerdas, lluvia, habitaciones y desgaste analógico" }
+  noir: { rhythm: "Dusty boom-bap cuts, dry or soft", rhythmEs: "Cortes boom-bap polvorientos, secos o suaves", bass: "Restrained electric, upright or discreet sub", bassEs: "Bajo eléctrico, contrabajo o subgrave discreto", material: "Piano, guitar, strings, rain, rooms and analogue wear", materialEs: "Piano, guitarra, cuerdas, lluvia, habitaciones y desgaste analógico" },
+  dust: { rhythm: "Straight, laid-back or lightly shuffled country pocket", rhythmEs: "Pocket country recto, arrastrado o con shuffle ligero", bass: "Warm electric or upright bass with clear rests", bassEs: "Bajo eléctrico cálido o upright con silencios claros", material: "Acoustic guitar, Telecaster, pedal steel, fiddle and small rooms", materialEs: "Acústica, Telecaster, pedal steel, fiddle y habitaciones pequeñas" },
+  iron: { rhythm: "Heavy march, doom half-time or controlled double kick", rhythmEs: "Marcha pesada, medio tiempo doom o doble bombo controlado", bass: "Distorted bass reinforcing readable guitar riffs", bassEs: "Bajo distorsionado que refuerza riffs de guitarra legibles", material: "Low strings, restrained brass, choir and band-first space", materialEs: "Cuerdas graves, metales contenidos, coro y espacio centrado en la banda" }
 };
 
 const compareView = (locale) => {
@@ -879,7 +963,7 @@ const compareView = (locale) => {
     const href = localizedPath(`/product/${product.id}/`, locale);
     return `<tr><th scope="row"><a href="${href}"><span class="folder-icon" style="--tone:${product.tone}"></span><span>${escapeHtml(product.name)}<small>${escapeHtml(productValue(product, "category", locale))}</small></span></a></th><td>${escapeHtml(en ? profile.rhythm : profile.rhythmEs)}</td><td>${escapeHtml(en ? profile.bass : profile.bassEs)}</td><td>${escapeHtml(en ? profile.material : profile.materialEs)}</td><td>${escapeHtml(productValue(editorial, "fit", locale))}</td></tr>`;
   }).join("");
-  return `<article class="editorial-document"><header class="editorial-hero"><p>${en ? "INDEX_01 / SIX FOLDERS" : "INDICE_01 / SEIS CARPETAS"}</p><h1>${en ? "Compare the six Suno prompt folders" : "Compara las seis carpetas de prompts para Suno"}</h1><p>${en ? "The catalogue is not six colour variants of the same product. Each folder fixes a different genre core and varies specific parts inside it." : "El catálogo no son seis variantes de color del mismo producto. Cada carpeta fija un género distinto y mueve elementos concretos dentro de él."}</p></header><div class="comparison-scroll"><table class="comparison-table"><thead><tr><th>${en ? "Folder" : "Carpeta"}</th><th>${en ? "Rhythm and drums" : "Ritmo y batería"}</th><th>${en ? "Bass" : "Bajo"}</th><th>${en ? "Sources and space" : "Fuentes y espacio"}</th><th>${en ? "Best fit" : "Encaja si buscas"}</th></tr></thead><tbody>${rows}</tbody></table></div><section class="editorial-callout"><div><span>${en ? "NEXT STEP" : "SIGUIENTE PASO"}</span><h2>${en ? "Read the table, then trust your ears." : "Lee la tabla y después fíate del oído."}</h2><p>${en ? "The public demos let you check the weight, movement and space of every folder before buying." : "Las demos públicas permiten comprobar el peso, el movimiento y el espacio de cada carpeta antes de comprar."}</p></div><nav><a href="${demosHref}">${en ? "Hear all demos" : "Escuchar todas las demos"}</a></nav></section></article>`;
+  return `<article class="editorial-document"><header class="editorial-hero"><p>${en ? "INDEX_01 / EIGHT FOLDERS" : "INDICE_01 / OCHO CARPETAS"}</p><h1>${en ? "Compare the eight Suno prompt folders" : "Compara las ocho carpetas de prompts para Suno"}</h1><p>${en ? "The catalogue is not eight colour variants of the same product. Each folder fixes a different genre core and varies specific parts inside it." : "El catálogo no son ocho variantes de color del mismo producto. Cada carpeta fija un género distinto y mueve elementos concretos dentro de él."}</p></header><div class="comparison-scroll"><table class="comparison-table"><thead><tr><th>${en ? "Folder" : "Carpeta"}</th><th>${en ? "Rhythm and drums" : "Ritmo y batería"}</th><th>${en ? "Bass" : "Bajo"}</th><th>${en ? "Sources and space" : "Fuentes y espacio"}</th><th>${en ? "Best fit" : "Encaja si buscas"}</th></tr></thead><tbody>${rows}</tbody></table></div><section class="editorial-callout"><div><span>${en ? "NEXT STEP" : "SIGUIENTE PASO"}</span><h2>${en ? "Read the table, then trust your ears." : "Lee la tabla y después fíate del oído."}</h2><p>${en ? "The public demos let you check the weight, movement and space of every folder before buying." : "Las demos públicas permiten comprobar el peso, el movimiento y el espacio de cada carpeta antes de comprar."}</p></div><nav><a href="${demosHref}">${en ? "Hear all demos" : "Escuchar todas las demos"}</a></nav></section></article>`;
 };
 
 const methodView = (locale) => {
@@ -887,8 +971,8 @@ const methodView = (locale) => {
   const catalogueHref = localizedPath("/", locale);
   const helpHref = localizedPath("/help/", locale);
   const negativeHref = localizedPath("/guides/negative-prompts/", locale);
-  if (en) return `<article class="editorial-document article-document"><header class="editorial-hero"><p>METHOD_01 / SUBSUELO FS</p><h1>How our Suno prompt folders are built and tested</h1><p>The number is not the organising idea. The genre boundary is. Each folder begins with one sound that can be described clearly, tested and varied without turning into a different product.</p></header><div class="article-copy article-copy--wide"><section><h2>1. Fix the core sound</h2><p>Rhythm family, low-end behaviour, source material and spatial character define the centre of a collection. Trap Ritual keeps trap drums and a dominant 808; Garaje Oscuro keeps human 2-step swing; Fossil Jungle keeps resampled breaks and heavy sub-bass. The same rule applies to the other three folders.</p></section><section><h2>2. Choose the variation axes</h2><p>The 30 prompts do not repeat one template with synonyms. They move concrete controls: drum pocket, bass movement, sample family, motif, silence, width, dirt or room. The relevant axes change from genre to genre.</p></section><section><h2>3. Write complete directions</h2><p>Each entry stands on its own. Buyers choose one complete prompt; they are not asked to combine fragments, codes or numbered modules. The title identifies the entry, but the working text remains self-contained.</p></section><section><h2>4. Keep exclusions separate</h2><p>The 10 negative prompts live in their own PDF because they are optional. Each one addresses a specific boundary, such as unwanted vocals or an unsuitable finish. They do not replace the main direction.</p></section><section><h2>5. Explain the files in two languages</h2><p>The ES and EN folders contain equivalent documentation in their own language. The prompts themselves remain in English in both. The quick guide explains where each text goes, how to work with or without vocals and what the relevant controls do.</p></section><section><h2>6. Test the collection in Suno</h2><p>The six current folders were checked in Suno on 15 July 2026. Their 24 audio references were generated from prompts in the corresponding folders without third-party audio or uploaded source material. Every product exposes prompt 001 and a 30-second excerpt from its matching result, so the connection between instruction and sound can be checked before checkout.</p><p>Audio generation is variable: the same prompt may return different arrangements or mixes. The references demonstrate a tested direction, not a guaranteed identical output.</p></section><section><h2>Compatibility and independence</h2><p>Prompts are delivered in English, ready to paste into Styles; optional negative prompts go in Suno's Exclude field. SUBSUELO FS is independent and is not affiliated with Suno.</p></section><section><h2>Who operates the store</h2><p>SUBSUELO FS is operated by NOMBRE DIRECCION, S.L.U. Product contents, prices, purchase terms and contact details are available before payment. This method page describes the organisation and testing of the catalogue; it does not promise a particular musical result.</p></section><section class="article-next"><h2>Open the files that matter</h2><nav><a href="${catalogueHref}">Catalogue</a><a href="${helpHref}">Delivered files</a><a href="${negativeHref}">Negative prompt guide</a></nav></section></div></article>`;
-  return `<article class="editorial-document article-document"><header class="editorial-hero"><p>METODO_01 / SUBSUELO FS</p><h1>Cómo creamos y probamos nuestras carpetas de prompts para Suno</h1><p>El número no organiza la carpeta. La organiza el límite del género. Cada colección parte de un sonido que se puede describir con claridad, probar y variar sin convertirlo en otro producto.</p></header><div class="article-copy article-copy--wide"><section><h2>1. Fijar el núcleo sonoro</h2><p>La familia rítmica, el comportamiento de los graves, el material de origen y el carácter del espacio definen el centro de una colección. Trap Ritual conserva batería de trap y 808 dominante; Garaje Oscuro mantiene swing humano 2-step; Fossil Jungle conserva breaks remuestreados y subgrave pesado. La misma regla se aplica a las otras tres carpetas.</p></section><section><h2>2. Elegir los ejes de variación</h2><p>Los 30 prompts no repiten una plantilla cambiando sinónimos. Mueven controles concretos: pocket de batería, movimiento del bajo, familia de muestras, motivo, silencio, anchura, suciedad o habitación. Los ejes útiles cambian según el género.</p></section><section><h2>3. Escribir direcciones completas</h2><p>Cada entrada funciona por sí sola. El comprador elige un prompt completo; no tiene que combinar fragmentos, códigos ni módulos numerados. El título identifica la entrada, pero el texto de trabajo es autosuficiente.</p></section><section><h2>4. Mantener las exclusiones aparte</h2><p>Los 10 negative prompts viven en su propio PDF porque son opcionales. Cada uno responde a un límite concreto, como voces no deseadas o un acabado que no encaja. No sustituyen la dirección principal.</p></section><section><h2>5. Explicar los archivos en dos idiomas</h2><p>Las carpetas ES y EN contienen la misma documentación en su idioma. Los prompts permanecen en inglés en las dos. La guía rápida explica dónde va cada texto, cómo trabajar con o sin voces y qué hacen los controles relevantes.</p></section><section><h2>6. Probar la colección en Suno</h2><p>Las seis carpetas actuales se comprobaron en Suno el 15 de julio de 2026. Sus 24 referencias de audio se generaron con prompts de las carpetas correspondientes, sin audio de terceros ni material fuente subido. Cada ficha muestra el prompt 001 y 30 segundos de su resultado asociado, para que se pueda comprobar la relación entre instrucción y sonido antes de pagar.</p><p>La generación de audio es variable: un mismo prompt puede devolver arreglos o mezclas distintos. Las referencias demuestran una dirección probada, no garantizan una salida idéntica.</p></section><section><h2>Compatibilidad e independencia</h2><p>Los prompts se entregan en inglés, listos para copiar en Styles; los negative prompts opcionales se usan en Exclude de Suno. SUBSUELO FS es independiente y no está afiliado a Suno.</p></section><section><h2>Quién opera la tienda</h2><p>SUBSUELO FS está operada por NOMBRE DIRECCION, S.L.U. El contenido de los productos, los precios, las condiciones de compra y los datos de contacto están disponibles antes del pago. Esta página describe la organización y las pruebas del catálogo; no promete un resultado musical concreto.</p></section><section class="article-next"><h2>Abre los archivos que importan</h2><nav><a href="${catalogueHref}">Catálogo</a><a href="${helpHref}">Archivos entregados</a><a href="${negativeHref}">Guía de negative prompts</a></nav></section></div></article>`;
+  if (en) return `<article class="editorial-document article-document"><header class="editorial-hero"><p>METHOD_01 / SUBSUELO FS</p><h1>How our Suno prompt folders are built and tested</h1><p>The number is not the organising idea. The genre boundary is. Each folder begins with one sound that can be described clearly, tested and varied without turning into a different product.</p></header><div class="article-copy article-copy--wide"><section><h2>1. Fix the core sound</h2><p>Rhythm family, low-end behaviour, source material and spatial character define the centre of a collection. Trap Ritual keeps trap drums and a dominant 808; Garaje Oscuro keeps human 2-step swing; Fossil Jungle keeps resampled breaks and heavy sub-bass. The same rule applies to the other five folders.</p></section><section><h2>2. Choose the variation axes</h2><p>The 30 prompts do not repeat one template with synonyms. They move concrete controls: drum pocket, bass movement, sample family, motif, silence, width, dirt or room. The relevant axes change from genre to genre.</p></section><section><h2>3. Write complete directions</h2><p>Each entry stands on its own. Buyers choose one complete prompt; they are not asked to combine fragments, codes or numbered modules. The title identifies the entry, but the working text remains self-contained.</p></section><section><h2>4. Keep exclusions separate</h2><p>The 10 negative prompts live in their own PDF because they are optional. Each one addresses a specific boundary, such as unwanted vocals or an unsuitable finish. They do not replace the main direction.</p></section><section><h2>5. Explain the files in two languages</h2><p>The ES and EN folders contain equivalent documentation in their own language. The prompts themselves remain in English in both. The quick guide explains where each text goes, how to work with or without vocals and what the relevant controls do.</p></section><section><h2>6. Test the collection in Suno</h2><p>The six original folders were checked in Suno on 15 July 2026; Dust Country and Iron Choir were checked on 29 July 2026. Their 32 audio references were generated from prompts in the corresponding folders without third-party audio or uploaded source material. Every product exposes prompt 001 and a 30-second excerpt from its matching result, so the connection between instruction and sound can be checked before checkout.</p><p>Audio generation is variable: the same prompt may return different arrangements or mixes. The references demonstrate a tested direction, not a guaranteed identical output.</p></section><section><h2>Compatibility and independence</h2><p>Prompts are delivered in English, ready to paste into Styles; optional negative prompts go in Suno's Exclude field. SUBSUELO FS is independent and is not affiliated with Suno.</p></section><section><h2>Who operates the store</h2><p>SUBSUELO FS is operated by NOMBRE DIRECCION, S.L.U. Product contents, prices, purchase terms and contact details are available before payment. This method page describes the organisation and testing of the catalogue; it does not promise a particular musical result.</p></section><section class="article-next"><h2>Open the files that matter</h2><nav><a href="${catalogueHref}">Catalogue</a><a href="${helpHref}">Delivered files</a><a href="${negativeHref}">Negative prompt guide</a></nav></section></div></article>`;
+  return `<article class="editorial-document article-document"><header class="editorial-hero"><p>METODO_01 / SUBSUELO FS</p><h1>Cómo creamos y probamos nuestras carpetas de prompts para Suno</h1><p>El número no organiza la carpeta. La organiza el límite del género. Cada colección parte de un sonido que se puede describir con claridad, probar y variar sin convertirlo en otro producto.</p></header><div class="article-copy article-copy--wide"><section><h2>1. Fijar el núcleo sonoro</h2><p>La familia rítmica, el comportamiento de los graves, el material de origen y el carácter del espacio definen el centro de una colección. Trap Ritual conserva batería de trap y 808 dominante; Garaje Oscuro mantiene swing humano 2-step; Fossil Jungle conserva breaks remuestreados y subgrave pesado. La misma regla se aplica a las otras cinco carpetas.</p></section><section><h2>2. Elegir los ejes de variación</h2><p>Los 30 prompts no repiten una plantilla cambiando sinónimos. Mueven controles concretos: pocket de batería, movimiento del bajo, familia de muestras, motivo, silencio, anchura, suciedad o habitación. Los ejes útiles cambian según el género.</p></section><section><h2>3. Escribir direcciones completas</h2><p>Cada entrada funciona por sí sola. El comprador elige un prompt completo; no tiene que combinar fragmentos, códigos ni módulos numerados. El título identifica la entrada, pero el texto de trabajo es autosuficiente.</p></section><section><h2>4. Mantener las exclusiones aparte</h2><p>Los 10 negative prompts viven en su propio PDF porque son opcionales. Cada uno responde a un límite concreto, como voces no deseadas o un acabado que no encaja. No sustituyen la dirección principal.</p></section><section><h2>5. Explicar los archivos en dos idiomas</h2><p>Las carpetas ES y EN contienen la misma documentación en su idioma. Los prompts permanecen en inglés en las dos. La guía rápida explica dónde va cada texto, cómo trabajar con o sin voces y qué hacen los controles relevantes.</p></section><section><h2>6. Probar la colección en Suno</h2><p>Las seis carpetas originales se comprobaron en Suno el 15 de julio de 2026; Dust Country e Iron Choir se comprobaron el 29 de julio de 2026. Sus 32 referencias de audio se generaron con prompts de las carpetas correspondientes, sin audio de terceros ni material fuente subido. Cada ficha muestra el prompt 001 y 30 segundos de su resultado asociado, para que se pueda comprobar la relación entre instrucción y sonido antes de pagar.</p><p>La generación de audio es variable: un mismo prompt puede devolver arreglos o mezclas distintos. Las referencias demuestran una dirección probada, no garantizan una salida idéntica.</p></section><section><h2>Compatibilidad e independencia</h2><p>Los prompts se entregan en inglés, listos para copiar en Styles; los negative prompts opcionales se usan en Exclude de Suno. SUBSUELO FS es independiente y no está afiliado a Suno.</p></section><section><h2>Quién opera la tienda</h2><p>SUBSUELO FS está operada por NOMBRE DIRECCION, S.L.U. El contenido de los productos, los precios, las condiciones de compra y los datos de contacto están disponibles antes del pago. Esta página describe la organización y las pruebas del catálogo; no promete un resultado musical concreto.</p></section><section class="article-next"><h2>Abre los archivos que importan</h2><nav><a href="${catalogueHref}">Catálogo</a><a href="${helpHref}">Archivos entregados</a><a href="${negativeHref}">Guía de negative prompts</a></nav></section></div></article>`;
 };
 
 const appExpression = (declaration, nextDeclaration, context = Object.create(null)) => {
@@ -947,16 +1031,16 @@ const pagesForLocale = (locale) => {
   return [
     page("/", "index.html", {
       heading: en ? "Suno prompts. One genre, 30 ways in." : "Prompts para Suno. Un género por carpeta.",
-      title: en ? "Suno prompts for dark trap and hip-hop | SUBSUELO FS" : "Prompts para Suno de trap y hip-hop | SUBSUELO FS",
-      description: en ? "Six tested Suno prompt packs for dark instrumentals: trap, UK garage, jungle, abstract hip-hop, dub and noir. €9 each or €49 complete." : "Seis packs de prompts probados en Suno: trap, UK garage, jungle, hip-hop abstracto, dub y noir. 9 € cada uno o 49 € completos.",
+      title: en ? "Suno prompts for country, metal, trap and hip-hop | SUBSUELO FS" : "Prompts para Suno de country, metal, trap y hip-hop | SUBSUELO FS",
+      description: en ? "Eight tested Suno prompt packs: country, symphonic metal, trap, UK garage, jungle, hip-hop, dub and noir. €9 per pack." : "Ocho packs de prompts probados en Suno: country, metal sinfónico, trap, UK garage, jungle, hip-hop, dub y noir. Cada pack cuesta 9 €.",
       type: "website",
       home: true,
       view: homeView(locale)
     }),
     page("/demos/", "demos/index.html", {
-      heading: en ? "Hear six Suno prompt results before you choose." : "Escucha seis resultados de prompts para Suno.",
-      title: en ? "Suno prompt demos: six dark genres | SUBSUELO FS" : "Demos de prompts para Suno por género | SUBSUELO FS",
-      description: en ? "Hear six tested Suno prompt results: ritual trap, dark UK garage, degraded jungle, abstract hip-hop, dub and noir." : "Escucha seis resultados de prompts probados en Suno: trap ritual, UK garage oscuro, jungle degradado, hip-hop abstracto, dub y noir.",
+      heading: en ? "Hear eight Suno prompt results before you choose." : "Escucha ocho resultados de prompts para Suno.",
+      title: en ? "Suno prompt demos: eight genres | SUBSUELO FS" : "Demos de prompts para Suno por género | SUBSUELO FS",
+      description: en ? "Hear eight tested Suno prompt results: trap, UK garage, jungle, hip-hop, dub, noir, country and symphonic metal." : "Escucha ocho resultados probados en Suno: trap, UK garage, jungle, hip-hop, dub, noir, country y metal sinfónico.",
       type: "website",
       view: demosView(locale)
     }),
@@ -1077,7 +1161,7 @@ const pagesForLocale = (locale) => {
       datePublished: "2026-07-16",
       standalone: true,
       breadcrumbs: [{ name: en ? "Production guides" : "Guías de producción", path: "/guides/" }, { name: en ? "Negative prompts" : "Negative prompts", path: "/guides/negative-prompts/" }],
-      socialImage: `${siteUrl}/media/guides/negative-prompts-${locale}.png?v=20260725`,
+      socialImage: `${siteUrl}/media/guides/negative-prompts-${locale}.png?v=20260729`,
       socialAlt: en ? "What is a negative prompt in music?" : "Qué es un negative prompt en música",
       view: negativeGuideView(locale)
     }),
@@ -1090,7 +1174,7 @@ const pagesForLocale = (locale) => {
       datePublished: "2026-07-16",
       standalone: true,
       breadcrumbs: [{ name: en ? "Production guides" : "Guías de producción", path: "/guides/" }, { name: en ? "Writing music prompts" : "Escribir prompts musicales", path: "/guides/write-music-prompts/" }],
-      socialImage: `${siteUrl}/media/guides/write-music-prompts-${locale}.png?v=20260725`,
+      socialImage: `${siteUrl}/media/guides/write-music-prompts-${locale}.png?v=20260729`,
       socialAlt: en ? "How to write music prompts" : "Cómo escribir prompts para crear música",
       view: writingGuideView(locale)
     }),
@@ -1105,15 +1189,15 @@ const pagesForLocale = (locale) => {
         datePublished: "2026-07-25",
         standalone: true,
         breadcrumbs: [{ name: en ? "Production guides" : "Guías de producción", path: "/guides/" }, { name: copy.navTitle, path: `/guides/${guide.slug}/` }],
-        socialImage: `${siteUrl}/media/guides/${guide.slug}-${locale}.png?v=20260725`,
+      socialImage: `${siteUrl}/media/guides/${guide.slug}-${locale}.png?v=20260729`,
         socialAlt: copy.title,
         view: guideArticleView(guide, locale)
       });
     }),
     page("/compare/", "compare/index.html", {
-      heading: en ? "Compare the six Suno prompt folders" : "Compara las seis carpetas de prompts para Suno",
+      heading: en ? "Compare the eight Suno prompt folders" : "Compara las ocho carpetas de prompts para Suno",
       title: en ? "Compare Suno prompt packs by sound | SUBSUELO FS" : "Compara packs de prompts para Suno | SUBSUELO FS",
-      description: en ? "Compare Suno prompt packs for ritual trap, dark UK garage, jungle, abstract hip-hop, dub and noir by drums, bass, sources and use." : "Compara packs para Suno de trap ritual, UK garage oscuro, jungle, hip-hop abstracto, dub y noir por batería, bajo, fuentes y uso.",
+      description: en ? "Compare Suno prompt packs for trap, UK garage, jungle, hip-hop, dub, noir, modern country and symphonic metal by drums, bass, sources and use." : "Compara packs para Suno de trap, UK garage, jungle, hip-hop, dub, noir, country moderno y metal sinfónico por batería, bajo, fuentes y uso.",
       type: "website",
       standalone: true,
       view: compareView(locale)
@@ -1121,7 +1205,7 @@ const pagesForLocale = (locale) => {
     page("/method/", "method/index.html", {
       heading: en ? "How our Suno prompt folders are built and tested" : "Cómo creamos y probamos nuestras carpetas de prompts para Suno",
       title: en ? "How our Suno prompts are tested | SUBSUELO FS" : "Cómo probamos nuestros prompts para Suno | SUBSUELO FS",
-      description: en ? "Our Suno testing method: one genre core, controlled variation axes and 24 audio references generated from the six current prompt folders." : "Nuestro método de prueba en Suno: un núcleo por género, variaciones controladas y 24 referencias generadas con las seis carpetas actuales.",
+      description: en ? "Our Suno testing method: one genre core, controlled variation axes and 32 audio references generated from the eight current prompt folders." : "Nuestro método de prueba en Suno: un núcleo por género, variaciones controladas y 32 referencias generadas con las ocho carpetas actuales.",
       type: "website",
       standalone: true,
       view: methodView(locale)
@@ -1284,7 +1368,7 @@ const runtimeSamplerProofs = vm.runInNewContext(`(${appSource.slice(samplerStart
 for (const product of products) {
   const runtimeProof = runtimeSamplerProofs[product.id];
   if (!runtimeProof || runtimeProof.title !== product.proof.title || runtimeProof.prompt !== product.proof.prompt) {
-    throw new Error(`La prueba dinámica de ${product.id} no coincide con source/free_sampler/content.json`);
+    throw new Error(`La prueba dinámica de ${product.id} no coincide con su fuente pública`);
   }
 }
 const copyValue = (locale, key) => key.split(".").reduce((value, part) => value?.[part], uiCopy[locale]);
@@ -1448,7 +1532,7 @@ Method: https://subsuelofs.com/method/
 Spanish legal information: https://subsuelofs.com/legal/
 English legal information: https://subsuelofs.com/en/legal/
 
-Testing method: the six current folders were checked in Suno on 15 July 2026. Their 24 audio references were generated from prompts in the corresponding folders without third-party audio or uploaded source material.
+Testing method: the six original folders were checked in Suno on 15 July 2026; Dust Country and Iron Choir were checked on 29 July 2026. Their 32 audio references were generated from prompts in the corresponding folders without third-party audio or uploaded source material.
 
 ## Guides
 
@@ -1471,6 +1555,8 @@ ${guideArticles.map((guide) => `- ${guide.en.navTitle}: https://subsuelofs.com/g
 - Low Pressure: https://subsuelofs.com/product/low/
 - Abyss Dub: https://subsuelofs.com/product/abyss/
 - Noir Tapes: https://subsuelofs.com/product/noir/
+- Dust Country: https://subsuelofs.com/product/dust/
+- Iron Choir: https://subsuelofs.com/product/iron/
 - Complete pack: https://subsuelofs.com/bundle/
 
 ## Public content boundaries

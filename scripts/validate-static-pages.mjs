@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://subsuelofs.com";
 const contentModified = "2026-07-29";
-const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir"];
+const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir", "dust", "iron"];
 const legalIds = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
 const legalModified = Object.freeze({
   notice: "2026-07-16",
@@ -49,6 +49,8 @@ const basePages = [
   { basePath: "/guides/make-noir-hip-hop/", output: "guides/make-noir-hip-hop/index.html", schemaType: "Article" },
   { basePath: "/guides/make-abstract-hip-hop/", output: "guides/make-abstract-hip-hop/index.html", schemaType: "Article" },
   { basePath: "/guides/make-dub-hip-hop/", output: "guides/make-dub-hip-hop/index.html", schemaType: "Article" },
+  { basePath: "/guides/suno-country-prompts/", output: "guides/suno-country-prompts/index.html", schemaType: "Article" },
+  { basePath: "/guides/suno-metal-prompts/", output: "guides/suno-metal-prompts/index.html", schemaType: "Article" },
   { basePath: "/compare/", output: "compare/index.html", schemaType: "WebPage" },
   { basePath: "/method/", output: "method/index.html", schemaType: "WebPage" },
   ...productIds.map((id) => ({ basePath: `/product/${id}/`, output: `product/${id}/index.html`, schemaType: "Product" }))
@@ -87,6 +89,15 @@ for (const selection of samplerManifest.collections || []) {
   const source = JSON.parse(await readFile(path.resolve(root, "..", selection.source), "utf8"));
   const proof = (source.prompts || []).find((prompt) => prompt.id === selection.prompt_id);
   if (!productId || !proof || selection.prompt_id !== "001") throw new Error(`Sampler inválido para ${selection.source}`);
+  samplerProofs[productId] = proof;
+}
+for (const [productId, sourcePath] of Object.entries({
+  dust: "source/dust_country/content.json",
+  iron: "source/iron_choir/content.json"
+})) {
+  const source = JSON.parse(await readFile(path.resolve(root, "..", sourcePath), "utf8"));
+  const proof = (source.prompts || []).find((prompt) => prompt.id === "001");
+  if (!proof) throw new Error(`Falta prompt público para ${productId}`);
   samplerProofs[productId] = proof;
 }
 
@@ -143,7 +154,7 @@ for (const page of pages) {
     }
     if (!bundle) {
       const productId = page.basePath.match(/^\/product\/([^/]+)\//u)?.[1];
-      const productCard = `${siteUrl}/media/${productId}/social-card.png?v=20260725`;
+      const productCard = `${siteUrl}/media/${productId}/social-card.png?v=20260729`;
       if (metaContent(html, "property", "og:image") !== productCard) throw new Error(`${page.output}: og:image sin tarjeta propia del producto`);
       if (metaContent(html, "name", "twitter:image") !== productCard) throw new Error(`${page.output}: twitter:image sin tarjeta propia del producto`);
       await access(path.join(root, `media/${productId}/social-card.png`));
@@ -161,13 +172,15 @@ for (const page of pages) {
       const compatibility = mainEntity.additionalProperty?.find((property) => property.name === (page.locale === "en" ? "Compatibility" : "Compatibilidad"));
       if (compatibility?.value !== "Suno") throw new Error(`${page.output}: falta compatibilidad Suno en Product`);
       const bundleHref = page.locale === "en" ? "/en/bundle/" : "/bundle/";
-      if (!html.includes('class="bundle-upsell"') || !html.includes(`class="bundle-upsell__action" href="${bundleHref}"`) || !html.includes(page.locale === "en" ? "save €5" : "ahorras 5 €")) throw new Error(`${page.output}: falta la venta cruzada del pack completo`);
+      const isBundleMember = ["trap", "garage", "jungle", "low", "abyss", "noir"].includes(productId);
+      if (isBundleMember && (!html.includes('class="bundle-upsell"') || !html.includes(`class="bundle-upsell__action" href="${bundleHref}"`) || !html.includes(page.locale === "en" ? "save €5" : "ahorras 5 €"))) throw new Error(`${page.output}: falta la venta cruzada del pack completo`);
+      if (!isBundleMember && html.includes('class="bundle-upsell"')) throw new Error(`${page.output}: ofrece un bundle que no contiene este producto`);
     }
   }
 
   const guideSlug = page.basePath.match(/^\/guides\/([a-z0-9-]+)\/$/u)?.[1];
   if (guideSlug) {
-    const guideCard = `${siteUrl}/media/guides/${guideSlug}-${page.locale}.png?v=20260725`;
+    const guideCard = `${siteUrl}/media/guides/${guideSlug}-${page.locale}.png?v=20260729`;
     if (metaContent(html, "property", "og:image") !== guideCard) throw new Error(`${page.output}: og:image sin tarjeta propia de la guía`);
     await access(path.join(root, `media/guides/${guideSlug}-${page.locale}.png`));
     if (!html.includes('class="guide-pack"') || !html.includes('class="guide-pack__action"')) throw new Error(`${page.output}: falta la tarjeta de pack relacionado`);
@@ -176,7 +189,7 @@ for (const page of pages) {
   if (page.basePath === "/guides/negative-prompts/" || page.basePath === "/guides/write-music-prompts/") {
     if (!html.includes('class="article-byline"') || !html.includes("Suno")) throw new Error(`${page.output}: falta autoría o enfoque Suno`);
   }
-  if (page.basePath === "/method/" && (!html.includes("24 audio references") && !html.includes("24 referencias de audio"))) throw new Error(`${page.output}: falta método de prueba de las 24 referencias`);
+  if (page.basePath === "/method/" && (!html.includes("32 audio references") && !html.includes("32 referencias de audio"))) throw new Error(`${page.output}: falta método de prueba de las 32 referencias`);
   if (page.basePath === "/bundle/" && !html.includes(page.locale === "en" ? "€0.27 per prompt" : "0,27 € por prompt")) throw new Error(`${page.output}: falta el precio por prompt del bundle`);
   if (page.basePath.startsWith("/lab/")) {
     if (!html.includes("/lab.js?v=")) throw new Error(`${page.output}: falta lab.js`);

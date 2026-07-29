@@ -67,6 +67,10 @@ media/guides/fix-generic-ai-music-es.png
 media/guides/fix-generic-ai-music-en.png
 media/guides/space-texture-es.png
 media/guides/space-texture-en.png
+media/guides/suno-country-prompts-es.png
+media/guides/suno-country-prompts-en.png
+media/guides/suno-metal-prompts-es.png
+media/guides/suno-metal-prompts-en.png
 scripts/validate-static-pages.mjs
 sitemap.xml
 social-card.png

@@ -11,7 +11,7 @@ Method: https://subsuelofs.com/method/
 Spanish legal information: https://subsuelofs.com/legal/
 English legal information: https://subsuelofs.com/en/legal/
 
-Testing method: the six current folders were checked in Suno on 15 July 2026. Their 24 audio references were generated from prompts in the corresponding folders without third-party audio or uploaded source material.
+Testing method: the six original folders were checked in Suno on 15 July 2026; Dust Country and Iron Choir were checked on 29 July 2026. Their 32 audio references were generated from prompts in the corresponding folders without third-party audio or uploaded source material.
 
 ## Guides
 
@@ -27,6 +27,8 @@ Testing method: the six current folders were checked in Suno on 15 July 2026. Th
 - Make noir hip-hop: https://subsuelofs.com/guides/make-noir-hip-hop/
 - Make abstract hip-hop: https://subsuelofs.com/guides/make-abstract-hip-hop/
 - Make dub hip-hop: https://subsuelofs.com/guides/make-dub-hip-hop/
+- Suno country prompts: https://subsuelofs.com/guides/suno-country-prompts/
+- Suno metal prompts: https://subsuelofs.com/guides/suno-metal-prompts/
 
 ## Free tools
 
@@ -43,6 +45,8 @@ Testing method: the six current folders were checked in Suno on 15 July 2026. Th
 - Low Pressure: https://subsuelofs.com/product/low/
 - Abyss Dub: https://subsuelofs.com/product/abyss/
 - Noir Tapes: https://subsuelofs.com/product/noir/
+- Dust Country: https://subsuelofs.com/product/dust/
+- Iron Choir: https://subsuelofs.com/product/iron/
 - Complete pack: https://subsuelofs.com/bundle/
 
 ## Public content boundaries
