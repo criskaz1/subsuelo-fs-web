@@ -125,6 +125,8 @@ for (const page of pages) {
     const merchant = graphEntries(jsonLd).find((entry) => entry["@type"] === "OnlineStore" && entry["@id"] === `${siteUrl}/#store`);
     if (merchant?.hasMerchantReturnPolicy?.merchantReturnLink !== `${siteUrl}/legal/refund/`) throw new Error(`${page.output}: falta la política de devoluciones del comercio`);
     if (offers.seller?.["@id"] !== `${siteUrl}/#store`) throw new Error(`${page.output}: la oferta no enlaza con el comercio`);
+    if (offers.hasMerchantReturnPolicy?.applicableCountry !== "ES" || offers.hasMerchantReturnPolicy?.returnPolicyCategory !== "https://schema.org/MerchantReturnNotPermitted") throw new Error(`${page.output}: falta la política de devolución del contenido digital`);
+    if (offers.hasMerchantReturnPolicy?.merchantReturnLink !== `${siteUrl}/legal/refund/`) throw new Error(`${page.output}: la oferta no enlaza la política legal completa`);
     if (offers.shippingDetails?.shippingRate?.value !== "0" || offers.shippingDetails?.shippingRate?.currency !== "EUR") throw new Error(`${page.output}: falta entrega digital sin gastos de envío`);
     if (offers.shippingDetails?.shippingDestination?.addressCountry !== "ES") throw new Error(`${page.output}: destino de entrega comercial incorrecto`);
     if (offers.shippingDetails?.deliveryTime?.handlingTime?.maxValue !== 0 || offers.shippingDetails?.deliveryTime?.transitTime?.maxValue !== 0) throw new Error(`${page.output}: la entrega digital no figura como inmediata`);
