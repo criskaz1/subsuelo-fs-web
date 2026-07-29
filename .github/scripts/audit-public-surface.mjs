@@ -126,7 +126,7 @@ for (const product of products) {
   }
 }
 
-const editorialRoute = /^(?:en\/)?(?:bundle|compare|demos|guides|help|lab|method)(?:\/[a-z0-9-]+)*\/index\.html$/u;
+const editorialRoute = /^(?:en\/)?(?:bundle|compare|demos|electronica|guitarras|guides|help|hip-hop|lab|method)(?:\/[a-z0-9-]+)*\/index\.html$/u;
 const isAllowedFile = (file) => staticAllowedFiles.has(file)
   || productRoutes.has(file)
   || legalRoutes.has(file)

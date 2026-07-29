@@ -163,10 +163,10 @@
     <!-- STATIC-SEO:END -->
     <base href="/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles-v5.css?v=40" />
+    <link rel="stylesheet" href="./styles-v5.css?v=41" />
     <script src="./analytics-runtime.js?v=2" defer></script>
     <script src="./analytics-loader.js?v=1" defer></script>
-    <script src="./app-v5.js?v=45" defer></script>
+    <script src="./app-v5.js?v=46" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Saltar a los archivos</a>
@@ -232,7 +232,7 @@
                 </div>
                 <div class="product-banner__buy">
                   <div class="product-banner__price"><strong>9 €</strong><span class="price-per-prompt">0,30 € por prompt</span></div>
-                  <div class="product-banner__actions"><button type="button" data-play="jungle">Escuchar 30 s</button><button class="primary-action" type="button" data-buy="jungle">Comprar ahora · 9 €</button></div>
+                  <div class="product-banner__actions"><button type="button" data-play="jungle" data-play-placement="product_banner">Escuchar 30 s</button><button class="primary-action" type="button" data-buy="jungle" data-buy-placement="product_banner">Comprar ahora · 9 €</button></div>
                   <a class="product-banner__sampler" href="https://payhip.com/b/LJp1T?utm_source=subsuelofs&amp;utm_medium=website&amp;utm_campaign=free_sampler" target="_blank" rel="noopener noreferrer" data-sampler-download="product">Probar muestra gratis · 0 € ↗</a>
                 </div>
               </section>
@@ -247,10 +247,10 @@
                   <aside class="prompt-proof__test">
                     <h3>PRUEBA EN 3 PASOS</h3>
                     <ol><li>Abre Create, activa Custom e Instrumental.</li><li>Pega el bloque completo en Styles.</li><li>Deja Exclude vacío y genera dos versiones.</li></ol>
-                    <button class="prompt-proof__demo" type="button" data-play="jungle" data-play-context="proof">ESCUCHAR EL RESULTADO · 30 S</button>
+                    <button class="prompt-proof__demo" type="button" data-play="jungle" data-play-context="proof" data-play-placement="prompt_proof">ESCUCHAR EL RESULTADO · 30 S</button>
                     <p>Si esta dirección te sirve, el pack abre otras 29 variaciones y añade 10 negative prompts, guías ES/EN y 4 referencias MP3.</p>
                     <small class="prompt-proof__assurance">Pago único · descarga inmediata · licencia personal/comercial para los prompts · MP3 solo como referencia</small>
-                    <button class="primary-action prompt-proof__buy" type="button" data-buy="jungle">CONSEGUIR LOS OTROS 29 · 9 €</button>
+                    <button class="primary-action prompt-proof__buy" type="button" data-buy="jungle" data-buy-placement="prompt_proof">CONSEGUIR LOS OTROS 29 · 9 €</button>
                     <a href="https://payhip.com/b/LJp1T?utm_source=subsuelofs&amp;utm_medium=website&amp;utm_campaign=free_sampler" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">Prefiero probar las seis carpetas gratis ↗</a>
                   </aside>
                 </div>
@@ -279,7 +279,7 @@
               <aside class="bundle-upsell"><div><strong>¿Te interesan varios géneros?</strong><span>Pack completo: las 6 carpetas originales por 49 € · ahorras 5 €</span></div><a class="bundle-upsell__action" href="/bundle/" data-route="/bundle/">Ver pack completo · 49 €</a></aside>
               <div class="purchase-strip">
                 <div><strong>Fossil Jungle · 9 €</strong><span>Pago único · descarga inmediata</span></div>
-                <div class="purchase-strip__actions"><button type="button" data-play="jungle">Escuchar 30 s</button><button class="primary-action" type="button" data-add="jungle">Añadir al carrito</button></div>
+                <div class="purchase-strip__actions"><button type="button" data-play="jungle" data-play-placement="purchase_strip">Escuchar 30 s</button><button class="primary-action" type="button" data-add="jungle" data-add-placement="purchase_strip">Añadir al carrito</button></div>
               </div>
               <!-- STATIC-CONTENT:END -->
             </div>
@@ -345,6 +345,26 @@
         <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">El correo que indiques se usa para enviarte el recibo y la descarga. No necesitas crear una cuenta. El consentimiento para recibir novedades es opcional y se solicita por separado. Todavía no se realizará ningún cobro.</p>
         <button class="checkout-back" type="button" data-back-to-cart data-i18n="checkout.back">Volver al carrito</button>
       </form>
+    </dialog>
+
+    <dialog class="demo-offer-window" data-demo-offer aria-labelledby="demo-offer-title">
+      <header class="utility-titlebar"><strong data-i18n="demoOffer.titlebar">HAS ESCUCHADO LA MUESTRA</strong><button type="button" data-demo-offer-close aria-label="Cerrar esta oferta" data-i18n-aria-label="demoOffer.close"><span class="dock-close-glyph" aria-hidden="true"></span></button></header>
+      <div class="demo-offer-window__body">
+        <span class="folder-icon" data-demo-offer-icon aria-hidden="true"></span>
+        <div class="demo-offer-window__copy">
+          <p data-i18n="demoOffer.kicker">30 SEGUNDOS / DECISIÓN RÁPIDA</p>
+          <h2 id="demo-offer-title" data-i18n="demoOffer.title">Si este sonido te encaja, aquí está el pack.</h2>
+          <strong data-demo-offer-product></strong>
+          <p data-demo-offer-promise></p>
+          <small data-i18n="demoOffer.includes">30 prompts + 10 negative prompts + guías ES/EN + 4 MP3</small>
+        </div>
+        <div class="demo-offer-window__actions">
+          <strong data-demo-offer-price>9 €</strong>
+          <button class="primary-action" type="button" data-demo-offer-buy data-buy-placement="demo_complete"><span data-i18n="demoOffer.buy">COMPRAR AHORA</span> · <b data-demo-offer-button-price>9 €</b></button>
+          <a href="/" data-route="/" data-demo-offer-open data-i18n="demoOffer.open">Ver la ficha completa</a>
+          <a href="https://payhip.com/b/LJp1T?utm_source=subsuelofs&amp;utm_medium=website&amp;utm_campaign=free_sampler" target="_blank" rel="noopener noreferrer" data-sampler-download="demo_complete" data-i18n="demoOffer.sampler">Prefiero probar la muestra gratis</a>
+        </div>
+      </div>
     </dialog>
 
     <div class="toast" role="status" aria-live="polite" data-toast></div>

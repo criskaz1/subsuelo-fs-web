@@ -310,6 +310,104 @@ const productEditorial = {
   }
 };
 
+const productPitches = Object.freeze({
+  trap: {
+    es: "808 dominante, batería seca y percusión ritual para trap oscuro con espacio.",
+    en: "Dominant 808s, dry drums and ritual percussion for dark trap with space."
+  },
+  garage: {
+    es: "2-step nocturno, swing humano y subgrave preciso sin acabado EDM genérico.",
+    en: "Nocturnal 2-step, human swing and precise sub-bass without generic EDM polish."
+  },
+  jungle: {
+    es: "Breaks recortados, subgrave pesado y textura de cinta para jungle degradado.",
+    en: "Chopped breaks, heavy sub-bass and tape wear for degraded jungle."
+  },
+  low: {
+    es: "Hip-hop abstracto con graves frontales, pocos elementos y textura áspera.",
+    en: "Abstract hip-hop with forward low end, sparse arrangements and rough texture."
+  },
+  abyss: {
+    es: "Batería de rap, bajos de sound-system y ecos profundos que dejan respirar el beat.",
+    en: "Rap drums, sound-system bass and deep echoes that let the beat breathe."
+  },
+  noir: {
+    es: "Boom bap nocturno con muestras acústicas, batería polvorienta y cinta usada.",
+    en: "Nocturnal boom-bap with acoustic samples, dusty drums and worn tape."
+  },
+  dust: {
+    es: "Country moderno y outlaw con acústicas cercanas, batería humana y hueco para voz.",
+    en: "Modern and outlaw country with close acoustics, human drums and room for vocals."
+  },
+  iron: {
+    es: "Metal sinfónico oscuro con riffs legibles, batería pesada y orquesta bien separada.",
+    en: "Dark symphonic metal with readable riffs, heavy drums and a clearly separated orchestra."
+  }
+});
+
+const familyDefinitions = Object.freeze([
+  {
+    id: "electronic",
+    slug: "electronica",
+    label: { es: "Electrónica", en: "Electronic" },
+    title: { es: "Prompts para Suno de electrónica oscura", en: "Dark electronic Suno prompts" },
+    lead: {
+      es: "Dos carpetas para producir ritmo electrónico con carácter: UK garage nocturno y jungle degradado. Compara el swing, los breaks y el tratamiento del subgrave antes de elegir.",
+      en: "Two folders for electronic rhythm with character: nocturnal UK garage and degraded jungle. Compare swing, breaks and sub-bass treatment before choosing."
+    },
+    seoTitle: {
+      es: "Prompts para Suno de electrónica: UK garage y jungle | SUBSUELO FS",
+      en: "Electronic Suno prompts: UK garage and jungle | SUBSUELO FS"
+    },
+    metaDescription: {
+      es: "Compara packs de prompts para Suno de UK garage oscuro y jungle degradado. Escucha demos, revisa el sonido y elige 30 prompts por 9 €.",
+      en: "Compare dark UK garage and degraded jungle Suno prompt packs. Hear demos, review the sound and choose 30 prompts for €9."
+    },
+    products: ["garage", "jungle"],
+    guides: ["make-dark-uk-garage", "make-dark-jungle"]
+  },
+  {
+    id: "hiphop",
+    slug: "hip-hop",
+    label: { es: "Hip-Hop", en: "Hip-Hop" },
+    title: { es: "Prompts para Suno de hip-hop oscuro", en: "Dark hip-hop Suno prompts" },
+    lead: {
+      es: "Cuatro formas de construir beats oscuros sin mezclarlas: trap ritual, hip-hop abstracto, dub y noir. Escucha qué cambia en batería, bajo, muestra y espacio.",
+      en: "Four distinct routes into dark beats: ritual trap, abstract hip-hop, dub and noir. Hear how drums, bass, source material and space change."
+    },
+    seoTitle: {
+      es: "Prompts para Suno de hip-hop oscuro, trap, dub y noir | SUBSUELO FS",
+      en: "Dark hip-hop Suno prompts: trap, dub and noir | SUBSUELO FS"
+    },
+    metaDescription: {
+      es: "Compara cuatro packs de prompts para Suno: trap oscuro, hip-hop abstracto, dub y noir. Demos reales, 30 prompts por pack y precio de 9 €.",
+      en: "Compare four Suno prompt packs for dark trap, abstract hip-hop, dub and noir. Real demos, 30 prompts per pack and a €9 price."
+    },
+    products: ["trap", "low", "abyss", "noir"],
+    guides: ["make-dark-trap", "make-abstract-hip-hop", "make-dub-hip-hop", "make-noir-hip-hop"]
+  },
+  {
+    id: "guitars",
+    slug: "guitarras",
+    label: { es: "Guitarras", en: "Guitars" },
+    title: { es: "Prompts para Suno de country y metal", en: "Country and metal Suno prompts" },
+    lead: {
+      es: "Dos carpetas centradas en bandas e instrumentos reconocibles: country moderno con espacio para voz y metal sinfónico donde guitarras y orquesta no se pisan.",
+      en: "Two folders built around recognisable bands and instruments: modern country with vocal room and symphonic metal where guitars and orchestra remain distinct."
+    },
+    seoTitle: {
+      es: "Prompts para Suno de country y metal sinfónico | SUBSUELO FS",
+      en: "Country and symphonic metal Suno prompts | SUBSUELO FS"
+    },
+    metaDescription: {
+      es: "Compara packs de prompts para Suno de country moderno, outlaw y metal sinfónico oscuro. Escucha demos y elige 30 prompts por 9 €.",
+      en: "Compare modern country, outlaw and dark symphonic metal Suno prompt packs. Hear demos and choose 30 prompts for €9."
+    },
+    products: ["dust", "iron"],
+    guides: ["suno-country-prompts", "suno-metal-prompts"]
+  }
+]);
+
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   "&": "&amp;",
   "<": "&lt;",
@@ -431,6 +529,36 @@ const homeSchema = (page) => ({
   ]
 });
 
+const familySchema = (page) => ({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonicalUrl(page.pathname)}#family`,
+      url: canonicalUrl(page.pathname),
+      name: page.title,
+      description: page.description,
+      inLanguage: page.locale,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      breadcrumb: { "@id": `${canonicalUrl(page.pathname)}#breadcrumb` },
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: page.family.products.map((productId, index) => {
+          const product = products.find((candidate) => candidate.id === productId);
+          return {
+            "@type": "ListItem",
+            position: index + 1,
+            name: product.name,
+            description: productPitches[product.id][page.locale],
+            url: canonicalUrl(localizedPath(`/product/${product.id}/`, page.locale))
+          };
+        })
+      }
+    },
+    breadcrumbSchema(page)
+  ]
+});
+
 const productSchema = (page, product) => ({
   "@context": "https://schema.org",
   "@graph": [
@@ -518,7 +646,8 @@ const folderCard = (product, locale) => {
   const category = productValue(product, "category", locale);
   const href = localizedPath(`/product/${product.id}/`, locale);
   const priceLabel = locale === "en" ? `€${product.price}` : `${product.price} €`;
-  return `<a class="folder-item" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(`${product.name}. ${category} · 30 prompts. ${priceLabel}`)}"><span class="folder-icon" style="--tone:${product.tone}"></span><strong>${escapeHtml(product.name)}</strong><small>${escapeHtml(category)} · 30 prompts</small><span class="folder-list-price"><b>${priceLabel}</b></span></a>`;
+  const pitch = productPitches[product.id][locale];
+  return `<a class="folder-item" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(`${product.name}. ${category}. ${pitch} 30 prompts. ${priceLabel}`)}"><span class="folder-icon" style="--tone:${product.tone}"></span><strong>${escapeHtml(product.name)}</strong><small>${escapeHtml(category)} · 30 prompts</small><span class="folder-item__promise">${escapeHtml(pitch)}</span><span class="folder-list-price"><b>${priceLabel}</b></span></a>`;
 };
 
 const homeView = (locale) => {
@@ -566,6 +695,48 @@ const homeView = (locale) => {
 </section>`;
 };
 
+const familyView = (family, locale) => {
+  const en = locale === "en";
+  const familyProducts = family.products.map((id) => products.find((product) => product.id === id));
+  const compareHref = localizedPath("/compare/", locale);
+  const demosHref = localizedPath("/demos/", locale);
+  const familyGuides = family.guides.map((slug) => {
+    const guide = guideArticles.find((item) => item.slug === slug);
+    const href = localizedPath(`/guides/${slug}/`, locale);
+    return `<a href="${href}"><span class="file-icon file-icon--text">TXT</span><span><strong>${escapeHtml(guide[locale].navTitle)}</strong><small>${en ? "Practical production guide" : "Guía práctica de producción"}</small></span></a>`;
+  }).join("");
+  const comparisonRows = familyProducts.map((product) => {
+    const href = localizedPath(`/product/${product.id}/`, locale);
+    const editorial = productEditorial[product.id];
+    return `<article class="family-pack" style="--tone:${product.tone}" data-track="${product.id}">
+      <header><span class="folder-icon" style="--tone:${product.tone}" aria-hidden="true"></span><div><p>${escapeHtml(productValue(product, "category", locale))}</p><h3><a href="${href}" data-route="${href}">${escapeHtml(product.name)}</a></h3></div><strong>${en ? "€9" : "9 €"}</strong></header>
+      <p class="family-pack__promise">${escapeHtml(productPitches[product.id][locale])}</p>
+      <dl><div><dt>${en ? "Core sound" : "Sonido central"}</dt><dd>${escapeHtml(productValue(editorial, "core", locale))}</dd></div><div><dt>${en ? "Choose it if" : "Elígelo si buscas"}</dt><dd>${escapeHtml(productValue(editorial, "fit", locale))}</dd></div></dl>
+      <div class="family-pack__demo"><span><b>${escapeHtml(product.demo)}</b><small>${escapeHtml(productValue(editorial, "demoProfile", locale))}</small></span><button type="button" data-play="${product.id}" data-play-placement="family_${family.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-buy="${product.id}" data-buy-placement="family_${family.id}">${en ? "Buy · €9" : "Comprar · 9 €"}</button></div>
+    </article>`;
+  }).join("");
+  return `
+<header class="family-hero" style="--family-count:${familyProducts.length}">
+  <div><p>${en ? "SOUND FAMILY" : "FAMILIA SONORA"} / ${escapeHtml(family.label[locale])}</p><h1>${escapeHtml(family.title[locale])}</h1><p>${escapeHtml(family.lead[locale])}</p></div>
+  <aside><strong>${familyProducts.length}</strong><span>${en ? "packs to compare" : "packs para comparar"}</span><small>30 prompts + 10 negative prompts + 4 MP3 / pack</small></aside>
+</header>
+<section class="family-choice" aria-labelledby="family-choice-title">
+  <header><p>${en ? "CHOOSE BY RESULT" : "ELIGE POR RESULTADO"}</p><h2 id="family-choice-title">${en ? "Each folder solves a different production brief." : "Cada carpeta resuelve una dirección de producción distinta."}</h2></header>
+  <div class="folder-grid family-folder-grid" style="--family-count:${familyProducts.length}" data-folder-grid>
+    ${familyProducts.map((product) => folderCard(product, locale)).join("\n    ")}
+  </div>
+</section>
+<section class="family-comparison" aria-labelledby="family-comparison-title">
+  <header><p>${en ? "LISTEN / COMPARE / BUY" : "ESCUCHA / COMPARA / COMPRA"}</p><h2 id="family-comparison-title">${en ? "Hear the difference before choosing." : "Escucha la diferencia antes de elegir."}</h2><span>${en ? "Every preview comes from prompt 001 in its folder." : "Cada muestra procede del prompt 001 de su carpeta."}</span></header>
+  <div>${comparisonRows}</div>
+</section>
+<section class="family-guides">
+  <header><p>${en ? "KEEP EXPLORING" : "SIGUE EXPLORANDO"}</p><h2>${en ? "Guides for this sound family" : "Guías para esta familia sonora"}</h2></header>
+  <div>${familyGuides}</div>
+  <nav><a href="${compareHref}">${en ? "Compare all eight packs" : "Comparar los ocho packs"}</a><a href="${demosHref}" data-route="${demosHref}">${en ? "Hear every demo" : "Escuchar todas las demos"}</a><a href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="family_${family.id}">${en ? "Try the free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a></nav>
+</section>`;
+};
+
 const promptProofView = (product, locale) => {
   const en = locale === "en";
   const proof = product.proof;
@@ -583,10 +754,10 @@ const promptProofView = (product, locale) => {
     <aside class="prompt-proof__test">
       <h3>${en ? "TEST IT IN 3 STEPS" : "PRUEBA EN 3 PASOS"}</h3>
       <ol>${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
-      <button class="prompt-proof__demo" type="button" data-play="${product.id}" data-play-context="proof">${en ? "HEAR THE RESULT · 30 SEC" : "ESCUCHAR EL RESULTADO · 30 S"}</button>
+      <button class="prompt-proof__demo" type="button" data-play="${product.id}" data-play-context="proof" data-play-placement="prompt_proof">${en ? "HEAR THE RESULT · 30 SEC" : "ESCUCHAR EL RESULTADO · 30 S"}</button>
       <p>${en ? "If this direction works for you, the pack opens 29 more variations and adds 10 negative prompts, ES/EN guides and 4 MP3 references." : "Si esta dirección te sirve, el pack abre otras 29 variaciones y añade 10 negative prompts, guías ES/EN y 4 referencias MP3."}</p>
       <small class="prompt-proof__assurance">${en ? "One-off payment · instant download · personal/commercial prompt licence · MP3 files are reference only" : "Pago único · descarga inmediata · licencia personal/comercial para los prompts · MP3 solo como referencia"}</small>
-      <button class="primary-action prompt-proof__buy" type="button" data-buy="${product.id}">${en ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €"}</button>
+      <button class="primary-action prompt-proof__buy" type="button" data-buy="${product.id}" data-buy-placement="prompt_proof">${en ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €"}</button>
       <a href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">${en ? "I want to try all six folders free" : "Prefiero probar las seis carpetas gratis"} ↗</a>
     </aside>
   </div>
@@ -617,7 +788,7 @@ const productView = (product, locale) => {
   </div>
   <div class="product-banner__buy">
     <div class="product-banner__price"><strong>${product.price} €</strong><span class="price-per-prompt">${en ? "€0.30 per prompt" : "0,30 € por prompt"}</span></div>
-    <div class="product-banner__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-buy="${product.id}">${en ? "Buy now" : "Comprar ahora"} · ${product.price} €</button></div>
+    <div class="product-banner__actions"><button type="button" data-play="${product.id}" data-play-placement="product_banner">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-buy="${product.id}" data-buy-placement="product_banner">${en ? "Buy now" : "Comprar ahora"} · ${product.price} €</button></div>
     <a class="product-banner__sampler" href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a>
   </div>
 </section>
@@ -646,7 +817,7 @@ ${promptProofView(product, locale)}
 ${["trap", "garage", "jungle", "low", "abyss", "noir"].includes(product.id) ? `<aside class="bundle-upsell"><div><strong>${en ? "Want more than one genre?" : "¿Te interesan varios géneros?"}</strong><span>${en ? "Complete pack: all six original folders for €49 · save €5" : "Pack completo: las 6 carpetas originales por 49 € · ahorras 5 €"}</span></div><a class="bundle-upsell__action" href="${localizedPath("/bundle/", locale)}" data-route="${localizedPath("/bundle/", locale)}">${en ? "View complete pack · €49" : "Ver pack completo · 49 €"}</a></aside>` : ""}
 <div class="purchase-strip">
   <div><strong>${escapeHtml(product.name)} · ${product.price} €</strong><span>${en ? "One-off payment · instant download" : "Pago único · descarga inmediata"}</span></div>
-  <div class="purchase-strip__actions"><button type="button" data-play="${product.id}">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-add="${product.id}">${en ? "Add to cart" : "Añadir al carrito"}</button></div>
+  <div class="purchase-strip__actions"><button type="button" data-play="${product.id}" data-play-placement="purchase_strip">${en ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-add="${product.id}" data-add-placement="purchase_strip">${en ? "Add to cart" : "Añadir al carrito"}</button></div>
 </div>`;
 };
 
@@ -658,7 +829,7 @@ const demosView = (locale) => {
 </header>
 <div class="file-list demo-list">
   <div class="file-list__header"><span>${en ? "Track" : "Pista"}</span><span>${en ? "Folder" : "Carpeta"}</span><span>${en ? "Length" : "Duración"}</span><span>${en ? "Action" : "Acción"}</span></div>
-  ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<div class="file-row" data-track="${product.id}"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>${escapeHtml(product.demo)}</strong><small class="demo-profile">${escapeHtml(productValue(productEditorial[product.id], "demoProfile", locale))}</small></span></span><span><a href="${href}" data-route="${href}">${escapeHtml(product.name)}</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="${product.id}">${en ? "Listen" : "Escuchar"}</button><button class="file-row__action file-row__action--primary" type="button" data-add="${product.id}">${en ? "Add" : "Añadir"} · ${product.price} €</button></span></div>`; }).join("\n  ")}
+  ${products.map((product) => { const href = localizedPath(`/product/${product.id}/`, locale); return `<div class="file-row" data-track="${product.id}"><span class="file-row__name"><span class="file-icon file-icon--audio">AUDIO</span><span><strong>${escapeHtml(product.demo)}</strong><small class="demo-profile">${escapeHtml(productValue(productEditorial[product.id], "demoProfile", locale))}</small></span></span><span><a href="${href}" data-route="${href}">${escapeHtml(product.name)}</a></span><span>00:30</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="${product.id}" data-play-placement="demos">${en ? "Listen" : "Escuchar"}</button><button class="file-row__action file-row__action--primary" type="button" data-add="${product.id}" data-add-placement="demos">${en ? "Add" : "Añadir"} · ${product.price} €</button></span></div>`; }).join("\n  ")}
 </div>
 <aside class="demos-sampler"><div><strong>${en ? "Like what you hear?" : "¿Te gusta lo que oyes?"}</strong><span>${en ? "The free sampler includes 6 prompts, 7 negative prompts and six of these eight demos." : "La muestra gratuita incluye 6 prompts, 7 negative prompts y seis de estas ocho demos."}</span></div><a class="demos-sampler__action" href="${escapeHtml(freeSamplerUrl)}" target="_blank" rel="noopener noreferrer" data-sampler-download="demos">${en ? "Try free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a></aside>`;
 };
@@ -1037,6 +1208,15 @@ const pagesForLocale = (locale) => {
       home: true,
       view: homeView(locale)
     }),
+    ...familyDefinitions.map((family) => page(`/${family.slug}/`, `${family.slug}/index.html`, {
+      heading: family.title[locale],
+      title: family.seoTitle[locale],
+      description: family.metaDescription[locale],
+      type: "website",
+      family,
+      breadcrumbs: [{ name: family.label[locale], path: `/${family.slug}/` }],
+      view: familyView(family, locale)
+    })),
     page("/demos/", "demos/index.html", {
       heading: en ? "Hear eight Suno prompt results before you choose." : "Escucha ocho resultados de prompts para Suno.",
       title: en ? "Suno prompt demos: eight genres | SUBSUELO FS" : "Demos de prompts para Suno por género | SUBSUELO FS",
@@ -1228,7 +1408,7 @@ const pagesForLocale = (locale) => {
 
 const pages = ["es", "en"].flatMap(pagesForLocale);
 
-const pageSchema = (page) => page.home ? homeSchema(page) : page.product ? productSchema(page, page.product) : page.article ? articleSchema(page) : webPageSchema(page);
+const pageSchema = (page) => page.home ? homeSchema(page) : page.family ? familySchema(page) : page.product ? productSchema(page, page.product) : page.article ? articleSchema(page) : webPageSchema(page);
 
 const seoBlock = (page) => {
   const url = canonicalUrl(page.pathname);
@@ -1532,6 +1712,9 @@ English guides: https://subsuelofs.com/en/guides/
 Folder comparison: https://subsuelofs.com/compare/
 Audio previews: https://subsuelofs.com/demos/
 Method: https://subsuelofs.com/method/
+Electronic prompt family: https://subsuelofs.com/electronica/
+Hip-hop prompt family: https://subsuelofs.com/hip-hop/
+Guitar prompt family: https://subsuelofs.com/guitarras/
 Spanish legal information: https://subsuelofs.com/legal/
 English legal information: https://subsuelofs.com/en/legal/
 
