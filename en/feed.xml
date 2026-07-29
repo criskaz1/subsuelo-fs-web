@@ -3,92 +3,92 @@
   <channel>
     <title>SUBSUELO FS — Production guides</title>
     <link>https://subsuelofs.com/en/guides/</link>
-    <description>Direct guides for music prompts, negative prompts and sound direction.</description>
+    <description>Direct guides for Suno prompts, negative prompts and sound direction.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Jul 2026 08:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 08:00:00 +0200</lastBuildDate>
     <atom:link href="https://subsuelofs.com/en/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>What is a negative prompt in music and when should you use one?</title>
+      <title>What is a negative prompt in Suno and when should you use one?</title>
       <link>https://subsuelofs.com/en/guides/negative-prompts/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/negative-prompts/</guid>
-      <description>What it removes, where it goes and when it helps with vocals, instruments or finish.</description>
+      <description>What it removes, where it goes in Exclude and when it helps with vocals, instruments or finish.</description>
       <pubDate>Thu, 16 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>How to write music prompts that give a clear direction</title>
+      <title>How to write Suno prompts that give a clear musical direction</title>
       <link>https://subsuelofs.com/en/guides/write-music-prompts/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/write-music-prompts/</guid>
-      <description>A practical structure for genre, pulse, drums, low end, source material, space and mix.</description>
+      <description>A practical Styles structure for genre, pulse, drums, low end, source material, space and mix.</description>
       <pubDate>Thu, 16 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>How to describe drums in a music prompt and avoid the default groove</title>
+      <title>How to describe drums in a Suno prompt and avoid the default groove</title>
       <link>https://subsuelofs.com/en/guides/describe-drums/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/describe-drums/</guid>
-      <description>Concrete vocabulary for describing drums in a music prompt: pocket, source families, swing, density and the mistakes that flatten a groove.</description>
+      <description>Concrete vocabulary for drums in Suno prompts: pocket, source families, swing, density and the mistakes that flatten a groove.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>808, sub-bass and movement: controlling the low end in a music prompt</title>
+      <title>808, sub-bass and movement: controlling the low end in a Suno prompt</title>
       <link>https://subsuelofs.com/en/guides/low-end-808/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/low-end-808/</guid>
-      <description>Which words select a sub, an 808 or a bassline in a music prompt, how to describe movement, and how to clean a muddy low end with negative prompts.</description>
+      <description>Which words select a sub, an 808 or a bassline in a Suno prompt, how to describe movement and how to clean a muddy low end with Exclude.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Why AI music sounds generic and the prompt habits that fix it</title>
+      <title>Why Suno sounds generic and the prompt habits that fix it</title>
       <link>https://subsuelofs.com/en/guides/fix-generic-ai-music/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/fix-generic-ai-music/</guid>
-      <description>Generic AI music comes from vague prompts averaged into the genre&#39;s middle. Source words, space, exclusions and one-axis iteration fix it.</description>
+      <description>Generic Suno results often come from vague prompts. Source words, space, exclusions and one-axis iteration pull them out of the genre average.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Space, texture and dirt: writing the room into your prompt</title>
+      <title>Space, texture and dirt: writing the room into a Suno prompt</title>
       <link>https://subsuelofs.com/en/guides/space-texture/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/space-texture/</guid>
-      <description>Reverb space, echo, tape and degradation vocabulary for music prompts: dry vs washed, dub delay, vinyl crackle, and how much dirt is too much.</description>
+      <description>Space, echo, tape and degradation vocabulary for Suno prompts: dry vs washed, dub delay, vinyl crackle and how much dirt is too much.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>How to make dark trap: a prompt built on dry drums, a lead 808 and ritual texture</title>
+      <title>How to make dark trap in Suno: dry drums, a lead 808 and ritual texture</title>
       <link>https://subsuelofs.com/en/guides/make-dark-trap/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/make-dark-trap/</guid>
-      <description>How to make dark trap with prompts: dry programmed drums, a dominant 808 that carries the melody, ritual texture, and the exclusions that keep EDM out.</description>
+      <description>How to make dark trap in Suno: dry programmed drums, a dominant 808, ritual texture and the exclusions that keep EDM out.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>How to make dark UK garage: 2-step pocket, short subs, narrow space</title>
+      <title>How to make dark UK garage in Suno: 2-step pocket, short subs, narrow space</title>
       <link>https://subsuelofs.com/en/guides/make-dark-uk-garage/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/make-dark-uk-garage/</guid>
-      <description>How to make dark UK garage with prompts: shuffled 2-step drums, displaced snares, short sub hits, minimal stabs and the exclusions that keep house out.</description>
+      <description>How to make dark UK garage in Suno: shuffled 2-step drums, displaced snares, short sub hits, minimal stabs and exclusions that keep house out.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>How to make dark jungle: chopped breaks over a slow, heavy sub</title>
+      <title>How to make dark jungle in Suno: chopped breaks over a slow, heavy sub</title>
       <link>https://subsuelofs.com/en/guides/make-dark-jungle/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/make-dark-jungle/</guid>
-      <description>How to make dark jungle with a prompt: chopped breaks as the lead, slow heavy sub, tape and vinyl degradation, dub echo and what to exclude.</description>
+      <description>How to make dark jungle in Suno: chopped breaks as the lead, slow heavy sub, tape degradation, dub echo and what to exclude.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>How to make noir hip-hop: dark boom bap, prompt by prompt</title>
+      <title>How to make noir hip-hop in Suno: dark boom bap, prompt by prompt</title>
       <link>https://subsuelofs.com/en/guides/make-noir-hip-hop/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/make-noir-hip-hop/</guid>
-      <description>How to make noir hip-hop with prompts: dusty jazz sources, swung boom bap drums, upright bass, smoky rooms, tape finish, and the exclusions that keep it dark.</description>
+      <description>How to make noir hip-hop in Suno: dusty jazz sources, swung boom bap drums, upright bass, smoky rooms, tape finish and useful exclusions.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>How to make abstract hip-hop: dark experimental beats, prompt by prompt</title>
+      <title>How to make abstract hip-hop in Suno: dark experimental beats</title>
       <link>https://subsuelofs.com/en/guides/make-abstract-hip-hop/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/make-abstract-hip-hop/</guid>
-      <description>How to make abstract hip-hop with prompts: degraded sources, drunk drum pockets, static sub pressure, space as an instrument, and what to exclude.</description>
+      <description>How to make abstract hip-hop in Suno: degraded sources, drunk drum pockets, static sub pressure, space as an instrument and what to exclude.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>How to make dark dub hip-hop: dry drums and the delay as the lead instrument</title>
+      <title>How to make dark dub hip-hop in Suno: dry drums and delay as the lead</title>
       <link>https://subsuelofs.com/en/guides/make-dub-hip-hop/</link>
       <guid isPermaLink="true">https://subsuelofs.com/en/guides/make-dub-hip-hop/</guid>
-      <description>How to make dub hip-hop with prompts: dark rap-weight drums, a sustained sub, dub delay as the lead instrument, and the exclusions that keep ska out.</description>
+      <description>How to make dub hip-hop in Suno: dark rap-weight drums, sustained sub, dub delay as the lead and the exclusions that keep ska out.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
   </channel>

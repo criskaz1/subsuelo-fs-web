@@ -4,9 +4,18 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://subsuelofs.com";
-const lastModified = "2026-07-25";
+const contentModified = "2026-07-29";
 const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir"];
 const legalIds = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
+const legalModified = Object.freeze({
+  notice: "2026-07-16",
+  privacy: "2026-07-26",
+  terms: "2026-07-16",
+  refund: "2026-07-16",
+  license: "2026-07-16",
+  storage: "2026-07-26",
+  accessibility: "2026-07-16"
+});
 const samplerSourceProductIds = Object.freeze({
   "source/low_pressure_v2/content.json": "low",
   "source/abyss_dub/content.json": "abyss",
@@ -47,9 +56,15 @@ const basePages = [
 
 const localizedPath = (basePath, locale) => locale === "en" ? (basePath === "/" ? "/en/" : `/en${basePath}`) : basePath;
 const localizedOutput = (output, locale) => locale === "en" ? path.posix.join("en", output) : output;
+const pageLastModified = (basePath) => {
+  if (basePath === "/legal/") return "2026-07-26";
+  const legalId = basePath.match(/^\/legal\/([^/]+)\/$/u)?.[1];
+  return legalId ? legalModified[legalId] : contentModified;
+};
 const pages = ["es", "en"].flatMap((locale) => basePages.map((page) => ({
   ...page,
   locale,
+  lastModified: pageLastModified(page.basePath),
   pathname: localizedPath(page.basePath, locale),
   output: localizedOutput(page.output, locale)
 })));
@@ -134,6 +149,9 @@ for (const page of pages) {
       if (!html.includes(`class="primary-action prompt-proof__buy" type="button" data-buy="${productId}"`)) throw new Error(`${page.output}: falta CTA de compra de la prueba`);
       if (!html.includes(page.locale === "en" ? "GET THE OTHER 29 · €9" : "CONSEGUIR LOS OTROS 29 · 9 €")) throw new Error(`${page.output}: CTA de la prueba incorrecto`);
       if (!html.includes(page.locale === "en" ? "€0.30 per prompt" : "0,30 € por prompt")) throw new Error(`${page.output}: falta el precio por prompt`);
+      if (!html.includes("Suno") || !html.includes('class="product-banner__compatibility"')) throw new Error(`${page.output}: falta compatibilidad y prueba visible en Suno`);
+      const compatibility = mainEntity.additionalProperty?.find((property) => property.name === (page.locale === "en" ? "Compatibility" : "Compatibilidad"));
+      if (compatibility?.value !== "Suno") throw new Error(`${page.output}: falta compatibilidad Suno en Product`);
       const bundleHref = page.locale === "en" ? "/en/bundle/" : "/bundle/";
       if (!html.includes('class="bundle-upsell"') || !html.includes(`class="bundle-upsell__action" href="${bundleHref}"`) || !html.includes(page.locale === "en" ? "save €5" : "ahorras 5 €")) throw new Error(`${page.output}: falta la venta cruzada del pack completo`);
     }
@@ -145,7 +163,12 @@ for (const page of pages) {
     if (metaContent(html, "property", "og:image") !== guideCard) throw new Error(`${page.output}: og:image sin tarjeta propia de la guía`);
     await access(path.join(root, `media/guides/${guideSlug}-${page.locale}.png`));
     if (!html.includes('class="guide-pack"') || !html.includes('class="guide-pack__action"')) throw new Error(`${page.output}: falta la tarjeta de pack relacionado`);
+    if (!html.includes('class="article-byline"') || !html.includes("Suno")) throw new Error(`${page.output}: falta autoría o enfoque Suno`);
   }
+  if (page.basePath === "/guides/negative-prompts/" || page.basePath === "/guides/write-music-prompts/") {
+    if (!html.includes('class="article-byline"') || !html.includes("Suno")) throw new Error(`${page.output}: falta autoría o enfoque Suno`);
+  }
+  if (page.basePath === "/method/" && (!html.includes("24 audio references") && !html.includes("24 referencias de audio"))) throw new Error(`${page.output}: falta método de prueba de las 24 referencias`);
   if (page.basePath === "/bundle/" && !html.includes(page.locale === "en" ? "€0.27 per prompt" : "0,27 € por prompt")) throw new Error(`${page.output}: falta el precio por prompt del bundle`);
   if (page.basePath.startsWith("/lab/")) {
     if (!html.includes("/lab.js?v=")) throw new Error(`${page.output}: falta lab.js`);
@@ -217,7 +240,7 @@ for (const [index, block] of sitemapBlocks.entries()) {
   for (const alternate of expectedAlternates) {
     if (!block.includes(alternate)) throw new Error(`sitemap.xml: alternates incompletos para ${page.pathname}`);
   }
-  if (!block.includes(`<lastmod>${lastModified}</lastmod>`)) throw new Error(`sitemap.xml: lastmod incorrecto para ${page.pathname}`);
+  if (!block.includes(`<lastmod>${page.lastModified}</lastmod>`)) throw new Error(`sitemap.xml: lastmod incorrecto para ${page.pathname}`);
 }
 
 const robots = await readFile(path.join(root, "robots.txt"), "utf8");
@@ -249,7 +272,9 @@ const analyticsLoader = await readFile(path.join(root, "analytics-loader.js"), "
 const appSource = await readFile(path.join(root, "app-v5.js"), "utf8");
 if (analyticsConfig.enabled && (!analyticsConfig.websiteId || !/^https:\/\//u.test(analyticsConfig.scriptUrl || ""))) throw new Error("analytics-config.json: activación incompleta");
 if (!analyticsConfig.enabled && !analyticsRuntime.includes('"enabled": false')) throw new Error("analytics-runtime.js: Umami debe seguir inactivo sin configuración real");
-for (const event of ["page_view", "demo_start", "demo_complete", "sampler_click", "checkout_start", "outbound_payhip"]) {
+if (!analyticsLoader.includes("SUBSUELO_PAGEVIEW") || !analyticsLoader.includes("window.umami.track()")) throw new Error("Analítica: las páginas vistas no usan el contador de Umami");
+if (analyticsLoader.includes('SUBSUELO_TRACK("page_view"') || appSource.includes('trackEvent("page_view"')) throw new Error("Analítica: page_view sigue registrado como evento personalizado");
+for (const event of ["demo_start", "demo_complete", "sampler_click", "checkout_start", "outbound_payhip"]) {
   if (!analyticsLoader.includes(`"${event}"`) && !appSource.includes(`"${event}"`)) throw new Error(`Analítica: falta el evento ${event}`);
 }
 if (!appSource.includes('localStorage.getItem(attributionStorageKey)') || appSource.includes('sessionStorage.getItem("subsuelo-attribution-v1")')) throw new Error("Atribución: no se conserva entre pestañas");

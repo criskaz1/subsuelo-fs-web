@@ -1,6 +1,6 @@
 # SUBSUELO FS
 
-> Bilingual digital store for genre-specific music prompt folders, negative prompts, practical guides and audio references.
+> Bilingual digital store for genre-specific Suno prompt folders, negative prompts, practical guides and tested audio references.
 
 Official website: https://subsuelofs.com/
 Spanish guides: https://subsuelofs.com/guides/
@@ -11,10 +11,12 @@ Method: https://subsuelofs.com/method/
 Spanish legal information: https://subsuelofs.com/legal/
 English legal information: https://subsuelofs.com/en/legal/
 
+Testing method: the six current folders were checked in Suno on 15 July 2026. Their 24 audio references were generated from prompts in the corresponding folders without third-party audio or uploaded source material.
+
 ## Guides
 
-- What is a negative prompt in music: https://subsuelofs.com/guides/negative-prompts/
-- How to write music prompts: https://subsuelofs.com/guides/write-music-prompts/
+- What is a negative prompt in Suno: https://subsuelofs.com/guides/negative-prompts/
+- How to write Suno prompts: https://subsuelofs.com/guides/write-music-prompts/
 - Describing drums: https://subsuelofs.com/guides/describe-drums/
 - Low end: 808 and sub-bass: https://subsuelofs.com/guides/low-end-808/
 - Fix generic AI music: https://subsuelofs.com/guides/fix-generic-ai-music/

@@ -3,92 +3,92 @@
   <channel>
     <title>SUBSUELO FS — Guías de producción</title>
     <link>https://subsuelofs.com/guides/</link>
-    <description>Guías directas sobre prompts musicales, negative prompts y dirección sonora.</description>
+    <description>Guías directas sobre prompts para Suno, negative prompts y dirección sonora.</description>
     <language>es</language>
-    <lastBuildDate>Sat, 25 Jul 2026 08:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 08:00:00 +0200</lastBuildDate>
     <atom:link href="https://subsuelofs.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Qué es un negative prompt en música y cuándo usarlo</title>
+      <title>Qué es un negative prompt en Suno y cuándo usarlo</title>
       <link>https://subsuelofs.com/guides/negative-prompts/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/negative-prompts/</guid>
-      <description>Qué elimina, dónde se coloca y cuándo conviene usarlo para voces, instrumentos o acabados.</description>
+      <description>Qué elimina, dónde se coloca en Exclude y cuándo conviene usarlo para voces, instrumentos o acabados.</description>
       <pubDate>Thu, 16 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Cómo escribir prompts para crear música con una dirección clara</title>
+      <title>Cómo escribir prompts para Suno con una dirección musical clara</title>
       <link>https://subsuelofs.com/guides/write-music-prompts/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/write-music-prompts/</guid>
-      <description>Una estructura práctica para describir género, pulso, batería, graves, fuente sonora, espacio y mezcla.</description>
+      <description>Una estructura práctica para Styles: género, pulso, batería, graves, fuente sonora, espacio y mezcla.</description>
       <pubDate>Thu, 16 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Cómo describir la batería en un prompt y no quedarte con el groove por defecto</title>
+      <title>Cómo describir la batería en un prompt de Suno y no quedarte con el groove por defecto</title>
       <link>https://subsuelofs.com/guides/describe-drums/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/describe-drums/</guid>
-      <description>Vocabulario concreto para describir la batería en un prompt de música: pocket, familias de sonido, swing, densidad y los errores más comunes.</description>
+      <description>Vocabulario concreto para describir baterías en prompts de Suno: pocket, familias de sonido, swing, densidad y los errores más comunes.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>808, subgraves y movimiento: cómo controlar el grave en un prompt</title>
+      <title>808, subgraves y movimiento: cómo controlar el grave en un prompt de Suno</title>
       <link>https://subsuelofs.com/guides/low-end-808/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/low-end-808/</guid>
-      <description>Qué palabras seleccionan un sub, un 808 o un bajo en un prompt, cómo describir el movimiento del bajo y cómo limpiar unos graves turbios con negative prompts.</description>
+      <description>Qué palabras seleccionan un sub, un 808 o un bajo en Suno, cómo describir su movimiento y cómo limpiar unos graves turbios con Exclude.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Por qué la música hecha con IA suena genérica y qué hábitos de prompt lo corrigen</title>
+      <title>Por qué Suno suena genérico y qué hábitos de prompt lo corrigen</title>
       <link>https://subsuelofs.com/guides/fix-generic-ai-music/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/fix-generic-ai-music/</guid>
-      <description>La música hecha con IA suena genérica cuando el prompt es vago. Palabras de fuente, espacio, exclusiones e iteración por ejes la sacan del promedio.</description>
+      <description>Suno suena genérico cuando el prompt es vago. Palabras de fuente, espacio, exclusiones e iteración por ejes sacan el resultado del promedio.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Espacio, textura y suciedad: escribir la sala dentro del prompt</title>
+      <title>Espacio, textura y suciedad: escribir la sala en un prompt de Suno</title>
       <link>https://subsuelofs.com/guides/space-texture/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/space-texture/</guid>
-      <description>Vocabulario de espacio, eco, cinta y degradación para prompts musicales: seco o lavado, dub delay, crackle de vinilo, anchura y cuánta suciedad es demasiada.</description>
+      <description>Vocabulario de espacio, eco, cinta y degradación para Suno: seco o lavado, dub delay, crackle de vinilo, anchura y cuánta suciedad es demasiada.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Cómo hacer trap oscuro: un prompt de batería seca, 808 protagonista y textura ritual</title>
+      <title>Cómo hacer trap oscuro en Suno: batería seca, 808 protagonista y textura ritual</title>
       <link>https://subsuelofs.com/guides/make-dark-trap/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/make-dark-trap/</guid>
-      <description>Cómo hacer trap oscuro con prompts: batería seca sin room, un 808 que lleva la melodía, textura ritual y las exclusiones que dejan el EDM fuera.</description>
+      <description>Cómo hacer trap oscuro en Suno: batería seca sin room, un 808 que lleva la melodía, textura ritual y exclusiones que dejan el EDM fuera.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Cómo hacer UK garage oscuro: pocket 2-step, subs cortos y espacio estrecho</title>
+      <title>Cómo hacer UK garage oscuro en Suno: pocket 2-step, subs cortos y espacio estrecho</title>
       <link>https://subsuelofs.com/guides/make-dark-uk-garage/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/make-dark-uk-garage/</guid>
-      <description>Cómo hacer UK garage oscuro con prompts: batería 2-step con swing, cajas desplazadas, subs cortos, stabs mínimos y las exclusiones que frenan el house.</description>
+      <description>Cómo hacer UK garage oscuro en Suno: batería 2-step con swing, cajas desplazadas, subs cortos, stabs mínimos y exclusiones contra el house.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Cómo hacer jungle oscuro: breaks troceados sobre un sub lento y pesado</title>
+      <title>Cómo hacer jungle oscuro en Suno: breaks troceados sobre un sub lento y pesado</title>
       <link>https://subsuelofs.com/guides/make-dark-jungle/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/make-dark-jungle/</guid>
-      <description>Cómo hacer jungle oscuro con un prompt: breaks troceados como instrumento principal, sub lento y pesado, textura de cinta, eco dub y qué excluir.</description>
+      <description>Cómo hacer jungle oscuro en Suno: breaks troceados, sub lento y pesado, textura de cinta, eco dub y qué excluir del resultado.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Cómo hacer hip hop noir: boom bap oscuro, prompt a prompt</title>
+      <title>Cómo hacer hip hop noir en Suno: boom bap oscuro, prompt a prompt</title>
       <link>https://subsuelofs.com/guides/make-noir-hip-hop/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/make-noir-hip-hop/</guid>
-      <description>Cómo hacer hip hop noir con prompts: jazz polvoriento, boom bap con swing, contrabajo, salas con humo, tape y las exclusiones que lo mantienen oscuro.</description>
+      <description>Cómo hacer hip hop noir en Suno: jazz polvoriento, boom bap con swing, contrabajo, salas con humo, tape y exclusiones para mantenerlo oscuro.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Cómo hacer hip hop abstracto: beats experimentales oscuros, prompt a prompt</title>
+      <title>Cómo hacer hip hop abstracto en Suno: beats experimentales oscuros</title>
       <link>https://subsuelofs.com/guides/make-abstract-hip-hop/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/make-abstract-hip-hop/</guid>
-      <description>Cómo hacer hip hop abstracto y experimental con prompts: fuentes degradadas, pockets ebrios, sub estático, espacio como instrumento y qué excluir.</description>
+      <description>Cómo hacer hip hop abstracto en Suno: fuentes degradadas, pockets ebrios, sub estático, espacio como instrumento y qué excluir.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Cómo hacer hip hop dub oscuro: batería seca y el delay como instrumento</title>
+      <title>Cómo hacer hip hop dub oscuro en Suno: batería seca y delay como instrumento</title>
       <link>https://subsuelofs.com/guides/make-dub-hip-hop/</link>
       <guid isPermaLink="true">https://subsuelofs.com/guides/make-dub-hip-hop/</guid>
-      <description>Cómo hacer hip hop dub oscuro con prompts: batería con peso de rap, sub sostenido, dub delay como instrumento principal y qué excluir para evitar el ska.</description>
+      <description>Cómo hacer hip hop dub oscuro en Suno: batería con peso de rap, sub sostenido, dub delay como instrumento y qué excluir para evitar el ska.</description>
       <pubDate>Sat, 25 Jul 2026 08:00:00 +0200</pubDate>
     </item>
   </channel>
