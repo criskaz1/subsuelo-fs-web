@@ -1238,11 +1238,14 @@ const seoBlock = (page) => {
   const alternateLocale = page.locale === "en" ? "es_ES" : "en_GB";
   const socialAlt = page.socialAlt || (page.locale === "en" ? "SUBSUELO FS: genre-built sound direction in a file explorer." : "SUBSUELO FS: dirección sonora por género en un explorador de archivos.");
   const pageImage = page.socialImage || socialImage;
+  const verificationMeta = page.pathname === "/"
+    ? '<meta name="google-site-verification" content="DJkA51rgKHJD0GzXu5a8qJ4CKnEeHOdfFPoNXyPcRY0" />\n'
+    : "";
   const productMeta = page.type === "product"
     ? `\n<meta property="product:price:amount" content="${page.price.toFixed(2)}" />\n<meta property="product:price:currency" content="EUR" />`
     : "";
   return `
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+${verificationMeta}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta name="description" content="${escapeHtml(page.description)}" />
 <link rel="canonical" href="${url}" />
 <link rel="alternate" hreflang="es" href="${esUrl}" />
