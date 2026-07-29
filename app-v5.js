@@ -31,7 +31,7 @@
       titlebar: { browser: "EXPLORADOR DE ARCHIVOS", store: "TIENDA DIGITAL", open: "ARCHIVO ABIERTO" },
       menu: { file: "Archivo", view: "Ver", play: "Reproducir", guides: "Guías", lab: "Lab", help: "Ayuda", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", cart: "Carrito" },
       toolbar: { back: "Atrás", forward: "Adelante", up: "Subir", sidebar: "Abrir navegación", search: "Buscar en el archivo…", viewGroup: "Vista", grid: "Vista de iconos", list: "Vista de lista" },
-      sidebar: { language: "IDIOMA", quick: "ACCESO RÁPIDO", sounds: "POR FAMILIA", familyElectronic: "ELECTRÓNICA", familyHiphop: "HIP-HOP", familyGuitars: "GUITARRAS", info: "INFORMACIÓN", home: "Todas las carpetas", demos: "Ejemplos de audio", bundle: "Pack completo", sampler: "Muestra gratuita", samplerAria: "Descargar la muestra gratuita (abre en una pestaña nueva)", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", xAria: "@subsuelofs en X (abre en una pestaña nueva)", cart: "Carrito", guides: "Guías de producción", lab: "Lab de prompts", help: "Qué incluye cada carpeta", legalFolder: "Legal y privacidad" },
+      sidebar: { language: "IDIOMA", quick: "ACCESO RÁPIDO", sounds: "POR FAMILIA", familyElectronic: "ELECTRÓNICA", familyHiphop: "HIP-HOP", familyGuitars: "GUITARRAS", familyOverview: "Ver la familia completa", info: "INFORMACIÓN", home: "Todas las carpetas", demos: "Ejemplos de audio", bundle: "Pack completo", sampler: "Muestra gratuita", samplerAria: "Descargar la muestra gratuita (abre en una pestaña nueva)", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", xAria: "@subsuelofs en X (abre en una pestaña nueva)", cart: "Carrito", guides: "Guías de producción", lab: "Lab de prompts", help: "Qué incluye cada carpeta", legalFolder: "Legal y privacidad" },
       mobile: { home: "Inicio", pack: "Pack", demos: "Demos", help: "Ayuda", cart: "Carrito" },
       home: {
         kicker: "SUBSUELO / CATÁLOGO", title: "Prompts para Suno. Un género por carpeta.", lead: "Entra en el género que quieres producir. Cada carpeta reúne 30 prompts probados en Suno que cambian la batería, el bajo, el motivo y el espacio sin abandonar esa familia sonora.", hint: "Haz clic en una carpeta para abrirla", mobileHint: "Toca una carpeta para abrirla", docs: "MÁS INFORMACIÓN", helpFile: "QUE_INCLUYE_CADA_CARPETA.txt", demoFile: "ESCUCHAR_EJEMPLOS.audio", guidesFile: "GUIAS_DE_PRODUCCION.folder", bundleFile: "PACK_COMPLETO.folder", legalFile: "LEGAL_Y_PRIVACIDAD.folder", labFile: "LAB_DE_PROMPTS.folder", empty: "No hay resultados para esta búsqueda.", emptyHint: "Prueba con otro nombre o limpia la búsqueda.", clear: "Limpiar búsqueda",
@@ -53,6 +53,7 @@
       legalUi: { folderKicker: "SISTEMA / LEGAL_Y_PRIVACIDAD", folderTitle: "Legal y privacidad", folderLead: "Consulta las condiciones de compra, la política de privacidad, la licencia y el resto de documentos de la tienda.", name: "Documento", type: "Tipo", description: "Qué contiene", access: "Acción", public: "Público", open: "Abrir", sections: "EN ESTE ARCHIVO", system: "DOCUMENTO DEL SISTEMA", updated: "Última actualización", version: "Versión" },
       dialog: { close: "Cerrar" },
       audio: { play: "Reproducir", pause: "Pausar", close: "Cerrar reproductor", unavailable: "No se ha podido cargar esta muestra de audio." },
+      demoOffer: { titlebar: "HAS ESCUCHADO LA MUESTRA", kicker: "30 SEGUNDOS / DECISIÓN RÁPIDA", title: "Si este sonido te encaja, aquí está el pack.", includes: "30 prompts + 10 negative prompts + guías ES/EN + 4 MP3", buy: "COMPRAR AHORA", open: "Ver la ficha completa", sampler: "Prefiero probar la muestra gratis", close: "Cerrar esta oferta" },
       messages: { added: "{name} añadido al carrito.", duplicate: "Esa carpeta ya está en el carrito.", bundleContains: "El pack completo ya contiene esa carpeta.", bundleReplaced: "El pack completo ha sustituido las carpetas que ya incluía.", fileIncluded: "Este archivo se entrega dentro del ZIP." }
     },
     en: {
@@ -61,7 +62,7 @@
       titlebar: { browser: "FILE BROWSER", store: "DIGITAL STORE", open: "STORE OPEN" },
       menu: { file: "File", view: "View", play: "Play", guides: "Guides", lab: "Lab", help: "Help", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", cart: "Cart" },
       toolbar: { back: "Back", forward: "Forward", up: "Up", sidebar: "Open navigation", search: "Search the archive…", viewGroup: "View", grid: "Icon view", list: "List view" },
-      sidebar: { language: "LANGUAGE", quick: "QUICK ACCESS", sounds: "BY FAMILY", familyElectronic: "ELECTRONIC", familyHiphop: "HIP-HOP", familyGuitars: "GUITARS", info: "INFO", home: "All folders", demos: "Audio examples", bundle: "Complete pack", sampler: "Free sampler", samplerAria: "Download the free sampler (opens in a new tab)", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", xAria: "@subsuelofs on X (opens in a new tab)", cart: "Cart", guides: "Production guides", lab: "Prompt lab", help: "What each folder includes", legalFolder: "Legal and privacy" },
+      sidebar: { language: "LANGUAGE", quick: "QUICK ACCESS", sounds: "BY FAMILY", familyElectronic: "ELECTRONIC", familyHiphop: "HIP-HOP", familyGuitars: "GUITARS", familyOverview: "View the complete family", info: "INFO", home: "All folders", demos: "Audio examples", bundle: "Complete pack", sampler: "Free sampler", samplerAria: "Download the free sampler (opens in a new tab)", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", xAria: "@subsuelofs on X (opens in a new tab)", cart: "Cart", guides: "Production guides", lab: "Prompt lab", help: "What each folder includes", legalFolder: "Legal and privacy" },
       mobile: { home: "Home", pack: "Pack", demos: "Demos", help: "Help", cart: "Cart" },
       home: {
         kicker: "SUBSUELO / CATALOGUE", title: "Suno prompts. One genre, 30 ways in.", lead: "Pick the sound you want to make. Each folder gives you 30 tested Suno prompts that change the drums, bass, lead source and space while staying inside one coherent genre.", hint: "Click a folder to open it", mobileHint: "Tap a folder to open it", docs: "MORE INFORMATION", helpFile: "WHAT_EACH_FOLDER_INCLUDES.txt", demoFile: "HEAR_THE_EXAMPLES.audio", guidesFile: "PRODUCTION_GUIDES.folder", bundleFile: "COMPLETE_PACK.folder", legalFile: "LEGAL_AND_PRIVACY.folder", labFile: "PROMPT_LAB.folder", empty: "No results for this search.", emptyHint: "Try another name or clear the search.", clear: "Clear search",
@@ -83,6 +84,7 @@
       legalUi: { folderKicker: "SYSTEM / LEGAL_AND_PRIVACY", folderTitle: "Legal and privacy", folderLead: "Read the purchase terms, privacy policy, licence and the store's other documents.", name: "Document", type: "Type", description: "Contents", access: "Action", public: "Public", open: "Open", sections: "IN THIS FILE", system: "SYSTEM DOCUMENT", updated: "Last updated", version: "Version" },
       dialog: { close: "Close" },
       audio: { play: "Play", pause: "Pause", close: "Close player", unavailable: "This audio preview could not be loaded." },
+      demoOffer: { titlebar: "YOU HEARD THE PREVIEW", kicker: "30 SECONDS / QUICK DECISION", title: "If this sound fits, here is the pack.", includes: "30 prompts + 10 negative prompts + ES/EN guides + 4 MP3s", buy: "BUY NOW", open: "View the complete product", sampler: "I prefer to try the free sampler", close: "Close this offer" },
       messages: { added: "{name} added to cart.", duplicate: "That folder is already in your cart.", bundleContains: "The complete pack already contains that folder.", bundleReplaced: "The complete pack replaced the folders it already included.", fileIncluded: "This file is delivered inside the ZIP." }
     }
   };
@@ -441,6 +443,83 @@
     }
   });
 
+  const productPitches = Object.freeze({
+    trap: { es: "808 dominante, batería seca y percusión ritual para trap oscuro con espacio.", en: "Dominant 808s, dry drums and ritual percussion for dark trap with space." },
+    garage: { es: "2-step nocturno, swing humano y subgrave preciso sin acabado EDM genérico.", en: "Nocturnal 2-step, human swing and precise sub-bass without generic EDM polish." },
+    jungle: { es: "Breaks recortados, subgrave pesado y textura de cinta para jungle degradado.", en: "Chopped breaks, heavy sub-bass and tape wear for degraded jungle." },
+    low: { es: "Hip-hop abstracto con graves frontales, pocos elementos y textura áspera.", en: "Abstract hip-hop with forward low end, sparse arrangements and rough texture." },
+    abyss: { es: "Batería de rap, bajos de sound-system y ecos profundos que dejan respirar el beat.", en: "Rap drums, sound-system bass and deep echoes that let the beat breathe." },
+    noir: { es: "Boom bap nocturno con muestras acústicas, batería polvorienta y cinta usada.", en: "Nocturnal boom-bap with acoustic samples, dusty drums and worn tape." },
+    dust: { es: "Country moderno y outlaw con acústicas cercanas, batería humana y hueco para voz.", en: "Modern and outlaw country with close acoustics, human drums and room for vocals." },
+    iron: { es: "Metal sinfónico oscuro con riffs legibles, batería pesada y orquesta bien separada.", en: "Dark symphonic metal with readable riffs, heavy drums and a clearly separated orchestra." }
+  });
+
+  const familyDefinitions = Object.freeze([
+    {
+      id: "electronic",
+      slug: "electronica",
+      label: "sidebar.familyElectronic",
+      title: { es: "Prompts para Suno de electrónica oscura", en: "Dark electronic Suno prompts" },
+      lead: {
+        es: "Dos carpetas para producir ritmo electrónico con carácter: UK garage nocturno y jungle degradado. Compara el swing, los breaks y el tratamiento del subgrave antes de elegir.",
+        en: "Two folders for electronic rhythm with character: nocturnal UK garage and degraded jungle. Compare swing, breaks and sub-bass treatment before choosing."
+      },
+      meta: {
+        es: { title: "Prompts para Suno de electrónica: UK garage y jungle | SUBSUELO FS", description: "Compara packs de prompts para Suno de UK garage oscuro y jungle degradado. Escucha demos, revisa el sonido y elige 30 prompts por 9 €." },
+        en: { title: "Electronic Suno prompts: UK garage and jungle | SUBSUELO FS", description: "Compare dark UK garage and degraded jungle Suno prompt packs. Hear demos, review the sound and choose 30 prompts for €9." }
+      },
+      categories: ["garage", "jungle"],
+      products: ["garage", "jungle"],
+      guides: ["make-dark-uk-garage", "make-dark-jungle"]
+    },
+    {
+      id: "hiphop",
+      slug: "hip-hop",
+      label: "sidebar.familyHiphop",
+      title: { es: "Prompts para Suno de hip-hop oscuro", en: "Dark hip-hop Suno prompts" },
+      lead: {
+        es: "Cuatro formas de construir beats oscuros sin mezclarlas: trap ritual, hip-hop abstracto, dub y noir. Escucha qué cambia en batería, bajo, muestra y espacio.",
+        en: "Four distinct routes into dark beats: ritual trap, abstract hip-hop, dub and noir. Hear how drums, bass, source material and space change."
+      },
+      meta: {
+        es: { title: "Prompts para Suno de hip-hop oscuro, trap, dub y noir | SUBSUELO FS", description: "Compara cuatro packs de prompts para Suno: trap oscuro, hip-hop abstracto, dub y noir. Demos reales, 30 prompts por pack y precio de 9 €." },
+        en: { title: "Dark hip-hop Suno prompts: trap, dub and noir | SUBSUELO FS", description: "Compare four Suno prompt packs for dark trap, abstract hip-hop, dub and noir. Real demos, 30 prompts per pack and a €9 price." }
+      },
+      categories: ["trap", "hiphop", "dub", "noir"],
+      products: ["trap", "low", "abyss", "noir"],
+      guides: ["make-dark-trap", "make-abstract-hip-hop", "make-dub-hip-hop", "make-noir-hip-hop"]
+    },
+    {
+      id: "guitars",
+      slug: "guitarras",
+      label: "sidebar.familyGuitars",
+      title: { es: "Prompts para Suno de country y metal", en: "Country and metal Suno prompts" },
+      lead: {
+        es: "Dos carpetas centradas en bandas e instrumentos reconocibles: country moderno con espacio para voz y metal sinfónico donde guitarras y orquesta no se pisan.",
+        en: "Two folders built around recognisable bands and instruments: modern country with vocal room and symphonic metal where guitars and orchestra remain distinct."
+      },
+      meta: {
+        es: { title: "Prompts para Suno de country y metal sinfónico | SUBSUELO FS", description: "Compara packs de prompts para Suno de country moderno, outlaw y metal sinfónico oscuro. Escucha demos y elige 30 prompts por 9 €." },
+        en: { title: "Country and symphonic metal Suno prompts | SUBSUELO FS", description: "Compare modern country, outlaw and dark symphonic metal Suno prompt packs. Hear demos and choose 30 prompts for €9." }
+      },
+      categories: ["country", "metal"],
+      products: ["dust", "iron"],
+      guides: ["suno-country-prompts", "suno-metal-prompts"]
+    }
+  ]);
+  const familyRouteIds = new Map(familyDefinitions.map((family) => [family.slug, family.id]));
+  const familyById = Object.freeze(Object.fromEntries(familyDefinitions.map((family) => [family.id, family])));
+  const guideLabels = Object.freeze({
+    "make-dark-uk-garage": { es: "Cómo crear UK garage oscuro", en: "How to make dark UK garage" },
+    "make-dark-jungle": { es: "Cómo crear jungle oscuro", en: "How to make dark jungle" },
+    "make-dark-trap": { es: "Cómo crear trap oscuro", en: "How to make dark trap" },
+    "make-abstract-hip-hop": { es: "Cómo crear hip-hop abstracto", en: "How to make abstract hip-hop" },
+    "make-dub-hip-hop": { es: "Cómo crear hip-hop dub", en: "How to make dub hip-hop" },
+    "make-noir-hip-hop": { es: "Cómo crear hip-hop noir", en: "How to make noir hip-hop" },
+    "suno-country-prompts": { es: "Prompts de country para Suno", en: "Country prompts for Suno" },
+    "suno-metal-prompts": { es: "Prompts de metal para Suno", en: "Metal prompts for Suno" }
+  });
+
   const archiveMemberIds = Object.freeze(["trap", "garage", "jungle", "low", "abyss", "noir"]);
   const archiveProducts = archiveMemberIds.map((id) => catalog.find((product) => product.id === id));
   const catalogueTotals = archiveProducts.reduce((totals, item) => ({ prompts: totals.prompts + item.counts.prompts, negatives: totals.negatives + item.counts.negatives }), { prompts: 0, negatives: 0 });
@@ -561,6 +640,7 @@
   let lastSidebarTrigger;
   let activeTrack = null;
   let lastTrackId = null;
+  let lastTrackPlacement = "unknown";
   let lastRenderedRoute = null;
   const trackedDemoIds = new Set();
   const completedDemoIds = new Set();
@@ -609,6 +689,7 @@
     if (parts[0] === "en") parts.shift();
     const routed = (route) => ({ ...route, locale });
     if (!parts.length || (parts[0] === "home" && parts.length === 1)) return routed({ type: "home" });
+    if (parts.length === 1 && familyRouteIds.has(parts[0])) return routed({ type: "family", family: familyRouteIds.get(parts[0]) });
     if (parts[0] === "category" && parts.length === 2 && categoryRouteIds.has(parts[1])) return routed({ type: "category", category: parts[1] });
     if (parts[0] === "product" && productRouteIds.has(parts[1])) {
       if (parts.length === 2) return routed({ type: "product", id: parts[1], section: null, entry: null });
@@ -628,6 +709,7 @@
 
   const routePath = (route) => {
     let path = "/";
+    if (route.type === "family") path = `/${familyById[route.family].slug}/`;
     if (route.type === "category") path = `/category/${route.category}/`;
     if (route.type === "product") path = `/product/${route.id}${route.section ? `/${route.section}` : ""}${route.entry ? `/${route.entry}` : ""}/`;
     if (route.type === "demos") path = "/demos/";
@@ -655,6 +737,10 @@
     if (route.type === "help") return language === "es"
       ? { title: `Cómo usar nuestros prompts en Suno | ${legalProfile.brand}`, description: "Qué contiene cada carpeta para Suno, qué va en Styles y Exclude, cómo funcionan los negative prompts y qué muestran las referencias probadas.", canonicalPath: localizedPath("/help/", route.locale), type: "website" }
       : { title: `How to use our Suno prompts | ${legalProfile.brand}`, description: "See what each Suno prompt folder contains, what goes in Styles and Exclude, how negative prompts work and what the tested references show.", canonicalPath: localizedPath("/help/", route.locale), type: "website" };
+    if (route.type === "family") {
+      const family = familyById[route.family];
+      return { ...family.meta[language], canonicalPath: localizedPath(`/${family.slug}/`, route.locale), type: "website" };
+    }
     if (route.type === "category") return { title: `${categoryName(route.category)} | ${legalProfile.brand}`, description: t("meta.description"), canonicalPath: routePath(route), type: "website" };
     if (route.type === "legal") return { title: `${breadcrumbData(route).at(-1)?.label || "Legal"} | ${legalProfile.brand}`, description: t("meta.description"), canonicalPath: routePath(route), type: "website" };
     return language === "es"
@@ -734,12 +820,16 @@
     if (route.type === "product" && route.entry) return `/product/${route.id}/${route.section}`;
     if (route.type === "product" && route.section) return `/product/${route.id}`;
     if (route.type === "legal" && route.document) return "/legal";
-    if (route.type === "product" || route.type === "category" || route.type === "demos" || route.type === "help" || route.type === "legal" || route.type === "bundle") return "/";
+    if (route.type === "product" || route.type === "family" || route.type === "category" || route.type === "demos" || route.type === "help" || route.type === "legal" || route.type === "bundle") return "/";
     return null;
   };
 
   const breadcrumbData = (route) => {
     const items = [{ label: "SUBSUELO", route: "/" }];
+    if (route.type === "family") {
+      const family = familyById[route.family];
+      items.push({ label: t(family.label), route: routePath(route) });
+    }
     if (route.type === "category") items.push({ label: categoryName(route.category), route: routePath(route) });
     if (route.type === "demos") items.push({ label: "DEMOS", route: "/demos" });
     if (route.type === "help") items.push({ label: "HELP", route: "/help" });
@@ -763,18 +853,12 @@
     $("[data-breadcrumb]").innerHTML = items.map((item, index) => {
       const href = routeHref(item.route);
       const target = parseRoute(href);
-      const crawlable = target.type === "home" || target.type === "demos" || target.type === "bundle" || target.type === "help" || target.type === "legal" || (target.type === "product" && !target.section);
+      const crawlable = target.type === "home" || target.type === "family" || target.type === "demos" || target.type === "bundle" || target.type === "help" || target.type === "legal" || (target.type === "product" && !target.section);
       return crawlable
         ? `<a class="breadcrumb-button" href="${escapeHtml(href)}" data-route="${escapeHtml(href)}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a>`
         : `<button class="breadcrumb-button" type="button" data-route="${escapeHtml(href)}"${index === items.length - 1 ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</button>`;
     }).join("");
   };
-
-  const categoryFamilies = Object.freeze([
-    { id: "electronic", label: "sidebar.familyElectronic", categories: ["garage", "jungle"] },
-    { id: "hiphop", label: "sidebar.familyHiphop", categories: ["trap", "hiphop", "dub", "noir"] },
-    { id: "guitars", label: "sidebar.familyGuitars", categories: ["country", "metal"] }
-  ]);
 
   const treeItem = ({ route, label, icon = "folder", count, current, crawlable = false }) => {
     const href = routeHref(route);
@@ -790,8 +874,17 @@
       : route.type === "product"
         ? products[route.id]?.tags?.[0]
         : null;
-    const isActiveFamily = family.categories.includes(activeCategory);
+    const isActiveFamily = route.type === "family" ? route.family === family.id : family.categories.includes(activeCategory);
     const open = isActiveFamily && !window.matchMedia("(max-width: 900px)").matches;
+    const familyRoute = `/${family.slug}/`;
+    const overview = treeItem({
+      route: familyRoute,
+      label: t("sidebar.familyOverview"),
+      icon: "folder",
+      count: family.products.length,
+      current: route.type === "family" && route.family === family.id,
+      crawlable: true
+    });
     const items = family.categories.map((category) => treeItem({
       route: `/category/${category}`,
       label: categoryName(category),
@@ -799,7 +892,7 @@
       current: route.type === "category" && route.category === category
     })).join("");
     const count = catalog.filter((product) => family.categories.some((category) => product.tags.includes(category))).length;
-    return `<details class="tree-family"${open ? " open" : ""} data-sidebar-family="${family.id}"><summary><span class="tree-family__marker" aria-hidden="true"></span><span>${t(family.label)}</span><small>${count}</small></summary><nav>${items}</nav></details>`;
+    return `<details class="tree-family"${open ? " open" : ""} data-sidebar-family="${family.id}"><summary><span class="tree-family__marker" aria-hidden="true"></span><span>${t(family.label)}</span><small>${count}</small></summary><nav>${overview}${items}</nav></details>`;
   };
 
   const renderSidebar = (route) => {
@@ -809,7 +902,7 @@
       treeItem({ route: "/bundle", label: t("sidebar.bundle"), current: route.type === "bundle", crawlable: true }),
       `<a class="tree-item" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(t("sidebar.samplerAria"))}" data-sampler-download="sidebar"><span class="tree-icon tree-icon--doc"></span><span>${t("sidebar.sampler")}</span><small>0 € ↗</small></a>`
     ].join("");
-    $("[data-sidebar-categories]").innerHTML = categoryFamilies.map((family) => sidebarFamilyMarkup(family, route)).join("");
+    $("[data-sidebar-categories]").innerHTML = familyDefinitions.map((family) => sidebarFamilyMarkup(family, route)).join("");
     $("[data-sidebar-info]").innerHTML = [
       `<a class="tree-item" href="${localizedPath("/guides/", language)}"><span class="tree-icon tree-icon--folder"></span><span>${t("sidebar.guides")}</span></a>`,
       `<a class="tree-item" href="${localizedPath("/lab/", language)}"><span class="tree-icon tree-icon--folder"></span><span>${t("sidebar.lab")}</span></a>`,
@@ -824,10 +917,11 @@
   const folderMarkup = (product) => {
     const name = productName(product);
     const detail = product.bundle ? t("bundle.folderCount", { count: product.members.length }) : `${categoryName(product.tags[0])} · ${t("inspector.prompts", { count: product.counts.prompts })}`;
-    const label = `${name}. ${detail}. ${price(product.price)}`;
+    const promise = product.bundle ? product.description[language] : productPitches[product.id][language];
+    const label = `${name}. ${detail}. ${promise} ${price(product.price)}`;
     const href = routeHref(product.bundle ? "/bundle/" : `/product/${product.id}/`);
     const priceMarkup = `<b>${price(product.price)}</b>`;
-    return `<a class="folder-item ${selectedProductId === product.id ? "is-selected" : ""}" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(label)}"><span class="folder-icon ${product.bundle ? "folder-icon--bundle" : ""}" style="--tone:${product.tone}"></span><strong>${escapeHtml(name)}</strong><small>${escapeHtml(detail)}</small><span class="folder-list-price">${priceMarkup}</span></a>`;
+    return `<a class="folder-item ${selectedProductId === product.id ? "is-selected" : ""}" href="${href}" data-product-id="${product.id}" aria-label="${escapeHtml(label)}"><span class="folder-icon ${product.bundle ? "folder-icon--bundle" : ""}" style="--tone:${product.tone}"></span><strong>${escapeHtml(name)}</strong><small>${escapeHtml(detail)}</small><span class="folder-item__promise">${escapeHtml(promise)}</span><span class="folder-list-price">${priceMarkup}</span></a>`;
   };
 
   const matchingProducts = (route) => catalog.filter((product) => {
@@ -853,6 +947,22 @@
     return `<header class="view-heading"><div class="view-heading__copy"><p>${t("home.kicker")}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(lead)}</p></div><p class="view-heading__hint">${hint}</p></header>${folders}${offer}<section class="system-files"><h2>${t("home.docs")}</h2><div class="system-file-row"><a class="system-file" href="${helpHref}" data-route="${helpHref}"><span class="file-icon file-icon--text">TXT</span><strong>${t("home.helpFile")}</strong></a><a class="system-file" href="${demosHref}" data-route="${demosHref}"><span class="file-icon file-icon--audio">AUDIO</span><strong>${t("home.demoFile")}</strong></a><a class="system-file" href="${guidesHref}" data-editorial-path="/guides/"><span class="row-folder-icon"></span><strong>${t("home.guidesFile")}</strong></a><a class="system-file" href="${labHref}" data-editorial-path="/lab/"><span class="row-folder-icon"></span><strong>${t("home.labFile")}</strong></a><a class="system-file" href="${bundleHref}" data-route="${bundleHref}"><span class="row-folder-icon"></span><strong>${t("home.bundleFile")}</strong></a><a class="system-file" href="${legalHref}" data-route="${legalHref}"><span class="row-folder-icon"></span><strong>${t("home.legalFile")}</strong></a></div></section>`;
   };
 
+  const familyView = (family) => {
+    const familyProducts = family.products.map((id) => products[id]);
+    const comparisonRows = familyProducts.map((product) => {
+      const href = routeHref(`/product/${product.id}/`);
+      const editorial = productEditorial[product.id];
+      return `<article class="family-pack" style="--tone:${product.tone}" data-track="${product.id}"><header><span class="folder-icon" style="--tone:${product.tone}" aria-hidden="true"></span><div><p>${escapeHtml(categoryName(product.tags[0]))}</p><h3><a href="${href}" data-route="${href}">${escapeHtml(productName(product))}</a></h3></div><strong>${price(product.price)}</strong></header><p class="family-pack__promise">${escapeHtml(productPitches[product.id][language])}</p><dl><div><dt>${language === "en" ? "Core sound" : "Sonido central"}</dt><dd>${escapeHtml(editorial.core[language])}</dd></div><div><dt>${language === "en" ? "Choose it if" : "Elígelo si buscas"}</dt><dd>${escapeHtml(editorial.fit[language])}</dd></div></dl><div class="family-pack__demo"><span><b>${escapeHtml(product.demo.title)}</b><small>${escapeHtml(editorial.demo[language])}</small></span><button type="button" data-play="${product.id}" data-play-placement="family_${family.id}">${language === "en" ? "Hear 30 sec" : "Escuchar 30 s"}</button><button class="primary-action" type="button" data-buy="${product.id}" data-buy-placement="family_${family.id}">${language === "en" ? `Buy · ${price(product.price)}` : `Comprar · ${price(product.price)}`}</button></div></article>`;
+    }).join("");
+    const guides = family.guides.map((slug) => {
+      const href = localizedPath(`/guides/${slug}/`, language);
+      return `<a href="${href}"><span class="file-icon file-icon--text">TXT</span><span><strong>${escapeHtml(guideLabels[slug][language])}</strong><small>${language === "en" ? "Practical production guide" : "Guía práctica de producción"}</small></span></a>`;
+    }).join("");
+    const compareHref = localizedPath("/compare/", language);
+    const demosHref = routeHref("/demos/");
+    return `<header class="family-hero" style="--family-count:${familyProducts.length}"><div><p>${language === "en" ? "SOUND FAMILY" : "FAMILIA SONORA"} / ${escapeHtml(t(family.label))}</p><h1>${escapeHtml(family.title[language])}</h1><p>${escapeHtml(family.lead[language])}</p></div><aside><strong>${familyProducts.length}</strong><span>${language === "en" ? "packs to compare" : "packs para comparar"}</span><small>30 prompts + 10 negative prompts + 4 MP3 / pack</small></aside></header><section class="family-choice" aria-labelledby="family-choice-title"><header><p>${language === "en" ? "CHOOSE BY RESULT" : "ELIGE POR RESULTADO"}</p><h2 id="family-choice-title">${language === "en" ? "Each folder solves a different production brief." : "Cada carpeta resuelve una dirección de producción distinta."}</h2></header><div class="folder-grid family-folder-grid" style="--family-count:${familyProducts.length}" data-folder-grid>${familyProducts.map(folderMarkup).join("")}</div></section><section class="family-comparison" aria-labelledby="family-comparison-title"><header><p>${language === "en" ? "LISTEN / COMPARE / BUY" : "ESCUCHA / COMPARA / COMPRA"}</p><h2 id="family-comparison-title">${language === "en" ? "Hear the difference before choosing." : "Escucha la diferencia antes de elegir."}</h2><span>${language === "en" ? "Every preview comes from prompt 001 in its folder." : "Cada muestra procede del prompt 001 de su carpeta."}</span></header><div>${comparisonRows}</div></section><section class="family-guides"><header><p>${language === "en" ? "KEEP EXPLORING" : "SIGUE EXPLORANDO"}</p><h2>${language === "en" ? "Guides for this sound family" : "Guías para esta familia sonora"}</h2></header><div>${guides}</div><nav><a href="${compareHref}">${language === "en" ? "Compare all eight packs" : "Comparar los ocho packs"}</a><a href="${demosHref}" data-route="${demosHref}">${language === "en" ? "Hear every demo" : "Escuchar todas las demos"}</a><a href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="family_${family.id}">${language === "en" ? "Try the free sampler · €0" : "Probar muestra gratis · 0 €"} ↗</a></nav></section>`;
+  };
+
   const bundleCounts = () => archive.members.map((id) => products[id]).reduce((sum, product) => ({ prompts: sum.prompts + product.counts.prompts, negatives: sum.negatives + product.counts.negatives, demos: sum.demos + product.counts.demos }), { prompts: 0, negatives: 0, demos: 0 });
 
   const inspectorFacts = (counts) => `<div class="inspector-facts"><span>${t("inspector.prompts", { count: counts.prompts })}</span><span>${t("inspector.negatives", { count: counts.negatives })}</span><span>${t("inspector.guide")}</span><span>${t(counts.demos === 1 ? "inspector.demo" : "inspector.demos", { count: counts.demos })}</span></div>`;
@@ -865,7 +975,7 @@
     const tags = product.bundle ? [t("bundle.kicker")] : product.tags.map(categoryName);
     const coverLabel = product.bundle ? t("inspector.folders", { count: product.members.length }) : `${t("inspector.prompts", { count: counts.prompts })} / ${t("inspector.negatives", { count: counts.negatives })}`;
     const facts = product.bundle ? `<div class="inspector-facts"><span>${t("inspector.folders", { count: product.members.length })}</span><span>${t("inspector.prompts", { count: counts.prompts })}</span><span>${t("inspector.negatives", { count: counts.negatives })}</span><span>${t("inspector.demos", { count: counts.demos })}</span></div>` : inspectorFacts(counts);
-    return `<div class="inspector-cover" style="--tone:${product.tone}"><span>${escapeHtml(coverLabel)}</span><strong>${escapeHtml(name)}</strong></div><h2>${escapeHtml(name)}</h2><p>${escapeHtml(product.description[language])}</p><div class="tag-row">${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>${facts}<div class="inspector-price">${price(product.price)}</div><div class="inspector-actions"><button type="button" data-open-product="${product.id}">${t("inspector.open")}</button>${product.demo ? `<button type="button" data-play="${product.id}">${t("inspector.play")}</button>` : ""}<button class="primary-action" type="button" data-add="${product.id}">${t("inspector.add")} · ${price(product.price)}</button></div>`;
+    return `<div class="inspector-cover" style="--tone:${product.tone}"><span>${escapeHtml(coverLabel)}</span><strong>${escapeHtml(name)}</strong></div><h2>${escapeHtml(name)}</h2><p>${escapeHtml(product.description[language])}</p><div class="tag-row">${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>${facts}<div class="inspector-price">${price(product.price)}</div><div class="inspector-actions"><button type="button" data-open-product="${product.id}">${t("inspector.open")}</button>${product.demo ? `<button type="button" data-play="${product.id}" data-play-placement="inspector">${t("inspector.play")}</button>` : ""}<button class="primary-action" type="button" data-add="${product.id}" data-add-placement="inspector">${t("inspector.add")} · ${price(product.price)}</button></div>`;
   };
 
   const fileDefinition = (product, section, entry) => {
@@ -904,13 +1014,13 @@
     return `<div class="file-details"><div class="file-details__icon">${icon}</div><h2>${escapeHtml(definition.name)}</h2><p>${escapeHtml(definition.description)}</p><dl><div><dt>${t("product.format")}</dt><dd>${escapeHtml(definition.format)}</dd></div><div><dt>${t("product.language")}</dt><dd>${escapeHtml(definition.language)}</dd></div><div><dt>${t("product.content")}</dt><dd>${accessLabel}</dd></div></dl><div class="availability"><strong>${availabilityTitle}</strong><span>${availabilityText}</span></div>${actions}</div>`;
   };
 
-  const productBanner = (product) => `<section class="product-banner" style="--tone:${product.tone}"><div class="product-banner__art"></div><div><p class="kicker">${t("product.edition")} / ${escapeHtml(categoryName(product.tags[0]))}</p><h1>${escapeHtml(productName(product))}</h1><p>${escapeHtml(product.description[language])}</p>${product.bundle ? "" : `<p class="product-banner__compatibility">${t("product.compatibility")}</p>`}</div><div class="product-banner__buy"><div class="product-banner__price"><strong>${price(product.price)}</strong>${product.bundle ? "" : `<span class="price-per-prompt">${t("product.perPrompt")}</span>`}</div><div class="product-banner__actions"><button type="button" data-play="${product.id}">${t("product.play")}</button><button class="primary-action" type="button" data-buy="${product.id}">${t("product.buy")} · ${price(product.price)}</button></div><a class="product-banner__sampler" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${t("product.sampler")} ↗</a></div></section>`;
+  const productBanner = (product) => `<section class="product-banner" style="--tone:${product.tone}"><div class="product-banner__art"></div><div><p class="kicker">${t("product.edition")} / ${escapeHtml(categoryName(product.tags[0]))}</p><h1>${escapeHtml(productName(product))}</h1><p>${escapeHtml(product.description[language])}</p>${product.bundle ? "" : `<p class="product-banner__compatibility">${t("product.compatibility")}</p>`}</div><div class="product-banner__buy"><div class="product-banner__price"><strong>${price(product.price)}</strong>${product.bundle ? "" : `<span class="price-per-prompt">${t("product.perPrompt")}</span>`}</div><div class="product-banner__actions"><button type="button" data-play="${product.id}" data-play-placement="product_banner">${t("product.play")}</button><button class="primary-action" type="button" data-buy="${product.id}" data-buy-placement="product_banner">${t("product.buy")} · ${price(product.price)}</button></div><a class="product-banner__sampler" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="product">${t("product.sampler")} ↗</a></div></section>`;
 
   const promptProofView = (product) => {
     const proof = samplerProofs[product.id];
     if (!proof) return "";
     const steps = copy[language].proof.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("");
-    return `<section class="prompt-proof" id="try-prompt" style="--tone:${product.tone}" data-prompt-proof="${product.id}"><header class="prompt-proof__header"><div><p>${t("proof.kicker")}</p><h2>${t("proof.title")}</h2></div><span>${escapeHtml(proof.title)} · 001</span></header><p class="prompt-proof__lead">${t("proof.lead")}</p><div class="prompt-proof__grid"><div class="prompt-proof__source"><div class="prompt-proof__label"><span>${t("proof.promptLabel")}</span><button type="button" data-copy-prompt="${product.id}" aria-label="${escapeHtml(`${t("proof.copy")}: ${proof.title}`)}">${t("proof.copy")}</button></div><pre tabindex="0"><code lang="en">${escapeHtml(proof.prompt)}</code></pre></div><aside class="prompt-proof__test"><h3>${t("proof.stepsTitle")}</h3><ol>${steps}</ol><button class="prompt-proof__demo" type="button" data-play="${product.id}" data-play-context="proof">${t("proof.demo")}</button><p>${t("proof.value")}</p><small class="prompt-proof__assurance">${t("proof.trust")}</small><button class="primary-action prompt-proof__buy" type="button" data-buy="${product.id}">${t("proof.buy")}</button><a href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">${t("proof.sampler")} ↗</a></aside></div></section>`;
+    return `<section class="prompt-proof" id="try-prompt" style="--tone:${product.tone}" data-prompt-proof="${product.id}"><header class="prompt-proof__header"><div><p>${t("proof.kicker")}</p><h2>${t("proof.title")}</h2></div><span>${escapeHtml(proof.title)} · 001</span></header><p class="prompt-proof__lead">${t("proof.lead")}</p><div class="prompt-proof__grid"><div class="prompt-proof__source"><div class="prompt-proof__label"><span>${t("proof.promptLabel")}</span><button type="button" data-copy-prompt="${product.id}" aria-label="${escapeHtml(`${t("proof.copy")}: ${proof.title}`)}">${t("proof.copy")}</button></div><pre tabindex="0"><code lang="en">${escapeHtml(proof.prompt)}</code></pre></div><aside class="prompt-proof__test"><h3>${t("proof.stepsTitle")}</h3><ol>${steps}</ol><button class="prompt-proof__demo" type="button" data-play="${product.id}" data-play-context="proof" data-play-placement="prompt_proof">${t("proof.demo")}</button><p>${t("proof.value")}</p><small class="prompt-proof__assurance">${t("proof.trust")}</small><button class="primary-action prompt-proof__buy" type="button" data-buy="${product.id}" data-buy-placement="prompt_proof">${t("proof.buy")}</button><a href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">${t("proof.sampler")} ↗</a></aside></div></section>`;
   };
 
   const rowIcon = (type) => {
@@ -933,7 +1043,7 @@
     const detail = product.bundle ? t("bundle.saving", { separate: price(separateCataloguePrice), saving: price(archiveSaving) }) : t("product.purchase");
     const productPrice = price(product.price);
     const productDetail = product.bundle ? detail : (language === "en" ? "One-off payment · instant download" : "Pago único · descarga inmediata");
-    return `<div class="purchase-strip"><div><strong>${escapeHtml(productName(product))} · ${productPrice}</strong><span>${escapeHtml(productDetail)}</span></div><div class="purchase-strip__actions">${product.demo ? `<button type="button" data-play="${product.id}">${t("product.play")}</button>` : ""}<button class="primary-action" type="button" data-buy="${product.id}">${t("product.buy")} · ${price(product.price)}</button></div></div>`;
+    return `<div class="purchase-strip"><div><strong>${escapeHtml(productName(product))} · ${productPrice}</strong><span>${escapeHtml(productDetail)}</span></div><div class="purchase-strip__actions">${product.demo ? `<button type="button" data-play="${product.id}" data-play-placement="purchase_strip">${t("product.play")}</button>` : ""}<button class="primary-action" type="button" data-buy="${product.id}" data-buy-placement="purchase_strip">${t("product.buy")} · ${price(product.price)}</button></div></div>`;
   };
 
   const productRootView = (product) => {
@@ -1001,7 +1111,7 @@
   };
 
   const demosView = () => {
-    const rows = catalog.map((product) => { const href = routeHref(`/product/${product.id}/`); return `<div class="file-row" data-track="${product.id}"><span class="file-row__name">${rowIcon("audio")}<span><strong>${escapeHtml(product.demo.title)}</strong><small class="demo-profile">${escapeHtml(productEditorial[product.id].demo[language])}</small></span></span><span><a href="${href}" data-route="${href}">${escapeHtml(productName(product))}</a></span><span>${product.demo.durationLabel}</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="${product.id}">${t("product.listen")}</button><button class="file-row__action file-row__action--primary" type="button" data-add="${product.id}">${t("inspector.add")} · ${price(product.price)}</button></span></div>`; });
+    const rows = catalog.map((product) => { const href = routeHref(`/product/${product.id}/`); return `<div class="file-row" data-track="${product.id}"><span class="file-row__name">${rowIcon("audio")}<span><strong>${escapeHtml(product.demo.title)}</strong><small class="demo-profile">${escapeHtml(productEditorial[product.id].demo[language])}</small></span></span><span><a href="${href}" data-route="${href}">${escapeHtml(productName(product))}</a></span><span>${product.demo.durationLabel}</span><span class="demo-row-actions"><button class="file-row__action" type="button" data-play="${product.id}" data-play-placement="demos">${t("product.listen")}</button><button class="file-row__action file-row__action--primary" type="button" data-add="${product.id}" data-add-placement="demos">${t("inspector.add")} · ${price(product.price)}</button></span></div>`; });
     return `<header class="view-heading"><div class="view-heading__copy"><p>${t("demos.kicker")}</p><h1>${t("demos.title")}</h1><p>${t("demos.lead")}</p></div></header><div class="file-list demo-list"><div class="file-list__header"><span>${t("demos.track")}</span><span>${t("demos.edition")}</span><span>${t("demos.length")}</span><span>${t("demos.action")}</span></div>${rows.join("")}</div><aside class="demos-sampler"><div><strong>${t("demos.samplerTitle")}</strong><span>${t("demos.samplerText")}</span></div><a class="demos-sampler__action" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" data-sampler-download="demos">${t("demos.samplerAction")} ↗</a></aside>`;
   };
 
@@ -1035,6 +1145,7 @@
   const renderStatus = (route) => {
     let count = 0;
     if (route.type === "home" || route.type === "category") count = matchingProducts(route).length;
+    else if (route.type === "family") count = familyById[route.family].products.length;
     else if (route.type === "product") {
       const product = products[route.id];
       count = route.entry ? 1 : route.section === "es" || route.section === "en" ? 5 : route.section === "demos" ? product.counts.demos + 1 : 3;
@@ -1073,6 +1184,7 @@
     renderBreadcrumbs(route);
     let html = "";
     if (route.type === "home" || route.type === "category") html = homeView(route);
+    if (route.type === "family") html = familyView(familyById[route.family]);
     if (route.type === "help") html = helpView();
     if (route.type === "legal") html = route.document ? legalDocumentView(route.document) : legalFolderView();
     if (route.type === "demos") html = demosView();
@@ -1102,6 +1214,8 @@
     $("[data-route-announcer]").textContent = pageLabel;
     if (routeChanged) {
       if (lastRenderedRoute !== null) window.SUBSUELO_PAGEVIEW?.();
+      if (route.type === "family") trackEvent("family_view", { family: route.family, locale: language });
+      if (route.type === "product") trackEvent("product_view", { pack: route.id, locale: language });
       const pane = $(".file-pane");
       pane.scrollTop = 0;
       const heading = $("[data-view-content] h1");
@@ -1181,23 +1295,33 @@
     renderSidebar(parseRoute());
   };
 
-  const addToCart = (id) => {
-    if (!Object.hasOwn(products, id)) return;
+  const addToCart = (id, placement = "unknown") => {
+    if (!Object.hasOwn(products, id)) return false;
     const product = products[id];
     if (product.bundle) {
       const replaced = cart.some((item) => product.members.includes(item));
+      const alreadyPresent = cart.includes(id);
       cart = cart.filter((item) => !product.members.includes(item));
       if (!cart.includes(id)) cart.push(id);
       renderCart();
       showToast(replaced ? t("messages.bundleReplaced") : t("messages.added", { name: productName(product) }));
-      return;
+      if (!alreadyPresent || replaced) trackEvent("cart_add", { pack: id, placement, cart_size: cart.length });
+      return !alreadyPresent || replaced;
     }
     const containingBundle = cart.map((item) => products[item]).find((item) => item?.bundle && item.members.includes(id));
-    if (containingBundle) return showToast(t("messages.bundleContains"));
-    if (cart.includes(id)) return showToast(t("messages.duplicate"));
+    if (containingBundle) {
+      showToast(t("messages.bundleContains"));
+      return false;
+    }
+    if (cart.includes(id)) {
+      showToast(t("messages.duplicate"));
+      return false;
+    }
     cart.push(id);
     renderCart();
     showToast(t("messages.added", { name: productName(product) }));
+    trackEvent("cart_add", { pack: id, placement, cart_size: cart.length });
+    return true;
   };
 
   const cartPanel = $("[data-cart-panel]");
@@ -1283,12 +1407,17 @@
   };
 
   document.addEventListener("click", (event) => {
+    if (event.target.closest("[data-demo-offer-close]")) {
+      if (demoOfferDialog.open) demoOfferDialog.close("dismiss");
+      return;
+    }
     const samplerDownload = event.target.closest("[data-sampler-download]");
     if (samplerDownload) {
       const placement = samplerDownload.dataset.samplerDownload || "unknown";
       samplerDownload.href = attributedPayhipUrl(samplerDownload.href, "free_sampler", placement);
       trackEvent("sampler_click", { placement });
       trackEvent("outbound_payhip", { intent: "free_sampler", placement });
+      if (demoOfferDialog.open) demoOfferDialog.close("sampler");
       return;
     }
     const payhipLink = event.target.closest("a[href]");
@@ -1303,6 +1432,7 @@
     if (routeButton) {
       event.preventDefault();
       if (routeButton.hasAttribute("data-close-checkout") && checkoutDialog.open) checkoutDialog.close();
+      if (demoOfferDialog.open) demoOfferDialog.close("open_product");
       navigate(routeButton.dataset.route);
       return;
     }
@@ -1315,7 +1445,7 @@
     const openProduct = event.target.closest("[data-open-product]");
     if (openProduct) { const id = openProduct.dataset.openProduct; navigate(id === "archive" ? "/bundle" : `/product/${id}`); return; }
     const play = event.target.closest("[data-play]");
-    if (play) { startTrack(play.dataset.play); return; }
+    if (play) { startTrack(play.dataset.play, play.dataset.playPlacement || "unknown"); return; }
     const file = event.target.closest("[data-file-key]");
     if (file) {
       const entry = file.dataset.fileEntry || null;
@@ -1331,12 +1461,15 @@
     const buy = event.target.closest("[data-buy]");
     if (buy) {
       event.preventDefault();
-      addToCart(buy.dataset.buy);
+      const placement = buy.dataset.buyPlacement || "unknown";
+      trackEvent("purchase_intent", { pack: buy.dataset.buy, placement });
+      if (demoOfferDialog.open) demoOfferDialog.close("buy");
+      addToCart(buy.dataset.buy, placement);
       if (cart.length) openCheckoutReview();
       return;
     }
     const add = event.target.closest("[data-add]");
-    if (add) { addToCart(add.dataset.add); return; }
+    if (add) { addToCart(add.dataset.add, add.dataset.addPlacement || "unknown"); return; }
     const openCartButton = event.target.closest("[data-open-cart]");
     if (openCartButton) { openCart(openCartButton); return; }
     const remove = event.target.closest("[data-remove]");
@@ -1419,6 +1552,9 @@
     if (keys.length === 1) params.set("link", keys[0]);
     else keys.forEach((key) => params.append("cart_links[]", key));
     const cartType = cart.length === 1 ? cart[0] : "multi";
+    params.set("metadata[source_site]", "subsuelofs");
+    params.set("metadata[cart_type]", cartType);
+    params.set("metadata[entry_route]", attributionValue(location.pathname) || "home");
     return attributedPayhipUrl(`https://payhip.com/buy?${params.toString()}`, "checkout", cartType);
   };
 
@@ -1440,11 +1576,43 @@
     if (!cart.length || !updateCheckoutConsent(true)) return;
     const checkoutUrl = payhipCheckoutUrl();
     if (!checkoutUrl) return;
+    trackEvent("checkout_submit", { cart_type: cart.length === 1 ? cart[0] : "multi" });
     trackEvent("outbound_payhip", { intent: "checkout", cart_type: cart.length === 1 ? cart[0] : "multi" });
     window.location.assign(checkoutUrl);
   });
   checkoutDialog.addEventListener("click", (event) => { if (event.target === checkoutDialog) checkoutDialog.close(); });
   checkoutDialog.addEventListener("close", resetCheckoutConsent);
+
+  const demoOfferDialog = $("[data-demo-offer]");
+  let demoOfferProductId = null;
+  const showDemoOffer = (id) => {
+    const product = products[id];
+    if (!product || demoOfferDialog.open || checkoutDialog.open) return;
+    demoOfferProductId = id;
+    $("[data-demo-offer-icon]").style.setProperty("--tone", product.tone);
+    $("[data-demo-offer-product]").textContent = `${productName(product)} · ${product.demo.title}`;
+    $("[data-demo-offer-promise]").textContent = productPitches[id][language];
+    $("[data-demo-offer-price]").textContent = price(product.price);
+    $("[data-demo-offer-button-price]").textContent = price(product.price);
+    const buyButton = $("[data-demo-offer-buy]");
+    buyButton.dataset.buy = id;
+    const productHref = routeHref(`/product/${id}/`);
+    const productLink = $("[data-demo-offer-open]");
+    productLink.href = productHref;
+    productLink.dataset.route = productHref;
+    demoOfferDialog.showModal();
+    trackEvent("demo_offer_view", { pack: id, route: parseRoute().type });
+    buyButton.focus();
+  };
+  demoOfferDialog.addEventListener("click", (event) => {
+    if (event.target === demoOfferDialog) demoOfferDialog.close("backdrop");
+  });
+  demoOfferDialog.addEventListener("close", () => {
+    if (demoOfferProductId && !["buy", "open_product", "sampler"].includes(demoOfferDialog.returnValue)) {
+      trackEvent("demo_offer_close", { pack: demoOfferProductId, reason: demoOfferDialog.returnValue || "escape" });
+    }
+    demoOfferProductId = null;
+  });
 
   const formatTime = (seconds) => {
     const safe = Number.isFinite(seconds) && seconds > 0 ? Math.floor(seconds) : 0;
@@ -1492,7 +1660,7 @@
     updateAudioUi();
   };
 
-  function startTrack(id) {
+  function startTrack(id, placement = "unknown") {
     const product = products[id];
     if (!product?.demo) return;
     if (activeTrack?.id === id) {
@@ -1501,10 +1669,12 @@
       updateAudioUi();
       return;
     }
-    stopTrack(); lastTrackId = id;
+    stopTrack();
+    lastTrackId = id;
+    lastTrackPlacement = placement;
     const audio = new Audio(product.demo.src);
     audio.preload = "metadata";
-    activeTrack = { id, audio };
+    activeTrack = { id, audio, placement };
     $("[data-audio-dock]").hidden = false;
     $("[data-dock-title]").textContent = product.demo.title;
     $("[data-dock-product]").textContent = productName(product);
@@ -1513,7 +1683,7 @@
     audio.addEventListener("play", () => {
       if (!trackedDemoIds.has(id)) {
         trackedDemoIds.add(id);
-        trackEvent("demo_start", { pack: id });
+        trackEvent("demo_start", { pack: id, placement });
       }
       updateAudioUi();
     });
@@ -1522,9 +1692,10 @@
       if (activeTrack?.audio !== audio) return;
       if (!completedDemoIds.has(id)) {
         completedDemoIds.add(id);
-        trackEvent("demo_complete", { pack: id });
+        trackEvent("demo_complete", { pack: id, placement });
       }
       stopTrack();
+      showDemoOffer(id);
     });
     audio.addEventListener("error", () => {
       if (activeTrack?.audio !== audio) return;
@@ -1539,7 +1710,7 @@
     });
   }
 
-  $("[data-dock-toggle]").addEventListener("click", () => activeTrack ? startTrack(activeTrack.id) : lastTrackId && startTrack(lastTrackId));
+  $("[data-dock-toggle]").addEventListener("click", () => activeTrack ? startTrack(activeTrack.id, activeTrack.placement) : lastTrackId && startTrack(lastTrackId, lastTrackPlacement));
   $("[data-dock-close]").addEventListener("click", stopTrack);
 
   const updateClock = () => { $("[data-clock]").textContent = new Intl.DateTimeFormat(language === "es" ? "es-ES" : "en-GB", { hour: "2-digit", minute: "2-digit" }).format(new Date()); };

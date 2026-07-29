@@ -163,10 +163,10 @@
     <!-- STATIC-SEO:END -->
     <base href="/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles-v5.css?v=40" />
+    <link rel="stylesheet" href="./styles-v5.css?v=41" />
     <script src="./analytics-runtime.js?v=2" defer></script>
     <script src="./analytics-loader.js?v=1" defer></script>
-    <script src="./app-v5.js?v=45" defer></script>
+    <script src="./app-v5.js?v=46" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#file-view" data-skip data-i18n="a11y.skip">Skip to files</a>
@@ -232,7 +232,7 @@
                 </div>
                 <div class="product-banner__buy">
                   <div class="product-banner__price"><strong>9 €</strong><span class="price-per-prompt">€0.30 per prompt</span></div>
-                  <div class="product-banner__actions"><button type="button" data-play="iron">Hear 30 sec</button><button class="primary-action" type="button" data-buy="iron">Buy now · 9 €</button></div>
+                  <div class="product-banner__actions"><button type="button" data-play="iron" data-play-placement="product_banner">Hear 30 sec</button><button class="primary-action" type="button" data-buy="iron" data-buy-placement="product_banner">Buy now · 9 €</button></div>
                   <a class="product-banner__sampler" href="https://payhip.com/b/LJp1T?utm_source=subsuelofs&amp;utm_medium=website&amp;utm_campaign=free_sampler" target="_blank" rel="noopener noreferrer" data-sampler-download="product">Try free sampler · €0 ↗</a>
                 </div>
               </section>
@@ -247,10 +247,10 @@
                   <aside class="prompt-proof__test">
                     <h3>TEST IT IN 3 STEPS</h3>
                     <ol><li>Open Create and turn on Custom and Instrumental.</li><li>Paste the complete block into Styles.</li><li>Leave Exclude empty and generate two versions.</li></ol>
-                    <button class="prompt-proof__demo" type="button" data-play="iron" data-play-context="proof">HEAR THE RESULT · 30 SEC</button>
+                    <button class="prompt-proof__demo" type="button" data-play="iron" data-play-context="proof" data-play-placement="prompt_proof">HEAR THE RESULT · 30 SEC</button>
                     <p>If this direction works for you, the pack opens 29 more variations and adds 10 negative prompts, ES/EN guides and 4 MP3 references.</p>
                     <small class="prompt-proof__assurance">One-off payment · instant download · personal/commercial prompt licence · MP3 files are reference only</small>
-                    <button class="primary-action prompt-proof__buy" type="button" data-buy="iron">GET THE OTHER 29 · €9</button>
+                    <button class="primary-action prompt-proof__buy" type="button" data-buy="iron" data-buy-placement="prompt_proof">GET THE OTHER 29 · €9</button>
                     <a href="https://payhip.com/b/LJp1T?utm_source=subsuelofs&amp;utm_medium=website&amp;utm_campaign=free_sampler" target="_blank" rel="noopener noreferrer" data-sampler-download="proof">I want to try all six folders free ↗</a>
                   </aside>
                 </div>
@@ -279,7 +279,7 @@
 
               <div class="purchase-strip">
                 <div><strong>Iron Choir · 9 €</strong><span>One-off payment · instant download</span></div>
-                <div class="purchase-strip__actions"><button type="button" data-play="iron">Hear 30 sec</button><button class="primary-action" type="button" data-add="iron">Add to cart</button></div>
+                <div class="purchase-strip__actions"><button type="button" data-play="iron" data-play-placement="purchase_strip">Hear 30 sec</button><button class="primary-action" type="button" data-add="iron" data-add-placement="purchase_strip">Add to cart</button></div>
               </div>
               <!-- STATIC-CONTENT:END -->
             </div>
@@ -345,6 +345,26 @@
         <p class="checkout-preview" id="checkout-payhip-note" data-i18n="checkout.payhipNote">The email you enter is used to send your receipt and download. No account is required. Consent to receive product news is optional and requested separately. No charge is made yet.</p>
         <button class="checkout-back" type="button" data-back-to-cart data-i18n="checkout.back">Back to cart</button>
       </form>
+    </dialog>
+
+    <dialog class="demo-offer-window" data-demo-offer aria-labelledby="demo-offer-title">
+      <header class="utility-titlebar"><strong data-i18n="demoOffer.titlebar">YOU HEARD THE PREVIEW</strong><button type="button" data-demo-offer-close aria-label="Close this offer" data-i18n-aria-label="demoOffer.close"><span class="dock-close-glyph" aria-hidden="true"></span></button></header>
+      <div class="demo-offer-window__body">
+        <span class="folder-icon" data-demo-offer-icon aria-hidden="true"></span>
+        <div class="demo-offer-window__copy">
+          <p data-i18n="demoOffer.kicker">30 SECONDS / QUICK DECISION</p>
+          <h2 id="demo-offer-title" data-i18n="demoOffer.title">If this sound fits, here is the pack.</h2>
+          <strong data-demo-offer-product></strong>
+          <p data-demo-offer-promise></p>
+          <small data-i18n="demoOffer.includes">30 prompts + 10 negative prompts + ES/EN guides + 4 MP3s</small>
+        </div>
+        <div class="demo-offer-window__actions">
+          <strong data-demo-offer-price>9 €</strong>
+          <button class="primary-action" type="button" data-demo-offer-buy data-buy-placement="demo_complete"><span data-i18n="demoOffer.buy">BUY NOW</span> · <b data-demo-offer-button-price>9 €</b></button>
+          <a href="/en/" data-route="/en/" data-demo-offer-open data-i18n="demoOffer.open">View the complete product</a>
+          <a href="https://payhip.com/b/LJp1T?utm_source=subsuelofs&amp;utm_medium=website&amp;utm_campaign=free_sampler" target="_blank" rel="noopener noreferrer" data-sampler-download="demo_complete" data-i18n="demoOffer.sampler">I prefer to try the free sampler</a>
+        </div>
+      </div>
     </dialog>
 
     <div class="toast" role="status" aria-live="polite" data-toast></div>

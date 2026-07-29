@@ -7,6 +7,11 @@ const siteUrl = "https://subsuelofs.com";
 const googleSiteVerification = "DJkA51rgKHJD0GzXu5a8qJ4CKnEeHOdfFPoNXyPcRY0";
 const contentModified = "2026-07-29";
 const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir", "dust", "iron"];
+const familyPages = [
+  { basePath: "/electronica/", output: "electronica/index.html", id: "electronic", products: ["garage", "jungle"] },
+  { basePath: "/hip-hop/", output: "hip-hop/index.html", id: "hiphop", products: ["trap", "low", "abyss", "noir"] },
+  { basePath: "/guitarras/", output: "guitarras/index.html", id: "guitars", products: ["dust", "iron"] }
+];
 const legalIds = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
 const legalModified = Object.freeze({
   notice: "2026-07-16",
@@ -27,6 +32,7 @@ const samplerSourceProductIds = Object.freeze({
 });
 const basePages = [
   { basePath: "/", output: "index.html", schemaType: "CollectionPage" },
+  ...familyPages.map((family) => ({ ...family, schemaType: "CollectionPage" })),
   { basePath: "/demos/", output: "demos/index.html", schemaType: "WebPage" },
   { basePath: "/bundle/", output: "bundle/index.html", schemaType: "Product" },
   { basePath: "/help/", output: "help/index.html", schemaType: "WebPage" },
@@ -77,8 +83,11 @@ const sidebarAppSource = await readFile(path.join(root, "app-v5.js"), "utf8");
 if (!stylesheet.includes('[data-view-content] h1[tabindex="-1"]:focus')) {
   throw new Error("Falta ocultar el marco del título enfocado automáticamente");
 }
-if (!stylesheet.includes(".tree-family > summary") || !sidebarAppSource.includes("categoryFamilies.map((family) => sidebarFamilyMarkup(family, route))")) {
+if (!stylesheet.includes(".tree-family > summary") || !sidebarAppSource.includes("familyDefinitions.map((family) => sidebarFamilyMarkup(family, route))")) {
   throw new Error("Falta la navegación plegable del catálogo por familias");
+}
+if (!stylesheet.includes(".family-hero") || !stylesheet.includes(".family-pack__demo") || !stylesheet.includes(".demo-offer-window")) {
+  throw new Error("Faltan estilos de familias, comparación o conversión posterior a la escucha");
 }
 
 const metaContent = (html, attribute, value) => html.match(new RegExp(`<meta\\s+${attribute}="${value}"\\s+content="([^"]+)"`, "u"))?.[1];
@@ -120,7 +129,7 @@ for (const page of pages) {
   const enUrl = `${siteUrl}${localizedPath(page.basePath, "en")}`;
 
   if (!html.includes(`<html lang="${page.locale}">`)) throw new Error(`${page.output}: lang incorrecto`);
-  if (!html.includes("styles-v5.css?v=40")) throw new Error(`${page.output}: versión de CSS obsoleta`);
+  if (!html.includes("styles-v5.css?v=41")) throw new Error(`${page.output}: versión de CSS obsoleta`);
   if (canonical !== `${siteUrl}${page.pathname}`) throw new Error(`${page.output}: canonical incorrecto`);
   if (alternateHref(html, "es") !== esUrl) throw new Error(`${page.output}: hreflang es incorrecto`);
   if (alternateHref(html, "en") !== enUrl) throw new Error(`${page.output}: hreflang en incorrecto`);
@@ -213,6 +222,17 @@ for (const page of pages) {
   if (page.basePath === "/lab/dictionary/" && ((html.match(/data-term=/gu) || []).length < 40 || !html.includes("data-dictionary-search"))) throw new Error(`${page.output}: diccionario incompleto`);
   if (page.basePath === "/lab/monthly-prompt/" && (!html.includes("data-monthly-prompt") || !html.includes('data-sampler-download="monthly"'))) throw new Error(`${page.output}: prompt del mes incompleto`);
   if (page.basePath === "/demos/" && (!html.includes('class="demos-sampler"') || !html.includes('data-sampler-download="demos"'))) throw new Error(`${page.output}: falta el recordatorio de la muestra en demos`);
+  const family = familyPages.find((candidate) => candidate.basePath === page.basePath);
+  if (family) {
+    if (!html.includes('class="family-hero"') || !html.includes('class="family-comparison"')) throw new Error(`${page.output}: página de familia incompleta`);
+    if (!html.includes('class="family-pack__demo"') || !html.includes(`data-sampler-download="family_${family.id}"`)) throw new Error(`${page.output}: faltan escucha o muestra gratuita en la familia`);
+    for (const productId of family.products) {
+      const productHref = localizedPath(`/product/${productId}/`, page.locale);
+      if (!html.includes(`href="${productHref}" data-route="${productHref}"`)) throw new Error(`${page.output}: falta enlace al producto ${productId}`);
+      if (!html.includes(`data-play="${productId}" data-play-placement="family_${family.id}"`)) throw new Error(`${page.output}: falta demo atribuida de ${productId}`);
+      if (!html.includes(`data-buy="${productId}" data-buy-placement="family_${family.id}"`)) throw new Error(`${page.output}: falta compra atribuida de ${productId}`);
+    }
+  }
 
   if (page.locale === "en") {
     const routeHrefs = [...html.matchAll(/<a\b[^>]*\bhref="(\/(?!\/)[^"?#]*)"/gu)].map((match) => match[1]);
@@ -307,11 +327,13 @@ if (analyticsConfig.enabled && (!analyticsConfig.websiteId || !/^https:\/\//u.te
 if (!analyticsConfig.enabled && !analyticsRuntime.includes('"enabled": false')) throw new Error("analytics-runtime.js: Umami debe seguir inactivo sin configuración real");
 if (!analyticsLoader.includes("SUBSUELO_PAGEVIEW") || !analyticsLoader.includes("window.umami.track()")) throw new Error("Analítica: las páginas vistas no usan el contador de Umami");
 if (analyticsLoader.includes('SUBSUELO_TRACK("page_view"') || appSource.includes('trackEvent("page_view"')) throw new Error("Analítica: page_view sigue registrado como evento personalizado");
-for (const event of ["demo_start", "demo_complete", "sampler_click", "checkout_start", "outbound_payhip"]) {
+for (const event of ["family_view", "product_view", "demo_start", "demo_complete", "demo_offer_view", "purchase_intent", "cart_add", "sampler_click", "checkout_start", "checkout_submit", "outbound_payhip"]) {
   if (!analyticsLoader.includes(`"${event}"`) && !appSource.includes(`"${event}"`)) throw new Error(`Analítica: falta el evento ${event}`);
 }
 if (!appSource.includes('localStorage.getItem(attributionStorageKey)') || appSource.includes('sessionStorage.getItem("subsuelo-attribution-v1")')) throw new Error("Atribución: no se conserva entre pestañas");
 if (!appSource.includes('target.searchParams.set("utm_source", "subsuelofs")') || !appSource.includes('target.searchParams.set("utm_medium", "website")')) throw new Error("Atribución: UTM de Payhip sin normalizar");
+if (!appSource.includes('params.set("metadata[source_site]", "subsuelofs")') || !appSource.includes('params.set("metadata[cart_type]", cartType)')) throw new Error("Atribución: el checkout no envía metadatos no personales a Payhip");
+if (!appSource.includes("showDemoOffer(id)") || !appSource.includes('data-demo-offer-buy')) throw new Error("Conversión: falta la oferta al terminar la demo");
 
 for (const page of pages) {
   const html = await readFile(path.join(root, page.output), "utf8");
