@@ -250,6 +250,11 @@ const merchantReturnPolicy = () => ({
   "@type": "MerchantReturnPolicy",
   merchantReturnLink: `${siteUrl}/legal/refund/`
 });
+const productMerchantReturnPolicy = () => ({
+  ...merchantReturnPolicy(),
+  applicableCountry: "ES",
+  returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted"
+});
 const digitalDeliveryDetails = () => ({
   "@type": "OfferShippingDetails",
   shippingRate: {
@@ -374,6 +379,7 @@ const productSchema = (page, product) => ({
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
         shippingDetails: digitalDeliveryDetails(),
+        hasMerchantReturnPolicy: productMerchantReturnPolicy(),
         seller: { "@id": `${siteUrl}/#store` }
       }
     },
