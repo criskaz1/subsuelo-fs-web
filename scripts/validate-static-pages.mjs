@@ -73,8 +73,12 @@ const pages = ["es", "en"].flatMap((locale) => basePages.map((page) => ({
 })));
 const expectedUrls = pages.map((page) => `${siteUrl}${page.pathname}`);
 const stylesheet = await readFile(path.join(root, "styles-v5.css"), "utf8");
+const sidebarAppSource = await readFile(path.join(root, "app-v5.js"), "utf8");
 if (!stylesheet.includes('[data-view-content] h1[tabindex="-1"]:focus')) {
   throw new Error("Falta ocultar el marco del título enfocado automáticamente");
+}
+if (!stylesheet.includes(".tree-family > summary") || !sidebarAppSource.includes("categoryFamilies.map((family) => sidebarFamilyMarkup(family, route))")) {
+  throw new Error("Falta la navegación plegable del catálogo por familias");
 }
 
 const metaContent = (html, attribute, value) => html.match(new RegExp(`<meta\\s+${attribute}="${value}"\\s+content="([^"]+)"`, "u"))?.[1];
@@ -116,7 +120,7 @@ for (const page of pages) {
   const enUrl = `${siteUrl}${localizedPath(page.basePath, "en")}`;
 
   if (!html.includes(`<html lang="${page.locale}">`)) throw new Error(`${page.output}: lang incorrecto`);
-  if (!html.includes("styles-v5.css?v=39")) throw new Error(`${page.output}: versión de CSS obsoleta`);
+  if (!html.includes("styles-v5.css?v=40")) throw new Error(`${page.output}: versión de CSS obsoleta`);
   if (canonical !== `${siteUrl}${page.pathname}`) throw new Error(`${page.output}: canonical incorrecto`);
   if (alternateHref(html, "es") !== esUrl) throw new Error(`${page.output}: hreflang es incorrecto`);
   if (alternateHref(html, "en") !== enUrl) throw new Error(`${page.output}: hreflang en incorrecto`);

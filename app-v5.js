@@ -31,7 +31,7 @@
       titlebar: { browser: "EXPLORADOR DE ARCHIVOS", store: "TIENDA DIGITAL", open: "ARCHIVO ABIERTO" },
       menu: { file: "Archivo", view: "Ver", play: "Reproducir", guides: "Guías", lab: "Lab", help: "Ayuda", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", cart: "Carrito" },
       toolbar: { back: "Atrás", forward: "Adelante", up: "Subir", sidebar: "Abrir navegación", search: "Buscar en el archivo…", viewGroup: "Vista", grid: "Vista de iconos", list: "Vista de lista" },
-      sidebar: { language: "IDIOMA", quick: "ACCESO RÁPIDO", sounds: "POR SONIDO", info: "INFORMACIÓN", home: "Todas las carpetas", demos: "Ejemplos de audio", bundle: "Pack completo", sampler: "Muestra gratuita", samplerAria: "Descargar la muestra gratuita (abre en una pestaña nueva)", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", xAria: "@subsuelofs en X (abre en una pestaña nueva)", cart: "Carrito", guides: "Guías de producción", lab: "Lab de prompts", help: "Qué incluye cada carpeta", legalFolder: "Legal y privacidad" },
+      sidebar: { language: "IDIOMA", quick: "ACCESO RÁPIDO", sounds: "POR FAMILIA", familyElectronic: "ELECTRÓNICA", familyHiphop: "HIP-HOP", familyGuitars: "GUITARRAS", info: "INFORMACIÓN", home: "Todas las carpetas", demos: "Ejemplos de audio", bundle: "Pack completo", sampler: "Muestra gratuita", samplerAria: "Descargar la muestra gratuita (abre en una pestaña nueva)", purchases: "Mis compras", purchasesAria: "Mis compras (abre en una pestaña nueva)", xAria: "@subsuelofs en X (abre en una pestaña nueva)", cart: "Carrito", guides: "Guías de producción", lab: "Lab de prompts", help: "Qué incluye cada carpeta", legalFolder: "Legal y privacidad" },
       mobile: { home: "Inicio", pack: "Pack", demos: "Demos", help: "Ayuda", cart: "Carrito" },
       home: {
         kicker: "SUBSUELO / CATÁLOGO", title: "Prompts para Suno. Un género por carpeta.", lead: "Entra en el género que quieres producir. Cada carpeta reúne 30 prompts probados en Suno que cambian la batería, el bajo, el motivo y el espacio sin abandonar esa familia sonora.", hint: "Haz clic en una carpeta para abrirla", mobileHint: "Toca una carpeta para abrirla", docs: "MÁS INFORMACIÓN", helpFile: "QUE_INCLUYE_CADA_CARPETA.txt", demoFile: "ESCUCHAR_EJEMPLOS.audio", guidesFile: "GUIAS_DE_PRODUCCION.folder", bundleFile: "PACK_COMPLETO.folder", legalFile: "LEGAL_Y_PRIVACIDAD.folder", labFile: "LAB_DE_PROMPTS.folder", empty: "No hay resultados para esta búsqueda.", emptyHint: "Prueba con otro nombre o limpia la búsqueda.", clear: "Limpiar búsqueda",
@@ -61,7 +61,7 @@
       titlebar: { browser: "FILE BROWSER", store: "DIGITAL STORE", open: "STORE OPEN" },
       menu: { file: "File", view: "View", play: "Play", guides: "Guides", lab: "Lab", help: "Help", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", cart: "Cart" },
       toolbar: { back: "Back", forward: "Forward", up: "Up", sidebar: "Open navigation", search: "Search the archive…", viewGroup: "View", grid: "Icon view", list: "List view" },
-      sidebar: { language: "LANGUAGE", quick: "QUICK ACCESS", sounds: "BY SOUND", info: "INFO", home: "All folders", demos: "Audio examples", bundle: "Complete pack", sampler: "Free sampler", samplerAria: "Download the free sampler (opens in a new tab)", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", xAria: "@subsuelofs on X (opens in a new tab)", cart: "Cart", guides: "Production guides", lab: "Prompt lab", help: "What each folder includes", legalFolder: "Legal and privacy" },
+      sidebar: { language: "LANGUAGE", quick: "QUICK ACCESS", sounds: "BY FAMILY", familyElectronic: "ELECTRONIC", familyHiphop: "HIP-HOP", familyGuitars: "GUITARS", info: "INFO", home: "All folders", demos: "Audio examples", bundle: "Complete pack", sampler: "Free sampler", samplerAria: "Download the free sampler (opens in a new tab)", purchases: "My purchases", purchasesAria: "My purchases (opens in a new tab)", xAria: "@subsuelofs on X (opens in a new tab)", cart: "Cart", guides: "Production guides", lab: "Prompt lab", help: "What each folder includes", legalFolder: "Legal and privacy" },
       mobile: { home: "Home", pack: "Pack", demos: "Demos", help: "Help", cart: "Cart" },
       home: {
         kicker: "SUBSUELO / CATALOGUE", title: "Suno prompts. One genre, 30 ways in.", lead: "Pick the sound you want to make. Each folder gives you 30 tested Suno prompts that change the drums, bass, lead source and space while staying inside one coherent genre.", hint: "Click a folder to open it", mobileHint: "Tap a folder to open it", docs: "MORE INFORMATION", helpFile: "WHAT_EACH_FOLDER_INCLUDES.txt", demoFile: "HEAR_THE_EXAMPLES.audio", guidesFile: "PRODUCTION_GUIDES.folder", bundleFile: "COMPLETE_PACK.folder", legalFile: "LEGAL_AND_PRIVACY.folder", labFile: "PROMPT_LAB.folder", empty: "No results for this search.", emptyHint: "Try another name or clear the search.", clear: "Clear search",
@@ -770,9 +770,11 @@
     }).join("");
   };
 
-  const categories = () => {
-    return [...new Set(catalog.flatMap((product) => product.tags))];
-  };
+  const categoryFamilies = Object.freeze([
+    { id: "electronic", label: "sidebar.familyElectronic", categories: ["garage", "jungle"] },
+    { id: "hiphop", label: "sidebar.familyHiphop", categories: ["trap", "hiphop", "dub", "noir"] },
+    { id: "guitars", label: "sidebar.familyGuitars", categories: ["country", "metal"] }
+  ]);
 
   const treeItem = ({ route, label, icon = "folder", count, current, crawlable = false }) => {
     const href = routeHref(route);
@@ -782,6 +784,24 @@
       : `<button class="tree-item ${current ? "is-current" : ""}" type="button" data-route="${escapeHtml(href)}"${current ? ' aria-current="page"' : ""}>${content}</button>`;
   };
 
+  const sidebarFamilyMarkup = (family, route) => {
+    const activeCategory = route.type === "category"
+      ? route.category
+      : route.type === "product"
+        ? products[route.id]?.tags?.[0]
+        : null;
+    const isActiveFamily = family.categories.includes(activeCategory);
+    const open = isActiveFamily && !window.matchMedia("(max-width: 900px)").matches;
+    const items = family.categories.map((category) => treeItem({
+      route: `/category/${category}`,
+      label: categoryName(category),
+      count: catalog.filter((product) => product.tags.includes(category)).length,
+      current: route.type === "category" && route.category === category
+    })).join("");
+    const count = catalog.filter((product) => family.categories.some((category) => product.tags.includes(category))).length;
+    return `<details class="tree-family"${open ? " open" : ""} data-sidebar-family="${family.id}"><summary><span class="tree-family__marker" aria-hidden="true"></span><span>${t(family.label)}</span><small>${count}</small></summary><nav>${items}</nav></details>`;
+  };
+
   const renderSidebar = (route) => {
     $("[data-sidebar-main]").innerHTML = [
       treeItem({ route: "/", label: t("sidebar.home"), count: catalog.length, current: route.type === "home", crawlable: true }),
@@ -789,7 +809,7 @@
       treeItem({ route: "/bundle", label: t("sidebar.bundle"), current: route.type === "bundle", crawlable: true }),
       `<a class="tree-item" href="${freeSampler.url}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(t("sidebar.samplerAria"))}" data-sampler-download="sidebar"><span class="tree-icon tree-icon--doc"></span><span>${t("sidebar.sampler")}</span><small>0 € ↗</small></a>`
     ].join("");
-    $("[data-sidebar-categories]").innerHTML = categories().map((category) => treeItem({ route: `/category/${category}`, label: categoryName(category), count: catalog.filter((product) => product.tags.includes(category)).length, current: route.type === "category" && route.category === category })).join("");
+    $("[data-sidebar-categories]").innerHTML = categoryFamilies.map((family) => sidebarFamilyMarkup(family, route)).join("");
     $("[data-sidebar-info]").innerHTML = [
       `<a class="tree-item" href="${localizedPath("/guides/", language)}"><span class="tree-icon tree-icon--folder"></span><span>${t("sidebar.guides")}</span></a>`,
       `<a class="tree-item" href="${localizedPath("/lab/", language)}"><span class="tree-icon tree-icon--folder"></span><span>${t("sidebar.lab")}</span></a>`,
