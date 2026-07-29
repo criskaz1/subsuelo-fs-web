@@ -60,6 +60,26 @@
       "images": [
         "media/noir/social-card.png"
       ]
+    },
+    {
+      "id": "dust",
+      "route": "dust",
+      "previews": [
+        "audio/dust-country-night-mileage-preview.mp3"
+      ],
+      "images": [
+        "media/dust/social-card.png"
+      ]
+    },
+    {
+      "id": "iron",
+      "route": "iron",
+      "previews": [
+        "audio/iron-choir-ashen-procession-preview.mp3"
+      ],
+      "images": [
+        "media/iron/social-card.png"
+      ]
     }
   ]
 }
