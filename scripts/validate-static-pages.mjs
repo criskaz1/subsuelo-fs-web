@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://subsuelofs.com";
+const googleSiteVerification = "DJkA51rgKHJD0GzXu5a8qJ4CKnEeHOdfFPoNXyPcRY0";
 const contentModified = "2026-07-29";
 const productIds = ["trap", "garage", "jungle", "low", "abyss", "noir", "dust", "iron"];
 const legalIds = ["notice", "privacy", "terms", "refund", "license", "storage", "accessibility"];
@@ -118,6 +119,7 @@ for (const page of pages) {
   if (metaContent(html, "property", "og:locale") !== (page.locale === "en" ? "en_GB" : "es_ES")) throw new Error(`${page.output}: og:locale incorrecto`);
   if (metaContent(html, "property", "og:locale:alternate") !== (page.locale === "en" ? "es_ES" : "en_GB")) throw new Error(`${page.output}: og:locale:alternate incorrecto`);
   if (!title || !description) throw new Error(`${page.output}: faltan title o description`);
+  if (page.pathname === "/" && metaContent(html, "name", "google-site-verification") !== googleSiteVerification) throw new Error(`${page.output}: falta la verificación activa de Search Console`);
   if ((page.schemaType === "Product" || page.basePath === "/") && !html.includes('class="checkout-conversion-bar"')) throw new Error(`${page.output}: falta la barra de conversión del checkout`);
   if (!/<div class="[^"]*\bview-content\b[^"]*"[^>]*>[\s\S]*?<h1(?:\s[^>]*)?>/u.test(html)) throw new Error(`${page.output}: falta contenido inicial con H1`);
   if (!jsonLdSource) throw new Error(`${page.output}: falta JSON-LD`);
