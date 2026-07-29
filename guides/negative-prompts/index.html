@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="description" content="Qué elimina un negative prompt musical, dónde se pega, en qué se diferencia del prompt principal y cuándo usarlo para voces o instrumentos." />
+<meta name="description" content="Qué elimina un negative prompt en Suno, dónde se pega en Exclude, cómo se diferencia de Styles y cuándo usarlo para voces o instrumentos." />
 <link rel="canonical" href="https://subsuelofs.com/guides/negative-prompts/" />
 <link rel="alternate" hreflang="es" href="https://subsuelofs.com/guides/negative-prompts/" />
 <link rel="alternate" hreflang="en" href="https://subsuelofs.com/en/guides/negative-prompts/" />
@@ -16,8 +16,8 @@
 <meta property="og:site_name" content="SUBSUELO FS" />
 <meta property="og:locale" content="es_ES" />
 <meta property="og:locale:alternate" content="en_GB" />
-<meta property="og:title" content="Qué es un negative prompt en música | SUBSUELO FS" />
-<meta property="og:description" content="Qué elimina un negative prompt musical, dónde se pega, en qué se diferencia del prompt principal y cuándo usarlo para voces o instrumentos." />
+<meta property="og:title" content="Negative prompts para Suno: qué son y cómo usarlos" />
+<meta property="og:description" content="Qué elimina un negative prompt en Suno, dónde se pega en Exclude, cómo se diferencia de Styles y cuándo usarlo para voces o instrumentos." />
 <meta property="og:image" content="https://subsuelofs.com/media/guides/negative-prompts-es.png?v=20260725" />
 <meta property="og:image:secure_url" content="https://subsuelofs.com/media/guides/negative-prompts-es.png?v=20260725" />
 <meta property="og:image:type" content="image/png" />
@@ -27,8 +27,8 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@subsuelofs" />
 <meta name="twitter:creator" content="@subsuelofs" />
-<meta name="twitter:title" content="Qué es un negative prompt en música | SUBSUELO FS" />
-<meta name="twitter:description" content="Qué elimina un negative prompt musical, dónde se pega, en qué se diferencia del prompt principal y cuándo usarlo para voces o instrumentos." />
+<meta name="twitter:title" content="Negative prompts para Suno: qué son y cómo usarlos" />
+<meta name="twitter:description" content="Qué elimina un negative prompt en Suno, dónde se pega en Exclude, cómo se diferencia de Styles y cuándo usarlo para voces o instrumentos." />
 <meta name="twitter:image" content="https://subsuelofs.com/media/guides/negative-prompts-es.png?v=20260725" />
 <meta name="twitter:image:alt" content="Qué es un negative prompt en música" />
 <link rel="me" href="https://x.com/subsuelofs" />
@@ -43,11 +43,11 @@
         "@id": "https://subsuelofs.com/guides/negative-prompts/#article",
         "mainEntityOfPage": "https://subsuelofs.com/guides/negative-prompts/",
         "url": "https://subsuelofs.com/guides/negative-prompts/",
-        "headline": "Qué es un negative prompt en música",
-        "name": "Qué es un negative prompt en música | SUBSUELO FS",
-        "description": "Qué elimina un negative prompt musical, dónde se pega, en qué se diferencia del prompt principal y cuándo usarlo para voces o instrumentos.",
-        "datePublished": "2026-07-25",
-        "dateModified": "2026-07-25",
+        "headline": "Qué es un negative prompt en Suno",
+        "name": "Negative prompts para Suno: qué son y cómo usarlos",
+        "description": "Qué elimina un negative prompt en Suno, dónde se pega en Exclude, cómo se diferencia de Styles y cuándo usarlo para voces o instrumentos.",
+        "datePublished": "2026-07-16",
+        "dateModified": "2026-07-29",
         "inLanguage": "es",
         "author": {
           "@type": "Organization",
@@ -94,11 +94,11 @@
     ]
   }
 </script>
-<title>Qué es un negative prompt en música | SUBSUELO FS</title>
+<title>Negative prompts para Suno: qué son y cómo usarlos</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles-v5.css?v=38" />
+    <link rel="stylesheet" href="/styles-v5.css?v=41" />
     <script src="/analytics-runtime.js?v=2" defer></script>
-    <script src="/analytics-loader.js?v=1" defer></script>
+    <script src="/analytics-loader.js?v=2" defer></script>
   </head>
   <body class="editorial-body">
     <a class="skip-link" href="#article">Saltar al artículo</a>
@@ -110,7 +110,8 @@
         <div class="workspace editorial-workspace">
           <aside class="sidebar editorial-sidebar" aria-label="Navegación del sitio"><section><h2>GUÍAS</h2><nav><a class="tree-item" href="/guides/"><span class="tree-icon tree-icon--folder"></span><span>Todas las guías</span></a><strong class="tree-subhead">TÉCNICA</strong><a class="tree-item is-current" href="/guides/negative-prompts/" aria-current="page"><span class="tree-icon tree-icon--doc"></span><span>Negative prompts</span></a><a class="tree-item" href="/guides/write-music-prompts/"><span class="tree-icon tree-icon--doc"></span><span>Escribir prompts</span></a><a class="tree-item" href="/guides/describe-drums/"><span class="tree-icon tree-icon--doc"></span><span>Describir la batería</span></a><a class="tree-item" href="/guides/low-end-808/"><span class="tree-icon tree-icon--doc"></span><span>Graves: 808 y subgraves</span></a><a class="tree-item" href="/guides/fix-generic-ai-music/"><span class="tree-icon tree-icon--doc"></span><span>Arreglar música IA genérica</span></a><a class="tree-item" href="/guides/space-texture/"><span class="tree-icon tree-icon--doc"></span><span>Espacio, textura y suciedad</span></a><strong class="tree-subhead">GÉNEROS</strong><a class="tree-item" href="/guides/make-dark-trap/"><span class="tree-icon tree-icon--doc"></span><span>Cómo hacer trap oscuro</span></a><a class="tree-item" href="/guides/make-dark-uk-garage/"><span class="tree-icon tree-icon--doc"></span><span>Hacer UK garage oscuro</span></a><a class="tree-item" href="/guides/make-dark-jungle/"><span class="tree-icon tree-icon--doc"></span><span>Hacer jungle oscuro</span></a><a class="tree-item" href="/guides/make-noir-hip-hop/"><span class="tree-icon tree-icon--doc"></span><span>Hacer hip hop noir</span></a><a class="tree-item" href="/guides/make-abstract-hip-hop/"><span class="tree-icon tree-icon--doc"></span><span>Hacer hip hop abstracto</span></a><a class="tree-item" href="/guides/make-dub-hip-hop/"><span class="tree-icon tree-icon--doc"></span><span>Hacer hip hop dub</span></a></nav></section><section><h2>LAB</h2><nav><a class="tree-item" href="/lab/"><span class="tree-icon tree-icon--folder"></span><span>Herramientas gratis</span></a></nav></section><section><h2>CATÁLOGO</h2><nav><a class="tree-item" href="/"><span class="tree-icon tree-icon--folder"></span><span>Todas las carpetas</span></a><a class="tree-item" href="/compare/"><span class="tree-icon tree-icon--doc"></span><span>Comparar carpetas</span></a><a class="tree-item" href="/method/"><span class="tree-icon tree-icon--doc"></span><span>Método</span></a><a class="tree-item" href="/demos/"><span class="tree-icon tree-icon--play"></span><span>Muestras de audio</span></a><a class="tree-item" href="/bundle/"><span class="tree-icon tree-icon--folder"></span><span>Pack completo</span></a></nav></section></aside>
           <section class="file-pane editorial-pane" id="article" tabindex="-1"><div class="view-content editorial-view"><article class="editorial-document article-document">
-    <header class="editorial-hero"><p>GUIA_01 / NEGATIVE PROMPTS</p><h1>Qué es un negative prompt en música y cuándo usarlo</h1><p>Un negative prompt es una lista corta de elementos que quieres dejar fuera. No describe la pista que buscas y no sustituye al prompt principal.</p></header>
+    <header class="editorial-hero"><p>GUIA_01 / NEGATIVE PROMPTS</p><h1>Qué es un negative prompt en Suno y cuándo usarlo</h1><p>En Suno, un negative prompt es una lista corta para el campo Exclude: elementos que quieres dejar fuera. No describe la pista que buscas ni sustituye al prompt de Styles.</p></header>
+    <div class="article-byline"><strong>Escrito y probado por SUBSUELO FS</strong><span>Actualizado el 29/07/2026</span><a href="/method/">Método de prueba</a></div>
     <div class="article-layout"><nav class="article-index" aria-label="En esta página"><strong>EN ESTE ARCHIVO</strong><a href="#difference">Principal y negativo</a><a href="#where">Dónde va</a><a href="#vocals">Voces</a><a href="#use">Cuándo usarlo</a><a href="#mistakes">Errores comunes</a></nav><div class="article-copy">
       <section id="difference"><h2>El prompt principal y el negative prompt hacen trabajos distintos</h2><p>El principal describe el resultado: género, pulso, batería, bajo, instrumentos, textura y mezcla. El negative prompt solo nombra lo que debe quedar fuera de ese resultado.</p><div class="two-file-example"><div><span>PROMPT PRINCIPAL</span><p>Dirección, ritmo, graves, fuentes y acabado.</p></div><div><span>NEGATIVE PROMPT</span><p>Elementos que se excluyen, escritos como una lista corta.</p></div></div><p>Si la dirección principal es débil, una lista de exclusiones más larga no la arregla. Empieza con una dirección clara y añade una exclusión solo cuando resuelva un problema concreto.</p></section>
       <section id="where"><h2>¿Dónde se coloca?</h2><p>Pégalo en el campo de la interfaz destinado a exclusiones. Si la herramienta ofrece campos separados, no lo añadas al texto principal: mezclar «usa esto» y «no uses esto» en el mismo párrafo hace menos clara la dirección.</p><p>Nuestras carpetas mantienen ambos documentos separados por ese motivo: un PDF reúne los 30 prompts completos y otro contiene las 10 listas de exclusión opcionales.</p></section>

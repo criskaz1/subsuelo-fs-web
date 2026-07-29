@@ -144,7 +144,6 @@ const forbiddenPathRules = [
 
 const privateAccount = ["cris", "kaz1"].join("");
 const privateMailbox = ["videoclipsconfiltro", "gmail.com"].join("@");
-const excludedBrand = ["su", "no"].join("");
 const approvedBrandDisclaimers = [
   "Los prompts se entregan en inglés, listos para copiar en Styles; los negative prompts opcionales se usan en Exclude de Suno. SUBSUELO FS es independiente y no está afiliado a Suno.",
   "Prompts are delivered in English, ready to paste into Styles; optional negative prompts go in Suno's Exclude field. SUBSUELO FS is independent and is not affiliated with Suno."
@@ -156,8 +155,7 @@ const forbiddenContentRules = [
   { label: "clave de AWS", pattern: /AKIA[0-9A-Z]{16}/u },
   { label: "credencial asignada en texto", pattern: /(?:password|passwd|contrase(?:n|ñ)a|client[_-]?secret|access[_-]?token|api[_-]?secret)\s*[:=]\s*["'][^"'\n]{6,}["']/iu },
   { label: "usuario personal", pattern: new RegExp(`\\b${privateAccount}\\b`, "iu") },
-  { label: "correo personal", pattern: new RegExp(privateMailbox.replace(".", "\\."), "iu") },
-  { label: "marca excluida de la web", pattern: new RegExp(`\\b${excludedBrand}\\b`, "iu") }
+  { label: "correo personal", pattern: new RegExp(privateMailbox.replace(".", "\\."), "iu") }
 ];
 
 const textExtensions = new Set([".css", ".html", ".js", ".json", ".md", ".mjs", ".svg", ".txt", ".xml", ".yml", ".yaml"]);
@@ -315,7 +313,6 @@ if (process.argv.includes("--self-test")) {
     contentViolations(syntheticToken).includes("token de GitHub"),
     contentViolations(syntheticPassword).includes("credencial asignada en texto"),
     contentViolations(`visit ${privateAccount}`).includes("usuario personal"),
-    contentViolations(`made with ${excludedBrand}`).includes("marca excluida de la web"),
     pathViolations("product/noir/index.html").length === 0,
     pathViolations("legal/privacy/index.html").length === 0,
     pathViolations("en/legal/terms/index.html").length === 0,

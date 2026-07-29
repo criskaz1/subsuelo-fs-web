@@ -2,7 +2,7 @@
 
 [Abrir la tienda](https://subsuelofs.com/) · [English version](https://subsuelofs.com/en/) · [Escuchar demos](https://subsuelofs.com/demos/)
 
-SUBSUELO FS publica carpetas de dirección sonora para crear instrumentales. Cada colección se mantiene dentro de un género concreto y reúne 30 prompts completos, 10 negative prompts opcionales, documentación separada en español e inglés y cuatro referencias de audio.
+SUBSUELO FS publica carpetas de prompts para crear instrumentales en Suno. Cada colección se mantiene dentro de un género concreto y reúne 30 prompts completos, 10 negative prompts opcionales, documentación separada en español e inglés y cuatro referencias de audio probadas.
 
 El catálogo actual cubre trap ritual, UK garage oscuro, jungle degradado, hip-hop abstracto, hip-hop dub y hip-hop noir. La web permite comparar las seis carpetas por ritmo, graves, fuentes y espacio antes de elegir.
 
@@ -33,4 +33,4 @@ node scripts/generate-static-pages.mjs
 node scripts/validate-static-pages.mjs
 ```
 
-`analytics-config.json` deja preparado el cargador de Umami, pero permanece desactivado mientras no exista un `websiteId` real. Con la configuración desactivada, la política CSP no autoriza orígenes externos y el navegador no descarga ni envía datos a Umami.
+`analytics-config.json` activa Umami Cloud sin cookies. `analytics-loader.js` registra las páginas vistas como pageviews reales y mantiene separados los eventos de demos, herramientas, muestra gratuita y salidas hacia el checkout.

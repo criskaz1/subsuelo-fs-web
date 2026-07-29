@@ -2,12 +2,12 @@
  {
   "slug": "describe-drums",
   "es": {
-   "title": "Cómo describir la batería en un prompt y no quedarte con el groove por defecto",
+   "title": "Cómo describir la batería en un prompt de Suno y no quedarte con el groove por defecto",
    "navTitle": "Describir la batería",
-   "seoTitle": "Cómo describir la batería en un prompt",
-   "metaDescription": "Vocabulario concreto para describir la batería en un prompt de música: pocket, familias de sonido, swing, densidad y los errores más comunes.",
+   "seoTitle": "Cómo describir la batería en prompts de Suno",
+   "metaDescription": "Vocabulario concreto para describir baterías en prompts de Suno: pocket, familias de sonido, swing, densidad y los errores más comunes.",
    "heroKicker": "GUIA_03 / BATERIA",
-   "heroLead": "La herramienta siempre devuelve un patrón de batería; que sea el tuyo depende de cómo nombres pocket, fuente y espacio. «Hard drums» no decide nada de eso.",
+   "heroLead": "Suno siempre devuelve un patrón de batería; que sea el tuyo depende de cómo nombres pocket, fuente y espacio. «Hard drums» no decide nada de eso.",
    "cardDescription": "Pocket, familia de sonido, swing y densidad: las cuatro decisiones de una batería.",
    "sections": [
     {
@@ -86,12 +86,12 @@
    ]
   },
   "en": {
-   "title": "How to describe drums in a music prompt and avoid the default groove",
+   "title": "How to describe drums in a Suno prompt and avoid the default groove",
    "navTitle": "Describing drums",
-   "seoTitle": "How to describe drums in a music prompt",
-   "metaDescription": "Concrete vocabulary for describing drums in a music prompt: pocket, source families, swing, density and the mistakes that flatten a groove.",
+   "seoTitle": "How to describe drums in Suno prompts",
+   "metaDescription": "Concrete vocabulary for drums in Suno prompts: pocket, source families, swing, density and the mistakes that flatten a groove.",
    "heroKicker": "GUIDE_03 / DRUMS",
-   "heroLead": "The tool always returns a drum pattern; whether it is yours depends on how you name pocket, source and space. “Hard drums” decides none of that.",
+   "heroLead": "Suno always returns a drum pattern; whether it is yours depends on how you name pocket, source and space. “Hard drums” decides none of that.",
    "cardDescription": "Pocket, source family, swing and density: the four decisions behind a drum line.",
    "sections": [
     {
@@ -174,10 +174,10 @@
  {
   "slug": "low-end-808",
   "en": {
-   "title": "808, sub-bass and movement: controlling the low end in a music prompt",
+   "title": "808, sub-bass and movement: controlling the low end in a Suno prompt",
    "navTitle": "Low end: 808 and sub-bass",
-   "seoTitle": "808 & Sub-Bass Prompts: Control the Low End",
-   "metaDescription": "Which words select a sub, an 808 or a bassline in a music prompt, how to describe movement, and how to clean a muddy low end with negative prompts.",
+   "seoTitle": "808 and sub-bass prompts for Suno",
+   "metaDescription": "Which words select a sub, an 808 or a bassline in a Suno prompt, how to describe movement and how to clean a muddy low end with Exclude.",
    "heroKicker": "GUIDE_04 / LOW END",
    "heroLead": "The low end is where generated tracks fall apart first. These are the words that decide whether you get a sub, an 808 or a bassline, and how to keep them out of each other's way.",
    "cardDescription": "Words that select a sub, an 808 or a bassline, and how to keep the low end clean.",
@@ -253,10 +253,10 @@
    ]
   },
   "es": {
-   "title": "808, subgraves y movimiento: cómo controlar el grave en un prompt",
+   "title": "808, subgraves y movimiento: cómo controlar el grave en un prompt de Suno",
    "navTitle": "Graves: 808 y subgraves",
-   "seoTitle": "Prompt 808 y subgraves: controlar el grave",
-   "metaDescription": "Qué palabras seleccionan un sub, un 808 o un bajo en un prompt, cómo describir el movimiento del bajo y cómo limpiar unos graves turbios con negative prompts.",
+   "seoTitle": "Prompts de 808 y subgraves para Suno",
+   "metaDescription": "Qué palabras seleccionan un sub, un 808 o un bajo en Suno, cómo describir su movimiento y cómo limpiar unos graves turbios con Exclude.",
    "heroKicker": "GUIA_04 / GRAVES",
    "heroLead": "El grave es lo primero que se derrumba en una pista generada. Estas son las palabras que deciden si sale un sub, un 808 o una línea de bajo, y cómo evitar que se pisen.",
    "cardDescription": "Qué palabras sacan un sub, un 808 o una línea de bajo, y cómo mantener el grave limpio.",
@@ -336,10 +336,10 @@
  {
   "slug": "fix-generic-ai-music",
   "es": {
-   "title": "Por qué la música hecha con IA suena genérica y qué hábitos de prompt lo corrigen",
+   "title": "Por qué Suno suena genérico y qué hábitos de prompt lo corrigen",
    "navTitle": "Arreglar música IA genérica",
-   "seoTitle": "La música IA suena genérica: cómo arreglarlo",
-   "metaDescription": "La música hecha con IA suena genérica cuando el prompt es vago. Palabras de fuente, espacio, exclusiones e iteración por ejes la sacan del promedio.",
+   "seoTitle": "Por qué Suno suena genérico y cómo corregirlo",
+   "metaDescription": "Suno suena genérico cuando el prompt es vago. Palabras de fuente, espacio, exclusiones e iteración por ejes sacan el resultado del promedio.",
    "heroKicker": "GUIA_05 / CARACTER",
    "heroLead": "Un resultado genérico rara vez es un misterio. Un prompt vago se promedia hacia el centro estadístico de su género; las palabras concretas sobre fuentes, espacio y acabado lo sacan de ahí.",
    "cardDescription": "Por qué un prompt vago cae en el centro estadístico del género y qué palabras lo sacan.",
@@ -423,10 +423,10 @@
    ]
   },
   "en": {
-   "title": "Why AI music sounds generic and the prompt habits that fix it",
+   "title": "Why Suno sounds generic and the prompt habits that fix it",
    "navTitle": "Fix generic AI music",
-   "seoTitle": "AI music sounds generic: how to fix it",
-   "metaDescription": "Generic AI music comes from vague prompts averaged into the genre's middle. Source words, space, exclusions and one-axis iteration fix it.",
+   "seoTitle": "Why Suno sounds generic and how to fix it",
+   "metaDescription": "Generic Suno results often come from vague prompts. Source words, space, exclusions and one-axis iteration pull them out of the genre average.",
    "heroKicker": "GUIDE_05 / CHARACTER",
    "heroLead": "Generic output is rarely a mystery. A vague prompt gets averaged into the statistical middle of its genre; concrete words about sources, space and finish pull it out.",
    "cardDescription": "Why vague prompts land in the genre's statistical middle and which words pull them out.",
@@ -514,10 +514,10 @@
  {
   "slug": "space-texture",
   "es": {
-   "title": "Espacio, textura y suciedad: escribir la sala dentro del prompt",
+   "title": "Espacio, textura y suciedad: escribir la sala en un prompt de Suno",
    "navTitle": "Espacio, textura y suciedad",
-   "seoTitle": "Prompts de textura lo-fi: cinta y espacio",
-   "metaDescription": "Vocabulario de espacio, eco, cinta y degradación para prompts musicales: seco o lavado, dub delay, crackle de vinilo, anchura y cuánta suciedad es demasiada.",
+   "seoTitle": "Textura lo-fi en Suno: cinta y espacio",
+   "metaDescription": "Vocabulario de espacio, eco, cinta y degradación para Suno: seco o lavado, dub delay, crackle de vinilo, anchura y cuánta suciedad es demasiada.",
    "heroKicker": "GUIA_06 / TEXTURA",
    "heroLead": "El espacio y la suciedad son señales de género, no un acabado. Este es el vocabulario de sala, eco y degradación que saca un prompt de lo genérico.",
    "cardDescription": "Vocabulario de sala, eco, cinta y degradación, y cuánta suciedad aguanta un prompt.",
@@ -602,10 +602,10 @@
    ]
   },
   "en": {
-   "title": "Space, texture and dirt: writing the room into your prompt",
+   "title": "Space, texture and dirt: writing the room into a Suno prompt",
    "navTitle": "Space, texture and dirt",
-   "seoTitle": "Lo-fi texture and reverb in music prompts",
-   "metaDescription": "Reverb space, echo, tape and degradation vocabulary for music prompts: dry vs washed, dub delay, vinyl crackle, and how much dirt is too much.",
+   "seoTitle": "Lo-fi texture and reverb in Suno prompts",
+   "metaDescription": "Space, echo, tape and degradation vocabulary for Suno prompts: dry vs washed, dub delay, vinyl crackle and how much dirt is too much.",
    "heroKicker": "GUIDE_06 / TEXTURE",
    "heroLead": "Space and dirt are genre signals, not polish. This is the room, echo and degradation vocabulary that moves a prompt out of generic.",
    "cardDescription": "Room, echo, tape and degradation vocabulary, and how much dirt one prompt can carry.",
@@ -694,10 +694,10 @@
  {
   "slug": "make-dark-trap",
   "es": {
-   "title": "Cómo hacer trap oscuro: un prompt de batería seca, 808 protagonista y textura ritual",
+   "title": "Cómo hacer trap oscuro en Suno: batería seca, 808 protagonista y textura ritual",
    "navTitle": "Cómo hacer trap oscuro",
-   "seoTitle": "Cómo hacer trap oscuro: guía de prompts",
-   "metaDescription": "Cómo hacer trap oscuro con prompts: batería seca sin room, un 808 que lleva la melodía, textura ritual y las exclusiones que dejan el EDM fuera.",
+   "seoTitle": "Cómo hacer trap oscuro en Suno",
+   "metaDescription": "Cómo hacer trap oscuro en Suno: batería seca sin room, un 808 que lleva la melodía, textura ritual y exclusiones que dejan el EDM fuera.",
    "heroKicker": "GUIA_07 / TRAP OSCURO",
    "heroLead": "El trap oscuro no es una palabra de ambiente en Styles. Son cuatro decisiones: batería sin room, un 808 que manda, motivos rituales usados como textura y espacio haciendo el trabajo que haría la densidad.",
    "cardDescription": "Batería seca, 808 protagonista, textura ritual y las exclusiones que frenan el EDM.",
@@ -788,10 +788,10 @@
    ]
   },
   "en": {
-   "title": "How to make dark trap: a prompt built on dry drums, a lead 808 and ritual texture",
+   "title": "How to make dark trap in Suno: dry drums, a lead 808 and ritual texture",
    "navTitle": "Make dark trap",
-   "seoTitle": "How to make dark trap: prompt guide",
-   "metaDescription": "How to make dark trap with prompts: dry programmed drums, a dominant 808 that carries the melody, ritual texture, and the exclusions that keep EDM out.",
+   "seoTitle": "How to make dark trap in Suno",
+   "metaDescription": "How to make dark trap in Suno: dry programmed drums, a dominant 808, ritual texture and the exclusions that keep EDM out.",
    "heroKicker": "GUIDE_07 / DARK TRAP",
    "heroLead": "Dark trap is not a mood word in the Styles field. It is four decisions: drums with no room, an 808 that leads, ritual motifs used as texture, and space doing the work density would.",
    "cardDescription": "Dry drums, a lead 808, ritual texture and the exclusions that keep EDM out.",
@@ -886,10 +886,10 @@
  {
   "slug": "make-dark-uk-garage",
   "es": {
-   "title": "Cómo hacer UK garage oscuro: pocket 2-step, subs cortos y espacio estrecho",
+   "title": "Cómo hacer UK garage oscuro en Suno: pocket 2-step, subs cortos y espacio estrecho",
    "navTitle": "Hacer UK garage oscuro",
-   "seoTitle": "Cómo hacer UK garage oscuro con prompts",
-   "metaDescription": "Cómo hacer UK garage oscuro con prompts: batería 2-step con swing, cajas desplazadas, subs cortos, stabs mínimos y las exclusiones que frenan el house.",
+   "seoTitle": "Cómo hacer UK garage oscuro en Suno",
+   "metaDescription": "Cómo hacer UK garage oscuro en Suno: batería 2-step con swing, cajas desplazadas, subs cortos, stabs mínimos y exclusiones contra el house.",
    "heroKicker": "GUIA_08 / GARAGE OSCURO",
    "heroLead": "El garage oscuro funciona por contención: un pocket 2-step con swing humano, subs que golpean y se van, y un espacio del ancho de un callejón. Esta guía monta ese prompt bloque a bloque.",
    "cardDescription": "Pocket 2-step, subs cortos, stabs mínimos: prompts de garage sin que se cuele el house.",
@@ -979,10 +979,10 @@
    ]
   },
   "en": {
-   "title": "How to make dark UK garage: 2-step pocket, short subs, narrow space",
+   "title": "How to make dark UK garage in Suno: 2-step pocket, short subs, narrow space",
    "navTitle": "Making dark UK garage",
-   "seoTitle": "How to make dark UK garage with prompts",
-   "metaDescription": "How to make dark UK garage with prompts: shuffled 2-step drums, displaced snares, short sub hits, minimal stabs and the exclusions that keep house out.",
+   "seoTitle": "How to make dark UK garage in Suno",
+   "metaDescription": "How to make dark UK garage in Suno: shuffled 2-step drums, displaced snares, short sub hits, minimal stabs and exclusions that keep house out.",
    "heroKicker": "GUIDE_08 / DARK GARAGE",
    "heroLead": "Dark garage runs on restraint: a 2-step pocket with human swing, subs that hit and leave, and a space the width of an alley. This guide assembles that prompt block by block.",
    "cardDescription": "2-step pocket, short subs, minimal stabs: prompting dark garage without house leaking in.",
@@ -1076,10 +1076,10 @@
  {
   "slug": "make-dark-jungle",
   "es": {
-   "title": "Cómo hacer jungle oscuro: breaks troceados sobre un sub lento y pesado",
+   "title": "Cómo hacer jungle oscuro en Suno: breaks troceados sobre un sub lento y pesado",
    "navTitle": "Hacer jungle oscuro",
-   "seoTitle": "Cómo hacer jungle oscuro: prompt de breaks",
-   "metaDescription": "Cómo hacer jungle oscuro con un prompt: breaks troceados como instrumento principal, sub lento y pesado, textura de cinta, eco dub y qué excluir.",
+   "seoTitle": "Cómo hacer jungle oscuro en Suno",
+   "metaDescription": "Cómo hacer jungle oscuro en Suno: breaks troceados, sub lento y pesado, textura de cinta, eco dub y qué excluir del resultado.",
    "heroKicker": "GUIA_09 / JUNGLE OSCURO",
    "heroLead": "Batería rápida sobre un suelo lento: el género entero vive en esa tensión. Esta guía monta el prompt bloque a bloque y nombra lo que suele colarse.",
    "cardDescription": "Breaks troceados como lead, sub lento, degradación de cinta y eco dub, bloque a bloque.",
@@ -1167,10 +1167,10 @@
    ]
   },
   "en": {
-   "title": "How to make dark jungle: chopped breaks over a slow, heavy sub",
+   "title": "How to make dark jungle in Suno: chopped breaks over a slow, heavy sub",
    "navTitle": "Make dark jungle",
-   "seoTitle": "How to make dark jungle: breaks prompt",
-   "metaDescription": "How to make dark jungle with a prompt: chopped breaks as the lead, slow heavy sub, tape and vinyl degradation, dub echo and what to exclude.",
+   "seoTitle": "How to make dark jungle in Suno",
+   "metaDescription": "How to make dark jungle in Suno: chopped breaks as the lead, slow heavy sub, tape degradation, dub echo and what to exclude.",
    "heroKicker": "GUIDE_09 / DARK JUNGLE",
    "heroLead": "Fast drums over a slow floor: the whole genre lives in that tension. This guide assembles the prompt block by block and names what tends to leak in.",
    "cardDescription": "Chopped breaks as lead, slow sub, tape degradation and dub echo, block by block.",
@@ -1262,10 +1262,10 @@
  {
   "slug": "make-noir-hip-hop",
   "es": {
-   "title": "Cómo hacer hip hop noir: boom bap oscuro, prompt a prompt",
+   "title": "Cómo hacer hip hop noir en Suno: boom bap oscuro, prompt a prompt",
    "navTitle": "Hacer hip hop noir",
-   "seoTitle": "Cómo hacer hip hop noir: boom bap oscuro",
-   "metaDescription": "Cómo hacer hip hop noir con prompts: jazz polvoriento, boom bap con swing, contrabajo, salas con humo, tape y las exclusiones que lo mantienen oscuro.",
+   "seoTitle": "Cómo hacer hip hop noir en Suno",
+   "metaDescription": "Cómo hacer hip hop noir en Suno: jazz polvoriento, boom bap con swing, contrabajo, salas con humo, tape y exclusiones para mantenerlo oscuro.",
    "heroKicker": "GUIA_10 / HIP HOP NOIR",
    "heroLead": "El hip hop noir suena sampleado, con swing y pequeño. Este es el vocabulario que lleva a la herramienta hacia el jazz polvoriento, las ghost notes y el tape sobre el máster.",
    "cardDescription": "Jazz polvoriento, batería con swing y ghost notes, contrabajo y tape: la receta noir.",
@@ -1346,10 +1346,10 @@
    ]
   },
   "en": {
-   "title": "How to make noir hip-hop: dark boom bap, prompt by prompt",
+   "title": "How to make noir hip-hop in Suno: dark boom bap, prompt by prompt",
    "navTitle": "Make noir hip-hop",
-   "seoTitle": "How to make noir hip-hop: dark boom bap",
-   "metaDescription": "How to make noir hip-hop with prompts: dusty jazz sources, swung boom bap drums, upright bass, smoky rooms, tape finish, and the exclusions that keep it dark.",
+   "seoTitle": "How to make noir hip-hop in Suno",
+   "metaDescription": "How to make noir hip-hop in Suno: dusty jazz sources, swung boom bap drums, upright bass, smoky rooms, tape finish and useful exclusions.",
    "heroKicker": "GUIDE_10 / NOIR HIP-HOP",
    "heroLead": "Noir hip-hop is sampled, swung and small. This is the vocabulary that points the tool at dusty jazz sources, ghost-note drums and tape over the master.",
    "cardDescription": "Dusty jazz sources, swung ghost-note drums, upright bass and tape: the noir recipe.",
@@ -1434,10 +1434,10 @@
  {
   "slug": "make-abstract-hip-hop",
   "es": {
-   "title": "Cómo hacer hip hop abstracto: beats experimentales oscuros, prompt a prompt",
+   "title": "Cómo hacer hip hop abstracto en Suno: beats experimentales oscuros",
    "navTitle": "Hacer hip hop abstracto",
-   "seoTitle": "Cómo hacer hip hop abstracto con prompts",
-   "metaDescription": "Cómo hacer hip hop abstracto y experimental con prompts: fuentes degradadas, pockets ebrios, sub estático, espacio como instrumento y qué excluir.",
+   "seoTitle": "Cómo hacer hip hop abstracto en Suno",
+   "metaDescription": "Cómo hacer hip hop abstracto en Suno: fuentes degradadas, pockets ebrios, sub estático, espacio como instrumento y qué excluir.",
    "heroKicker": "GUIA_11 / HIP HOP ABSTRACTO",
    "heroLead": "El hip hop abstracto oscuro pone la fuente antes que la melodía. Este es el vocabulario que lleva a la herramienta hacia fuentes degradadas, pockets ebrios y un sub que presiona sin moverse.",
    "cardDescription": "Fuentes degradadas, pockets ebrios, sub estático y espacio: la receta abstracta.",
@@ -1518,10 +1518,10 @@
    ]
   },
   "en": {
-   "title": "How to make abstract hip-hop: dark experimental beats, prompt by prompt",
+   "title": "How to make abstract hip-hop in Suno: dark experimental beats",
    "navTitle": "Make abstract hip-hop",
-   "seoTitle": "How to make abstract hip-hop: dark beats",
-   "metaDescription": "How to make abstract hip-hop with prompts: degraded sources, drunk drum pockets, static sub pressure, space as an instrument, and what to exclude.",
+   "seoTitle": "How to make abstract hip-hop in Suno",
+   "metaDescription": "How to make abstract hip-hop in Suno: degraded sources, drunk drum pockets, static sub pressure, space as an instrument and what to exclude.",
    "heroKicker": "GUIDE_11 / ABSTRACT HIP-HOP",
    "heroLead": "Dark abstract hip-hop puts the source before the melody. This is the vocabulary that points the tool at degraded textures, drunk pockets and a sub that presses without moving.",
    "cardDescription": "Degraded sources, drunk pockets, static sub and space: the dark abstract recipe.",
@@ -1606,10 +1606,10 @@
  {
   "slug": "make-dub-hip-hop",
   "es": {
-   "title": "Cómo hacer hip hop dub oscuro: batería seca y el delay como instrumento",
+   "title": "Cómo hacer hip hop dub oscuro en Suno: batería seca y delay como instrumento",
    "navTitle": "Hacer hip hop dub",
-   "seoTitle": "Cómo hacer hip hop dub: guía de prompts",
-   "metaDescription": "Cómo hacer hip hop dub oscuro con prompts: batería con peso de rap, sub sostenido, dub delay como instrumento principal y qué excluir para evitar el ska.",
+   "seoTitle": "Cómo hacer hip hop dub en Suno",
+   "metaDescription": "Cómo hacer hip hop dub oscuro en Suno: batería con peso de rap, sub sostenido, dub delay como instrumento y qué excluir para evitar el ska.",
    "heroKicker": "GUIA_12 / HIP HOP DUB",
    "heroLead": "Batería de rap, tratamiento dub. El prompt tiene que nombrar el sub sostenido, la batería seca, los stabs que viven como sus ecos y los dropouts. Si no, la herramienta devuelve un beat con reverb encima.",
    "cardDescription": "Batería seca en espacio dub: sub sostenido, stabs como ecos, dropouts. Prompt por bloques.",
@@ -1698,10 +1698,10 @@
    ]
   },
   "en": {
-   "title": "How to make dark dub hip-hop: dry drums and the delay as the lead instrument",
+   "title": "How to make dark dub hip-hop in Suno: dry drums and delay as the lead",
    "navTitle": "Make dub hip-hop",
-   "seoTitle": "How to make dub hip-hop: prompt guide",
-   "metaDescription": "How to make dub hip-hop with prompts: dark rap-weight drums, a sustained sub, dub delay as the lead instrument, and the exclusions that keep ska out.",
+   "seoTitle": "How to make dub hip-hop in Suno",
+   "metaDescription": "How to make dub hip-hop in Suno: dark rap-weight drums, sustained sub, dub delay as the lead and the exclusions that keep ska out.",
    "heroKicker": "GUIDE_12 / DUB HIP-HOP",
    "heroLead": "Rap drums, dub treatment. The prompt has to name the sustained sub, the dry drums, the stabs that live as their echoes, and the dropouts. Otherwise the tool returns a beat with reverb on it.",
    "cardDescription": "Rap drums in dub space: sustained sub, stabs as echoes, dropouts. Prompt built in blocks.",

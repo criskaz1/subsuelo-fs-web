@@ -17,12 +17,22 @@
 
   window.SUBSUELO_TRACK = (name, data = {}) => {
     if (!enabled || typeof name !== "string" || !name.trim()) return;
-    const event = { name: name.slice(0, 40), data: safeData(data) };
+    const event = { type: "event", name: name.slice(0, 40), data: safeData(data) };
     if (!ready || typeof window.umami?.track !== "function") {
       queue.push(event);
       return;
     }
     window.umami.track(event.name, event.data);
+  };
+
+  window.SUBSUELO_PAGEVIEW = () => {
+    if (!enabled) return;
+    const pageview = { type: "pageview" };
+    if (!ready || typeof window.umami?.track !== "function") {
+      queue.push(pageview);
+      return;
+    }
+    window.umami.track();
   };
 
   if (!enabled) return;
@@ -39,13 +49,11 @@
     if (!ready) return;
     while (queue.length) {
       const event = queue.shift();
-      window.umami.track(event.name, event.data);
+      if (event.type === "pageview") window.umami.track();
+      else window.umami.track(event.name, event.data);
     }
   });
   document.head.append(script);
 
-  window.SUBSUELO_TRACK("page_view", {
-    path: `${location.pathname}${location.search}`,
-    locale: document.documentElement.lang || "es"
-  });
+  window.SUBSUELO_PAGEVIEW();
 })();
