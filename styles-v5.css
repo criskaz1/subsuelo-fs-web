@@ -95,6 +95,16 @@ button {
   box-shadow: 0 0 0 4px var(--focus), 0 0 0 6px var(--ink);
 }
 
+/*
+ * Route headings receive focus programmatically so screen readers announce
+ * SPA navigation. They are not keyboard-tab stops, so they must not inherit
+ * the interactive focus frame on page load.
+ */
+[data-view-content] h1[tabindex="-1"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
